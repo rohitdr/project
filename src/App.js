@@ -13,7 +13,7 @@ function App() {
     {/* </div>
     <div class="col py-3"> */}
             {/* Content area... */}
-        {/* <Searchbar></Searchbar>
+        {/* 
         </div>
     </div>
 </div> */}
