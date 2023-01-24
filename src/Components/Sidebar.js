@@ -1,5 +1,7 @@
 import React from 'react'
 import Navbar from 'react-bootstrap/Navbar';
+import Recipe from './Recipe';
+import RecipeItem from './RecipeItem';
 import Searchbar from './Searchbar';
 
 export default function Sidebar() {
@@ -60,6 +62,7 @@ export default function Sidebar() {
        
         
              <Searchbar> </Searchbar>
+             <Recipe></Recipe>
              </div>
     </div>
 </div>
