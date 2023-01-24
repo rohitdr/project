@@ -6,17 +6,17 @@ import Searchbar from './Components/Searchbar';
 function App() {
   return (
     <>
-     <div class="container-fluid">
+     {/* <div class="container-fluid">
     <div class="row flex-nowrap">
-    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-info">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-info"> */}
     <Sidebar></Sidebar>
-    </div>
-    <div class="col py-3">
+    {/* </div>
+    <div class="col py-3"> */}
             {/* Content area... */}
-        <Searchbar></Searchbar>
+        {/* <Searchbar></Searchbar>
         </div>
     </div>
-</div>
+</div> */}
    </>
   );
 }
