@@ -1,0 +1,10 @@
+1.removed awesome icon imports
+2.installing react bootstrap
+3.npm install react-bootstrap bootstrap
+4.adding for buttons
+5.npm install --save cdbreact
+6.almost completed the navbar
+
+
+
+     
