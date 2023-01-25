@@ -23,7 +23,7 @@ export default function Searchbar() {
         <input className="form-control" type="text" placeholder="Search any product..." />
       
         <div className="d-flex flex-column m-2">
-                       <Button type ="success" label="Search"></Button>
+                       <Button type ="success" label="Search" circle="true"></Button>
                        
                    </div> 
         </div>
