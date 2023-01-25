@@ -1,107 +1,102 @@
 import React from 'react'
 import Button from './Button'
 
-export default function RecipeItem() {
+export default function RecipeItem(props) {
+    
   return (
    <>
    <div className="card">
-   <div class="d-flex bd-highlight">
-  <div class="p-2 flex-fill bd-highlight" style={{width: "50%"}}>
-  <img height="300px" width="500px"src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fcake%2F&psig=AOvVaw1B1ua8ry3Or1Smup6zd4kJ&ust=1674717323140000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCPj58aqW4vwCFQAAAAAdAAAAABAE" className="card-img-top" alt="pexels-brent-keane-1702373.jpg"/>
+   <div className="d-flex bd-highlight">
+  <div className="p-2 flex-fill bd-highlight" style={{width: "50%"}}>
+  <img height="300px" width="500px" src={props.ImagesUrl} className="card-img-top" alt=""/>
 
   </div>
-  <div class="p-2 flex-fill bd-highlight " style={{width: "50%"}}><h3 class="text-center">Basic Dry Cure</h3>
-    <p className="card-text ">"Low Potassium",
-"Kidney-Friendly",
-"Vegan",
-"Vegetarian",
-"Pescatarian",
-"Dairy-Free",
-"Gluten-Free",
-"Wheat-Free",
-"Egg-Free",
-"Peanut-Free",
-"Tree-Nut-Free",
-"Soy-Free",
-"Fish-Free",
-"Shellfish-Free",
-"Pork-Free",
-"Red-Meat-Free",
+  <div className="p-2 flex-fill bd-highlight " style={{width: "50%"}}><h4 className="fw-bold">{props.title}</h4>
+    <p className="card-text ">{props.health_labels}.......
+</p>
+<h5 className="card-text text-center fw-bold"> INGRIDIANTS</h5>
+<p className="card-text ">{props.Ingridiants}.....
 </p>
    </div>
 
 </div> 
-<hr class="hr" />
+<hr className="hr" />
   <div className="card-body " style={{backgroundColor:"rgb(63 52 81 / 15%)"}}>
-  <div class="d-flex bd-highlight">
-  <div class="p-2 flex-fill bd-highlight"  style={{width: "50%"}}>
+  <h5 className="card-text text-center fw-bold">NUTRIENTS</h5>
+  <div className="d-flex bd-highlight">
+  <div className="p-2 flex-fill bd-highlight"  style={{width: "50%"}}>
 
     
-    <h3 class="text-center">25 servers</h3>
-    <h1 class="text-center">235 kcal</h1>
-  <table class=" table table-borderless table-striped table-hover my-4">
+    <h3 className="text-center">{props.caleroies}Kcal</h3>
+    <h5 className="text-center"> Fat :{props.fat}g</h5>
+  <table className=" table table-borderless table-striped table-hover my-4">
  
   <tbody>
     <tr>
 
-      <td>Mark</td>
-      <td>Otto</td>
+      {/* <td>{Main_Nutrition}</td>
+      <td>{Main_Nutrition_quantity}</td> */}
   
     </tr>
     <tr>
      
-      <td>Jacob</td>
-      <td>Thornton</td>
+      <td>Sugar</td>
+      <td>{Math.ceil(props.sugar)}g</td>
     
     </tr>
     <tr>
-    <td>Jacob</td>
-      <td>Thornton</td>
+    <td>Water</td>
+      <td>{Math.ceil(props.water)}g</td>
+     
+    </tr>
+    <tr>
+    <td>Cholesterol</td>
+      <td>{Math.ceil(props.chole)}g</td>
      
     </tr>
   </tbody>
 </table>
-<Button type="primary" label="Read More"></Button>
+<a class="btn btn-primary" href={props.url} role="button">Read More</a>
   </div>
-  <div class="p-2 flex-fill bd-highlight"><h5 className="card-title"></h5>
-  <table class=" table table-borderless table-striped table-hover">
+  <div className="p-1 flex-fill bd-highlight"><h5 className="card-title"></h5>
+  <table className=" table table-borderless table-striped table-hover">
  
  <tbody>
    <tr>
-
-     <td>Mark</td>
-     <td>Otto</td>
+{/* 
+     <td>{aditional_Nutrition}</td>
+     <td>{aditional_Nutrition_quantity}</td> */}
      
    </tr>
    <tr>
     
-     <td>Jacob</td>
-     <td>Thornton</td>
+     <td>VITAMIN-A</td>
+     <td>{Math.ceil(props.vitamin_a)}μg</td>
     
    </tr>
    <tr>
-   <td>Jacob</td>
-     <td>Thornton</td>
+   <td>VITAMIN-C</td>
+     <td>{Math.ceil(props.vitamin_c)}mg</td>
    
    </tr>
    <tr>
-   <td>Jacob</td>
-     <td>Thornton</td>
+   <td>VITAMIN-B6</td>
+     <td>{Math.ceil(props.vitamin_b6)}mg</td>
    
    </tr>
    <tr>
-   <td>Jacob</td>
-     <td>Thornton</td>
+   <td>VITAMIN-D</td>
+     <td>{Math.ceil(props.vitamin_d)}μg</td>
    
    </tr>
    <tr>
-   <td>Jacob</td>
-     <td>Thornton</td>
+   <td>VITAMIN-E</td>
+     <td>{Math.ceil(props.vitamin_e)}mg</td>
    
    </tr>
    <tr>
-   <td>Jacob</td>
-     <td>Thornton</td>
+   <td>VITAMIN-K</td>
+     <td>{Math.ceil(props.vitamin_k)}μg</td>
    
    </tr>
  </tbody>
@@ -109,8 +104,24 @@ export default function RecipeItem() {
 </div> 
 </div> 
 </div> 
-  <div class="card-footer text-muted">
-    2 days ago
+  <div className="card-footer text-muted">
+
+  <table className=" table table-borderless table-striped table-hover " >
+ 
+ <tbody >
+  
+   <tr >
+    
+     <td style={{color:"white",background:"	#808080"}}>time:&#8594;</td>
+     <td style={{color:"white",background:"	#808080"}}>{props.time == 0?"NOT avialable":props.time+" m"}</td>
+     <td style={{color:"white",background:"	#808080"}}>Source:&#8594;</td>  
+      <td style={{color:"white",background:"	#808080"}}>{props.source}</td>   
+   </tr>
+  
+ 
+  
+ </tbody>
+</table>
   </div>
 </div>
    
