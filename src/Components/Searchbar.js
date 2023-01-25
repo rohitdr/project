@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { AwesomeButton } from "react-awesome-button";
+
 import Button from './Button';
 import NavbarToggler from './NavbarToggler';
 export default function Searchbar() {
