@@ -38,11 +38,11 @@ export default function Recipe() {
      </div>
   </div>
 </div>
-        
+{/*         
 <div class="d-flex justify-content-between">
         <button type="button" class="btn btn-dark" disabled={this.state.page<=1} onClick={this.prev}>previous</button>
         <button type="button" class="btn btn-dark" disabled={this.state.page+1>Math.ceil(this.state.total/20)} onClick={this.next}>Next</button>
-        </div>  
+        </div>   */}
 
     
 
