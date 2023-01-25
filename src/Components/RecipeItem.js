@@ -56,8 +56,10 @@ export default function RecipeItem(props) {
     </tr>
   </tbody>
 </table>
-<a class="btn btn-primary" href={props.url} role="button">Read More</a>
+
+{/* <a className="btn btn-primary" href={props.url} role="button">Read More</a> */}
   </div>
+ 
   <div className="p-1 flex-fill bd-highlight"><h5 className="card-title"></h5>
   <table className=" table table-borderless table-striped table-hover">
  
@@ -102,7 +104,13 @@ export default function RecipeItem(props) {
  </tbody>
 </table>
 </div> 
-</div> 
+</div>
+<div className="d-flex justify-content-center"><Button color="primary" href="{props.url}" label="Read More"></Button></div>
+
+
+
+
+
 </div> 
   <div className="card-footer text-muted">
 

@@ -7723,9 +7723,9 @@ constructor(){
      <div className="container my-2">
       <h1 className="text-center">Top -Recepies</h1>
     
-  <div class="row">
+  <div className="row">
     {this.state.article.map((element)=>{
-  return <div class="col-md-6 mt-4" key ={element.recipe.uri}>
+  return <div className="col-md-6 mt-4" key ={element.recipe.uri}>
    
    <RecipeItem title={element.recipe.label} ImagesUrl={element.recipe.images.SMALL.url} url={element.recipe.shareAs}
     health_labels={
@@ -7751,9 +7751,9 @@ constructor(){
    
    
   </div>
-  <div class="d-flex justify-content-between my-3">
-        <button type="button" class="btn btn-dark"  >previous</button>
-        <button type="button" class="btn btn-dark"  >Next</button>
+  <div className="d-flex justify-content-between my-3">
+        <button type="button" className="btn btn-dark"  >previous</button>
+        <button type="button" className="btn btn-dark"  >Next</button>
         </div>  
 </div>
         
