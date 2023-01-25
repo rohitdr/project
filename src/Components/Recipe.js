@@ -2,6 +2,16 @@ import React from 'react'
 import RecipeItem from './RecipeItem'
 
 export default function Recipe() {
+
+     componentDidMount=async ()=>{
+        let url =`https://api.edamam.com/api/recipes/v2/df7b1fd4d8ec3a0a0d2cc9ab0ea0ad24?type=public&app_id=8717089a&app_key=35658ee1215cbd7922d388170b7509f0&page=${page}&pagesize=15`
+        let data = await fetch(url)
+        let parsedata = await data.json();
+        setArticle(article=parsedata.articles) 
+        setArticle(article=parsedata.articles) 
+           }
+    const [article,setArticle]=useState([])
+    const[page, setpage] = useState(1)
   return (
     <>
    <div class="container">
