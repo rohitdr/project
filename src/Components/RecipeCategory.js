@@ -1,5 +1,5 @@
 import RecipeItem from "./RecipeItem";
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import Loader from "./Loader";
 
 export default class Recipe_Category extends Component {
@@ -74,7 +74,7 @@ export default class Recipe_Category extends Component {
 
 
 
-          <h1 className="text-center">Top -Recepies</h1>
+          <h1 className="text-center">Top - {this.props.heading}</h1>
           {this.state.loading && <Loader></Loader>}
           <div className="row">
             {!this.state.loading &&

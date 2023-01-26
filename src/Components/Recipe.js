@@ -1,5 +1,5 @@
 import RecipeItem from "./RecipeItem";
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import Loader from "./Loader";
 
 export default class Recipe extends Component {
