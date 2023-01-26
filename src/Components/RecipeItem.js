@@ -5,31 +5,31 @@ export default function RecipeItem(props) {
     
   return (
    <>
-   <div className="card">
-   <div className="d-flex bd-highlight">
-  <div className="p-2 flex-fill bd-highlight" style={{width: "50%"}}>
+   <div className="card"  style={{ backgroundColor:props.topLeftColor}}>
+   <div className="d-flex " >
+  <div className="p-1 flex-fill bd-highlight" style={{width: "50%"}}>
   <img height="300px" width="500px" src={props.ImagesUrl} className="card-img-top" alt=""/>
 
   </div>
-  <div className="p-2 flex-fill bd-highlight " style={{width: "50%"}}><h4 className="fw-bold">{props.title}</h4>
-    <p className="card-text ">{props.health_labels}.......
+  <div className="p-1 flex-fill bd-highlight " style={{width: "50%" }} ><h4 className={`fw-bold text-${props.headingColor}`}>{props.title}</h4>
+    <p className={`card-text text-${props.headingColor}`}>{props.health_labels}.......
 </p>
-<h5 className="card-text text-center fw-bold"> INGRIDIANTS</h5>
-<p className="card-text ">{props.Ingridiants}.....
+<h5 className={`card-text text-center fw-bold text-${props.headingColor}`}> INGRIDIANTS</h5>
+<p className={`card-text text-${props.headingColor}`}>{props.Ingridiants}.....
 </p>
    </div>
 
 </div> 
 <hr className="hr" />
   <div className="card-body " style={{backgroundColor:"rgb(63 52 81 / 15%)"}}>
-  <h5 className="card-text text-center fw-bold">NUTRIENTS</h5>
+  <h5 className={`card-text text-center fw-bold text-${props.headingColor}`}>NUTRIENTS</h5>
   <div className="d-flex bd-highlight">
   <div className="p-2 flex-fill bd-highlight"  style={{width: "50%"}}>
 
     
-    <h3 className="text-center">{props.caleroies}Kcal</h3>
-    <h5 className="text-center"> Fat :{props.fat}g</h5>
-  <table className=" table table-borderless table-striped table-hover my-4">
+    <h3 className={`text-center text-${props.headingColor}`}>{props.caleroies}Kcal</h3>
+    <h5 className={`text-center text-${props.headingColor}`}> Fat :{props.fat}g</h5>
+  <table className={`table table-borderless  table-hover my-4 text-${props.headingColor}`}>
  
   <tbody>
     <tr>
@@ -61,7 +61,7 @@ export default function RecipeItem(props) {
   </div>
  
   <div className="p-1 flex-fill bd-highlight">
-  <table className=" table table-borderless table-striped table-hover">
+  <table className={` table table-borderless  table-hover text-${props.headingColor}`}>
  
  <tbody>
    <tr>
@@ -105,7 +105,7 @@ export default function RecipeItem(props) {
 </table>
 </div> 
 </div>
-<div className="d-flex justify-content-center"><Button color="primary" href={props.url} label="Read More"></Button></div>
+<div className="d-flex justify-content-center"><Button color="primary" size="large" href={props.url} label="Read More"></Button></div>
 
 
 
@@ -114,7 +114,7 @@ export default function RecipeItem(props) {
 </div> 
   <div className="card-footer text-muted">
 
-  <table className=" table table-borderless table-striped table-hover " >
+  <table className={`table table-borderless table-hover  text-${props.headingColor}`} >
  
  <tbody >
   

@@ -6,12 +6,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RecipeCategory from "./Components/RecipeCategory";
 import { useState } from "react";
 
+
 function App() {
   const [mode, setMode]=useState("light mode")
   const [button_label, setButton_label]=useState("Dark mode")
  const[textColor, setTextColor]=useState("dark")
  const[textColor_button, setTextColor_button]=useState("dark")
 const[color, setColor]=useState("dark")
+const[topLeftColor, settopLeftColor]=useState("white")
+const[headingColor,setheadingColor]=useState("dark")
  const Mode_handler=()=>{
     if(mode==="light mode"){
       setMode("dark mode")
@@ -22,6 +25,9 @@ const[color, setColor]=useState("dark")
       document.getElementById("offcanvas").style.backgroundColor="#36454F"
       setTextColor_button("black")
       setColor("white")
+      settopLeftColor("#B8B8B8")
+      settopLeftColor("	#202020")
+setheadingColor("white")
      
     }
     if(mode==="dark mode"){
@@ -33,6 +39,8 @@ const[color, setColor]=useState("dark")
      setTextColor_button("white")
       setTextColor("black")
       setColor("dark")
+      settopLeftColor("white")
+      setheadingColor("dark")
     }
 
  }
@@ -40,20 +48,20 @@ const[color, setColor]=useState("dark")
     <>
       <BrowserRouter>
         <Sidebar color={textColor} crossColor={color}></Sidebar>
-        <div className="container-fluid">
+        <div className="">
           <div className="row">
-            <div className="col min-vh-100">
+            <div className="col min-vh-120">
               <Searchbar onClick={Mode_handler} size="large" label={button_label} type = {color} textcolor ={textColor_button}> </Searchbar>
            
 
               <Routes>
-                <Route exact path="/home" element={<Recipe></Recipe>} />
+                <Route exact path="/home" element={<Recipe title={textColor}   topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button}></Recipe>} />
                 <Route
                   exact
                   path="/Dinner"
                   element={
                     <RecipeCategory
-                     textColor={textColor} key="Dinner"
+                     textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Dinner"
                       heading="Dinner Recipes"
                       category={"mealType=Dinner"}
                     ></RecipeCategory>
@@ -64,7 +72,7 @@ const[color, setColor]=useState("dark")
                   path="/Breakfast"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Breakfast"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Breakfast"
                       heading="Breakfast Recipes"
                       category={"mealType=Breakfast"}
                     ></RecipeCategory>
@@ -74,7 +82,7 @@ const[color, setColor]=useState("dark")
                   path="/Lunch"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Lunch"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Lunch"
                       heading="Lunch Recipes"
                       category={"mealType=Lunch"}
                     ></RecipeCategory>
@@ -84,7 +92,7 @@ const[color, setColor]=useState("dark")
                   path="/Snack"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Snack"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Snack"
                       heading="Snack Recipes"
                       category={"mealType=Snack"}
                     ></RecipeCategory>
@@ -104,7 +112,7 @@ const[color, setColor]=useState("dark")
                   path="/Bread"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Bread"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Bread"
                       heading="Bread Recipes"
                       category={"dishType=Bread"}
                     ></RecipeCategory>
@@ -116,7 +124,7 @@ const[color, setColor]=useState("dark")
                   path="/Cereals"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Cereals"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Cereals"
                       heading="Cereals Recipes"
                       category={"dishType=Cereals"}
                     ></RecipeCategory>
@@ -126,7 +134,7 @@ const[color, setColor]=useState("dark")
                   path="/Condiments And Sauces"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Condiments And Sauces"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Condiments And Sauces"
                       heading="Condiments And Sauces Recipes"
                       category={"dishType=Condiments%20and%20sauces"}
                     ></RecipeCategory>
@@ -136,7 +144,7 @@ const[color, setColor]=useState("dark")
                   path="/Desserts"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Desserts"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Desserts"
                       heading="Desserts Recipes"
                       category={"dishType=Desserts"}
                     ></RecipeCategory>
@@ -146,7 +154,7 @@ const[color, setColor]=useState("dark")
                   path="/Drinks"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Drinks"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Drinks"
                       heading="Drinks Recipes"
                       category={"dishType=Drinks"}
                     ></RecipeCategory>
@@ -156,7 +164,7 @@ const[color, setColor]=useState("dark")
                   path="/MainCourse"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="MainCourse"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="MainCourse"
                       heading="MainCourse Recipes"
                       category={"dishType=Main%20course"}
                     ></RecipeCategory>
@@ -166,7 +174,7 @@ const[color, setColor]=useState("dark")
                   path="/Pancake"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Pancake"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Pancake"
                       heading="Pancake Recipes"
                       category={"dishType=Pancake"}
                     ></RecipeCategory>
@@ -176,7 +184,7 @@ const[color, setColor]=useState("dark")
                   path="/Preps"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Preps"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Preps"
                       heading="Preps Recipes"
                       category={"dishType=Preps"}
                     ></RecipeCategory>
@@ -186,7 +194,7 @@ const[color, setColor]=useState("dark")
                   path="/Preserve"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Preserve"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Preserve"
                       heading="Preserve Recipes"
                       category={"dishType=Preserve"}
                     ></RecipeCategory>
@@ -196,7 +204,7 @@ const[color, setColor]=useState("dark")
                   path="/Salad"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Salad"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Salad"
                       heading="Salad Recipes"
                       category={"dishType=Salad"}
                     ></RecipeCategory>
@@ -206,7 +214,7 @@ const[color, setColor]=useState("dark")
                   path="/Sandwiches"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Sandwiches"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Sandwiches"
                       heading="Sandwiches Recipes"
                       category={"dishType=Sandwiches"}
                     ></RecipeCategory>
@@ -216,7 +224,7 @@ const[color, setColor]=useState("dark")
                   path="/Soup"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Soup"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Soup"
                       heading="Preserve Recipes"
                       category={"dishType=Soup"}
                     ></RecipeCategory>
@@ -226,7 +234,7 @@ const[color, setColor]=useState("dark")
                   path="/Starter"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Starter"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Starter"
                       heading="Starter Recipes"
                       category={"dishType=Starter"}
                     ></RecipeCategory>
@@ -236,7 +244,7 @@ const[color, setColor]=useState("dark")
                   path="/Sweets"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Preserve"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Preserve"
                       heading="Sweets Recipes"
                       category={"dishType=Sweets"}
                     ></RecipeCategory>
@@ -246,7 +254,7 @@ const[color, setColor]=useState("dark")
                   path="/balanced"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="balanced"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="balanced"
                       heading="balanced Recipes"
                       category={"diet=balanced"}
                     ></RecipeCategory>
@@ -256,7 +264,7 @@ const[color, setColor]=useState("dark")
                   path="/highFiber"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="highFiber"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="highFiber"
                       heading="high-fiber Recipes"
                       category={"diet=high-fiber"}
                     ></RecipeCategory>
@@ -266,7 +274,7 @@ const[color, setColor]=useState("dark")
                   path="/highProtein"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="highProtein"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="highProtein"
                       heading="high-protein Recipes"
                       category={"diet=high-protein"}
                     ></RecipeCategory>
@@ -276,7 +284,7 @@ const[color, setColor]=useState("dark")
                   path="/lowCarb"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="lowCarb"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowCarb"
                       heading="lowCarb Recipes"
                       category={"diet=low-carb"}
                     ></RecipeCategory>
@@ -286,7 +294,7 @@ const[color, setColor]=useState("dark")
                   path="/lowFat"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="lowFat"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowFat"
                       heading="lowFat Recipes"
                       category={"diet=low-fat"}
                     ></RecipeCategory>
@@ -296,7 +304,7 @@ const[color, setColor]=useState("dark")
                   path="/lowSodium"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="lowSodium"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowSodium"
                       heading="lowSodium Recipes"
                       category={"diet=low-sodium"}
                     ></RecipeCategory>
@@ -306,7 +314,7 @@ const[color, setColor]=useState("dark")
                   path="/alcoholFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="alcoholFree"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="alcoholFree"
                       heading="alcohol-free Recipes"
                       category={"health=alcohol-free"}
                     ></RecipeCategory>
@@ -316,7 +324,7 @@ const[color, setColor]=useState("dark")
                   path="/eggFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="eggFree"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="eggFree"
                       heading="Egg-free Recipes"
                       category={"health=egg-free"}
                     ></RecipeCategory>
@@ -326,7 +334,7 @@ const[color, setColor]=useState("dark")
                   path="/glutenFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="glutenFree"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="glutenFree"
                       heading="gluten-free Recipes"
                       category={"health=gluten-free"}
                     ></RecipeCategory>
@@ -336,7 +344,7 @@ const[color, setColor]=useState("dark")
                   path="/kidneyFriendly"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="kidneyFriendly"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="kidneyFriendly"
                       heading="kidney-friendly Recipes"
                       category={"health=kidney-friendly"}
                     ></RecipeCategory>
@@ -346,7 +354,7 @@ const[color, setColor]=useState("dark")
                   path="/lowFatAbs"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="lowFatFbs"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowFatFbs"
                       heading="low-fat-abs Recipes"
                       category={"health=low-fat-abs"}
                     ></RecipeCategory>
@@ -356,7 +364,7 @@ const[color, setColor]=useState("dark")
                   path="/lowSugar"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="lowSugar"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowSugar"
                       heading="low-sugar Recipes"
                       category={"health=lowSugar"}
                     ></RecipeCategory>
@@ -366,7 +374,7 @@ const[color, setColor]=useState("dark")
                   path="/mustardFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="mustardFree"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="mustardFree"
                       heading="mustardFree Recipes"
                       category={"health=mustard-free"}
                     ></RecipeCategory>
@@ -376,7 +384,7 @@ const[color, setColor]=useState("dark")
                   path="/noOilAdded"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="noOilAdded"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="noOilAdded"
                       heading="mustardFree Recipes"
                       category={"health=no-oil-added"}
                     ></RecipeCategory>
@@ -386,7 +394,7 @@ const[color, setColor]=useState("dark")
                   path="/redFeatFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="redFeatFree"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="redFeatFree"
                       heading="red-meat-free Recipes"
                       category={"health=red-meat-free"}
                     ></RecipeCategory>
@@ -396,7 +404,7 @@ const[color, setColor]=useState("dark")
                   path="/vegan"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="vegan"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="vegan"
                       heading="vegan Recipes"
                       category={"health=vegan"}
                     ></RecipeCategory>
@@ -406,7 +414,7 @@ const[color, setColor]=useState("dark")
                   path="/vegetarian"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="vegetarian"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="vegetarian"
                       heading="vegetarian Recipes"
                       category={"health=vegetarian"}
                     ></RecipeCategory>
@@ -416,7 +424,7 @@ const[color, setColor]=useState("dark")
                   path="/wheatFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="wheatFree"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="wheatFree"
                       heading="wheatFree Recipes"
                       category={"health=wheat-free"}
                     ></RecipeCategory>
@@ -426,7 +434,7 @@ const[color, setColor]=useState("dark")
                   path="/American"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="American"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="American"
                       heading="American Recipes"
                       category={"cuisineType=American"}
                     ></RecipeCategory>
@@ -436,7 +444,7 @@ const[color, setColor]=useState("dark")
                   path="/British"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="British"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="British"
                       heading="British Recipes"
                       category={"cuisineType=British"}
                     ></RecipeCategory>
@@ -446,7 +454,7 @@ const[color, setColor]=useState("dark")
                   path="/Chinese"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Chinese"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Chinese"
                       heading="Chinese Recipes"
                       category={"cuisineType=Chinese"}
                     ></RecipeCategory>
@@ -456,7 +464,7 @@ const[color, setColor]=useState("dark")
                   path="/French"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="French"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="French"
                       heading="French Recipes"
                       category={"cuisineType=French"}
                     ></RecipeCategory>
@@ -466,7 +474,7 @@ const[color, setColor]=useState("dark")
                   path="/Indian"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Indian"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Indian"
                       heading="Indian Recipes"
                       category={"cuisineType=Indian"}
                     ></RecipeCategory>
@@ -476,7 +484,7 @@ const[color, setColor]=useState("dark")
                   path="/Italian"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Italian"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Italian"
                       heading="Italian Recipes"
                       category={"cuisineType=Italian"}
                     ></RecipeCategory>
@@ -486,7 +494,7 @@ const[color, setColor]=useState("dark")
                   path="/Japanese"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Japanese"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Japanese"
                       heading="Japanese Recipes"
                       category={"cuisineType=Japanese"}
                     ></RecipeCategory>
@@ -496,7 +504,7 @@ const[color, setColor]=useState("dark")
                   path="/Mexican"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="Mexican"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Mexican"
                       heading="Mexican Recipes"
                       category={"cuisineType=Mexican"}
                     ></RecipeCategory>
@@ -506,7 +514,7 @@ const[color, setColor]=useState("dark")
                   path="/SouthAmerican"
                   element={
                     <RecipeCategory
-                    textColor={textColor} key="SouthAmerican"
+                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="SouthAmerican"
                       heading="South-American Recipes"
                       category={"cuisineType=South%20American"}
                     ></RecipeCategory>

@@ -1,6 +1,7 @@
 import RecipeItem from "./RecipeItem";
 import React, { Component } from "react";
 import Loader from "./Loader";
+import Button from "./Button";
 
 export default class Recipe extends Component {
   // article=[
@@ -7769,7 +7770,7 @@ export default class Recipe extends Component {
       <>
          {this.state.loading && <Loader></Loader>}
         <div className="container my-2">
-          <h1 className="text-center">Top -Recepies</h1>
+          <h1 className={`text-center text-${this.props.title}`}>Top-Recepies</h1>
        
           <div className="row">
             {!this.state.loading &&
@@ -7777,6 +7778,8 @@ export default class Recipe extends Component {
                 return (
                   <div className="col-md-6 mt-4" key={element.recipe.uri}>
                     <RecipeItem
+                      topLeftColor={this.props.topLeftColor}
+                      headingColor={this.props.headingColor}
                       title={element.recipe.label}
                       ImagesUrl={element.recipe.images.SMALL.url}
                       url={element.recipe.shareAs}
@@ -7814,7 +7817,7 @@ export default class Recipe extends Component {
               })}
           </div>
           <div className="d-flex justify-content-between my-3">
-            <button
+            {/* <button
               type="button"
               className="btn btn-dark"
               onClick={this.home_handler}
@@ -7828,7 +7831,12 @@ export default class Recipe extends Component {
               onClick={this.next_handler}
             >
               Next
-            </button>
+            </button> */}
+            
+             <Button type ={this.props.type} label ="Home" onClick={this.home_handler}  disabled={this.state.starting_count <= 1} size="large"  textcolor={this.props.textcolor}></Button>
+           
+           
+           <Button type ={this.props.type} label ="Next" onClick={this.next_handler}  size = "large"  textcolor={this.props.textcolor}></Button>
           </div>
         </div>
 

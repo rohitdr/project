@@ -42,7 +42,7 @@ export default function Searchbar(props) {
                   
                    <div className ="d-flex flex-column ">
                     
-                   <Button type ={props.type} label ={props.label} onClick={props.onClick} size={props.size} disabled={props.disabled} textcolor={props.textcolor}></Button>
+                   <Button type ={props.type} label ={props.label} onClick={props.onClick} size={props.size}  textcolor={props.textcolor}></Button>
                   
                    </div>   
                </div>
