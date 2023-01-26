@@ -7767,9 +7767,10 @@ export default class Recipe extends Component {
   render() {
     return (
       <>
+         {this.state.loading && <Loader></Loader>}
         <div className="container my-2">
           <h1 className="text-center">Top -Recepies</h1>
-          {this.state.loading && <Loader></Loader>}
+       
           <div className="row">
             {!this.state.loading &&
               this.state.article.map((element) => {

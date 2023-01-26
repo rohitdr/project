@@ -4,16 +4,46 @@ import Searchbar from "./Components/Searchbar";
 import Recipe from "./Components/Recipe";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RecipeCategory from "./Components/RecipeCategory";
+import { useState } from "react";
 
 function App() {
+  const [mode, setMode]=useState("light mode")
+  const [button_label, setButton_label]=useState("Dark mode")
+ const[textColor, setTextColor]=useState("dark")
+ const[textColor_button, setTextColor_button]=useState("dark")
+const[color, setColor]=useState("dark")
+ const Mode_handler=()=>{
+    if(mode==="light mode"){
+      setMode("dark mode")
+      setButton_label("Light Mode")
+      document.body.style.backgroundColor="grey"
+      document.getElementById("Searchbar").style.backgroundColor="#36454F"
+         setTextColor("white")
+      document.getElementById("offcanvas").style.backgroundColor="#36454F"
+      setTextColor_button("black")
+      setColor("white")
+     
+    }
+    if(mode==="dark mode"){
+      setMode("light mode")
+      setButton_label("Dark Mode")
+      document.body.style.backgroundColor="white"
+      document.getElementById("Searchbar").style.backgroundColor="#89CFF0"
+      document.getElementById("offcanvas").style.backgroundColor="#89CFF0"
+     setTextColor_button("white")
+      setTextColor("black")
+      setColor("dark")
+    }
+
+ }
   return (
     <>
       <BrowserRouter>
-        <Sidebar></Sidebar>
+        <Sidebar color={textColor} crossColor={color}></Sidebar>
         <div className="container-fluid">
           <div className="row">
-            <div className="col min-vh-100 mt-1 ">
-              <Searchbar> </Searchbar>
+            <div className="col min-vh-100">
+              <Searchbar onClick={Mode_handler} size="large" label={button_label} type = {color} textcolor ={textColor_button}> </Searchbar>
            
 
               <Routes>
@@ -23,7 +53,7 @@ function App() {
                   path="/Dinner"
                   element={
                     <RecipeCategory
-                     key="Dinner"
+                     textColor={textColor} key="Dinner"
                       heading="Dinner Recipes"
                       category={"mealType=Dinner"}
                     ></RecipeCategory>
@@ -34,7 +64,7 @@ function App() {
                   path="/Breakfast"
                   element={
                     <RecipeCategory
-                    key="Breakfast"
+                    textColor={textColor} key="Breakfast"
                       heading="Breakfast Recipes"
                       category={"mealType=Breakfast"}
                     ></RecipeCategory>
@@ -44,7 +74,7 @@ function App() {
                   path="/Lunch"
                   element={
                     <RecipeCategory
-                    key="Lunch"
+                    textColor={textColor} key="Lunch"
                       heading="Lunch Recipes"
                       category={"mealType=Lunch"}
                     ></RecipeCategory>
@@ -54,7 +84,7 @@ function App() {
                   path="/Snack"
                   element={
                     <RecipeCategory
-                    key="Snack"
+                    textColor={textColor} key="Snack"
                       heading="Snack Recipes"
                       category={"mealType=Snack"}
                     ></RecipeCategory>
@@ -74,7 +104,7 @@ function App() {
                   path="/Bread"
                   element={
                     <RecipeCategory
-                    key="Bread"
+                    textColor={textColor} key="Bread"
                       heading="Bread Recipes"
                       category={"dishType=Bread"}
                     ></RecipeCategory>
@@ -86,7 +116,7 @@ function App() {
                   path="/Cereals"
                   element={
                     <RecipeCategory
-                    key="Cereals"
+                    textColor={textColor} key="Cereals"
                       heading="Cereals Recipes"
                       category={"dishType=Cereals"}
                     ></RecipeCategory>
@@ -96,7 +126,7 @@ function App() {
                   path="/Condiments And Sauces"
                   element={
                     <RecipeCategory
-                    key="Condiments And Sauces"
+                    textColor={textColor} key="Condiments And Sauces"
                       heading="Condiments And Sauces Recipes"
                       category={"dishType=Condiments%20and%20sauces"}
                     ></RecipeCategory>
@@ -106,7 +136,7 @@ function App() {
                   path="/Desserts"
                   element={
                     <RecipeCategory
-                    key="Desserts"
+                    textColor={textColor} key="Desserts"
                       heading="Desserts Recipes"
                       category={"dishType=Desserts"}
                     ></RecipeCategory>
@@ -116,7 +146,7 @@ function App() {
                   path="/Drinks"
                   element={
                     <RecipeCategory
-                    key="Drinks"
+                    textColor={textColor} key="Drinks"
                       heading="Drinks Recipes"
                       category={"dishType=Drinks"}
                     ></RecipeCategory>
@@ -126,7 +156,7 @@ function App() {
                   path="/MainCourse"
                   element={
                     <RecipeCategory
-                    key="MainCourse"
+                    textColor={textColor} key="MainCourse"
                       heading="MainCourse Recipes"
                       category={"dishType=Main%20course"}
                     ></RecipeCategory>
@@ -136,7 +166,7 @@ function App() {
                   path="/Pancake"
                   element={
                     <RecipeCategory
-                    key="Pancake"
+                    textColor={textColor} key="Pancake"
                       heading="Pancake Recipes"
                       category={"dishType=Pancake"}
                     ></RecipeCategory>
@@ -146,7 +176,7 @@ function App() {
                   path="/Preps"
                   element={
                     <RecipeCategory
-                    key="Preps"
+                    textColor={textColor} key="Preps"
                       heading="Preps Recipes"
                       category={"dishType=Preps"}
                     ></RecipeCategory>
@@ -156,7 +186,7 @@ function App() {
                   path="/Preserve"
                   element={
                     <RecipeCategory
-                    key="Preserve"
+                    textColor={textColor} key="Preserve"
                       heading="Preserve Recipes"
                       category={"dishType=Preserve"}
                     ></RecipeCategory>
@@ -166,7 +196,7 @@ function App() {
                   path="/Salad"
                   element={
                     <RecipeCategory
-                    key="Salad"
+                    textColor={textColor} key="Salad"
                       heading="Salad Recipes"
                       category={"dishType=Salad"}
                     ></RecipeCategory>
@@ -176,7 +206,7 @@ function App() {
                   path="/Sandwiches"
                   element={
                     <RecipeCategory
-                    key="Sandwiches"
+                    textColor={textColor} key="Sandwiches"
                       heading="Sandwiches Recipes"
                       category={"dishType=Sandwiches"}
                     ></RecipeCategory>
@@ -186,7 +216,7 @@ function App() {
                   path="/Soup"
                   element={
                     <RecipeCategory
-                    key="Soup"
+                    textColor={textColor} key="Soup"
                       heading="Preserve Recipes"
                       category={"dishType=Soup"}
                     ></RecipeCategory>
@@ -196,7 +226,7 @@ function App() {
                   path="/Starter"
                   element={
                     <RecipeCategory
-                    key="Starter"
+                    textColor={textColor} key="Starter"
                       heading="Starter Recipes"
                       category={"dishType=Starter"}
                     ></RecipeCategory>
@@ -206,7 +236,7 @@ function App() {
                   path="/Sweets"
                   element={
                     <RecipeCategory
-                    key="Preserve"
+                    textColor={textColor} key="Preserve"
                       heading="Sweets Recipes"
                       category={"dishType=Sweets"}
                     ></RecipeCategory>
@@ -216,7 +246,7 @@ function App() {
                   path="/balanced"
                   element={
                     <RecipeCategory
-                    key="balanced"
+                    textColor={textColor} key="balanced"
                       heading="balanced Recipes"
                       category={"diet=balanced"}
                     ></RecipeCategory>
@@ -226,7 +256,7 @@ function App() {
                   path="/highFiber"
                   element={
                     <RecipeCategory
-                    key="highFiber"
+                    textColor={textColor} key="highFiber"
                       heading="high-fiber Recipes"
                       category={"diet=high-fiber"}
                     ></RecipeCategory>
@@ -236,7 +266,7 @@ function App() {
                   path="/highProtein"
                   element={
                     <RecipeCategory
-                    key="highProtein"
+                    textColor={textColor} key="highProtein"
                       heading="high-protein Recipes"
                       category={"diet=high-protein"}
                     ></RecipeCategory>
@@ -246,7 +276,7 @@ function App() {
                   path="/lowCarb"
                   element={
                     <RecipeCategory
-                    key="lowCarb"
+                    textColor={textColor} key="lowCarb"
                       heading="lowCarb Recipes"
                       category={"diet=low-carb"}
                     ></RecipeCategory>
@@ -256,7 +286,7 @@ function App() {
                   path="/lowFat"
                   element={
                     <RecipeCategory
-                    key="lowFat"
+                    textColor={textColor} key="lowFat"
                       heading="lowFat Recipes"
                       category={"diet=low-fat"}
                     ></RecipeCategory>
@@ -266,7 +296,7 @@ function App() {
                   path="/lowSodium"
                   element={
                     <RecipeCategory
-                    key="lowSodium"
+                    textColor={textColor} key="lowSodium"
                       heading="lowSodium Recipes"
                       category={"diet=low-sodium"}
                     ></RecipeCategory>
@@ -276,7 +306,7 @@ function App() {
                   path="/alcoholFree"
                   element={
                     <RecipeCategory
-                    key="alcoholFree"
+                    textColor={textColor} key="alcoholFree"
                       heading="alcohol-free Recipes"
                       category={"health=alcohol-free"}
                     ></RecipeCategory>
@@ -286,7 +316,7 @@ function App() {
                   path="/eggFree"
                   element={
                     <RecipeCategory
-                    key="eggFree"
+                    textColor={textColor} key="eggFree"
                       heading="Egg-free Recipes"
                       category={"health=egg-free"}
                     ></RecipeCategory>
@@ -296,7 +326,7 @@ function App() {
                   path="/glutenFree"
                   element={
                     <RecipeCategory
-                    key="glutenFree"
+                    textColor={textColor} key="glutenFree"
                       heading="gluten-free Recipes"
                       category={"health=gluten-free"}
                     ></RecipeCategory>
@@ -306,7 +336,7 @@ function App() {
                   path="/kidneyFriendly"
                   element={
                     <RecipeCategory
-                    key="kidneyFriendly"
+                    textColor={textColor} key="kidneyFriendly"
                       heading="kidney-friendly Recipes"
                       category={"health=kidney-friendly"}
                     ></RecipeCategory>
@@ -316,7 +346,7 @@ function App() {
                   path="/lowFatAbs"
                   element={
                     <RecipeCategory
-                    key="lowFatFbs"
+                    textColor={textColor} key="lowFatFbs"
                       heading="low-fat-abs Recipes"
                       category={"health=low-fat-abs"}
                     ></RecipeCategory>
@@ -326,7 +356,7 @@ function App() {
                   path="/lowSugar"
                   element={
                     <RecipeCategory
-                    key="lowSugar"
+                    textColor={textColor} key="lowSugar"
                       heading="low-sugar Recipes"
                       category={"health=lowSugar"}
                     ></RecipeCategory>
@@ -336,7 +366,7 @@ function App() {
                   path="/mustardFree"
                   element={
                     <RecipeCategory
-                    key="mustardFree"
+                    textColor={textColor} key="mustardFree"
                       heading="mustardFree Recipes"
                       category={"health=mustard-free"}
                     ></RecipeCategory>
@@ -346,7 +376,7 @@ function App() {
                   path="/noOilAdded"
                   element={
                     <RecipeCategory
-                    key="noOilAdded"
+                    textColor={textColor} key="noOilAdded"
                       heading="mustardFree Recipes"
                       category={"health=no-oil-added"}
                     ></RecipeCategory>
@@ -356,7 +386,7 @@ function App() {
                   path="/redFeatFree"
                   element={
                     <RecipeCategory
-                    key="redFeatFree"
+                    textColor={textColor} key="redFeatFree"
                       heading="red-meat-free Recipes"
                       category={"health=red-meat-free"}
                     ></RecipeCategory>
@@ -366,7 +396,7 @@ function App() {
                   path="/vegan"
                   element={
                     <RecipeCategory
-                    key="vegan"
+                    textColor={textColor} key="vegan"
                       heading="vegan Recipes"
                       category={"health=vegan"}
                     ></RecipeCategory>
@@ -376,7 +406,7 @@ function App() {
                   path="/vegetarian"
                   element={
                     <RecipeCategory
-                    key="vegetarian"
+                    textColor={textColor} key="vegetarian"
                       heading="vegetarian Recipes"
                       category={"health=vegetarian"}
                     ></RecipeCategory>
@@ -386,9 +416,99 @@ function App() {
                   path="/wheatFree"
                   element={
                     <RecipeCategory
-                    key="wheatFree"
+                    textColor={textColor} key="wheatFree"
                       heading="wheatFree Recipes"
                       category={"health=wheat-free"}
+                    ></RecipeCategory>
+                  }
+                />
+                <Route
+                  path="/American"
+                  element={
+                    <RecipeCategory
+                    textColor={textColor} key="American"
+                      heading="American Recipes"
+                      category={"cuisineType=American"}
+                    ></RecipeCategory>
+                  }
+                />
+                 <Route
+                  path="/British"
+                  element={
+                    <RecipeCategory
+                    textColor={textColor} key="British"
+                      heading="British Recipes"
+                      category={"cuisineType=British"}
+                    ></RecipeCategory>
+                  }
+                />
+                 <Route
+                  path="/Chinese"
+                  element={
+                    <RecipeCategory
+                    textColor={textColor} key="Chinese"
+                      heading="Chinese Recipes"
+                      category={"cuisineType=Chinese"}
+                    ></RecipeCategory>
+                  }
+                />
+                 <Route
+                  path="/French"
+                  element={
+                    <RecipeCategory
+                    textColor={textColor} key="French"
+                      heading="French Recipes"
+                      category={"cuisineType=French"}
+                    ></RecipeCategory>
+                  }
+                />
+                 <Route
+                  path="/Indian"
+                  element={
+                    <RecipeCategory
+                    textColor={textColor} key="Indian"
+                      heading="Indian Recipes"
+                      category={"cuisineType=Indian"}
+                    ></RecipeCategory>
+                  }
+                />
+                 <Route
+                  path="/Italian"
+                  element={
+                    <RecipeCategory
+                    textColor={textColor} key="Italian"
+                      heading="Italian Recipes"
+                      category={"cuisineType=Italian"}
+                    ></RecipeCategory>
+                  }
+                />
+                 <Route
+                  path="/Japanese"
+                  element={
+                    <RecipeCategory
+                    textColor={textColor} key="Japanese"
+                      heading="Japanese Recipes"
+                      category={"cuisineType=Japanese"}
+                    ></RecipeCategory>
+                  }
+                />
+                 <Route
+                  path="/Mexican"
+                  element={
+                    <RecipeCategory
+                    textColor={textColor} key="Mexican"
+                      heading="Mexican Recipes"
+                      category={"cuisineType=Mexican"}
+                    ></RecipeCategory>
+                  }
+                />
+                 <Route
+                  path="/SouthAmerican"
+                  element={
+                    <RecipeCategory
+                    textColor={textColor} key="SouthAmerican"
+                      heading="South-American Recipes"
+                      category={"cuisineType=South%20American"}
                     ></RecipeCategory>
                   }
                 />

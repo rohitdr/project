@@ -60,7 +60,7 @@ export default function RecipeItem(props) {
 {/* <a className="btn btn-primary" href={props.url} role="button">Read More</a> */}
   </div>
  
-  <div className="p-1 flex-fill bd-highlight"><h5 className="card-title"></h5>
+  <div className="p-1 flex-fill bd-highlight">
   <table className=" table table-borderless table-striped table-hover">
  
  <tbody>
@@ -105,7 +105,7 @@ export default function RecipeItem(props) {
 </table>
 </div> 
 </div>
-<div className="d-flex justify-content-center"><Button color="primary" href="{props.url}" label="Read More"></Button></div>
+<div className="d-flex justify-content-center"><Button color="primary" href={props.url} label="Read More"></Button></div>
 
 
 
@@ -121,7 +121,7 @@ export default function RecipeItem(props) {
    <tr >
     
      <td style={{color:"white",background:"	#808080"}}>time:&#8594;</td>
-     <td style={{color:"white",background:"	#808080"}}>{props.time == 0?"NOT avialable":props.time+" m"}</td>
+     <td style={{color:"white",background:"	#808080"}}>{props.time === 0?"NOT avialable":props.time+" m"}</td>
      <td style={{color:"white",background:"	#808080"}}>Source:&#8594;</td>  
       <td style={{color:"white",background:"	#808080"}}>{props.source}</td>   
    </tr>

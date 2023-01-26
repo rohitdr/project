@@ -3,13 +3,19 @@ import React from 'react'
 
 import Button from './Button';
 import NavbarToggler from './NavbarToggler';
-export default function Searchbar() {
+export default function Searchbar(props) {
+    // const Dark_mode=()=>{
+    //     document.body.style.backgroundColor="red"
+    //     // return element
+//    const Colorchanger=()=>{
+//         document.body.style.backgroundColor="grey"
+//     }
   return (
   <>
 
 
 
-<section className ="header-main border-bottom " style={{backgroundColor:"	#89CFF0"}}>
+<section className ="header-main border-bottom " id="Searchbar" style={{backgroundColor:"	#89CFF0"}}>
 	<div className ="container-fluid">
        <div className ="row  pt-3 pb-3 d-flex align-items-center">
            
@@ -29,20 +35,18 @@ export default function Searchbar() {
         </div>
            </div>
            
-           <div className ="col-md-2" >
+           <div className ="col-md-2  mb-1" >
                <div className ="d-flex d-none d-md-flex flex-row align-items-center  ">
                   
                       
-                   <div className ="d-flex flex-column ms-2">
-                     
-                       <Button type ="info" label="Light Mode" ></Button>
-                      
-                   </div>   
-                   <div className ="d-flex flex-column ms-2">
+                  
+                   <div className ="d-flex flex-column ">
                     
-                   <Button type ="dark" label ="dark mode"></Button>
+                   <Button type ={props.type} label ={props.label} onClick={props.onClick} size={props.size} disabled={props.disabled} textcolor={props.textcolor}></Button>
+                  
                    </div>   
-               </div>           
+               </div>
+               {/*         */}
            </div>
        </div>
 	</div> 
