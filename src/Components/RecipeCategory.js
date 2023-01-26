@@ -96,6 +96,7 @@ export default class Recipe_Category extends Component {
                             )
                           : " "
                       }
+                      caution={element.recipe.cautions}
                       time={element.recipe.totalTime}
                       source={element.recipe.source}
                       sugar={element.recipe.totalNutrients.SUGAR.quantity}

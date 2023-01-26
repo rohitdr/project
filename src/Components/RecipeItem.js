@@ -5,10 +5,10 @@ export default function RecipeItem(props) {
     
   return (
    <>
-   <div className="card"  style={{ backgroundColor:props.topLeftColor}}>
+   <div className="card border border-dark shadow-lg"  style={{ backgroundColor:props.topLeftColor}}>
    <div className="d-flex " >
   <div className="p-1 flex-fill bd-highlight" style={{width: "50%"}}>
-  <img height="300px" width="500px" src={props.ImagesUrl} className="card-img-top" alt=""/>
+  <img height="300px" width="500px" src={props.ImagesUrl} className="card-img-top rounded " alt=""/>
 
   </div>
   <div className="p-1 flex-fill bd-highlight " style={{width: "50%" }} ><h4 className={`fw-bold text-${props.headingColor}`}>{props.title}</h4>
@@ -18,6 +18,10 @@ export default function RecipeItem(props) {
 <p className={`card-text text-${props.headingColor}`}>{props.Ingridiants}.....
 </p>
    </div>
+   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{zIndex:"1"}}>
+   {props.time === 0?"Default":props.time+"min"}
+    <span class="visually-hidden">source</span>
+  </span>
 
 </div> 
 <hr className="hr" />
@@ -120,10 +124,10 @@ export default function RecipeItem(props) {
   
    <tr >
     
-     <td style={{color:"white",background:"	#808080"}}>time:&#8594;</td>
-     <td style={{color:"white",background:"	#808080"}}>{props.time === 0?"NOT avialable":props.time+" m"}</td>
-     <td style={{color:"white",background:"	#808080"}}>Source:&#8594;</td>  
-      <td style={{color:"white",background:"	#808080"}}>{props.source}</td>   
+     <td style={{color:"white",background:"	red"}}>Caution</td>
+     <td style={{color:"white",background:"	red"}}>{((props.caution.toString()).length > 2) ?  props.caution.slice(0,2).toString():"___"}</td>
+     <td style={{color:"white",background:"	green"}}>Source:&#8594;</td>  
+      <td style={{color:"white",background:"	green"}}>{props.source}</td>   
    </tr>
   
  

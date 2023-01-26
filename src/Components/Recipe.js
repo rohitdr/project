@@ -7783,9 +7783,9 @@ export default class Recipe extends Component {
                       title={element.recipe.label}
                       ImagesUrl={element.recipe.images.SMALL.url}
                       url={element.recipe.shareAs}
-                      health_labels={element.recipe.healthLabels
+                      health_labels={element.recipe.healthLabels.slice(0,16)
                         .toString()
-                        .substring(0, 145)}
+                        }
                       Ingridiants={element.recipe.ingredientLines
                         .toString()
                         .replace(",", " and ")
@@ -7798,6 +7798,7 @@ export default class Recipe extends Component {
                             )
                           : " "
                       }
+                      caution={element.recipe.cautions}
                       time={element.recipe.totalTime}
                       source={element.recipe.source}
                       sugar={element.recipe.totalNutrients.SUGAR.quantity}

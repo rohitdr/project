@@ -4,11 +4,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Sidebar(props) {
+  
 
   return (
     <>
       <div
-        className="offcanvas offcanvas-start w-25"
+        className="offcanvas offcanvas-start w-25 border border-dark"
         tabIndex="-1"
         id="offcanvas"
         data-bs-keyboard="false"
@@ -396,7 +397,7 @@ export default function Sidebar(props) {
               </Link>
             </li>
             <li>
-              <Link to="French" className="nav-link text-truncate text-white fw-bold">
+              <Link to="/Chinese" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Chinese</span>{" "}
               </Link>
@@ -437,6 +438,7 @@ export default function Sidebar(props) {
                 <span className="ms-1 d-none d-sm-inline ">South-American</span>{" "}
               </Link>
             </li>
+          
            
 
 

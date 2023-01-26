@@ -15,7 +15,7 @@ export default function Searchbar(props) {
 
 
 
-<section className ="header-main border-bottom " id="Searchbar" style={{backgroundColor:"	#89CFF0"}}>
+<section className ="header-main border-bottom border border-dark" id="Searchbar" style={{backgroundColor:"	#89CFF0"}}>
 	<div className ="container-fluid">
        <div className ="row  pt-3 pb-3 d-flex align-items-center">
            
@@ -26,7 +26,7 @@ export default function Searchbar(props) {
         <NavbarToggler></NavbarToggler>
               </div>
       
-        <input className ="form-control" type="text" placeholder="Search any product..." />
+        <input className ="form-control" type="text" placeholder="Search any recipe..." />
       
         <div className ="d-flex flex-column m-2">
                        <Button type ="success" label="Search" ></Button>

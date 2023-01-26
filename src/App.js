@@ -5,6 +5,7 @@ import Recipe from "./Components/Recipe";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RecipeCategory from "./Components/RecipeCategory";
 import { useState } from "react";
+import Individual_Recipe from "./Components/Individual_Recipe";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 const[color, setColor]=useState("dark")
 const[topLeftColor, settopLeftColor]=useState("white")
 const[headingColor,setheadingColor]=useState("dark")
+document.body.style.backgroundColor="#5F9EA0"
  const Mode_handler=()=>{
     if(mode==="light mode"){
       setMode("dark mode")
@@ -529,6 +531,7 @@ setheadingColor("white")
           </div>
         </div>
       </BrowserRouter>
+      {/* <Individual_Recipe></Individual_Recipe> */}
     </>
   );
 }
