@@ -21,6 +21,7 @@ export default function RecipeItem(props) {
    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{zIndex:"1"}}>
    {props.time === 0?"Default":props.time+"min"}
     <span class="visually-hidden">source</span>
+    
   </span>
 
 </div> 

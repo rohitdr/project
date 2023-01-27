@@ -51,7 +51,7 @@ setheadingColor("white")
     <>
       <BrowserRouter>
         <Sidebar color={textColor} crossColor={color}></Sidebar>
-        <div className="">
+        <div className="container-fluid">
           <div className="row">
             <div className="col min-vh-120">
               <Searchbar onClick={Mode_handler} size="large" label={button_label} type = {color} textcolor ={textColor_button}> </Searchbar>
