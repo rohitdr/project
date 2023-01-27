@@ -16,7 +16,7 @@ function App() {
 const[color, setColor]=useState("dark")
 const[topLeftColor, settopLeftColor]=useState("white")
 const[headingColor,setheadingColor]=useState("dark")
-document.body.style.backgroundColor="#5F9EA0"
+
  const Mode_handler=()=>{
     if(mode==="light mode"){
       setMode("dark mode")
@@ -35,7 +35,8 @@ setheadingColor("white")
     if(mode==="dark mode"){
       setMode("light mode")
       setButton_label("Dark Mode")
-      document.body.style.backgroundColor="white"
+  
+       document.body.style.backgroundColor="#5F9EA0"
       document.getElementById("Searchbar").style.backgroundColor="#89CFF0"
       document.getElementById("offcanvas").style.backgroundColor="#89CFF0"
      setTextColor_button("white")
