@@ -8,7 +8,32 @@ import { useState } from "react";
 import Individual_Recipe from "./Components/Individual_Recipe";
 
 
+
 function App() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const [mode, setMode]=useState("light mode")
   const [button_label, setButton_label]=useState("Dark mode")
  const[textColor, setTextColor]=useState("dark")
@@ -524,6 +549,7 @@ setheadingColor("white")
                   }
                 />
 
+               
 
 
 

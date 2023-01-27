@@ -438,7 +438,12 @@ export default function Sidebar(props) {
                 <span className="ms-1 d-none d-sm-inline ">South-American</span>{" "}
               </Link>
             </li>
-          
+            <li>
+              <Link to="/Newsapp" className="nav-link text-truncate text-white fw-bold">
+              <i className="fa-solid fa-flag text-dark p-1"></i>
+                <span className="ms-1 d-none d-sm-inline ">News</span>{" "}
+              </Link>
+            </li>
            
 
 
