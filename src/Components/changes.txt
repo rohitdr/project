@@ -6,5 +6,5 @@
 6.almost completed the navbar
 
 
-
+npm i react-infinite-scroll-component
      

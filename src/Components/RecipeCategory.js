@@ -2,39 +2,55 @@ import RecipeItem from "./RecipeItem";
 import React, { Component } from "react";
 import Loader from "./Loader";
 import Button from "./Button";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default class Recipe_Category extends Component {
   refreshPage() {
     window.location.reload(false);
   }
-  next_handler = async () => {
-    this.url = this.state.next_page;
+  // next_handler = async () => {
+  //   this.url = this.state.next_page;
 
-    let data = await fetch(this.url);
-    window.location.href = "#top";
-    this.setState({ loading: true });
+  //   let data = await fetch(this.url);
+  //   window.location.href = "#top";
+  //   this.setState({ loading: true });
 
+  //   let parse_data = await data.json();
+  //   this.setState({
+  //     article: parse_data.hits,
+  //     starting_count: parse_data.from,
+  //     ending_count: parse_data.to,
+  //     next_page: parse_data._links.next.href,
+  //     loading: false,
+  //   });
+  // };
+  // home_handler = async () => {
+  //   let data = await fetch(this.state.Home_page);
+  //   window.location.href = "#top";
+  //   this.setState({ loading: true });
+  //   let parse_data = await data.json();
+  //   this.setState({
+  //     article: parse_data.hits,
+  //     starting_count: 1,
+  //     ending_count: parse_data.to,
+  //     next_page: parse_data._links.next.href,
+  //     loading: false,
+  //   });
+  // };
+  fetchMoreData = async () => {
+    let url = this.state.next_page;
+    // this.setState({ loading: true });
+    let data = await fetch(url);
     let parse_data = await data.json();
     this.setState({
-      article: parse_data.hits,
-      starting_count: parse_data.from,
-      ending_count: parse_data.to,
+      article: this.state.article.concat(parse_data.hits),
+      // starting_count: parse_data.from,
+      // ending_count: parse_data.to,
       next_page: parse_data._links.next.href,
+      // Home_page: url,
       loading: false,
-    });
-  };
-  home_handler = async () => {
-    let data = await fetch(this.state.Home_page);
-    window.location.href = "#top";
-    this.setState({ loading: true });
-    let parse_data = await data.json();
-    this.setState({
-      article: parse_data.hits,
-      starting_count: 1,
-      ending_count: parse_data.to,
-      next_page: parse_data._links.next.href,
-      loading: false,
-    });
+      count:parse_data.count
+    })
   };
   constructor() {
     super();
@@ -43,21 +59,23 @@ export default class Recipe_Category extends Component {
       starting_count: 1,
       next_page: "",
       ending_count: 1,
-      loading: false,
+      loading: true,
+      count:0
     };
   }
   async componentDidMount() {
     let url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=8717089a&app_key=35658ee1215cbd7922d388170b7509f0&${this.props.category}`;
-    this.setState({ loading: true });
+    // this.setState({ loading: true });
     let data = await fetch(url);
     let parse_data = await data.json();
     this.setState({
       article: parse_data.hits,
-      starting_count: parse_data.from,
-      ending_count: parse_data.to,
+      // starting_count: parse_data.from,
+      // ending_count: parse_data.to,
       next_page: parse_data._links.next.href,
-      Home_page: url,
+      // Home_page: url,
       loading: false,
+      count:parse_data.count
     });
   }
 
@@ -65,13 +83,20 @@ export default class Recipe_Category extends Component {
     return (
       <>
     
-        <div className="container my-2" >
+      
           <h1 className={`text-center text-${this.props.textColor}`}>
             Top - {this.props.heading}
           </h1>
           {this.state.loading && <Loader></Loader>}
+          <InfiniteScroll
+          dataLength={this.state.article.length}
+          next={this.fetchMoreData}
+          hasMore={this.state.article.length !== this.state.count}
+          loader={<Loader/>}
+          >
+            <div className="container">
           <div className="row" >
-            {!this.state.loading &&
+            {
               this.state.article.map((element) => {
                 return (
                   <div className="col-md-6 mt-4"  key={element.recipe.uri}>
@@ -115,7 +140,9 @@ export default class Recipe_Category extends Component {
                 );
               })}
           </div>
-          <div className="d-flex justify-content-between my-3">
+          </div>
+          </InfiniteScroll>
+          {/* <div className="d-flex justify-content-between my-3">
             {/*
              
          
@@ -123,14 +150,14 @@ export default class Recipe_Category extends Component {
             // >
             //   Home
             // </button> */}
-             <Button type ={this.props.type} label ="Home" onClick={this.home_handler}  disabled={this.state.starting_count <= 1} size="large"  textcolor={this.props.textcolor}></Button>
+             {/* <Button type ={this.props.type} label ="Home" onClick={this.home_handler}  disabled={this.state.starting_count <= 1} size="large"  textcolor={this.props.textcolor}></Button>
            
            
             <Button type ={this.props.type} label ="Next" onClick={this.next_handler}  size = "large"  textcolor={this.props.textcolor}></Button>
            
            
-          </div> 
-        </div>
+          </div>  */} 
+        
 
       </>
     );
