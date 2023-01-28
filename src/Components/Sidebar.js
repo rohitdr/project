@@ -9,7 +9,7 @@ export default function Sidebar(props) {
   return (
     <>
       <div
-        className="offcanvas offcanvas-start w-25 border border-dark"
+        className="offcanvas offcanvas-start w-50 border border-dark"
         tabIndex="-1"
         id="offcanvas"
         data-bs-keyboard="false"
@@ -35,8 +35,8 @@ export default function Sidebar(props) {
           >
             <li className="nav-item">
               <Link to="/home" className={`nav-link text-truncate text-${props.color} fw-bold`}>
-                <i className=" fs fa-sharp fa-solid fa-house"></i>
-                <span className="ms-2 d-none d-sm-inline mode">Home</span>
+                <i className=" fs-5 fa-sharp fa-solid fa-house"></i>
+                <span className="ms-2  d-sm-inline mode">Home</span>
               </Link>
             </li>
             <li>
@@ -96,9 +96,9 @@ export default function Sidebar(props) {
             </li>
 
             <li>
-              <a href="/" className="nav-link text-truncate text-white fw-bold">
+              <a href="/login" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-grid"></i>
-                <span className="ms-1 d-none d-sm-inline">Products</span>
+                <span className="ms-1 d-none d-sm-inline">Login</span>
               </a>
             </li>
             <li>

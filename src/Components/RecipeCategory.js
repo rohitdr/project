@@ -84,7 +84,7 @@ export default class Recipe_Category extends Component {
       <>
     
       
-          <h1 className={`text-center text-${this.props.textColor}`}>
+          <h1 className={`text-center my-4 fw-bold text-${this.props.textColor}`}>
             Top - {this.props.heading}
           </h1>
           {this.state.loading && <Loader></Loader>}

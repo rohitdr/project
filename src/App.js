@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RecipeCategory from "./Components/RecipeCategory";
 import { useState } from "react";
 import Individual_Recipe from "./Components/Individual_Recipe";
+import Login from "./Components/Login";
 
 
 
@@ -41,7 +42,7 @@ function App() {
 const[color, setColor]=useState("dark")
 const[topLeftColor, settopLeftColor]=useState("white")
 const[headingColor,setheadingColor]=useState("dark")
-document.body.style.backgroundColor="#5F9EA0"
+
 
  const Mode_handler=()=>{
     if(mode==="light mode"){
@@ -77,14 +78,17 @@ setheadingColor("white")
     <>
       <BrowserRouter>
         <Sidebar color={textColor} crossColor={color}></Sidebar>
-        <div className="container-fluid">
+        {/* <div className="container-fluid">
           <div className="row">
-            <div className="col min-vh-120">
+            <div className="col min-vh-120"> */}
               <Searchbar onClick={Mode_handler} size="large" label={button_label} type = {color} textcolor ={textColor_button}> </Searchbar>
            
 
               <Routes>
+              <Route exact path="/login" element={<Login></Login>} />
+
                 <Route exact path="/home" element={<Recipe title={textColor}   topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button}></Recipe>} />
+                
                 <Route
                   exact
                   path="/Dinner"
@@ -555,9 +559,9 @@ setheadingColor("white")
 
 
               </Routes>
-            </div>
+            {/* </div>
           </div>
-        </div>
+        </div> */}
       </BrowserRouter>
       {/* <Individual_Recipe></Individual_Recipe> */}
     </>
