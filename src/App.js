@@ -79,7 +79,7 @@ setheadingColor("white")
     <LoadingBar
         color='#f11946'
         progress={progress}
-        length={5}
+        length={3}
         onLoaderFinished={() => setProgress(0)}
       />
       <BrowserRouter>
@@ -100,7 +100,7 @@ setheadingColor("white")
                   path="/Dinner"
                   element={
                     <RecipeCategory
-                     textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Dinner"
+                     textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Dinner"
                       heading="Dinner Recipes"
                       category={"mealType=Dinner"}
                     ></RecipeCategory>
@@ -111,7 +111,7 @@ setheadingColor("white")
                   path="/Breakfast"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Breakfast"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Breakfast"
                       heading="Breakfast Recipes"
                       category={"mealType=Breakfast"}
                     ></RecipeCategory>
@@ -121,7 +121,7 @@ setheadingColor("white")
                   path="/Lunch"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Lunch"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Lunch"
                       heading="Lunch Recipes"
                       category={"mealType=Lunch"}
                     ></RecipeCategory>
@@ -131,7 +131,7 @@ setheadingColor("white")
                   path="/Snack"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Snack"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Snack"
                       heading="Snack Recipes"
                       category={"mealType=Snack"}
                     ></RecipeCategory>
@@ -141,6 +141,8 @@ setheadingColor("white")
                   path="/Teatime"
                   element={
                     <RecipeCategory
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Snack"
+                  
                     Key="Teatime"
                       heading="Teatime Recipes"
                       category={"mealType=Teatime"}
@@ -151,7 +153,7 @@ setheadingColor("white")
                   path="/Bread"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Bread"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Bread"
                       heading="Bread Recipes"
                       category={"dishType=Bread"}
                     ></RecipeCategory>
@@ -163,7 +165,7 @@ setheadingColor("white")
                   path="/Cereals"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Cereals"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Cereals"
                       heading="Cereals Recipes"
                       category={"dishType=Cereals"}
                     ></RecipeCategory>
@@ -173,7 +175,7 @@ setheadingColor("white")
                   path="/Condiments And Sauces"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Condiments And Sauces"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Condiments And Sauces"
                       heading="Condiments And Sauces Recipes"
                       category={"dishType=Condiments%20and%20sauces"}
                     ></RecipeCategory>
@@ -183,7 +185,7 @@ setheadingColor("white")
                   path="/Desserts"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Desserts"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Desserts"
                       heading="Desserts Recipes"
                       category={"dishType=Desserts"}
                     ></RecipeCategory>
@@ -193,7 +195,7 @@ setheadingColor("white")
                   path="/Drinks"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Drinks"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Drinks"
                       heading="Drinks Recipes"
                       category={"dishType=Drinks"}
                     ></RecipeCategory>
@@ -203,7 +205,7 @@ setheadingColor("white")
                   path="/MainCourse"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="MainCourse"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="MainCourse"
                       heading="MainCourse Recipes"
                       category={"dishType=Main%20course"}
                     ></RecipeCategory>
@@ -213,7 +215,7 @@ setheadingColor("white")
                   path="/Pancake"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Pancake"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Pancake"
                       heading="Pancake Recipes"
                       category={"dishType=Pancake"}
                     ></RecipeCategory>
@@ -223,7 +225,7 @@ setheadingColor("white")
                   path="/Preps"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Preps"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Preps"
                       heading="Preps Recipes"
                       category={"dishType=Preps"}
                     ></RecipeCategory>
@@ -233,7 +235,7 @@ setheadingColor("white")
                   path="/Preserve"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Preserve"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Preserve"
                       heading="Preserve Recipes"
                       category={"dishType=Preserve"}
                     ></RecipeCategory>
@@ -243,7 +245,7 @@ setheadingColor("white")
                   path="/Salad"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Salad"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Salad"
                       heading="Salad Recipes"
                       category={"dishType=Salad"}
                     ></RecipeCategory>
@@ -253,7 +255,7 @@ setheadingColor("white")
                   path="/Sandwiches"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Sandwiches"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Sandwiches"
                       heading="Sandwiches Recipes"
                       category={"dishType=Sandwiches"}
                     ></RecipeCategory>
@@ -263,7 +265,7 @@ setheadingColor("white")
                   path="/Soup"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Soup"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Soup"
                       heading="Preserve Recipes"
                       category={"dishType=Soup"}
                     ></RecipeCategory>
@@ -273,7 +275,7 @@ setheadingColor("white")
                   path="/Starter"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Starter"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Starter"
                       heading="Starter Recipes"
                       category={"dishType=Starter"}
                     ></RecipeCategory>
@@ -283,7 +285,7 @@ setheadingColor("white")
                   path="/Sweets"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Preserve"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Preserve"
                       heading="Sweets Recipes"
                       category={"dishType=Sweets"}
                     ></RecipeCategory>
@@ -293,7 +295,7 @@ setheadingColor("white")
                   path="/balanced"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="balanced"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="balanced"
                       heading="balanced Recipes"
                       category={"diet=balanced"}
                     ></RecipeCategory>
@@ -303,7 +305,7 @@ setheadingColor("white")
                   path="/highFiber"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="highFiber"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="highFiber"
                       heading="high-fiber Recipes"
                       category={"diet=high-fiber"}
                     ></RecipeCategory>
@@ -313,7 +315,7 @@ setheadingColor("white")
                   path="/highProtein"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="highProtein"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="highProtein"
                       heading="high-protein Recipes"
                       category={"diet=high-protein"}
                     ></RecipeCategory>
@@ -323,7 +325,7 @@ setheadingColor("white")
                   path="/lowCarb"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowCarb"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowCarb"
                       heading="lowCarb Recipes"
                       category={"diet=low-carb"}
                     ></RecipeCategory>
@@ -333,7 +335,7 @@ setheadingColor("white")
                   path="/lowFat"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowFat"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowFat"
                       heading="lowFat Recipes"
                       category={"diet=low-fat"}
                     ></RecipeCategory>
@@ -343,7 +345,7 @@ setheadingColor("white")
                   path="/lowSodium"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowSodium"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowSodium"
                       heading="lowSodium Recipes"
                       category={"diet=low-sodium"}
                     ></RecipeCategory>
@@ -353,7 +355,7 @@ setheadingColor("white")
                   path="/alcoholFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="alcoholFree"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="alcoholFree"
                       heading="alcohol-free Recipes"
                       category={"health=alcohol-free"}
                     ></RecipeCategory>
@@ -363,7 +365,7 @@ setheadingColor("white")
                   path="/eggFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="eggFree"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="eggFree"
                       heading="Egg-free Recipes"
                       category={"health=egg-free"}
                     ></RecipeCategory>
@@ -373,7 +375,7 @@ setheadingColor("white")
                   path="/glutenFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="glutenFree"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="glutenFree"
                       heading="gluten-free Recipes"
                       category={"health=gluten-free"}
                     ></RecipeCategory>
@@ -383,7 +385,7 @@ setheadingColor("white")
                   path="/kidneyFriendly"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="kidneyFriendly"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="kidneyFriendly"
                       heading="kidney-friendly Recipes"
                       category={"health=kidney-friendly"}
                     ></RecipeCategory>
@@ -393,7 +395,7 @@ setheadingColor("white")
                   path="/lowFatAbs"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowFatFbs"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowFatFbs"
                       heading="low-fat-abs Recipes"
                       category={"health=low-fat-abs"}
                     ></RecipeCategory>
@@ -403,7 +405,7 @@ setheadingColor("white")
                   path="/lowSugar"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowSugar"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="lowSugar"
                       heading="low-sugar Recipes"
                       category={"health=lowSugar"}
                     ></RecipeCategory>
@@ -413,7 +415,7 @@ setheadingColor("white")
                   path="/mustardFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="mustardFree"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="mustardFree"
                       heading="mustardFree Recipes"
                       category={"health=mustard-free"}
                     ></RecipeCategory>
@@ -423,7 +425,7 @@ setheadingColor("white")
                   path="/noOilAdded"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="noOilAdded"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="noOilAdded"
                       heading="mustardFree Recipes"
                       category={"health=no-oil-added"}
                     ></RecipeCategory>
@@ -433,7 +435,7 @@ setheadingColor("white")
                   path="/redFeatFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="redFeatFree"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="redFeatFree"
                       heading="red-meat-free Recipes"
                       category={"health=red-meat-free"}
                     ></RecipeCategory>
@@ -443,7 +445,7 @@ setheadingColor("white")
                   path="/vegan"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="vegan"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="vegan"
                       heading="vegan Recipes"
                       category={"health=vegan"}
                     ></RecipeCategory>
@@ -453,7 +455,7 @@ setheadingColor("white")
                   path="/vegetarian"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="vegetarian"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="vegetarian"
                       heading="vegetarian Recipes"
                       category={"health=vegetarian"}
                     ></RecipeCategory>
@@ -463,7 +465,7 @@ setheadingColor("white")
                   path="/wheatFree"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="wheatFree"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="wheatFree"
                       heading="wheatFree Recipes"
                       category={"health=wheat-free"}
                     ></RecipeCategory>
@@ -473,7 +475,7 @@ setheadingColor("white")
                   path="/American"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="American"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="American"
                       heading="American Recipes"
                       category={"cuisineType=American"}
                     ></RecipeCategory>
@@ -483,7 +485,7 @@ setheadingColor("white")
                   path="/British"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="British"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="British"
                       heading="British Recipes"
                       category={"cuisineType=British"}
                     ></RecipeCategory>
@@ -493,7 +495,7 @@ setheadingColor("white")
                   path="/Chinese"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Chinese"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Chinese"
                       heading="Chinese Recipes"
                       category={"cuisineType=Chinese"}
                     ></RecipeCategory>
@@ -503,7 +505,7 @@ setheadingColor("white")
                   path="/French"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="French"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="French"
                       heading="French Recipes"
                       category={"cuisineType=French"}
                     ></RecipeCategory>
@@ -513,7 +515,7 @@ setheadingColor("white")
                   path="/Indian"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Indian"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Indian"
                       heading="Indian Recipes"
                       category={"cuisineType=Indian"}
                     ></RecipeCategory>
@@ -523,7 +525,7 @@ setheadingColor("white")
                   path="/Italian"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Italian"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Italian"
                       heading="Italian Recipes"
                       category={"cuisineType=Italian"}
                     ></RecipeCategory>
@@ -533,7 +535,7 @@ setheadingColor("white")
                   path="/Japanese"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Japanese"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Japanese"
                       heading="Japanese Recipes"
                       category={"cuisineType=Japanese"}
                     ></RecipeCategory>
@@ -543,7 +545,7 @@ setheadingColor("white")
                   path="/Mexican"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Mexican"
+                    textColor={textColor} topLeftColor={topLeftColor}setProgress={setProgress} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="Mexican"
                       heading="Mexican Recipes"
                       category={"cuisineType=Mexican"}
                     ></RecipeCategory>
@@ -553,7 +555,7 @@ setheadingColor("white")
                   path="/SouthAmerican"
                   element={
                     <RecipeCategory
-                    textColor={textColor} topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button} key="SouthAmerican"
+                    textColor={textColor} topLeftColor={topLeftColor} setProgress={setProgress}headingColor={headingColor} type = {color} textcolor ={textColor_button} key="SouthAmerican"
                       heading="South-American Recipes"
                       category={"cuisineType=South%20American"}
                     ></RecipeCategory>
