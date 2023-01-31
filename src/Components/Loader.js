@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-export default class Loader extends Component {
-  render() {
+export default function  Loader(){
+
     return (
       <>
       
@@ -13,5 +13,5 @@ export default class Loader extends Component {
       </div>
     </>
     )
-  }
+  
 }
