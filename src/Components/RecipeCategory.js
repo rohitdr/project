@@ -82,7 +82,7 @@ export default class Recipe_Category extends Component {
   render() {
     return (
       <>
-    
+     
       
           <h1 className={`text-center my-4 fw-bold text-${this.props.textColor}`}>
             Top - {this.props.heading}

@@ -7,7 +7,7 @@ import RecipeCategory from "./Components/RecipeCategory";
 import { useState } from "react";
 import Individual_Recipe from "./Components/Individual_Recipe";
 import Login from "./Components/Login";
-
+import LoadingBar from 'react-top-loading-bar'
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 
 
 
-
+const[progress, setProgress]=useState(0)
 
 
 
@@ -76,6 +76,12 @@ setheadingColor("white")
  }
   return (
     <>
+    <LoadingBar
+        color='#f11946'
+        progress={progress}
+        length={5}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <BrowserRouter>
         <Sidebar color={textColor} crossColor={color}></Sidebar>
         {/* <div className="container-fluid">
@@ -87,7 +93,7 @@ setheadingColor("white")
               <Routes>
               <Route exact path="/login" element={<Login></Login>} />
 
-                <Route exact path="/home" element={<Recipe title={textColor}   topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button}></Recipe>} />
+                <Route exact path="/home" element={<Recipe title={textColor} setProgress={setProgress}  topLeftColor={topLeftColor} headingColor={headingColor} type = {color} textcolor ={textColor_button}></Recipe>} />
                 
                 <Route
                   exact

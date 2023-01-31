@@ -7750,11 +7750,15 @@ export default class Recipe extends Component {
     };
   }
   async componentDidMount() {
+    this.props.setProgress(0)
     let url =
       "https://api.edamam.com/api/recipes/v2?type=public&app_id=8717089a&app_key=35658ee1215cbd7922d388170b7509f0&cuisineType=Asian";
     this.setState({ loading: true });
+    this.props.setProgress(30)
     let data = await fetch(url);
+    this.props.setProgress(50)
     let parse_data = await data.json();
+    this.props.setProgress(70)
     this.setState({
       article: parse_data.hits,
       starting_count: parse_data.from,
@@ -7763,6 +7767,7 @@ export default class Recipe extends Component {
       Home_page: url,
       loading: false,
     });
+    this.props.setProgress(100)
   }
 
   render() {
