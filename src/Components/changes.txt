@@ -4,7 +4,7 @@
 4.adding for buttons
 5.npm install --save cdbreact
 6.almost completed the navbar
-
+npm i react-top-loading-bar
 
 npm i react-infinite-scroll-component
 
