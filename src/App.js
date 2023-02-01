@@ -11,64 +11,292 @@ import LoadingBar from "react-top-loading-bar";
 
 function App() {
 
-  const Recipe_category= [
-     {"path":"/Dinner","key":"Dinner","heading":"Dinner Recipes", "category":"mealType=Dinner"},
-     {"path":"/Breakfast","key":"Breakfast","heading":"Breakfast Recipes", "category":"mealType=Breakfast"},
-     {"path":"/Lunch","key":"Lunch","heading":"Lunch Recipes", "category":"mealType=Lunch"},
-     {"path":"/Snack","key":"Snack","heading":"Snack Recipes", "category":"mealType=Snack"},
-     {"path":"/Teatime","key":"Teatime","heading":"Teatime Recipes", "category":"mealType=Teatime"},
-     {"path":"/Cereals","key":"Cereals","heading":"Cereals Recipes", "category":"dishType=Cereals"},
-     {"path":"/Bread","key":"Bread","heading":"Bread Recipes", "category":"dishType=Bread"},
-     {"path":"/Condiments And Sauces","key":"Condiments And Sauces","heading":"Condiments And Sauces Recipes", "category":"dishType=Condiments%20and%20sauces"},
-     {"path":"/Drinks","key":"Drinks","heading":"Drinks Recipes", "category":"dishType=Drinks"},
-     {"path":"/Desserts","key":"Desserts","heading":"Desserts Recipes", "category":"dishType=Desserts"},
-     {"path":"/Preserve","key":"Preserve","heading":"Preserve Recipes", "category":"dishType=Preserve"},
-     {"path":"/Preps","key":"Preps","heading":"Preps Recipes", "category":"dishType=Preps"},
-     {"path":"/Pancake","key":"Pancake","heading":"Pancake Recipes", "category":"dishType=Pancake"},
-     {"path":"/MainCourse","key":"MainCourse","heading":"MainCourse Recipes", "category":"dishType=Main%20course"},
+  const Recipe_category = [
+    {
+      path: "/Dinner",
+      key: "Dinner",
+      heading: "Dinner Recipes",
+      category: "mealType=Dinner",
+    },
+    {
+      path: "/Breakfast",
+      key: "Breakfast",
+      heading: "Breakfast Recipes",
+      category: "mealType=Breakfast",
+    },
+    {
+      path: "/Lunch",
+      key: "Lunch",
+      heading: "Lunch Recipes",
+      category: "mealType=Lunch",
+    },
+    {
+      path: "/Snack",
+      key: "Snack",
+      heading: "Snack Recipes",
+      category: "mealType=Snack",
+    },
+    {
+      path: "/Teatime",
+      key: "Teatime",
+      heading: "Teatime Recipes",
+      category: "mealType=Teatime",
+    },
+    {
+      path: "/Cereals",
+      key: "Cereals",
+      heading: "Cereals Recipes",
+      category: "dishType=Cereals",
+    },
+    {
+      path: "/Bread",
+      key: "Bread",
+      heading: "Bread Recipes",
+      category: "dishType=Bread",
+    },
+    {
+      path: "/Condiments And Sauces",
+      key: "Condiments And Sauces",
+      heading: "Condiments And Sauces Recipes",
+      category: "dishType=Condiments%20and%20sauces",
+    },
+    {
+      path: "/Drinks",
+      key: "Drinks",
+      heading: "Drinks Recipes",
+      category: "dishType=Drinks",
+    },
+    {
+      path: "/Desserts",
+      key: "Desserts",
+      heading: "Desserts Recipes",
+      category: "dishType=Desserts",
+    },
+    {
+      path: "/Preserve",
+      key: "Preserve",
+      heading: "Preserve Recipes",
+      category: "dishType=Preserve",
+    },
+    {
+      path: "/Preps",
+      key: "Preps",
+      heading: "Preps Recipes",
+      category: "dishType=Preps",
+    },
+    {
+      path: "/Pancake",
+      key: "Pancake",
+      heading: "Pancake Recipes",
+      category: "dishType=Pancake",
+    },
+    {
+      path: "/MainCourse",
+      key: "MainCourse",
+      heading: "MainCourse Recipes",
+      category: "dishType=Main%20course",
+    },
 
+    {
+      path: "/Starter",
+      key: "Starter",
+      heading: "Starter Recipes",
+      category: "dishType=Starter",
+    },
+    {
+      path: "/Soup",
+      key: "Soup",
+      heading: "Soup Recipes",
+      category: "dishType=Soup",
+    },
+    {
+      path: "/Sandwiches",
+      key: "Sandwiches",
+      heading: "Sandwiches Recipes",
+      category: "dishType=Sandwiches",
+    },
+    {
+      path: "/Salad",
+      key: "Salad",
+      heading: "Salad Recipes",
+      category: "dishType=Salad",
+    },
 
-     {"path":"/Starter","key":"Starter","heading":"Starter Recipes", "category":"dishType=Starter"},
-     {"path":"/Soup","key":"Soup","heading":"Soup Recipes", "category":"dishType=Soup"},
-     {"path":"/Sandwiches","key":"Sandwiches","heading":"Sandwiches Recipes", "category":"dishType=Sandwiches"},
-     {"path":"/Salad","key":"Salad","heading":"Salad Recipes", "category":"dishType=Salad"},
+    {
+      path: "/Sweets",
+      key: "Sweat",
+      heading: "Sweets Recipes",
+      category: "dishType=Sweets",
+    },
 
-     {"path":"/Sweets","key":"Sweat","heading":"Sweets Recipes", "category":"dishType=Sweets"},
+    {
+      path: "/lowCarb",
+      key: "lowCarb",
+      heading: "lowCarb Recipes",
+      category: "diet=low-carb",
+    },
+    {
+      path: "/highProtein",
+      key: "highProtein",
+      heading: "high-protein Recipes",
+      category: "diet=high-protein",
+    },
+    {
+      path: "/highFiber",
+      key: "highFiber",
+      heading: "high-fiber Recipes",
+      category: "diet=high-fiber",
+    },
+    {
+      path: "/balanced",
+      key: "balanced",
+      heading: "balanced Recipes",
+      category: "diet=balanced",
+    },
 
-     {"path":"/lowCarb","key":"lowCarb","heading":"lowCarb Recipes", "category":"diet=low-carb"},
-     {"path":"/highProtein","key":"highProtein","heading":"high-protein Recipes", "category":"diet=high-protein"},
-     {"path":"/highFiber","key":"highFiber","heading":"high-fiber Recipes", "category":"diet=high-fiber"},
-     {"path":"/balanced","key":"balanced","heading":"balanced Recipes", "category":"diet=balanced"},
+    {
+      path: "/eggFree",
+      key: "eggFree",
+      heading: "Egg-free Recipes",
+      category: "health=egg-free",
+    },
+    {
+      path: "/alcoholFree",
+      key: "alcoholFree",
+      heading: "alcohol-free Recipes",
+      category: "health=alcohol-free",
+    },
+    {
+      path: "/lowSodium",
+      key: "lowSodium",
+      heading: "lowSodium Recipes",
+      category: "diet=low-sodium",
+    },
+    {
+      path: "/lowFat",
+      key: "lowFat",
+      heading: "lowFat Recipes",
+      category: "diet=low-fat",
+    },
 
-     {"path":"/eggFree","key":"eggFree","heading":"Egg-free Recipes", "category":"health=egg-free"},
-     {"path":"/alcoholFree","key":"alcoholFree","heading":"alcohol-free Recipes", "category":"health=alcohol-free"},
-     {"path":"/lowSodium","key":"lowSodium","heading":"lowSodium Recipes", "category":"diet=low-sodium"},
-     {"path":"/lowFat","key":"lowFat","heading":"lowFat Recipes", "category":"diet=low-fat"},
+    {
+      path: "/noOilAdded",
+      key: "noOilAdded",
+      heading: "No-Oil Recipes",
+      category: "health=no-oil-added",
+    },
 
-     {"path":"/noOilAdded","key":"noOilAdded","heading":"No-Oil Recipes", "category":"health=no-oil-added"},
+    {
+      path: "/mustardFree",
+      key: "mustardFree",
+      heading: "mustardFree Recipes",
+      category: "health=mustard-free",
+    },
+    {
+      path: "/lowSugar",
+      key: "lowSugar",
+      heading: "low-sugar Recipes",
+      category: "health=lowSugar",
+    },
+    {
+      path: "/lowFatAbs",
+      key: "lowFatFbs",
+      heading: "low-fat-abs Recipes",
+      category: "health=low-fat-abs",
+    },
+    {
+      path: "/kidneyFriendly",
+      key: "kidneyFriendly",
+      heading: "kidney-friendly Recipes",
+      category: "health=kidney-friendly",
+    },
+    {
+      path: "/glutenFree",
+      key: "glutenFree",
+      heading: "gluten-free Recipes",
+      category: "health=gluten-free",
+    },
 
-     {"path":"/mustardFree","key":"mustardFree","heading":"mustardFree Recipes", "category":"health=mustard-free"},
-     {"path":"/lowSugar","key":"lowSugar","heading":"low-sugar Recipes", "category":"health=lowSugar"},
-     {"path":"/lowFatAbs","key":"lowFatFbs","heading":"low-fat-abs Recipes", "category":"health=low-fat-abs"},
-     {"path":"/kidneyFriendly","key":"kidneyFriendly","heading":"kidney-friendly Recipes", "category":"health=kidney-friendly"},
-     {"path":"/glutenFree","key":"glutenFree","heading":"gluten-free Recipes", "category":"health=gluten-free"},
+    {
+      path: "/American",
+      key: "American",
+      heading: "American Recipes",
+      category: "cuisineType=American",
+    },
+    {
+      path: "/wheatFree",
+      key: "wheatFree",
+      heading: "wheatFree Recipes",
+      category: "health=wheat-free",
+    },
+    {
+      path: "/vegetarian",
+      key: "vegetarian",
+      heading: "vegetarian Recipes",
+      category: "health=vegetarian",
+    },
+    {
+      path: "/vegan",
+      key: "vegan",
+      heading: "vegan Recipes",
+      category: "health=vegan",
+    },
 
-     {"path":"/American","key":"American","heading":"American Recipes", "category":"cuisineType=American"},
-     {"path":"/wheatFree","key":"wheatFree","heading":"wheatFree Recipes", "category":"health=wheat-free"},
-     {"path":"/vegetarian","key":"vegetarian","heading":"vegetarian Recipes", "category":"health=vegetarian"},
-     {"path":"/vegan","key":"vegan","heading":"vegan Recipes", "category":"health=vegan"},
-
-     {"path":"redFeatFree","key":"redFeatFree","heading":"red-meat-free Recipes", "category":"health=red-meat-free"},
-     {"path":"/Italian","key":"Italian","heading":"Italian Recipes", "category":"cuisineType=Italian"},
-     {"path":"/Indian","key":"Indian","heading":"Indian Recipes", "category":"cuisineType=Indian"},
-      {"path":"/French","key":"French","heading":"French  Recipes", "category":"cuisineType=French"},
-     {"path":"/Chinese","key":"Chinese","heading":"Chinese Recipes", "category":"cuisineType=Chinese"},
-     {"path":"/British","key":"British","heading":"British Recipes", "category":"cuisineType=British"},
-     {"path":"/SouthAmerican","key":"SouthAmerican","heading":"South-American Recipes", "category":"cuisineType=South%20American"},
-     {"path":"/Mexican","key":"Mexican","heading":"Mexican Recipes", "category":"cuisineType=Mexican"},
-     {"path":"/Japanese","key":"Japanese","heading":"Japanese Recipes", "category":"cuisineType=Japanese"},
-    
-  ]
+    {
+      path: "redFeatFree",
+      key: "redFeatFree",
+      heading: "red-meat-free Recipes",
+      category: "health=red-meat-free",
+    },
+    {
+      path: "/Italian",
+      key: "Italian",
+      heading: "Italian Recipes",
+      category: "cuisineType=Italian",
+    },
+    {
+      path: "/Indian",
+      key: "Indian",
+      heading: "Indian Recipes",
+      category: "cuisineType=Indian",
+    },
+    {
+      path: "/French",
+      key: "French",
+      heading: "French  Recipes",
+      category: "cuisineType=French",
+    },
+    {
+      path: "/Chinese",
+      key: "Chinese",
+      heading: "Chinese Recipes",
+      category: "cuisineType=Chinese",
+    },
+    {
+      path: "/British",
+      key: "British",
+      heading: "British Recipes",
+      category: "cuisineType=British",
+    },
+    {
+      path: "/SouthAmerican",
+      key: "SouthAmerican",
+      heading: "South-American Recipes",
+      category: "cuisineType=South%20American",
+    },
+    {
+      path: "/Mexican",
+      key: "Mexican",
+      heading: "Mexican Recipes",
+      category: "cuisineType=Mexican",
+    },
+    {
+      path: "/Japanese",
+      key: "Japanese",
+      heading: "Japanese Recipes",
+      category: "cuisineType=Japanese",
+    },
+  ];
   const [progress, setProgress] = useState(0);
 
   const [mode, setMode] = useState("light mode");
@@ -126,8 +354,7 @@ function App() {
           label={button_label}
           type={color}
           textcolor={textColor_button}
-        >
-        </Searchbar>
+        ></Searchbar>
 
         <Routes>
           <Route exact path="/login" element={<Login></Login>} />
@@ -139,32 +366,34 @@ function App() {
               <Recipe
                 title={textColor}
                 setProgress={setProgress}
-              topLeftColor={topLeftColor}
+                topLeftColor={topLeftColor}
                 headingColor={headingColor}
                 type={color}
                 textcolor={textColor_button}
               ></Recipe>
             }
           />
-          {((Recipe_category)).map((element)=>{
-            return  <Route
-            exact
-            path={`${element.path}`}
-            element={
-              <RecipeCategory
-                textColor={textColor}
-                topLeftColor={topLeftColor}
-                setProgress={setProgress}
-                headingColor={headingColor}
-                type={color}
-                textcolor={textColor_button}
-                key={`${element.key}`}
-                heading={`${element.heading}`}
-                category={element.category}
-              ></RecipeCategory>
-            }
-          />
-          }) }  
+          {Recipe_category.map((element) => {
+            return (
+              <Route
+                exact
+                path={`${element.path}`}
+                element={
+                  <RecipeCategory
+                    textColor={textColor}
+                    topLeftColor={topLeftColor}
+                    setProgress={setProgress}
+                    headingColor={headingColor}
+                    type={color}
+                    textcolor={textColor_button}
+                    key={`${element.key}`}
+                    heading={`${element.heading}`}
+                    category={element.category}
+                  ></RecipeCategory>
+                }
+              />
+            );
+          })}
           {/* <Route
             exact
             path="/Dinner"
