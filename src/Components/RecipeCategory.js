@@ -1,7 +1,7 @@
 import RecipeItem from "./RecipeItem";
 import React, { Component, useEffect, useState } from "react";
 import Loader from "./Loader";
-import Button from "./Button";
+
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Recipe_Category(props)  {
@@ -9,53 +9,14 @@ export default function Recipe_Category(props)  {
   const[loading, setLoading] = useState(true)
   const[nextPage, setNextPage]= useState("")
   const [count , setCount]=useState(0)
-  // refreshPage() {
-  //   window.location.reload(false);
-  // }
-  // next_handler = async () => {
-  //   this.url = this.state.next_page;
-
-  //   let data = await fetch(this.url);
-  //   window.location.href = "#top";
-  //   this.setState({ loading: true });
-
-  //   let parse_data = await data.json();
-  //   this.setState({
-  //     article: parse_data.hits,
-  //     starting_count: parse_data.from,
-  //     ending_count: parse_data.to,
-  //     next_page: parse_data._links.next.href,
-  //     loading: false,
-  //   });
-  // };
-  // home_handler = async () => {
-  //   let data = await fetch(this.state.Home_page);
-  //   window.location.href = "#top";
-  //   this.setState({ loading: true });
-  //   let parse_data = await data.json();
-  //   this.setState({
-  //     article: parse_data.hits,
-  //     starting_count: 1,
-  //     ending_count: parse_data.to,
-  //     next_page: parse_data._links.next.href,
-  //     loading: false,
-  //   });
-  // };
+  
    const fetchMoreData = async () => {
     let url = nextPage;
     
-    // this.setState({ loading: true });
+    
     let data = await fetch(url);
     let parse_data = await data.json();
-    // this.setState({
-    //   article: this.state.article.concat(parse_data.hits),
-    //   // starting_count: parse_data.from,
-    //   // ending_count: parse_data.to,
-    //   next_page: parse_data._links.next.href,
-    //   // Home_page: url,
-    //   loading: false,
-    //   count:parse_data.count
-    // })
+   
     setArticle(article.concat(parse_data.hits))
     setNextPage(parse_data._links.next.href)
     setLoading(false)
@@ -63,38 +24,17 @@ export default function Recipe_Category(props)  {
 
   };
   
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     article: [],
-  //     // starting_count: 1,
-  //     next_page: "",
-  //     // ending_count: 1,
-  //     loading: true,
-  //     // count:0
-  //   };
-  // }
-  //   const componentDidMount= async()=> {
-   
-  // }
+  
   const initailizing=async()=>{
     props.setProgress(10)
     let url = `https://api.edamam.com/api/recipes/v2?type=public&app_id=8717089a&app_key=35658ee1215cbd7922d388170b7509f0&${props.category}`;
-    // this.setState({ loading: true });
+ 
     props.setProgress(30)
     let data = await fetch(url);
     props.setProgress(50)
     let parse_data = await data.json();
     props.setProgress(70)
-    // this.setState({
-    //   article: parse_data.hits,
-    //   // starting_count: parse_data.from,
-    //   // ending_count: parse_data.to,
-    //   next_page: parse_data._links.next.href,
-    //   // Home_page: url,
-    //   loading: false,
-    //   count:parse_data.count
-    // });
+   
     setArticle(parse_data.hits)
     setLoading(false)
     setNextPage(parse_data._links.next.href)
@@ -166,21 +106,7 @@ export default function Recipe_Category(props)  {
           </div>
           </div>
           </InfiniteScroll>
-          {/* <div className="d-flex justify-content-between my-3">
-            {/*
-             
          
-            //   disabled={this.state.starting_count <= 1}
-            // >
-            //   Home
-            // </button> */}
-             {/* <Button type ={this.props.type} label ="Home" onClick={this.home_handler}  disabled={this.state.starting_count <= 1} size="large"  textcolor={this.props.textcolor}></Button>
-           
-           
-            <Button type ={this.props.type} label ="Next" onClick={this.next_handler}  size = "large"  textcolor={this.props.textcolor}></Button>
-           
-           
-          </div>  */} 
         
 
       </>
