@@ -9,9 +9,10 @@ export default function Sidebar(props) {
   return (
     <>
       <div
-        className="offcanvas offcanvas-start w-50 border border-dark"
+        className="offcanvas offcanvas-start  border border-dark "
         tabIndex="-1"
         id="offcanvas"
+        bs-offcanvas-padding-x= "0rem"
         data-bs-keyboard="false"
         data-bs-backdrop="false"
         style={{ backgroundColor: "#96C2DB" }}
@@ -28,18 +29,18 @@ export default function Sidebar(props) {
             
           ></button>
         </div>
-        <div className="offcanvas-body px-3">
+        <div className="offcanvas-body">
           <ul
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu"
           >
-            <li className="nav-item">
+            <li className="nav-item " id ="home">
               <Link to="/home" className={`nav-link text-truncate text-${props.color} fw-bold`}>
-                <i className=" fs-5 fa-sharp fa-solid fa-house"></i>
-                <span className="ms-2  d-sm-inline mode">Home</span>
+                <i className=" fa-sharp fa-solid fa-house"></i>
+                <span className=" mode">Home</span>
               </Link>
             </li>
-            <li>
+            <li id ="dashboard">
               <a
                 href="#submenu1"
                 data-bs-toggle="collapse"
@@ -47,64 +48,27 @@ export default function Sidebar(props) {
                  
               >
                 <i className="fa-solid fa-table-columns" ></i>
-                <span className="ms-1 d-none d-sm-inline">Dashboard</span>{" "}
+                <span className="">Dashboard</span>{" "}
               </a>
             </li>
-            <li>
+            <li id ="order">
               <a href="/" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-table"></i>
-                <span className="ms-1 d-none d-sm-inline">Orders</span>
+                <span className="">Orders</span>
               </a>
             </li>
-            <li className="dropdown">
-              <a
-                href="/"
-                className="nav-link dropdown-toggle  text-truncate text-white fw-bold"
-                id="dropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="fs-5 bi-bootstrap"></i>
-                <span className="ms-1 d-none d-sm-inline">Bootstrap</span>
-              </a>
-              <ul
-                className="dropdown-menu text-small shadow"
-                aria-labelledby="dropdown"
-              >
-                <li>
-                  <a className="dropdown-item text-white fw-bold" href="/">
-                    New project...
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Settings
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Profile
-                  </a>
-                </li>
-                <li></li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Sign out
-                  </a>
-                </li>
-              </ul>
-            </li>
+           
 
-            <li>
+            <li id ="login">
               <a href="/login" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-grid"></i>
-                <span className="ms-1 d-none d-sm-inline">Login</span>
+                <span className="">Login</span>
               </a>
             </li>
-            <li>
+            <li id ="customers">
               <a href="/" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-people"></i>
-                <span className="ms-1 d-none d-sm-inline">Customers</span>{" "}
+                <span className="">Customers</span>{" "}
               </a>
              
             </li>
@@ -161,7 +125,7 @@ export default function Sidebar(props) {
             <span className="ms-1 d-none d-sm-inline  ">Dish-Type</span>{" "}
               </div>
             </li>
-            <li>
+            <li id ="bread">
               <Link to="/Bread" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Bread</span>{" "}
@@ -169,7 +133,7 @@ export default function Sidebar(props) {
             </li>
 
 
-            <li>
+            <li id ="cereals">
               <a href="/Cereals" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Cereals</span>{" "}

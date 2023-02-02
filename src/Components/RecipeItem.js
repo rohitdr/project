@@ -10,14 +10,13 @@ export default function RecipeItem(props) {
       >
         <div className="d-flex ">
           <div
-            className="p-1 flex-fill bd-highlight  zoom "
+            className="p-1 flex-fill bd-highlight"
             style={{ width: "50%" }}
           >
             <img
-              height="300px"
-              width="500px"
+             
               src={props.ImagesUrl}
-              className="card-img-top rounded "
+              className="card-img-top rounded  zoom  "
               alt=""
               style={{ zIndex: "1" }}
             />
@@ -26,7 +25,7 @@ export default function RecipeItem(props) {
             <h4 className={`fw-bold text-${props.headingColor}`}>
               {props.title}
             </h4>
-            <p className={`card-text text-${props.headingColor}`}>
+            <p className={`card-text text-${props.headingColor}`} style={{textAlign:"justify"}}>
               {props.health_labels}.......
             </p>
             <h5

@@ -52,7 +52,7 @@ export default  function Recipe(props)  {
          {loading && <Loader></Loader>}
         
           <h1 className={`text-center text-${props.title}`}>Top-Recepies</h1>
-          {loading && <Loader></Loader>}
+          
           <InfiniteScroll
           dataLength={article.length}
           next={fetchMoreData}

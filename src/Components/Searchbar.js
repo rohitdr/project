@@ -1,5 +1,5 @@
 import React from "react";
-
+import './sidebar.css'
 import Button from "./Button";
 import NavbarToggler from "./NavbarToggler";
 export default function Searchbar(props) {
@@ -13,7 +13,7 @@ export default function Searchbar(props) {
       >
         <div className="container-fluid">
           <div className="row  pt-3 pb-3 d-flex align-items-center">
-            <div className="col-md-10">
+            <div className="col-md-4">
               <div className="d-flex form-inputs">
                 <div className="col-md-1 m-2 p-1">
                   <NavbarToggler></NavbarToggler>
@@ -31,7 +31,7 @@ export default function Searchbar(props) {
               </div>
             </div>
 
-            <div className="col-md-2  mb-1">
+            <div className="col-md-8  mb-1" style={{alignItems:"right"}}>
               <div className="d-flex d-none d-md-flex flex-row align-items-center  ">
                 <div className="d-flex flex-column ">
                   <Button
