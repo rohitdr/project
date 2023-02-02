@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+.offcanvas{
+    background-color: "	#89CFF0";
+    padding: 0%;
+
+}
+
+
+li{
+   min-width: 100%;
+     
+   cursor: pointer;
+ 
+color: gray;
+font-family: "Poppins", sans-serif;
+color: #666;
+
+}
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+li{
+  min-width: 250px;
+}
+
+}
+
+
+
+li::before {
+  
+  transform: scale(.9);
+  z-index: -1;
+}
+li:hover::before {
+    transform: scale(1.5);
+  box-shadow: 0 0 15px #ffee10;
+}
+li:hover {
+    width:100%;
+    color: #ffee10;
+    background-color: #ecbc0e67;
+  box-shadow: 2px 2px 10px #ffee10;
+  text-shadow: 2px 2px 10px #ffee10;
+}
+.offcanvas-header{
+    animation: move 5s,2;
+}
+@keyframes move {
+    25% {
+      transform: translatey(-5.8vmin);
+      opacity: 1;
+    }
+    50% {
+      transform: translatey(-11vmin);
+    }
+    75% {
+      transform: translatey(-16.5vmin);
+    }
+  }
+/* 
+
+ span {
+   
+
+  
+ 
+    background: url(https://raw.githubusercontent.com/s1mpson/-/master/codepen/black-lives-matter/victim-collage.png);
+   
+    -webkit-background-clip: text;
+    color: rgba(0,0,0,0.08);
+    animation: zoomout 10s ease 500ms forwards;
+} @keyframes zoomout {
+    from {
+      background-size: 40%;
+    }
+    to {
+      background-size: 10%;
+    }
+  } */
+#home{
+    background: #016D9E;
+}
+#home:hover{
+    background: #05a3ed; 
+    box-shadow: 2px 2px 10px #05b0ff;;
+  text-shadow: 2px 2px 10px #2b2c2c;; 
+}
+#dashboard{
+    background: #0BC3C3;
+}
+#dashboard:hover{
+    background: #08fefe;  
+}
+#order{
+    background: #CDE7F6;
+}
+#login{
+    background: #FEE2D6;
+   
+}
+#customers{
+    background: #D298B1;
+}
+#bread{
+background-color: #C0392B;
+
+}
+#bread:hover{
+    background: #ff9d92; 
+    box-shadow: 2px 2px 10px #ff0505;;
+  text-shadow: 2px 2px 10px #e7471b;; 
+}
+#cereals{
+    background-color: rgb(136, 78, 160);}
+
+#cereals:hover{
+    background-color: rgb(119, 106, 125);
+    box-shadow:rgb(161, 21, 221) ;
+    text-shadow:rgb(170, 105, 198) ;
+    
+}
+li{
+    transition:
+    width 5s,
+  
+    transform 5s;
+   
+}
+li:hover{
+    transition: 5s,1;
+  transform: translateX(50%);
+  text-align: center;
+ 
+}
