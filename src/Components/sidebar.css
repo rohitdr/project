@@ -8,7 +8,7 @@
 
 li{
    min-width: 100%;
-  
+ 
    cursor: pointer;
  
 color: gray;
@@ -61,58 +61,7 @@ li:hover {
     }
   }
 /* //properties applied to elements with the class home */
-.home{
 
-    background: #016D9E;
-}
-.home:hover{
-
-    background: #05a3ed; 
-    box-shadow: 2px 2px 10px #05b0ff;
-  text-shadow: 2px 2px 10px #2b2c2c;
-}
-/* //properties applied to elements with the class dashboard */
-.dashboard{
-    background: #0BC3C3;
-}
-.dashboard:hover{
-    background: #08fefe;  
-    box-shadow: 2px 2px 10px #383c3c;
-}
-/* //properties applied to elements with the class order */
-.order{
-    background: #06480de2;
-}
-.order:hover{
-  background: #0a8015e2;
-  box-shadow: 2px 2px 10px #112733;
-
-}
-/* //properties applied to elements with the class login */
-.login{
-    background: #92360f;
-   
-}
-.login:hover{
-  background: #93583f;
-  box-shadow: 2px 2px 10px #180f0b;
-}
-.customers{
-    background: #650d33;
-}
-.customers:hover{
-background-color: #8f3b5f;
-box-shadow: 2px 2px 10px #490924;
-}
-
-.category-heading{
-  background-color: #1B2631; 
-}
-.category-heading:hover{
-  background-color: #6a7075; 
-  box-shadow: #9fa4a7;
-  text-shadow: #101010;
-}
 /* moving element animation */
 li{
     transition:
@@ -151,3 +100,56 @@ li:hover{
     }
 }
 
+/* coloring of text */
+.home{
+
+  background: #016D9E;
+}
+.home:hover{
+
+  background: #05a3ed; 
+  box-shadow: 2px 2px 10px #05b0ff;
+text-shadow: 2px 2px 10px #2b2c2c;
+}
+/* //properties applied to elements with the class dashboard */
+.dashboard{
+  background: #0BC3C3;
+}
+.dashboard:hover{
+  background: #08fefe;  
+  box-shadow: 2px 2px 10px #383c3c;
+}
+/* //properties applied to elements with the class order */
+.order{
+  background: #06480de2;
+}
+.order:hover{
+background: #0a8015e2;
+box-shadow: 2px 2px 10px #112733;
+
+}
+/* //properties applied to elements with the class login */
+.login{
+  background: #92360f;
+ 
+}
+.login:hover{
+background: #93583f;
+box-shadow: 2px 2px 10px #180f0b;
+}
+.customers{
+  background: #650d33;
+}
+.customers:hover{
+background-color: #8f3b5f;
+box-shadow: 2px 2px 10px #490924;
+}
+
+.category-heading{
+background-color: #1B2631; 
+}
+.category-heading:hover{
+background-color: #6a7075; 
+box-shadow: #9fa4a7;
+text-shadow: #101010;
+}

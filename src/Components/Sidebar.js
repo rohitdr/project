@@ -1,10 +1,14 @@
 import React from "react";
-
+import { useLocation } from 'react-router-dom';
 
 import { Link } from "react-router-dom";
 
 export default function Sidebar(props) {
-  
+  let location = useLocation();
+
+  React.useEffect(() => {
+   
+  }, [location]);
 
   return (
     <>
@@ -34,13 +38,13 @@ export default function Sidebar(props) {
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu"
           >
-            <li className="nav-item home">
+            <li className={`nav-item ${location.pathname ==="/home"?"home":""}`}>
               <Link to="/home" className={`nav-link text-truncate text-white fw-bold`}>
                 <i className=" fa-sharp fa-solid fa-house"></i>
                 <span className=" mode">Home</span>
               </Link>
             </li>
-            <li class ="dashboard">
+            <li class ={`${location.pathname ==="/dashboard"?"dashboard":""}`}>
               <a
                 href="#submenu1"
                 data-bs-toggle="collapse"
@@ -51,7 +55,7 @@ export default function Sidebar(props) {
                 <span className="">Dashboard</span>{" "}
               </a>
             </li>
-            <li class ="order">
+            <li class ={`${location.pathname ==="/order"?"order":""}`}>
               <a href="/" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-table"></i>
                 <span className="">Orders</span>
@@ -59,13 +63,13 @@ export default function Sidebar(props) {
             </li>
            
 
-            <li class ="login">
+            <li class ={`${location.pathname ==="/login"?"login":""}`}>
               <a href="/login" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-grid"></i>
                 <span className="">Login</span>
               </a>
             </li>
-            <li class ="customers">
+            <li class ={`${location.pathname ==="/customers"?"customers":""}`}>
               <a href="/" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-people"></i>
                 <span className="">Customers</span>{" "}
@@ -83,31 +87,31 @@ export default function Sidebar(props) {
             <span className="ms-1 d-none d-sm-inline ">Meal-Type</span>{" "}
               </div>
             </li>
-            <li class ="home">
+            <li class ={`${location.pathname ==="/Dinner"?"home":""}`}>
               <Link to="/Dinner" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1 d-none d-sm-inline">Dinner</span>{" "}
               </Link>
             </li>
-            <li  class ="dashboard">
+            <li  class ={`${location.pathname ==="/Breakfast"?"dashboard":""}`}>
               <Link to="/Breakfast" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1 d-none d-sm-inline">Breakfast</span>{" "}
               </Link>
             </li>
-            <li class ="order">
+            <li class ={`${location.pathname ==="/Lunch"?"order":""}`}>
               <Link to="/Lunch" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1 d-none d-sm-inline">Lunch</span>{" "}
               </Link>
             </li>
-            <li class ="login">
+            <li class ={`${location.pathname ==="/Snack"?"login":""}`}>
               <Link to="/Snack" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1 d-none d-sm-inline">Snacks</span>{" "}
               </Link>
             </li>
-            <li class="customers">
+            <li class={`${location.pathname ==="/Teatime"?"customers":""}`}>
               <Link to="/Teatime" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1 d-none d-sm-inline">Teatime</span>{" "}
@@ -125,7 +129,7 @@ export default function Sidebar(props) {
             <span className="ms-1 d-none d-sm-inline  ">Dish-Type</span>{" "}
               </div>
             </li>
-            <li  class ="home">
+            <li  class ={`${location.pathname ==="/Bread"?"home":""}`}>
               <Link to="/Bread" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Bread</span>{" "}
@@ -133,73 +137,73 @@ export default function Sidebar(props) {
             </li>
 
 
-            <li  class ="dashboard">
+            <li  class ={`${location.pathname ==="/Cereals"?"dashboard":""}`}>
               <a href="/Cereals" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Cereals</span>{" "}
               </a>
             </li>
-            <li class ="order">
+            <li class ={`${location.pathname ==="/Condiments And Sauces"?"order":""}`}>
               <Link to="/Condiments And Sauces" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Condiments And Sauces</span>{" "}
               </Link>
             </li>
-            <li class ="login">
+            <li class ={`${location.pathname ==="/Desserts"?"login":""}`}>
               <Link to="/Desserts" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Desserts</span>{" "}
               </Link>
             </li>
-            <li class ="customers">
+            <li class ={`${location.pathname ==="/Drinks"?"customers":""}`}>
               <Link to="/Drinks" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Drinks</span>{" "}
               </Link>
             </li>
-            <li class="home">
+            <li class={`${location.pathname ==="/MainCourse"?"home":""}`}>
               <Link to="/MainCourse" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">MainCourse</span>{" "}
               </Link>
             </li>
-            <li class="dashboard">
+            <li class={`${location.pathname ==="/Pancake"?"dashboard":""}`}>
               <Link to="/Pancake" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Pancake</span>{" "}
               </Link>
             </li>
-            <li class="order">
+            <li class={`${location.pathname ==="/preps"?"order":""}`}>
               <Link to="/Preps" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Preps</span>{" "}
               </Link>
             </li>
-            <li class="login">
+            <li class={`${location.pathname ==="/salad"?"login":""}`}>
               <Link to="/Salad" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Salad</span>{" "}
               </Link>
             </li>
-            <li class="customers">
+            <li class={`${location.pathname ==="/Sandwiches"?"customers":""}`}>
               <Link to="/Sandwiches" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Sandwiches</span>{" "}
               </Link>
             </li>
-            <li class="home">
+            <li class={`${location.pathname ==="/Soup"?"home":""}`}>
               <Link to="/Soup" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Soup</span>{" "}
               </Link>
             </li>
-            <li class="dashboard">
+            <li class={`${location.pathname ==="/Starter"?"dashboard":""}`}>
               <Link to="/Starter" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Starter</span>{" "}
               </Link>
             </li>
-            <li class="order">
+            <li class={`${location.pathname ==="/Sweets"?"order":""}`}>
               <Link to="/Sweets" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Sweets</span>{" "}
@@ -216,43 +220,43 @@ export default function Sidebar(props) {
             <span className="ms-1 d-none d-sm-inline ">Deit-Type</span>{" "}
               </div>
             </li>
-            <li  class ="home">
+            <li  class ={`${location.pathname ==="/balanced"?"home":""}`}>
               <Link to="/balanced" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">balanced</span>{" "}
               </Link>
             </li>
-            <li  class ="dashboard">
+            <li  class ={`${location.pathname ==="/highFiber"?"dashboard":""}`}>
               <Link to="/highFiber" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">HighFiber</span>{" "}
               </Link>
             </li>
-            <li class ="order">
-              <Link to="/Preps" className="nav-link text-truncate text-white fw-bold">
+            <li class ={`${location.pathname ==="/highProtein"?"order":""}`}>
+              <Link to="/highProtein" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">high-protein</span>{" "}
               </Link>
             </li>
-            <li class ="login">
+            {/* <li class ="login"{`${location.pathname ==="/highProtein"?"order":""}`}>
               <Link to="/highProtein" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">highProtein</span>{" "}
               </Link>
-            </li>
-            <li class="customers">
+            </li> */}
+            <li class={`${location.pathname ==="/lowCarb"?"customers":""}`}>
               <Link to="/lowCarb" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">lowCarb</span>{" "}
               </Link>
             </li>
-            <li class="home">
+            <li class={`${location.pathname ==="/lowFat"?"home":""}`}>
               <Link to="/lowFat" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">low-fat</span>{" "}
               </Link>
             </li>
-            <li class="dashboard">
+            <li class={`${location.pathname ==="/Preserve"?"dashboard":""}`}>
               <Link to="/Preserve" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Preserve</span>{" "}
@@ -270,67 +274,67 @@ export default function Sidebar(props) {
             <span className="ms-1 d-none d-sm-inline mode">Health</span>{" "}
               </div>
             </li>
-              <li class="home">
+              <li class={`${location.pathname ==="/alcoholFree"?"home":""}`}>
               <Link to="/alcoholFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">alcohol-Free</span>{" "}
               </Link>
             </li>
-            <li  class ="dashboard">
+            <li  class ={`${location.pathname ==="/eggFree"?"dashboard":""}`}>
               <Link to="/eggFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Egg-free</span>{" "}
               </Link>
             </li>
-            <li class ="order">
+            <li class ={`${location.pathname ==="/glutenFree"?"order":""}`}>
               <Link to="/glutenFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">gluten-free</span>{" "}
               </Link>
             </li>
-            <li class ="login">
+            <li class ={`${location.pathname ==="/kidneyFriendly"?"login":""}`}>
               <Link to="/kidneyFriendly" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">kidney-Friendly</span>{" "}
               </Link>
             </li>
-            <li class="customers">
+            <li class={`${location.pathname ==="/lowFatAbs"?"customers":""}`}>
               <Link to="/lowFatAbs" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">low-fat-abs</span>{" "}
               </Link>
             </li>
-            <li class="home">
+            <li class={`${location.pathname ==="/lowSugar"?"home":""}`}>
               <Link to="/lowSugar" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">low-sugar</span>{" "}
               </Link>
             </li>
-            <li class="dashboard">
+            <li class={`${location.pathname ==="/mustardFree"?"dashboard":""}`}>
               <Link to="/mustardFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Mustard-free</span>{" "}
               </Link>
             </li>
-            <li class="order">
+            <li class={`${location.pathname ==="/noOilAdded"?"order":""}`}>
               <Link to="/noOilAdded" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">No-oil-added</span>{" "}
               </Link>
             </li>
-            <li class="login">
+            <li class={`${location.pathname ==="/redMeatFree"?"login":""}`}>
               <Link to="/redMeatFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">red-meat-free</span>{" "}
               </Link>
             </li>
-            <li class="customers">
+            <li class={`${location.pathname ==="/vegan"?"customers":""}`}>
               <Link to="/vegan" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">vegan</span>{" "}
               </Link>
             </li>
-            <li class="home">
+            <li class={`${location.pathname ==="/vegetarian"?"home":""}`}>
               <Link to="/vegetarian" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">vegetarian</span>{" "}
@@ -348,55 +352,55 @@ export default function Sidebar(props) {
             <span className="ms-1 d-none d-sm-inline ">Cuisine Type</span>{" "}
               </div>
             </li>
-            <li  class ="home">
+            <li  class ={`${location.pathname ==="/American"?"home":""}`}>
               <Link to="/American" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">American</span>{" "}
               </Link>
             </li>
-            <li  class ="dashboard">
+            <li  class ={`${location.pathname ==="/British"?"dashboard":""}`}>
               <Link to="/British" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">British</span>{" "}
               </Link>
             </li>
-            <li class ="order">
+            <li class ={`${location.pathname ==="/Chinese"?"order":""}`}>
               <Link to="/Chinese" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Chinese</span>{" "}
               </Link>
             </li>
-            <li class ="login">
+            <li class ={`${location.pathname ==="/French"?"login":""}`}>
               <Link to="/French" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">French</span>{" "}
               </Link>
             </li>
-            <li class="customers">
+            <li class={`${location.pathname ==="/Indian"?"Customers":""}`}>
               <Link to="/Indian" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Indian</span>{" "}
               </Link>
             </li>
-            <li class="home">
+            <li class={`${location.pathname ==="/Japanese"?"home":""}`}>
               <Link to="/Japanese" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Japanese</span>{" "}
               </Link>
             </li>
-            <li class="dashboard">
+            <li class={`${location.pathname ==="/Italian"?"dashboard":""}`}>
               <Link to="/Italian" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Italian</span>{" "}
               </Link>
             </li>
-            <li class="order">
+            <li class={`${location.pathname ==="/Mexican"?"order":""}`}>
               <Link to="/Mexican" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline">Mexican</span>{" "}
               </Link>
             </li>
-            <li class="login">
+            <li class={`${location.pathname ==="/SouthAmerican"?"login":""}`}>
               <Link to="/SouthAmerican" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 d-none d-sm-inline ">South-American</span>{" "}
