@@ -1,27 +1,8 @@
-
-
-.zoom {
-
-
-   
-    margin: 0 auto;
-    height:300px;
-    width:500px;
-    transition: width 1s, height 1s, transform 2s;
-
-  }
-  
-  .zoom:hover {
-    height:100%;
-    width:200%;
-
-    /* transform: rotate(360deg); */
-  }
-
-  .drop-text{
+/* dropping text */
+.drop-text{
 
     opacity:0;
-    animation: drop .8s linear forwards;
+    animation: drop .4s linear forwards;
  
 }
 @keyframes drop {

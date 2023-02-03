@@ -8,7 +8,7 @@ export default function Searchbar(props) {
   return (
     <>
       <section
-        className="header-main border-bottom border border-dark"
+        className="header-main border-bottom border border-dark "
         id="Searchbar"
         
       >
@@ -38,7 +38,7 @@ export default function Searchbar(props) {
 </div>
 
 </div>
-<div className="m-2">
+<div className="m-2 ">
                   <Button type="success" label="Search"></Button>
                 
                 </div>   

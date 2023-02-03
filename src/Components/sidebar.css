@@ -6,10 +6,9 @@
 
 }
 
-
 li{
    min-width: 100%;
-     
+  
    cursor: pointer;
  
 color: gray;
@@ -27,20 +26,24 @@ li{
 
 
 li::before {
-  
+
   transform: scale(.9);
   z-index: -1;
 }
 li:hover::before {
     transform: scale(1.5);
-  box-shadow: 0 0 15px #ffee10;
+
 }
 li:hover {
+  border-radius: 50px;
+  font-size: larger;
     width:100%;
-    color: #ffee10;
-    background-color: #ecbc0e67;
-  box-shadow: 2px 2px 10px #ffee10;
-  text-shadow: 2px 2px 10px #ffee10;
+    height:50px;
+  
+    text-align: center;
+   
+
+  text-shadow: 8px 8px 10px #171716;
 }
 .offcanvas-header{
     animation: move 5s,2;
@@ -57,49 +60,60 @@ li:hover {
       transform: translatey(-16.5vmin);
     }
   }
+/* //properties applied to elements with the class home */
+.home{
 
-#home{
     background: #016D9E;
 }
-#home:hover{
+.home:hover{
+
     background: #05a3ed; 
-    box-shadow: 2px 2px 10px #05b0ff;;
-  text-shadow: 2px 2px 10px #2b2c2c;; 
+    box-shadow: 2px 2px 10px #05b0ff;
+  text-shadow: 2px 2px 10px #2b2c2c;
 }
-#dashboard{
+/* //properties applied to elements with the class dashboard */
+.dashboard{
     background: #0BC3C3;
 }
-#dashboard:hover{
+.dashboard:hover{
     background: #08fefe;  
+    box-shadow: 2px 2px 10px #383c3c;
 }
-#order{
-    background: #CDE7F6;
+/* //properties applied to elements with the class order */
+.order{
+    background: #06480de2;
 }
-#login{
-    background: #FEE2D6;
+.order:hover{
+  background: #0a8015e2;
+  box-shadow: 2px 2px 10px #112733;
+
+}
+/* //properties applied to elements with the class login */
+.login{
+    background: #92360f;
    
 }
-#customers{
-    background: #D298B1;
+.login:hover{
+  background: #93583f;
+  box-shadow: 2px 2px 10px #180f0b;
 }
-#bread{
-background-color: #C0392B;
+.customers{
+    background: #650d33;
+}
+.customers:hover{
+background-color: #8f3b5f;
+box-shadow: 2px 2px 10px #490924;
+}
 
+.category-heading{
+  background-color: #1B2631; 
 }
-#bread:hover{
-    background: #ff9d92; 
-    box-shadow: 2px 2px 10px #ff0505;;
-  text-shadow: 2px 2px 10px #e7471b;; 
+.category-heading:hover{
+  background-color: #6a7075; 
+  box-shadow: #9fa4a7;
+  text-shadow: #101010;
 }
-#cereals{
-    background-color: rgb(136, 78, 160);}
-
-#cereals:hover{
-    background-color: rgb(119, 106, 125);
-    box-shadow:rgb(161, 21, 221) ;
-    text-shadow:rgb(170, 105, 198) ;
-    
-}
+/* moving element animation */
 li{
     transition:
     width 5s,

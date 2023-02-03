@@ -5,7 +5,7 @@ export default function RecipeItem(props) {
   return (
     <>
       <div
-        className="card border border-dark shadow-lg "
+        className="card border border-dark shadow-lg drop-text "
         style={{ backgroundColor: props.topLeftColor }}
       >
         <div className="d-flex ">
@@ -21,7 +21,7 @@ export default function RecipeItem(props) {
               style={{ zIndex:"1" }}
             />
           </div>
-          <div className="p-1 flex-fill bd-highlight " style={{ width: "50%" }}  >
+          <div className="p-1 flex-fill bd-highlight   " style={{ width: "50%" }}  >
             <h4 className={`fw-bold text-${props.headingColor}`}  >
               {props.title}
             </h4>
