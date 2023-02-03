@@ -7,12 +7,13 @@
     margin: 0 auto;
     height:300px;
     width:500px;
-    transition: width 2s, height 2s, transform 2s;
+    transition: width 1s, height 1s, transform 2s;
+
   }
   
   .zoom:hover {
     height:100%;
     width:200%;
-   
-    transform: rotate(360deg);
+
+    /* transform: rotate(360deg); */
   }
