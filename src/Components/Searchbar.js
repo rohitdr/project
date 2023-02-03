@@ -1,5 +1,5 @@
 import React from "react";
-import './sidebar.css'
+
 import Button from "./Button";
 import './searchbar.css'
 import NavbarToggler from "./NavbarToggler";
@@ -7,16 +7,19 @@ export default function Searchbar(props) {
  
   return (
     <>
+     <div class="cube"> </div>
       <section
         className="header-main border-bottom border border-dark "
         id="Searchbar"
         
       >
         <div className="container-fluid">
+       
           <div className="row  pt-3 pb-3 d-flex align-items-center">
             <div className="col-md-4">
               <div className="d-flex form-inputs">
                 <div className="col-md-12 m-2 p-1">
+                
                   <NavbarToggler></NavbarToggler>
                 </div>
 
@@ -44,13 +47,13 @@ export default function Searchbar(props) {
                 </div>   
              
                 <div className="d-flex flex-column col-md-2 ">
-                  <Button
+                  {/* <Button
                     type={props.type}
                     label={props.label}
                     onClick={props.onClick}
                     size={props.size}
                     textcolor={props.textcolor}
-                  ></Button>
+                  ></Button> */}
                 </div>
               </div>
            

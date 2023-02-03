@@ -47,10 +47,11 @@ export default function Recipe_Category(props)  {
     return (
       <>
      
-      
+            <div class="cube"> </div>
           <h1 className={`text-center my-4 fw-bold text-${props.textColor}`}>
             Top - {props.heading}
           </h1>
+          <div class="cube"> </div>
           {loading && <Loader></Loader>}
           <InfiniteScroll
           dataLength={article.length}
@@ -59,11 +60,11 @@ export default function Recipe_Category(props)  {
           loader={<Loader/>}
           >
             <div className="container">
-          <div className="row" >
+          <div className="row " >
             {
               article.map((element) => {
                 return (
-                  <div className="col-md-6 mt-4"  key={element.recipe.uri}>
+                  <div className="col-md-6 mt-4 "  key={element.recipe.uri}>
                     <RecipeItem
                      topLeftColor={props.topLeftColor}
                      headingColor={props.headingColor}

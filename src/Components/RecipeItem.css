@@ -1,0 +1,56 @@
+
+
+
+  
+  .scene {
+   
+   width:100%;
+   height: 600px;
+    perspective: 30em;
+  }
+  @media only screen and (min-width: 1210px ) {
+    .scene{
+    width:100%;
+    height: 380px;
+    }
+  }
+  @media only screen and ( max-width: 770px) {
+    .scene{
+    width:100%;
+    height: 380px;
+    }
+  }
+  
+  .card {
+    width:100%;
+    height:100%;
+    position:relative;
+  
+    transition: transform 4s;
+    transform-style: preserve-3d;
+    transition-delay: 1s;
+  }
+  
+  .face {
+    width:100%;
+    height:100%;
+    word-wrap: break-word;
+
+    color:#FFF;
+ 
+    text-align:center;
+    position:absolute;
+    
+    backface-visibility:hidden;
+  }
+
+  
+  .back {
+    color: white;
+  background-color: rgb(46, 40, 40);
+    transform: rotateY(180deg);
+  }
+  
+  .scene:hover .card {
+    transform: rotateY(180deg);
+  }

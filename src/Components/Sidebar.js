@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from 'react-router-dom';
-
+import './sidebar.css'
 import { Link } from "react-router-dom";
 
 export default function Sidebar(props) {

@@ -1,14 +1,13 @@
 import React from "react";
 import Button from "./Button";
-
+import './RecipeItem.css'
 export default function RecipeItem(props) {
   return (
     <>
-      <div
-        className="card border border-dark shadow-lg drop-text "
-        style={{ backgroundColor: props.topLeftColor }}
-      >
-        <div className="d-flex ">
+     
+     <div class="scene drop-text">
+  <div class="card">
+    <div class="face front">  <div className="d-flex  ">
           <div
             className="p-1 flex-fill bd-highlight"
             style={{ width: "50%" }}
@@ -16,7 +15,7 @@ export default function RecipeItem(props) {
             <img
              
               src={props.ImagesUrl}
-              className="card-img-top rounded  zoom  "
+              className="card-img-top rounded zoom "
               alt=""
               style={{ zIndex:"1" }}
             />
@@ -43,13 +42,41 @@ export default function RecipeItem(props) {
             <span class="visually-hidden">source</span>
           </span>
         </div>
-        <hr className="hr" />
-        <div
+        <div className="card-footer text-muted">
+          <table
+            className={`table table-borderless table-hover  text-${props.headingColor}`}
+          >
+            <tbody>
+              <tr>
+                <td style={{ color: "white", background: "	red" }}>Caution</td>
+                <td style={{ color: "white", background: "	red" }}>
+                  {props.caution.toString().length > 2
+                    ? props.caution.slice(0, 2).toString()
+                    : "___"}
+                </td>
+                <td style={{ color: "white", background: "	green" }}>
+                  Source:&#8594;
+                </td>
+                <td style={{ color: "white", background: "	green" }}>
+                  {props.source}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+        
+        
+        
+        
+        </div>
+    <div class="face back"> <div
           className="card-body "
           style={{ backgroundColor: "rgb(63 52 81 / 15%)" }}
         >
           <h5
-            className={`card-text text-center fw-bold text-${props.headingColor}`}
+            className={`card-text text-center fw-bold text-white`}
           >
             NUTRIENTS
           </h5>
@@ -58,15 +85,15 @@ export default function RecipeItem(props) {
               className="p-2 flex-fill bd-highlight"
               style={{ width: "50%" }}
             >
-              <h3 className={`text-center text-${props.headingColor}`}>
+              <h3 className={`text-center text-white`}>
                 {props.caleroies}Kcal
               </h3>
-              <h5 className={`text-center text-${props.headingColor}`}>
+              <h5 className={`text-center text-white`}>
                 {" "}
                 Fat :{props.fat}g
               </h5>
               <table
-                className={`table table-borderless  table-hover my-4 text-${props.headingColor}`}
+                className={`table table-borderless   my-4 text-white`}
               >
                 <tbody>
                   <tr>
@@ -93,7 +120,7 @@ export default function RecipeItem(props) {
 
             <div className="p-1 flex-fill bd-highlight">
               <table
-                className={` table table-borderless  table-hover text-${props.headingColor}`}
+                className={` table table-borderless  text-white`}
               >
                 <tbody>
                   <tr>
@@ -137,30 +164,18 @@ export default function RecipeItem(props) {
               label="Read More"
             ></Button>
           </div>
-        </div>
-        <div className="card-footer text-muted">
-          <table
-            className={`table table-borderless table-hover  text-${props.headingColor}`}
-          >
-            <tbody>
-              <tr>
-                <td style={{ color: "white", background: "	red" }}>Caution</td>
-                <td style={{ color: "white", background: "	red" }}>
-                  {props.caution.toString().length > 2
-                    ? props.caution.slice(0, 2).toString()
-                    : "___"}
-                </td>
-                <td style={{ color: "white", background: "	green" }}>
-                  Source:&#8594;
-                </td>
-                <td style={{ color: "white", background: "	green" }}>
-                  {props.source}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        </div></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
     </>
   );
 }
