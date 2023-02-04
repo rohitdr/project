@@ -7,6 +7,9 @@
     background-attachment: fixed;
     font-weight: bolder;
     font-size: xx-large;
+    /* opacity:0; */
+    animation: drop .4s linear forwards 1s;
+   
 }
 
 @keyframes gradient {
@@ -27,56 +30,62 @@
    
  
 }
-.R{
-    opacity:0;
+
+.navbar-brand{
+  opacity:0;
   animation: drop .4s linear forwards 2s;
+}
+.R{
+ 
+  opacity:0;
+  animation: drop .4s linear forwards 3s;
  
 }
 .e{
     opacity:0;
-  animation: drop .4s linear forwards 2.2s;
+  animation: drop .4s linear forwards 3.2s;
 }
 .c{
     opacity:0;
-  animation: drop .4s linear forwards 2.6s;
+  animation: drop .4s linear forwards 3.6s;
 }
 .i{
     opacity:0;
-  animation: drop .4s linear forwards 2.8s;
+  animation: drop .4s linear forwards 3.8s;
 }
 .p{
     opacity:0;
-  animation: drop .4s linear forwards 3.0s;
+  animation: drop .4s linear forwards 4.0s;
 }
 .e2{
     opacity:0;
-  animation: drop .4s linear forwards 3.2s;
+  animation: drop .4s linear forwards 4.2s;
 }
 .R2{
     opacity:0;
-  animation: drop .4s linear forwards 3.4s;
+  animation: drop .4s linear forwards 4.4s;
 }
 .i2{
     opacity:0;
-  animation: drop .4s linear forwards 3.6s;
+  animation: drop .4s linear forwards 4.6s;
 }
 .o{
     opacity:0;
-  animation: drop .4s linear forwards 3.8s;
+  animation: drop .4s linear forwards 4.8s;
 }
 .t{
     opacity:0;
-  animation: drop .4s linear forwards 4s;
+  animation: drop .4s linear forwards 5s;
+}
+.search_input{
+  opacity:0;
+  animation: drop .4s linear forwards 5.2s;
+}
+.search_search{
+  opacity:0;
+  animation: drop .4s linear forwards 5.4s; 
 }
 
-@keyframes drop {
-    0% {transform: translateY(-200px) scaleY(0.9); opacity: 0;}
-    5% {opacity: .7;}
-    50% {transform: translateY(0px) scaleY(1); opacity: 1;}
-    65% {transform: translateY(-17px) scaleY(.9); opacity: 1;}
-    75% {transform: translateY(-22px) scaleY(.9); opacity: 1;}
-    100% {transform: translateY(0px) scaleY(1); opacity: 1;}
-  }
 
 
 

@@ -38,8 +38,8 @@ export default function Searchbar(props) {
        
       </ul>
       <form class="d-flex text-white" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-outline-light" type="submit" >Search</button>
+        <input class="form-control me-2 search_input" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-light search_search" type="submit" >Search</button>
       </form>
     </div>
   </div>

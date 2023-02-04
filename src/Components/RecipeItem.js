@@ -6,7 +6,7 @@ export default function RecipeItem(props) {
     <>
     
  
-     <div class="scene drop-text ">
+     <div class="scene ">
   <div class="card">
     <div class="face front">  <div className="d-flex  ">
           <div
