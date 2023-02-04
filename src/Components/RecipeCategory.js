@@ -74,11 +74,11 @@ export default function Recipe_Category(props)  {
                       url={element.recipe.shareAs}
                       health_labels={element.recipe.healthLabels
                         .toString()
-                        .substring(0, 145)}
+                        .substring(0, 60)}
                       Ingridiants={element.recipe.ingredientLines
                         .toString()
                         .replace(",", " and ")
-                        .substring(0, 110)}
+                        .substring(0, 60)}
                       caleroies={Math.ceil(element.recipe.calories)}
                       fat={
                         element.recipe.totalNutrients.FAT.quantity

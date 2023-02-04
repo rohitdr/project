@@ -3,21 +3,23 @@
 .offcanvas{
     background-color: "	#89CFF0";
     padding: 0%;
+  
 
 }
 
-li{
+.li{
    min-width: 100%;
- 
+
    cursor: pointer;
  
 color: gray;
 font-family: Arial, Helvetica, sans-serif;
+
 color: #666;
 
 }
 @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
-li{
+.li{
   min-width: 250px;
 }
 
@@ -25,17 +27,18 @@ li{
 
 
 
-li::before {
+.li::before {
 
   transform: scale(.9);
   z-index: -1;
 }
-li:hover::before {
+.li:hover::before {
     transform: scale(1.5);
 
 }
-li:hover {
-  border-radius: 50px;
+.li:hover {
+  border-right: 5px solid white;
+  border-left: 5px solid white;
   font-size: larger;
     width:100%;
     height:50px;
@@ -63,20 +66,20 @@ li:hover {
 /* //properties applied to elements with the class home */
 
 /* moving element animation */
-li{
+/* .li{
     transition:
     width 5s,
   
     transform 5s;
    
 }
-li:hover{
+.li:hover{
     transition: 5s,1;
   transform: translateX(50%);
   text-align: center;
  
  
-}
+} */
 /* changing backgound color */
 
 .offcanvas {
@@ -99,57 +102,83 @@ li:hover{
         background-position: 0% 0%;
     }
 }
-
+span{
+  font-family: cursive;
+}
 /* coloring of text */
 .home{
+  
+  font-family: cursive;
+  /* background: #016D9E; */
+  font-size: larger;
+  width:100%;
+  height:50px;
 
-  background: #016D9E;
-}
-.home:hover{
+  text-align: center;
+  
+  border-right: 4px solid white;
+  border-left: 4px solid white;
 
-  background: #05a3ed; 
-  box-shadow: 2px 2px 10px #05b0ff;
-text-shadow: 2px 2px 10px #2b2c2c;
+text-shadow: 8px 8px 10px #171716;
 }
+
 /* //properties applied to elements with the class dashboard */
 .dashboard{
+  font-size: larger;
+  width:100%;
+  height:50px;
+
+  text-align: center;
+  border-right: 5px solid white;
+  border-left: 5px solid white;
+
+text-shadow: 8px 8px 10px #171716;
   background: #0BC3C3;
 }
-.dashboard:hover{
-  background: #08fefe;  
-  box-shadow: 2px 2px 10px #383c3c;
-}
+
 /* //properties applied to elements with the class order */
 .order{
+  font-size: larger;
+  width:100%;
+  height:50px;
+
+  text-align: center;
+  border-right: 5px solid white;
+  border-left: 5px solid white;
+
+text-shadow: 8px 8px 10px #171716;
   background: #06480de2;
 }
-.order:hover{
-background: #0a8015e2;
-box-shadow: 2px 2px 10px #112733;
 
-}
 /* //properties applied to elements with the class login */
 .login{
+  font-size: larger;
+  width:100%;
+  height:50px;
+
+  text-align: center;
+  border-right: 5px solid white;
+  border-left: 5px solid white;
+
+text-shadow: 8px 8px 10px #171716;
   background: #92360f;
  
 }
-.login:hover{
-background: #93583f;
-box-shadow: 2px 2px 10px #180f0b;
-}
+
 .customers{
+  font-size: larger;
+  width:100%;
+  height:50px;
+
+  text-align: center;
+  border-right: 5px solid white;
+  border-left: 5px solid white;
+
+text-shadow: 8px 8px 10px #171716;
   background: #650d33;
 }
-.customers:hover{
-background-color: #8f3b5f;
-box-shadow: 2px 2px 10px #490924;
-}
+
 
 .category-heading{
 background-color: #1B2631; 
-}
-.category-heading:hover{
-background-color: #6a7075; 
-box-shadow: #9fa4a7;
-text-shadow: #101010;
 }
