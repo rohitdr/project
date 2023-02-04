@@ -8,7 +8,7 @@
     height:300px;
     width:500px;
     transition: width 1s, height 1s, transform 2s;
-
+   
   }
   
   .zoom:hover {
@@ -33,6 +33,7 @@
 	100% {transform: translateY(0px) scaleY(1); opacity: 1;}
   }
 
+  /* body animation */
   body {
     background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
    
@@ -103,3 +104,4 @@
     opacity: 0;
   }
 }
+/* body animation ends */

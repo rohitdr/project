@@ -4,8 +4,9 @@ import './RecipeItem.css'
 export default function RecipeItem(props) {
   return (
     <>
-     
-     <div class="scene drop-text">
+    
+ 
+     <div class="scene drop-text ">
   <div class="card">
     <div class="face front">  <div className="d-flex  ">
           <div
@@ -18,8 +19,10 @@ export default function RecipeItem(props) {
               className="card-img-top rounded zoom "
               alt=""
               style={{ zIndex:"1" }}
+             
             />
           </div>
+       
           <div className="p-1 flex-fill bd-highlight   " style={{ width: "50%" }}  >
             <h4 className={`fw-bold text-${props.headingColor}`}  >
               {props.title}
@@ -42,6 +45,7 @@ export default function RecipeItem(props) {
             <span class="visually-hidden">source</span>
           </span>
         </div>
+       
         <div className="card-footer text-muted">
           <table
             className={`table table-borderless table-hover  text-${props.headingColor}`}
@@ -64,13 +68,14 @@ export default function RecipeItem(props) {
             </tbody>
           </table>
         </div>
-        
+
         
         
         
         
         
         </div>
+   
     <div class="face back"> <div
           className="card-body "
           style={{ backgroundColor: "rgb(63 52 81 / 15%)" }}

@@ -7,7 +7,7 @@ export default function Searchbar(props) {
  
   return (
     <>
-     <div class="cube"> </div>
+
       <section
         className="header-main border-bottom border border-dark "
         id="Searchbar"

@@ -42,16 +42,16 @@ export default function Recipe_Category(props)  {
   }
   useEffect( () => {
    initailizing();
+   // eslint-disable-next-line
   },[])
 
     return (
       <>
-     
-            <div class="cube"> </div>
+            
           <h1 className={`text-center my-4 fw-bold text-${props.textColor}`}>
             Top - {props.heading}
           </h1>
-          <div class="cube"> </div>
+       
           {loading && <Loader></Loader>}
           <InfiniteScroll
           dataLength={article.length}
@@ -59,6 +59,7 @@ export default function Recipe_Category(props)  {
           hasMore={article.length !== count}
           loader={<Loader/>}
           >
+            
             <div className="container">
           <div className="row " >
             {
@@ -108,8 +109,7 @@ export default function Recipe_Category(props)  {
           </div>
           </InfiniteScroll>
          
-        
-
+          
       </>
     );
   }
