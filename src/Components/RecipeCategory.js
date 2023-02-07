@@ -9,10 +9,11 @@ export default function Recipe_Category(props)  {
   const[loading, setLoading] = useState(true)
   const[nextPage, setNextPage]= useState("")
   const [count , setCount]=useState(0)
-  
+  var animation_number=1.1
    const fetchMoreData = async () => {
+    setLoading(true)
     let url = nextPage;
-    
+   
     
     let data = await fetch(url);
     let parse_data = await data.json();
@@ -48,7 +49,8 @@ export default function Recipe_Category(props)  {
     return (
       <>
             
-          <h1 className={`text-center my-4 fw-bold text-${props.textColor}`}>
+          <h1 className={`text-center my-4 fw-bold text-${props.textColor}`} style={{opacity:"0",
+  animation:"drop .4s linear forwards 1s"}}>
             Top - {props.heading}
           </h1>
        
@@ -60,12 +62,19 @@ export default function Recipe_Category(props)  {
           loader={<Loader/>}
           >
             
-            <div className="container">
+            <div className="container" >
+         
           <div className="row " >
             {
               article.map((element) => {
+                
+                animation_number+=0.5
+                if(animation_number>=11.6){
+                  animation_number=0.5
+                }
                 return (
-                  <div className="col-md-6 mt-4 "  key={element.recipe.uri}>
+                  <div className="col-md-6 mt-4 "  style={{opacity:"0",
+                  animation:`drop .4s linear forwards ${animation_number}s`} } key={element.recipe.uri}>
                     <RecipeItem
                      topLeftColor={props.topLeftColor}
                      headingColor={props.headingColor}
@@ -74,11 +83,11 @@ export default function Recipe_Category(props)  {
                       url={element.recipe.shareAs}
                       health_labels={element.recipe.healthLabels
                         .toString()
-                        .substring(0, 145)}
+                        .substring(0, 60)}
                       Ingridiants={element.recipe.ingredientLines
                         .toString()
                         .replace(",", " and ")
-                        .substring(0, 110)}
+                        .substring(0, 60)}
                       caleroies={Math.ceil(element.recipe.calories)}
                       fat={
                         element.recipe.totalNutrients.FAT.quantity
@@ -102,9 +111,13 @@ export default function Recipe_Category(props)  {
                       vitamin_e={element.recipe.totalNutrients.TOCPHA.quantity}
                       vitamin_k={element.recipe.totalNutrients.VITK1.quantity}
                     ></RecipeItem>
+                  
                   </div>
                 );
-              })}
+          
+              }) 
+            
+              }
           </div>
           </div>
           </InfiniteScroll>
@@ -112,5 +125,6 @@ export default function Recipe_Category(props)  {
           
       </>
     );
+   
   }
 

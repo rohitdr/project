@@ -1,23 +1,28 @@
 
 
 
-  
+  .badge{
+    top: 0.25%;
+  left: 8%;
+
+  }
   .scene {
-   
    width:100%;
-   height: 600px;
+   height: 800px;
     perspective: 30em;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   @media only screen and (min-width: 1210px ) {
     .scene{
     width:100%;
-    height: 380px;
+    height: 400px;
     }
   }
   @media only screen and ( max-width: 770px) {
     .scene{
     width:100%;
-    height: 380px;
+    height: 450px;
     }
   }
   

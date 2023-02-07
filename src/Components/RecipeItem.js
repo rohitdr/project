@@ -6,7 +6,7 @@ export default function RecipeItem(props) {
     <>
     
  
-     <div class="scene drop-text ">
+     <div class="scene ">
   <div class="card">
     <div class="face front">  <div className="d-flex  ">
           <div
@@ -40,10 +40,7 @@ export default function RecipeItem(props) {
               {props.Ingridiants}.....
             </p>
           </div>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {props.time === 0 ? "Default" : props.time + "min"}
-            <span class="visually-hidden">source</span>
-          </span>
+         
         </div>
        
         <div className="card-footer text-muted">
@@ -68,8 +65,11 @@ export default function RecipeItem(props) {
             </tbody>
           </table>
         </div>
-
-        
+        {/* <span class="position-absolute  translate-middle badge rounded-pill bg-danger" style={{zIndex:"99999990"}}>
+            {props.time === 0 ? "Default" : props.time + "min"}
+            <span class="visually-hidden">source</span>
+          </span> */}
+         
         
         
         
