@@ -40,10 +40,7 @@ export default function RecipeItem(props) {
               {props.Ingridiants}.....
             </p>
           </div>
-          <span class="position-absolute top-50 start-2 translate-middle badge rounded-pill bg-danger" style={{zIndex:"99999990"}}>
-            {props.time === 0 ? "Default" : props.time + "min"}
-            <span class="visually-hidden">source</span>
-          </span>
+         
         </div>
        
         <div className="card-footer text-muted">
@@ -68,8 +65,11 @@ export default function RecipeItem(props) {
             </tbody>
           </table>
         </div>
-
-        
+        {/* <span class="position-absolute  translate-middle badge rounded-pill bg-danger" style={{zIndex:"99999990"}}>
+            {props.time === 0 ? "Default" : props.time + "min"}
+            <span class="visually-hidden">source</span>
+          </span> */}
+         
         
         
         
