@@ -39,10 +39,11 @@ export default function Sidebar(props) {
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu"
           >
-            <li className={`nav-item li ${location.pathname ==="/home"?"home":""}`}>
+            <li className={`nav-item li  ${location.pathname ==="/home"?"home":""}`}>
               <Link to="/home" className={`nav-link text-truncate text-white fw-bold`}>
                 <i className=" fa-sharp fa-solid fa-house"></i>
-                <span className=" mode">Home</span>
+                <span className="mode">Ho</span>
+                <span className="">me</span>
               </Link>
             </li>
             <li class ={` li ${location.pathname ==="/dashboard"?"dashboard":""}`}>
@@ -85,37 +86,37 @@ export default function Sidebar(props) {
             <li class ="category-heading li">
               <div className={`nav-link text-truncate text-white fw-bold`}>
               <i className=" fs-5 fa-solid fa-list text-white p-1"></i>
-            <span className="ms-1 d-none d-sm-inline ">Meal-Type</span>{" "}
+            <span className="ms-1   ">Meal-Type</span>{" "}
               </div>
             </li>
             <li class ={` li ${location.pathname ==="/Dinner"?"home":""}`}>
               <Link to="/Dinner" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
-                <span className="ms-1 d-none d-sm-inline">Dinner</span>{" "}
+                <span className="ms-1">Dinner</span>{" "}
               </Link>
             </li>
             <li  class ={` li ${location.pathname ==="/Breakfast"?"dashboard":""}`}>
               <Link to="/Breakfast" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
-                <span className="ms-1 d-none d-sm-inline">Breakfast</span>{" "}
+                <span className="ms-1">Breakfast</span>{" "}
               </Link>
             </li>
             <li class ={`li ${location.pathname ==="/Lunch"?"order":""}`}>
               <Link to="/Lunch" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
-                <span className="ms-1 d-none d-sm-inline">Lunch</span>{" "}
+                <span className="ms-1">Lunch</span>{" "}
               </Link>
             </li>
             <li class ={` li ${location.pathname ==="/Snack"?"login":""}`}>
               <Link to="/Snack" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
-                <span className="ms-1 d-none d-sm-inline">Snacks</span>{" "}
+                <span className="ms-1">Snacks</span>{" "}
               </Link>
             </li>
             <li class={` li ${location.pathname ==="/Teatime"?"customers":""}`}>
               <Link to="/Teatime" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
-                <span className="ms-1 d-none d-sm-inline">Teatime</span>{" "}
+                <span className="ms-1">Teatime</span>{" "}
               </Link>
             </li>
             {/* heading */}
@@ -127,13 +128,13 @@ export default function Sidebar(props) {
             <li class ="category-heading li">
               <div className={`nav-link text-truncate text-white fw-bold`}>
               <i className=" fs-5 fa-solid fa-list  text-white p-1"></i>
-            <span className="ms-1 d-none d-sm-inline  ">Dish-Type</span>{" "}
+            <span className="ms-1 ">Dish-Type</span>{" "}
               </div>
             </li>
             <li  class ={` li ${location.pathname ==="/Bread"?"home":""}`}>
               <Link to="/Bread" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Bread</span>{" "}
+                <span className="ms-1">Bread</span>{" "}
               </Link>
             </li>
 
@@ -141,73 +142,73 @@ export default function Sidebar(props) {
             <li  class ={`li ${location.pathname ==="/Cereals"?"dashboard":""}`}>
               <a href="/Cereals" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Cereals</span>{" "}
+                <span className="ms-1">Cereals</span>{" "}
               </a>
             </li>
             <li class ={`${location.pathname ==="/Condiments And Sauces"?"order":""}`}>
               <Link to="/Condiments And Sauces" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Condiments And Sauces</span>{" "}
+                <span className="ms-1">Condiments And Sauces</span>{" "}
               </Link>
             </li>
             <li class ={`li ${location.pathname ==="/Desserts"?"login":""}`}>
               <Link to="/Desserts" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Desserts</span>{" "}
+                <span className="ms-1">Desserts</span>{" "}
               </Link>
             </li>
             <li class ={`li ${location.pathname ==="/Drinks"?"customers":""}`}>
               <Link to="/Drinks" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Drinks</span>{" "}
+                <span className="ms-1">Drinks</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/MainCourse"?"home":""}`}>
               <Link to="/MainCourse" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">MainCourse</span>{" "}
+                <span className="ms-1">MainCourse</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Pancake"?"dashboard":""}`}>
               <Link to="/Pancake" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Pancake</span>{" "}
+                <span className="ms-1">Pancake</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/preps"?"order":""}`}>
               <Link to="/Preps" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Preps</span>{" "}
+                <span className="ms-1">Preps</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/salad"?"login":""}`}>
               <Link to="/Salad" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Salad</span>{" "}
+                <span className="ms-1">Salad</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Sandwiches"?"customers":""}`}>
               <Link to="/Sandwiches" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Sandwiches</span>{" "}
+                <span className="ms-1">Sandwiches</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Soup"?"home":""}`}>
               <Link to="/Soup" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Soup</span>{" "}
+                <span className="ms-1">Soup</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Starter"?"dashboard":""}`}>
               <Link to="/Starter" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Starter</span>{" "}
+                <span className="ms-1">Starter</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Sweets"?"order":""}`}>
               <Link to="/Sweets" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Sweets</span>{" "}
+                <span className="ms-1">Sweets</span>{" "}
               </Link>
             </li>
             </ul>
@@ -215,52 +216,52 @@ export default function Sidebar(props) {
             <ul
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu">
-            <li class ="category-heading">
+            <li class ="category-heading li">
               <div className={`nav-link text-truncate text-white  fw-bold`}>
               <i className=" fs-5 fa-solid fa-list text-white p-1"></i>
-            <span className="ms-1 d-none d-sm-inline ">Deit-Type</span>{" "}
+            <span className="ms-1 ">Deit-Type</span>{" "}
               </div>
             </li>
             <li  class ={`li ${location.pathname ==="/balanced"?"home":""}`}>
               <Link to="/balanced" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">balanced</span>{" "}
+                <span className="ms-1">balanced</span>{" "}
               </Link>
             </li>
             <li  class ={`li ${location.pathname ==="/highFiber"?"dashboard":""}`}>
               <Link to="/highFiber" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">HighFiber</span>{" "}
+                <span className="ms-1">HighFiber</span>{" "}
               </Link>
             </li>
             <li class ={`li ${location.pathname ==="/highProtein"?"order":""}`}>
               <Link to="/highProtein" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">high-protein</span>{" "}
+                <span className="ms-1">high-protein</span>{" "}
               </Link>
             </li>
             {/* <li class ="login"{`${location.pathname ==="/highProtein"?"order":""}`}>
               <Link to="/highProtein" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">highProtein</span>{" "}
+                <span className="ms-1">highProtein</span>{" "}
               </Link>
             </li> */}
             <li class={`li ${location.pathname ==="/lowCarb"?"customers":""}`}>
               <Link to="/lowCarb" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">lowCarb</span>{" "}
+                <span className="ms-1">lowCarb</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/lowFat"?"home":""}`}>
               <Link to="/lowFat" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">low-fat</span>{" "}
+                <span className="ms-1">low-fat</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Preserve"?"dashboard":""}`}>
               <Link to="/Preserve" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Preserve</span>{" "}
+                <span className="ms-1">Preserve</span>{" "}
               </Link>
             </li>
             
@@ -272,73 +273,73 @@ export default function Sidebar(props) {
                <li  class ="category-heading li">
               <div className={`nav-link text-truncate text-white fw-bold`}>
               <i className=" fs-5 fa-solid fa-list text-white p-1"></i>
-            <span className="ms-1 d-none d-sm-inline mode">Health</span>{" "}
+            <span className="ms-1 mode">Health</span>{" "}
               </div>
             </li>
               <li class={` li ${location.pathname ==="/alcoholFree"?"home":""}`}>
               <Link to="/alcoholFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">alcohol-Free</span>{" "}
+                <span className="ms-1">alcohol-Free</span>{" "}
               </Link>
             </li>
             <li  class ={`li ${location.pathname ==="/eggFree"?"dashboard":""}`}>
               <Link to="/eggFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Egg-free</span>{" "}
+                <span className="ms-1">Egg-free</span>{" "}
               </Link>
             </li>
             <li class ={`li ${location.pathname ==="/glutenFree"?"order":""}`}>
               <Link to="/glutenFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">gluten-free</span>{" "}
+                <span className="ms-1">gluten-free</span>{" "}
               </Link>
             </li>
             <li class ={`li ${location.pathname ==="/kidneyFriendly"?"login":""}`}>
               <Link to="/kidneyFriendly" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">kidney-Friendly</span>{" "}
+                <span className="ms-1">kidney-Friendly</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/lowFatAbs"?"customers":""}`}>
               <Link to="/lowFatAbs" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">low-fat-abs</span>{" "}
+                <span className="ms-1">low-fat-abs</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/lowSugar"?"home":""}`}>
               <Link to="/lowSugar" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">low-sugar</span>{" "}
+                <span className="ms-1">low-sugar</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/mustardFree"?"dashboard":""}`}>
               <Link to="/mustardFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Mustard-free</span>{" "}
+                <span className="ms-1">Mustard-free</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/noOilAdded"?"order":""}`}>
               <Link to="/noOilAdded" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">No-oil-added</span>{" "}
+                <span className="ms-1">No-oil-added</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/redMeatFree"?"login":""}`}>
               <Link to="/redMeatFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">red-meat-free</span>{" "}
+                <span className="ms-1">red-meat-free</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/vegan"?"customers":""}`}>
               <Link to="/vegan" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">vegan</span>{" "}
+                <span className="ms-1">vegan</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/vegetarian"?"home":""}`}>
               <Link to="/vegetarian" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">vegetarian</span>{" "}
+                <span className="ms-1">vegetarian</span>{" "}
               </Link>
             </li>
              
@@ -350,61 +351,61 @@ export default function Sidebar(props) {
                <li class ="category-heading li">
               <div className={`nav-link text-truncate text-white fw-bold`}>
               <i className=" fs-5 fa-solid fa-list text-white p-1"></i>
-            <span className="ms-1 d-none d-sm-inline ">Cuisine Type</span>{" "}
+            <span className="ms-1 ">Cuisine Type</span>{" "}
               </div>
             </li>
             <li  class ={`li ${location.pathname ==="/American"?"home":""}`}>
               <Link to="/American" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">American</span>{" "}
+                <span className="ms-1">American</span>{" "}
               </Link>
             </li>
             <li  class ={`li ${location.pathname ==="/British"?"dashboard":""}`}>
               <Link to="/British" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">British</span>{" "}
+                <span className="ms-1">British</span>{" "}
               </Link>
             </li>
             <li class ={`li ${location.pathname ==="/Chinese"?"order":""}`}>
               <Link to="/Chinese" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Chinese</span>{" "}
+                <span className="ms-1">Chinese</span>{" "}
               </Link>
             </li>
             <li class ={`li ${location.pathname ==="/French"?"login":""}`}>
               <Link to="/French" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">French</span>{" "}
+                <span className="ms-1">French</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Indian"?"Customers":""}`}>
               <Link to="/Indian" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Indian</span>{" "}
+                <span className="ms-1">Indian</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Japanese"?"home":""}`}>
               <Link to="/Japanese" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Japanese</span>{" "}
+                <span className="ms-1">Japanese</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Italian"?"dashboard":""}`}>
               <Link to="/Italian" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Italian</span>{" "}
+                <span className="ms-1">Italian</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/Mexican"?"order":""}`}>
               <Link to="/Mexican" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline">Mexican</span>{" "}
+                <span className="ms-1">Mexican</span>{" "}
               </Link>
             </li>
             <li class={`li ${location.pathname ==="/SouthAmerican"?"login":""}`}>
               <Link to="/SouthAmerican" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
-                <span className="ms-1 d-none d-sm-inline ">South-American</span>{" "}
+                <span className="ms-1 ">South-American</span>{" "}
               </Link>
             </li>
            

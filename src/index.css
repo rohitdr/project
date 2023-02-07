@@ -23,7 +23,7 @@
     opacity:0;
     animation: drop .8s linear forwards;
  
-}
+  }
 @keyframes drop {
 	0% {transform: translateY(-200px) scaleY(0.9); opacity: 0;}
 	5% {opacity: .7;}
@@ -32,6 +32,7 @@
 	75% {transform: translateY(-22px) scaleY(.9); opacity: 1;}
 	100% {transform: translateY(0px) scaleY(1); opacity: 1;}
   }
+
 
   /* body animation */
   body {
@@ -104,4 +105,5 @@
     opacity: 0;
   }
 }
+
 /* body animation ends */

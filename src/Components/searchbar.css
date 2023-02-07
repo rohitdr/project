@@ -7,7 +7,7 @@
     background-attachment: fixed;
     font-weight: bolder;
     font-size: xx-large;
-    /* opacity:0; */
+
     animation: drop .4s linear forwards 1s;
    
 }
@@ -23,20 +23,20 @@
         background-position: 0% 0%;
     }
 }
+
 .name{
-    position: relative;
-    display: flex;
- 
-   
+    position: relative; 
  
 }
-
+.R,.e,.c,.i,.p,.e2,.R2,.i2,.o,.t{
+font-size: 30px;
+}
 .navbar-brand{
   opacity:0;
   animation: drop .4s linear forwards 2s;
 }
 .R{
- 
+ margin-left: 10px;
   opacity:0;
   animation: drop .4s linear forwards 3s;
  

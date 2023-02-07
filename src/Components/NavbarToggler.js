@@ -6,8 +6,8 @@ export default function NavbarToggler() {
           
           <button  data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                
- 
-             <i class="fa-solid fa-bars fs-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
+               <span class="navbar-toggler-icon"></span>
+             {/* <i class="fa-solid fa-bars fs-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i> */}
        
           </button> 
   
