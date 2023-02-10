@@ -83,7 +83,7 @@ export default function Recipe_Category(props)  {
                       url={element.recipe.shareAs}
                       health_labels={element.recipe.healthLabels
                         .toString()
-                        .substring(0, 60)}
+                        .substring(0, 120)}
                       Ingridiants={element.recipe.ingredientLines
                         .toString()
                         .replace(",", " and ")
@@ -109,7 +109,7 @@ export default function Recipe_Category(props)  {
                       vitamin_b6={element.recipe.totalNutrients.VITB6A.quantity}
                       vitamin_d={element.recipe.totalNutrients.VITD.quantity}
                       vitamin_e={element.recipe.totalNutrients.TOCPHA.quantity}
-                      vitamin_k={element.recipe.totalNutrients.VITK1.quantity}
+                      // vitamin_k={element.recipe.totalNutrients.VITK1.quantity}
                     ></RecipeItem>
                   
                   </div>

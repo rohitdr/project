@@ -2,12 +2,13 @@ import React from "react";
 import Button from "./Button";
 import './RecipeItem.css'
 export default function RecipeItem(props) {
+
   return (
     <>
     
  
      <div class="scene ">
-  <div class="card">
+  <div class="card" id ="card">
     <div class="face front">  <div className="d-flex  ">
           <div
             className="p-1 flex-fill bd-highlight"
@@ -15,7 +16,7 @@ export default function RecipeItem(props) {
           >
             <img
              
-              src={props.ImagesUrl}
+              src={props.ImagesUrl?props.ImagesUrl:""}
               className="card-img-top rounded zoom "
               alt=""
               style={{ zIndex:"1" }}
@@ -40,10 +41,11 @@ export default function RecipeItem(props) {
               {props.Ingridiants}.....
             </p>
           </div>
-         
+        
         </div>
        
         <div className="card-footer text-muted">
+        
           <table
             className={`table table-borderless table-hover  text-${props.headingColor}`}
           >
@@ -64,6 +66,7 @@ export default function RecipeItem(props) {
               </tr>
             </tbody>
           </table>
+         
         </div>
         {/* <span class="position-absolute  translate-middle badge rounded-pill bg-danger" style={{zIndex:"99999990"}}>
             {props.time === 0 ? "Default" : props.time + "min"}
@@ -118,7 +121,7 @@ export default function RecipeItem(props) {
                     <td>{Math.ceil(props.chole)}g</td>
                   </tr>
                 </tbody>
-              </table>
+              </table> 
 
               {/* <a className="btn btn-primary" href={props.url} role="button">Read More</a> */}
             </div>
@@ -167,6 +170,19 @@ export default function RecipeItem(props) {
               size="large"
               href={props.url}
               label="Read More"
+              
+            ></Button>
+            <Button
+              color="primary"
+              size="large"
+              href={props.url}
+              label="delete"
+            ></Button>
+            <Button
+              color="success"
+              size="large"
+              href={props.url}
+              label="Edit"
             ></Button>
           </div>
         </div></div>

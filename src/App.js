@@ -8,6 +8,8 @@ import { useState } from "react";
 import Individual_Recipe from "./Components/Individual_Recipe";
 import Login from "./Components/Login";
 import LoadingBar from "react-top-loading-bar";
+import RecipeState from "./Context/RecipeState";
+import Profile from "./Components/Profile";
 
 function App() {
 
@@ -336,7 +338,7 @@ function App() {
     }
   };
   return (
-    <>
+    <><RecipeState>
       <LoadingBar
         color="#f11946"
         progress={progress}
@@ -394,6 +396,13 @@ function App() {
               />
             );
           })}
+           <Route
+                exact
+                path='/Profile'
+                element={
+                  <Profile></Profile>
+                }
+              />
           {/* <Route
             exact
             path="/Dinner"
@@ -1140,8 +1149,9 @@ function App() {
         </div> */}
       </BrowserRouter>
       {/* <Individual_Recipe></Individual_Recipe> */}
-    </>
+      </RecipeState></>
   );
+
 }
 
 export default App;

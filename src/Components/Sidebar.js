@@ -58,10 +58,10 @@ export default function Sidebar(props) {
               </a>
             </li>
             <li class ={`li ${location.pathname ==="/order"?"order":""}`}>
-              <a href="/" className="nav-link text-truncate text-white fw-bold">
+              <Link to="/Profile" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-table"></i>
                 <span className="">Orders</span>
-              </a>
+              </Link>
             </li>
            
 
