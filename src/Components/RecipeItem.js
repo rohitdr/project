@@ -2,26 +2,34 @@ import React from "react";
 import Button from "./Button";
 import './RecipeItem.css'
 export default function RecipeItem(props) {
-
+const onclick=()=>{
+console.log("hello")
+  document.getElementsByClassName("card").style.transform =`rotateY(180deg)`;
+}
   return (
     <>
     
  
      <div class="scene ">
-  <div class="card" id ="card">
-    <div class="face front">  <div className="d-flex  ">
+    
+  <div class="card" id ="thiscard">
+  
+    <div class="face front"> 
+     <div className="d-flex  ">
           <div
             className="p-1 flex-fill bd-highlight"
             style={{ width: "50%" }}
           >
             <img
              
-              src={props.ImagesUrl?props.ImagesUrl:""}
-              className="card-img-top rounded zoom "
+              src={props.ImageUrl}
+              className="card-img-top rounded zoom"
               alt=""
               style={{ zIndex:"1" }}
+              onerror="this.src='https://cdn.xxl.thumbs.canstockphoto.com/image-not-available-written-in-chalk-on-a-blackboard-stock-image_csp8317846.jpg'"
              
             />
+            <span class="position-absolute translate-middle badge bg-dark"><i class=" fs-5 fa-regular fa-square-plus" onClick={onclick}></i></span>
           </div>
        
           <div className="p-1 flex-fill bd-highlight   " style={{ width: "50%" }}  >
@@ -79,10 +87,14 @@ export default function RecipeItem(props) {
         
         </div>
    
-    <div class="face back"> <div
+       
+    <div class="face back">
+       <div
           className="card-body "
+
           style={{ backgroundColor: "rgb(63 52 81 / 15%)" }}
-        >
+        >  <span class="position-absolute translate-middle badge bg-dark"><i class=" fs-5 fa-regular fa-square-plus" onClick={onclick}></i></span>
+
           <h5
             className={`card-text text-center fw-bold text-white`}
           >
@@ -122,7 +134,7 @@ export default function RecipeItem(props) {
                   </tr>
                 </tbody>
               </table> 
-
+            
               {/* <a className="btn btn-primary" href={props.url} role="button">Read More</a> */}
             </div>
 
