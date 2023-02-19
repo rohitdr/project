@@ -1,22 +1,5 @@
 
 
-.zoom {
-
-
-   
-    margin: 0 auto;
-    height:300px;
-    width:500px;
-    transition: width 1s, height 1s, transform 2s;
-   
-  }
-  
-  .zoom:hover {
-    height:100%;
-    width:100%;
-
-    /* transform: rotate(360deg); */
-  }
 
   .drop-text{
 
@@ -43,6 +26,9 @@
    min-height: 1000px;
 
     
+  }
+  i:hover{
+cursor: pointer;
   }
   .cube {
     position: absolute;

@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useLocation } from "react-router-dom";
 import Button from "./Button";
 import './RecipeItem.css'
+import RecipeContext from "../Context/RecipeContext";
 export default function RecipeItem(props) {
+
+  const context = useContext(RecipeContext)
+  const {deleteRecipe} = context
+
+  let location = useLocation();
+  React.useEffect(() => {
+   
+  }, [location]);
+
    var deg =180;
-const onclick=()=>{
+const onclickRotate=()=>{
  
 
 document.getElementById(`${props.id}`).style.transform=`rotateY(${deg}deg)`;
 
-deg=deg===180?0:180
+deg=(deg===180)?0:180
 }
   return (
     <>
@@ -26,13 +37,14 @@ deg=deg===180?0:180
             <img
              
               src={props.ImageUrl}
-              className="card-img-top rounded zoom"
+              className="card-img-top rounded"
               alt=""
               style={{ zIndex:"1" }}
               onerror="this.src='https://cdn.xxl.thumbs.canstockphoto.com/image-not-available-written-in-chalk-on-a-blackboard-stock-image_csp8317846.jpg'"
-             
+              height="300px"
+              width="500px"
             />
-            <span class="position-absolute translate-middle badge bg-dark"><i class="fa-solid fs-6 fa-right-left" onClick={onclick}></i></span>
+            <span class="position-absolute translate-middle badge bg-dark"><i class="fa-solid fs-6 fa-right-left" onClick={onclickRotate}></i></span>
           </div>
        
           <div className="p-1 flex-fill bd-highlight   " style={{ width: "50%" }}  >
@@ -96,7 +108,8 @@ deg=deg===180?0:180
           className="card-body "
 
           style={{ backgroundColor: "rgb(63 52 81 / 15%)" }}
-        >  <span class="position-absolute translate-middle badge"><i class="fa-solid fs-6 fa-right-left" onClick={onclick}></i></span>
+        >  <span class="position-absolute translate-middle badge"><i class="fa-solid fs-6 fa-right-left" onClick={onclickRotate}></i><i class="fa-solid fs-6 fa-trash  mx-2" onClick={()=>{
+          deleteRecipe(props.id) }}></i></span>
 
           <h5
             className={`card-text text-center fw-bold text-white`}

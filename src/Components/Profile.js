@@ -1,22 +1,24 @@
 import React, { useContext, useEffect } from "react";
 
 import RecipeContext from "../Context/RecipeContext";
+import BlankRecipeItem from "./BlankRecipeItem";
 import RecipeItem from "./RecipeItem";
 export default  function Profile(props){
-  var id =1;
+
     const context = useContext(RecipeContext)
     const {recipe,allRecipe} = context
-    useEffect(()=>{
-     allRecipe()
-  // eslint-disable-next-line
-    },[])
-   
+   useEffect(()=>{
+     allRecipe()},[])
+  
 return(
 <>
 <div className="container">
 <div className="row my-3">
   
-    <h2>Your Reicpes</h2>
+<h1 className="text-center my-4 fw-bold text-white" style={{opacity:"0",
+  animation:"drop .4s linear forwards 1s"}}>
+          Your Recipes
+          </h1>
   
        {recipe.recipe && recipe.recipe.map((element)=>{
       
@@ -62,7 +64,12 @@ return(
                   </div>
        
        
-       })}</div>
+       })}
+
+   <BlankRecipeItem></BlankRecipeItem>
+ 
+   
+       </div>
 </div>
 </>
 )
