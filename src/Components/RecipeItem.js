@@ -2,20 +2,23 @@ import React from "react";
 import Button from "./Button";
 import './RecipeItem.css'
 export default function RecipeItem(props) {
+   var deg =180;
 const onclick=()=>{
-console.log("hello")
-  document.getElementsByClassName("card").style.transform =`rotateY(180deg)`;
+ 
+
+document.getElementById(`${props.id}`).style.transform=`rotateY(${deg}deg)`;
+
+deg=deg===180?0:180
 }
   return (
     <>
     
  
-     <div class="scene ">
-    
-  <div class="card" id ="thiscard">
+<div class="scene">
+  <div class="card" id={`${props.id}`}>
   
-    <div class="face front"> 
-     <div className="d-flex  ">
+    <div class="face front">
+     <div className="d-flex">
           <div
             className="p-1 flex-fill bd-highlight"
             style={{ width: "50%" }}
@@ -29,7 +32,7 @@ console.log("hello")
               onerror="this.src='https://cdn.xxl.thumbs.canstockphoto.com/image-not-available-written-in-chalk-on-a-blackboard-stock-image_csp8317846.jpg'"
              
             />
-            <span class="position-absolute translate-middle badge bg-dark"><i class=" fs-5 fa-regular fa-square-plus" onClick={onclick}></i></span>
+            <span class="position-absolute translate-middle badge bg-dark"><i class="fa-solid fs-6 fa-right-left" onClick={onclick}></i></span>
           </div>
        
           <div className="p-1 flex-fill bd-highlight   " style={{ width: "50%" }}  >
@@ -93,7 +96,7 @@ console.log("hello")
           className="card-body "
 
           style={{ backgroundColor: "rgb(63 52 81 / 15%)" }}
-        >  <span class="position-absolute translate-middle badge bg-dark"><i class=" fs-5 fa-regular fa-square-plus" onClick={onclick}></i></span>
+        >  <span class="position-absolute translate-middle badge"><i class="fa-solid fs-6 fa-right-left" onClick={onclick}></i></span>
 
           <h5
             className={`card-text text-center fw-bold text-white`}

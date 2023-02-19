@@ -340,9 +340,9 @@ function App() {
   return (
     <><RecipeState>
       <LoadingBar
-        color="#f11946"
+        color='blue'
         progress={progress}
-        length={3}
+        length={10}
         onLoaderFinished={() => setProgress(0)}
       />
       <BrowserRouter>

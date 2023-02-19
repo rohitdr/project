@@ -76,6 +76,7 @@ export default function Recipe_Category(props)  {
                   <div className="col-md-6 mt-4 "  style={{opacity:"0",
                   animation:`drop .4s linear forwards ${animation_number}s`} } key={element.recipe.uri}>
                     <RecipeItem
+                    id={element.recipe.uri}
                      topLeftColor={props.topLeftColor}
                      headingColor={props.headingColor}
                       title={element.recipe.label}
