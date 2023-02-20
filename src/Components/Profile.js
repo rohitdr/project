@@ -65,11 +65,18 @@ return(
        
        
        })}
-        <div className="col-md-6 mt-4">
-   <BlankRecipeItem></BlankRecipeItem>
-   </div>
+       
+
+       <div className="col-md-6 mt-4">
+     <BlankRecipeItem></BlankRecipeItem>
+        </div>
    
        </div>
+   
+   
+     
+      
+       
 </div>
 </>
 )
