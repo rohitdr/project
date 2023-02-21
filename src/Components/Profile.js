@@ -22,12 +22,13 @@ return(
         Add Recipes
           </h1>
 <div className="row">
+<div className="col-md-6 mt-4">
+     <BlankRecipeItem></BlankRecipeItem>
+        </div>
        <div className="col-md-6 mt-4">
      <BlankRecipeItem></BlankRecipeItem>
         </div>
-        <div className="col-md-6 mt-4">
-     <BlankRecipeItem></BlankRecipeItem>
-        </div>
+       
         </div>
 <div className="row my-3">
 

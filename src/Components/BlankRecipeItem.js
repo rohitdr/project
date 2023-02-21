@@ -1,13 +1,343 @@
-import React from "react";
+import React, { useState } from "react";
+import IngrediantsDetails from "./Modals/IngrediantsDetails";
 
 export default function BlankRecipeItem() {
+  let arr =[""];
+  const getselectedElement=(name)=>{
+    var options = document.getElementById(`${name}`).selectedOptions;
+    var Values = Array.from(options).map(({ value }) => value);
+    return Values;
+  }
+
+  const [recipe, setRecipe]=useState({
+    label:"",
+    image:"",
+    
+    source: "",
+    url: "",
+    
+    dietLabels: [],
+    healthLabels: [],
+    cautions: [],
+    ingredientLines: [],
+    // "ingredients": [
+    // {
+    // "text": "2 cups cranberries, picked over",
+    // "quantity": 2,
+    // "measure": "cup",
+    // "food": "cranberries",
+    // "weight": 220,
+    // "foodCategory": "fruit",
+    // "foodId": "food_at0yaana2e4sguapnr728bkczyk9",
+    // "image": "https://www.edamam.com/food-img/945/94511bef5e26f15bb6eac8e950ac79a9.jpg"
+    // },
+    // {
+    // "text": "2 cups water",
+    // "quantity": 2,
+    // "measure": "cup",
+    // "food": "water",
+    // "weight": 474,
+    // "foodCategory": "water",
+    // "foodId": "food_a99vzubbk1ayrsad318rvbzr3dh0",
+    // "image": "https://www.edamam.com/food-img/5dd/5dd9d1361847b2ca53c4b19a8f92627e.jpg"
+    // },
+    // {
+    // "text": "2 cups sugar (see head notes)",
+    // "quantity": 2,
+    // "measure": "cup",
+    // "food": "sugar",
+    // "weight": 400,
+    // "foodCategory": "sugars",
+    // "foodId": "food_axi2ijobrk819yb0adceobnhm1c2",
+    // "image": "https://www.edamam.com/food-img/ecb/ecb3f5aaed96d0188c21b8369be07765.jpg"
+    // }
+    // ],
+    calories: 0,
+    totalWeight:0,
+    totalTime: 0,
+    cuisineType: [
+    ],
+    mealType: [
+   
+    ],
+    dishType: [
+  
+    ],
+    totalNutrients: {
+    ENERC_KCAL: {
+    label: "Energy",
+    quantity: 0,
+    unit: "kcal"
+    },
+    FAT: {
+    label: "Fat",
+    quantity: 0,
+    unit: "g"
+    },
+    CHOCDF: {
+    label: "Carbs",
+    quantity: 0,
+    unit: "g"
+    },
+  
+    FIBTG: {
+    label: "Fiber",
+    quantity:0,
+    unit: "g"
+    },
+    SUGAR: {
+    label: "Sugars",
+    quantity: 0,
+    unit: "g"
+    },
+   
+    PROCNT: {
+    label: "Protein",
+    quantity: 0.8580000000000001,
+    unit: "g"
+    },
+    CHOLE: {
+    label: "Cholesterol",
+    quantity: 0,
+    unit: "mg"
+    },
+   
+    "CA": {
+    "label": "Calcium",
+    "quantity": 35.82,
+    "unit": "mg"
+    },
+   
+   
+    "FE": {
+    "label": "Iron",
+    "quantity": 0.75,
+    "unit": "mg"
+    },
+   
+    
+    "VITA_RAE": {
+    "label": "Vitamin A",
+    "quantity": 6.6000000000000005,
+    "unit": "µg"
+    },
+    "VITC": {
+    "label": "Vitamin C",
+    "quantity": 29.260000000000005,
+    "unit": "mg"
+    },
+    "THIA": {
+    "label": "Thiamin (B1)",
+    "quantity": 0.026400000000000003,
+    "unit": "mg"
+    },
+    "RIBF": {
+    "label": "Riboflavin (B2)",
+    "quantity": 0.12,
+    "unit": "mg"
+    },
+    "NIA": {
+    "label": "Niacin (B3)",
+    "quantity": 0.22220000000000004,
+    "unit": "mg"
+    },
+    "VITB6A": {
+    "label": "Vitamin B6",
+    "quantity": 0.1254,
+    "unit": "mg"
+    },
+    
+   
+   
+    "VITB12": {
+    "label": "Vitamin B12",
+    "quantity": 0,
+    "unit": "µg"
+    },
+    "VITD": {
+    "label": "Vitamin D",
+    "quantity": 0,
+    "unit": "µg"
+    },
+    "TOCPHA": {
+    "label": "Vitamin E",
+    "quantity": 2.64,
+    "unit": "mg"
+    },
+    "VITK1": {
+    "label": "Vitamin K",
+    "quantity": 11.22,
+    "unit": "µg"
+    },
+   
+    "WATER": {
+    "label": "Water",
+    "quantity": 665.2920000000001,
+    "unit": "g"
+    }}
+  }
+    )
+  //  var totalNutrients={
+  //     ENERC_KCAL: {
+  //     label: "Energy",
+  //     quantity : ENERC_KCAL,
+  //     unit: "kcal"
+  //     },
+  //     FAT: {
+  //     label: "Fat",
+  //     quantity: 0,
+  //     unit: "g"
+  //     },
+  //     CHOCDF: {
+  //     label: "Carbs",
+  //     quantity: 0,
+  //     unit: "g"
+  //     },
+    
+  //     FIBTG: {
+  //     label: "Fiber",
+  //     quantity:0,
+  //     unit: "g"
+  //     },
+  //     SUGAR: {
+  //     label: "Sugars",
+  //     quantity: 0,
+  //     unit: "g"
+  //     },
+     
+  //     PROCNT: {
+  //     label: "Protein",
+  //     quantity: 0.8580000000000001,
+  //     unit: "g"
+  //     },
+  //     CHOLE: {
+  //     label: "Cholesterol",
+  //     quantity: 0,
+  //     unit: "mg"
+  //     },
+     
+  //     "CA": {
+  //     "label": "Calcium",
+  //     "quantity": 35.82,
+  //     "unit": "mg"
+  //     },
+     
+     
+  //     "FE": {
+  //     "label": "Iron",
+  //     "quantity": 0.75,
+  //     "unit": "mg"
+  //     },
+     
+      
+  //     "VITA_RAE": {
+  //     "label": "Vitamin A",
+  //     "quantity": 6.6000000000000005,
+  //     "unit": "µg"
+  //     },
+  //     "VITC": {
+  //     "label": "Vitamin C",
+  //     "quantity": 29.260000000000005,
+  //     "unit": "mg"
+  //     },
+  //     "THIA": {
+  //     "label": "Thiamin (B1)",
+  //     "quantity": 0.026400000000000003,
+  //     "unit": "mg"
+  //     },
+  //     "RIBF": {
+  //     "label": "Riboflavin (B2)",
+  //     "quantity": 0.12,
+  //     "unit": "mg"
+  //     },
+  //     "NIA": {
+  //     "label": "Niacin (B3)",
+  //     "quantity": 0.22220000000000004,
+  //     "unit": "mg"
+  //     },
+  //     "VITB6A": {
+  //     "label": "Vitamin B6",
+  //     "quantity": 0.1254,
+  //     "unit": "mg"
+  //     },
+      
+     
+     
+  //     "VITB12": {
+  //     "label": "Vitamin B12",
+  //     "quantity": 0,
+  //     "unit": "µg"
+  //     },
+  //     "VITD": {
+  //     "label": "Vitamin D",
+  //     "quantity": 0,
+  //     "unit": "µg"
+  //     },
+  //     "TOCPHA": {
+  //     "label": "Vitamin E",
+  //     "quantity": 2.64,
+  //     "unit": "mg"
+  //     },
+  //     "VITK1": {
+  //     "label": "Vitamin K",
+  //     "quantity": 11.22,
+  //     "unit": "µg"
+  //     },
+     
+  //     "WATER": {
+  //     "label": "Water",
+  //     "quantity": 665.2920000000001,
+  //     "unit": "g"
+  //     }
+
+  //  }
+  const RecipeAdder=()=>{
+    console.log("adding")
+  }
   const loadFile = (event) => {
     var output = document.getElementById("output");
     output.src = URL.createObjectURL(event.target.files[0]);
     output.onload = function () {
       URL.revokeObjectURL(output.src); // free memory
+      onchangeimage(event)
     };
-  };
+  }
+  const onchangelabel=(e)=>{
+     setRecipe({...recipe, label : e.target.value})
+   
+  }
+  const onchangeimage=(e)=>{
+    setRecipe({...recipe, image : e.target.value})
+  }
+  const onchange=(e)=>{
+    setRecipe({...recipe, [e.target.name] : e.target.value})
+  
+  }
+ 
+  const onchangearray=(e)=>{
+ let Values=getselectedElement(e.target.name)
+    setRecipe({...recipe, [e.target.name] : Values})
+
+  }
+  var ENERC_KCAL_value,FAT_value;
+
+  const settingTotalNutrients=()=>{
+    setRecipe({...recipe, totalNutrients:{ ENERC_KCAL: {
+      label: "Energy",
+      quantity: ENERC_KCAL_value,
+      unit: "kcal"
+  },
+   FAT: {
+    label: "FAT",
+    quantity: FAT_value,
+    unit: "kcal"
+}}}
+)
+ 
+  console.log(recipe.totalNutrients)
+   
+     }
+
   return (
     <>
       {" "}
@@ -24,7 +354,9 @@ export default function BlankRecipeItem() {
                     type="file"
                     className="fileToUpload mx-auto hidden"
                     id="imgInp"
+                    name="image"
                     onChange={loadFile}
+                  
                   />
                   <img id="output" height="300px" width="300px" />
                 </div>
@@ -36,9 +368,11 @@ export default function BlankRecipeItem() {
                   <div className="form-outline">
                     <input
                       type="text"
-                      id="typeText"
+                      id="label"
+                      name="label"
                       placeholder="Enter the title"
                       className="form-control border-dark"
+                      onChange={onchangelabel}
                     />
 
                     <h5 className="card-text text-center fw-bold text-dark">
@@ -52,12 +386,14 @@ export default function BlankRecipeItem() {
                         name="account[first_Ingrediant]"
                         className="form-control border-dark"
                         placeholder="Enter the first Ingrediant"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal1"
                       />
                       <input
                         type="text"
                         name="account[Second_ingrediant]"
                         className="form-control mt-1 border-dark"
                         placeholder="Enter the Second Ingrediant"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal2"
                       />
 
                       <input
@@ -65,6 +401,7 @@ export default function BlankRecipeItem() {
                         name="account[third_Ingrediant]"
                         className="form-control mt-1 border-dark"
                         placeholder="Enter the third Ingrediant"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal3"
                       />
                       <div
                         data-bs-toggle="tooltip"
@@ -83,7 +420,7 @@ export default function BlankRecipeItem() {
                       type="button"
                       className="btn btn-primary"
                       data-bs-toggle="modal"
-                      data-bs-target="#exampleModal1"
+                      data-bs-target="#exampleModal_additional_details"
                     >
                       Add Recipe
                     </button>
@@ -104,9 +441,12 @@ export default function BlankRecipeItem() {
                   : "___"} */}
                         <input
                           type="text"
-                          id="typeText"
+                         
                           placeholder="Enter the caution"
                           className="form-control border-dark"
+                          name="cautions"
+                          id="cautions"
+                        onChange={onchange}
                         />
                       </td>
                       <td style={{ color: "white", background: "	green" }}>
@@ -116,9 +456,12 @@ export default function BlankRecipeItem() {
                         {/* {props.source} */}
                         <input
                           type="text"
-                          id="typeText"
+                          id="source"
                           placeholder="Enter the source"
                           className="form-control border-dark"
+                          name="source"
+                          onChange={onchange}
+
                         />
                       </td>
                     </tr>
@@ -131,7 +474,7 @@ export default function BlankRecipeItem() {
         {/* modal after clicking the add item */}
         <div
           className="modal"
-          id="exampleModal1"
+          id="exampleModal_additional_details"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
@@ -154,84 +497,59 @@ export default function BlankRecipeItem() {
                   <label className="form-label text-dark fw-bold" for="typeURL">
                     Enter Source Url
                   </label>
-                  <input type="url" id="typeURL" className="form-control" />
+                  <input type="url" id="url" className="form-control" name="url" onChange={onchange} />
+                </div>
+                <div className="form-outline">
+                  <label className="form-label text-dark fw-bold" for="typeURL">
+                    Enter calories
+                  </label>
+                  <input type="number"  className="form-control" name="calories"  id="calories" onChange={onchange}/>
+                </div>
+                <div className="form-outline">
+                  <label className="form-label text-dark fw-bold" for="typeURL">
+                    Enter TotalWeight
+                  </label>
+                  <input type="number"  className="form-control" name="totalWeight"  id="totalWeight" onChange={onchange} />
+                </div>
+                <div className="form-outline">
+                  <label className="form-label text-dark fw-bold" for="typeURL">
+                    Enter TotalTime
+                  </label>
+                  <input type="number" id="totalTime" className="form-control" name="totalTime"   onChange={onchange} />
                 </div>
                 {/* dietlabels */}
+                <select multiple="multiple" class="form-select" id="dietLabels" name="dietLabels" onChange={onchangearray}>
+
+
                 <label className="form-label text-dark fw-bold">
-                  Choose the Diet-Labels
+                  Choose the Diet Labels
                 </label>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label className="form-check-label" for="flexCheckDefault">
-                    Low-Sodium
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label className="form-check-label" for="flexCheckDefault">
-                    Low-Fat
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label className="form-check-label" for="flexCheckDefault">
-                    High-Fiber
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label className="form-check-label" for="flexCheckDefault">
-                    Balanced
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label className="form-check-label" for="flexCheckDefault">
-                    High-Protein
-                  </label>
-                </div>
-                <div className="form-check">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label className="form-check-label" for="flexCheckDefault">
-                    Low-Carb
-                  </label>
-                </div>
+
+      <option value="balanced"> balanced  </option>
+
+
+      <option value="high-fiber"> high-fiber  </option>
+
+
+      <option value="high-protein"> high-protein  </option>
+
+
+      <option value="low-carb"> low-carb  </option>
+
+
+      <option value="low-fat"> low-fat  </option>
+
+
+      <option value="low-sodium"> low-sodium  </option>
+
+
+  </select>
 
                 {/* healthLabel */}
                 <label className="form-label text-dark fw-bold">
                   Choose the Health Labels
                 </label>
-                <select multiple="multiple" className="form-select" name="health">
+                <select multiple="multiple" className="form-select" name="healthLabels" id="healthLabels" onChange={onchangearray}>
                   <option value="alcohol-cocktail"> alcohol-cocktail </option>
 
                   <option value="alcohol-free"> alcohol-free </option>
@@ -313,6 +631,8 @@ export default function BlankRecipeItem() {
                   multiple="multiple"
                   className="form-select"
                   name="cuisineType"
+                  id="cuisineType"
+                  onChange={onchangearray}
                 >
                   <option value="American"> American </option>
 
@@ -355,7 +675,7 @@ export default function BlankRecipeItem() {
                 <label className="form-label text-dark fw-bold">
                   Choose the Meal Type
                 </label>
-                <select multiple="multiple" className="form-select" name="mealType">
+                <select multiple="multiple" className="form-select" name="mealType" id="mealType"  onChange={onchangearray}>
                   <option value="Breakfast"> Breakfast </option>
 
                   <option value="Dinner"> Dinner </option>
@@ -370,7 +690,7 @@ export default function BlankRecipeItem() {
                 <label className="form-label text-dark fw-bold">
                   Choose the Dish Type
                 </label>
-                <select multiple="multiple" className="form-select" name="dishType">
+                <select multiple="multiple" className="form-select" name="dishType" id="dishType"  onChange={onchangearray}>
                   <option value="Biscuits and cookies">
                     {" "}
                     Biscuits and cookies{" "}
@@ -413,7 +733,7 @@ export default function BlankRecipeItem() {
                   type="button"
                   className="btn btn-primary mt-2"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal2"
+                  data-bs-target="#exampleModal_nutritional_details"
                 >
                   Add Nutritional Details
                 </button>
@@ -426,8 +746,8 @@ export default function BlankRecipeItem() {
                 >
                   Close
                 </button>
-                <button type="button" className="btn btn-primary">
-                  Next
+                <button type="button" className="btn btn-primary" onClick={RecipeAdder}  data-bs-dismiss="modal">
+                  Add Recipe
                 </button>
               </div>
             </div>
@@ -461,19 +781,23 @@ export default function BlankRecipeItem() {
                     type="text"
                     id="typeText"
                     className="form-control border-dark"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal4"
                   />
                   <label className="form-label fw-bold" for="typeText">
                     Fourth Ingrediants
                   </label>
                 </div>
                 <div className="form-outline">
-                  <input type="text" id="typeText" className="form-control" />
+                  <input type="text" id="typeText" className="form-control"  data-bs-toggle="modal"
+                          data-bs-target="#exampleModal5" />
                   <label className="form-label fw-bold" for="typeText">
                     Fifth Ingrediants
                   </label>
                 </div>
                 <div className="form-outline">
-                  <input type="text" id="typeText" className="form-control" />
+                  <input type="text" id="typeText" className="form-control"  data-bs-toggle="modal"
+                          data-bs-target="#exampleModal6" />
                   <label className="form-label fw-bold" for="typeText">
                     Sixeth Ingrediants
                   </label>
@@ -498,7 +822,7 @@ export default function BlankRecipeItem() {
         {/* modal for adding totalNutrients */}
         <div
           className="modal"
-          id="exampleModal2"
+          id="exampleModal_nutritional_details"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
@@ -507,7 +831,7 @@ export default function BlankRecipeItem() {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Ingrediants dsf
+                  Ingrediants
                 </h5>
                 <button
                   type="button"
@@ -529,14 +853,20 @@ export default function BlankRecipeItem() {
                   <tbody>
                     <tr>
                       <th scope="row">1</th>
-                      <td>Enery</td>
+                      <td>Energy</td>
                       <td>
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="ENERC_KCAL"
+                          name="ENERC_KCAL"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                             ENERC_KCAL_value= e.target.value
+                           
+                             settingTotalNutrients()
+                            }}
                           />
 
                         </div>
@@ -561,9 +891,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="FAT"
+                            name="FAT"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              FAT_value= e.target.value
+                            
+                              settingTotalNutrients()
+                             }}
                           />
 
                         </div>
@@ -1069,6 +1405,13 @@ export default function BlankRecipeItem() {
             </div>
           </div>
         </div>
+        {/* modal for adding Ingrediants details */}
+       <IngrediantsDetails number="first" modal={1}></IngrediantsDetails>
+       <IngrediantsDetails number="second" modal={2}></IngrediantsDetails>
+       <IngrediantsDetails number="third" modal={3}></IngrediantsDetails>
+       <IngrediantsDetails number="fourth" modal={4}></IngrediantsDetails>
+       <IngrediantsDetails number="fifth" modal={5}></IngrediantsDetails>
+       <IngrediantsDetails number="sixed" modal={6}></IngrediantsDetails>
       </form>
     </>
   );

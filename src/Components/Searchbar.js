@@ -3,7 +3,10 @@ import React from "react";
 import './searchbar.css'
 import NavbarToggler from "./NavbarToggler";
 export default function Searchbar(props) {
-
+const changesize=()=>{
+ document.getElementById("searchbar-searchbox").style.width="400px"
+ 
+}
   return (
    
     <>
@@ -39,7 +42,7 @@ export default function Searchbar(props) {
        
       </ul>
       <form class="d-flex text-white" role="search">
-        <input class="form-control me-2 search_input" type="search" placeholder="Search" aria-label="Search" />
+        <input class="form-control me-2 search_input" id="searchbar-searchbox" type="search" placeholder="Search" aria-label="Search" onClick={changesize} />
         <button class="btn btn-outline-light search_search" type="submit" >Search</button>
       </form>
     </div>
