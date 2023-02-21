@@ -1,25 +1,43 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import RecipeContext from "../Context/RecipeContext";
 import BlankRecipeItem from "./BlankRecipeItem";
+import Loader from "./Loader";
 import RecipeItem from "./RecipeItem";
 export default  function Profile(props){
 
     const context = useContext(RecipeContext)
-    const {recipe,allRecipe} = context
+    const {recipe,allRecipe,loading} = context
    useEffect(()=>{
-     allRecipe()},[])
+   
+    
+     allRecipe()
+},[])
   
 return(
 <>
 <div className="container">
+<h1 className="text-center my-4 fw-bold text-white" style={{opacity:"0",
+  animation:"drop .4s linear forwards 1s"}}>
+        Add Recipes
+          </h1>
+<div className="row">
+       <div className="col-md-6 mt-4">
+     <BlankRecipeItem></BlankRecipeItem>
+        </div>
+        <div className="col-md-6 mt-4">
+     <BlankRecipeItem></BlankRecipeItem>
+        </div>
+        </div>
 <div className="row my-3">
-  
+
 <h1 className="text-center my-4 fw-bold text-white" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
           Your Recipes
           </h1>
-  
+   
+     
+  {loading && <Loader></Loader>}
        {recipe.recipe && recipe.recipe.map((element)=>{
       
         return <div className="col-md-6 mt-4 " key={element._id}>
@@ -66,13 +84,10 @@ return(
        
        })}
        
-
-       <div className="col-md-6 mt-4">
-     <BlankRecipeItem></BlankRecipeItem>
-        </div>
+ 
+       
    
        </div>
-   
    
      
       

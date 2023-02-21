@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import RecipeContext from "./RecipeContext";
 export default function RecipeState(props){
     const [recipe, setRecipe] = useState({})
-    
+    const [loading,setLoading]=useState(false)
     const allRecipe=async()=>{
+      setLoading(true)
         const response = await fetch('http://localhost:5000/api/recipe/allRecipes', {
             method: 'GET',
         
@@ -20,7 +21,7 @@ export default function RecipeState(props){
          let allrecipe= await response.json();
  
           setRecipe(allrecipe)
-          
+          setLoading(false)
     }
     const deleteRecipe=async(id)=>{
         window.confirm("Your Really want to delete the Recipe")
@@ -45,7 +46,7 @@ export default function RecipeState(props){
     
     }
 return(
-    <RecipeContext.Provider value={{recipe,allRecipe,deleteRecipe}}>
+    <RecipeContext.Provider value={{recipe,allRecipe,deleteRecipe,setLoading,loading}}>
         {props.children}
     </RecipeContext.Provider>
 )

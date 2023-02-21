@@ -13,8 +13,8 @@ export default function BlankRecipeItem() {
       {" "}
       <form>
         <div className="scene">
-          <div class="card">
-            <div class="face front">
+          <div className="card">
+            <div className="face front">
               <div className="d-flex blankRecipe">
                 <div
                   className="p-1 imageBox flex-fill bd-highlight"
@@ -33,12 +33,12 @@ export default function BlankRecipeItem() {
                   className="p-1 flex-fill bd-highlight"
                   style={{ width: "50%" }}
                 >
-                  <div class="form-outline">
+                  <div className="form-outline">
                     <input
                       type="text"
                       id="typeText"
                       placeholder="Enter the title"
-                      class="form-control border-dark"
+                      className="form-control border-dark"
                     />
 
                     <h5 className="card-text text-center fw-bold text-dark">
@@ -46,24 +46,24 @@ export default function BlankRecipeItem() {
                       INGRIDIANTS
                     </h5>
                     <p className="card-text text-dark">
-                      {/* <textarea class="form-control" id="textAreaExample" placeholder="Enter the Ingrediants" rows="3"></textarea> */}
+                      {/* <textarea className="form-control" id="textAreaExample" placeholder="Enter the Ingrediants" rows="3"></textarea> */}
                       <input
                         type="text"
                         name="account[first_Ingrediant]"
-                        class="form-control border-dark"
+                        className="form-control border-dark"
                         placeholder="Enter the first Ingrediant"
                       />
                       <input
                         type="text"
                         name="account[Second_ingrediant]"
-                        class="form-control mt-1 border-dark"
+                        className="form-control mt-1 border-dark"
                         placeholder="Enter the Second Ingrediant"
                       />
 
                       <input
                         type="text"
                         name="account[third_Ingrediant]"
-                        class="form-control mt-1 border-dark"
+                        className="form-control mt-1 border-dark"
                         placeholder="Enter the third Ingrediant"
                       />
                       <div
@@ -72,7 +72,7 @@ export default function BlankRecipeItem() {
                         title="Add More Ingrediants"
                       >
                         <i
-                          class=" fs-4 fa-solid  fa-circle-plus text-dark mt-1"
+                          className=" fs-4 fa-solid  fa-circle-plus text-dark mt-1"
                           data-bs-toggle="modal"
                           data-bs-target="#exampleModal"
                         ></i>
@@ -81,7 +81,7 @@ export default function BlankRecipeItem() {
 
                     <button
                       type="button"
-                      class="btn btn-primary"
+                      className="btn btn-primary"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal1"
                     >
@@ -106,7 +106,7 @@ export default function BlankRecipeItem() {
                           type="text"
                           id="typeText"
                           placeholder="Enter the caution"
-                          class="form-control border-dark"
+                          className="form-control border-dark"
                         />
                       </td>
                       <td style={{ color: "white", background: "	green" }}>
@@ -118,7 +118,7 @@ export default function BlankRecipeItem() {
                           type="text"
                           id="typeText"
                           placeholder="Enter the source"
-                          class="form-control border-dark"
+                          className="form-control border-dark"
                         />
                       </td>
                     </tr>
@@ -130,108 +130,108 @@ export default function BlankRecipeItem() {
         </div>
         {/* modal after clicking the add item */}
         <div
-          class="modal"
+          className="modal"
           id="exampleModal1"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+          <div className="modal-dialog modal-dialog-scrollable">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
                   Additional Details
                 </h5>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
-                <div class="form-outline">
-                  <label class="form-label text-dark fw-bold" for="typeURL">
+              <div className="modal-body">
+                <div className="form-outline">
+                  <label className="form-label text-dark fw-bold" for="typeURL">
                     Enter Source Url
                   </label>
-                  <input type="url" id="typeURL" class="form-control" />
+                  <input type="url" id="typeURL" className="form-control" />
                 </div>
                 {/* dietlabels */}
-                <label class="form-label text-dark fw-bold">
+                <label className="form-label text-dark fw-bold">
                   Choose the Diet-Labels
                 </label>
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <label className="form-check-label" for="flexCheckDefault">
                     Low-Sodium
                   </label>
                 </div>
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <label className="form-check-label" for="flexCheckDefault">
                     Low-Fat
                   </label>
                 </div>
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <label className="form-check-label" for="flexCheckDefault">
                     High-Fiber
                   </label>
                 </div>
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <label className="form-check-label" for="flexCheckDefault">
                     Balanced
                   </label>
                 </div>
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <label className="form-check-label" for="flexCheckDefault">
                     High-Protein
                   </label>
                 </div>
-                <div class="form-check">
+                <div className="form-check">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <label className="form-check-label" for="flexCheckDefault">
                     Low-Carb
                   </label>
                 </div>
 
                 {/* healthLabel */}
-                <label class="form-label text-dark fw-bold">
+                <label className="form-label text-dark fw-bold">
                   Choose the Health Labels
                 </label>
-                <select multiple="multiple" class="form-select" name="health">
+                <select multiple="multiple" className="form-select" name="health">
                   <option value="alcohol-cocktail"> alcohol-cocktail </option>
 
                   <option value="alcohol-free"> alcohol-free </option>
@@ -306,12 +306,12 @@ export default function BlankRecipeItem() {
                 </select>
 
                 {/* crusine type */}
-                <label class="form-label text-dark fw-bold">
+                <label className="form-label text-dark fw-bold">
                   Choose the cuisine Type
                 </label>
                 <select
                   multiple="multiple"
-                  class="form-select"
+                  className="form-select"
                   name="cuisineType"
                 >
                   <option value="American"> American </option>
@@ -352,10 +352,10 @@ export default function BlankRecipeItem() {
                 </select>
                 {/* meal type */}
 
-                <label class="form-label text-dark fw-bold">
+                <label className="form-label text-dark fw-bold">
                   Choose the Meal Type
                 </label>
-                <select multiple="multiple" class="form-select" name="mealType">
+                <select multiple="multiple" className="form-select" name="mealType">
                   <option value="Breakfast"> Breakfast </option>
 
                   <option value="Dinner"> Dinner </option>
@@ -367,10 +367,10 @@ export default function BlankRecipeItem() {
                   <option value="Teatime"> Teatime </option>
                 </select>
                 {/* dish type */}
-                <label class="form-label text-dark fw-bold">
+                <label className="form-label text-dark fw-bold">
                   Choose the Dish Type
                 </label>
-                <select multiple="multiple" class="form-select" name="dishType">
+                <select multiple="multiple" className="form-select" name="dishType">
                   <option value="Biscuits and cookies">
                     {" "}
                     Biscuits and cookies{" "}
@@ -411,22 +411,22 @@ export default function BlankRecipeItem() {
                 </select>
                 <button
                   type="button"
-                  class="btn btn-primary mt-2"
+                  className="btn btn-primary mt-2"
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal2"
                 >
                   Add Nutritional Details
                 </button>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Close
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="button" className="btn btn-primary">
                   Next
                 </button>
               </div>
@@ -436,58 +436,58 @@ export default function BlankRecipeItem() {
 
         {/* modal for adding more Ingrediant */}
         <div
-          class="modal"
+          className="modal"
           id="exampleModal"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
                   Ingrediants
                 </h5>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
-                <div class="form-outline">
+              <div className="modal-body">
+                <div className="form-outline">
                   <input
                     type="text"
                     id="typeText"
-                    class="form-control border-dark"
+                    className="form-control border-dark"
                   />
-                  <label class="form-label fw-bold" for="typeText">
+                  <label className="form-label fw-bold" for="typeText">
                     Fourth Ingrediants
                   </label>
                 </div>
-                <div class="form-outline">
-                  <input type="text" id="typeText" class="form-control" />
-                  <label class="form-label fw-bold" for="typeText">
+                <div className="form-outline">
+                  <input type="text" id="typeText" className="form-control" />
+                  <label className="form-label fw-bold" for="typeText">
                     Fifth Ingrediants
                   </label>
                 </div>
-                <div class="form-outline">
-                  <input type="text" id="typeText" class="form-control" />
-                  <label class="form-label fw-bold" for="typeText">
+                <div className="form-outline">
+                  <input type="text" id="typeText" className="form-control" />
+                  <label className="form-label fw-bold" for="typeText">
                     Sixeth Ingrediants
                   </label>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Close
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="button" className="btn btn-primary">
                   Add
                 </button>
               </div>
@@ -497,27 +497,27 @@ export default function BlankRecipeItem() {
 
         {/* modal for adding totalNutrients */}
         <div
-          class="modal"
+          className="modal"
           id="exampleModal2"
           tabindex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
                   Ingrediants dsf
                 </h5>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
-                <table class="table">
+              <div className="modal-body">
+                <table className="table">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -531,25 +531,25 @@ export default function BlankRecipeItem() {
                       <th scope="row">1</th>
                       <td>Enery</td>
                       <td>
-                        <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="number"
                             id="typeNumber"
-                            class="form-control"
-                            placeholder="Enter the quantity"
+                            className="form-control"
+                            placeholder="Enter Quantity"
                           />
-                         
+
                         </div>
                       </td>
                       <td>
-                      <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="text"
                             id="typeNumber"
-                            class="form-control"
+                            className="form-control"
                             placeholder="Enter the units"
                           />
-                         
+
                         </div>
                       </td>
                     </tr>
@@ -558,25 +558,25 @@ export default function BlankRecipeItem() {
                       <th scope="row">2</th>
                       <td>Fat</td>
                       <td>
-                        <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="number"
                             id="typeNumber"
-                            class="form-control"
-                            placeholder="Enter the quantity"
+                            className="form-control"
+                            placeholder="Enter Quantity"
                           />
-                         
+
                         </div>
                       </td>
                       <td>
-                      <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="text"
                             id="typeNumber"
-                            class="form-control"
+                            className="form-control"
                             placeholder="Enter the units"
                           />
-                         
+
                         </div>
                       </td>
                     </tr>
@@ -584,79 +584,79 @@ export default function BlankRecipeItem() {
                       <th scope="row">3</th>
                       <td>Carbs</td>
                       <td>
-                        <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="number"
                             id="typeNumber"
-                            class="form-control"
-                            placeholder="Enter the quantity"
+                            className="form-control"
+                            placeholder="Enter Quantity"
                           />
-                         
+
                         </div>
                       </td>
                       <td>
-                      <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="text"
                             id="typeNumber"
-                            class="form-control"
+                            className="form-control"
                             placeholder="Enter the units"
                           />
-                         
+
                         </div>
                       </td>
                     </tr>
-                  
+
                     <tr>
                       <th scope="row">4</th>
                       <td>Fiber</td>
                       <td>
-                        <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="number"
                             id="typeNumber"
-                            class="form-control"
-                            placeholder="Enter the quantity"
+                            className="form-control"
+                            placeholder="Enter Quantity"
                           />
-                         
+
                         </div>
                       </td>
                       <td>
-                      <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="text"
                             id="typeNumber"
-                            class="form-control"
+                            className="form-control"
                             placeholder="Enter the units"
                           />
-                         
+
                         </div>
                       </td>
                     </tr>
-                    
+
                     <tr>
                       <th scope="row">5</th>
                       <td>Sugars</td>
                       <td>
-                        <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="number"
                             id="typeNumber"
-                            class="form-control"
-                            placeholder="Enter the quantity"
+                            className="form-control"
+                            placeholder="Enter Quantity"
                           />
-                         
+
                         </div>
                       </td>
                       <td>
-                      <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="text"
                             id="typeNumber"
-                            class="form-control"
+                            className="form-control"
                             placeholder="Enter the units"
                           />
-                         
+
                         </div>
                       </td>
                     </tr>
@@ -664,40 +664,405 @@ export default function BlankRecipeItem() {
                       <th scope="row">6</th>
                       <td>Protein</td>
                       <td>
-                        <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="number"
                             id="typeNumber"
-                            class="form-control"
-                            placeholder="Enter the quantity"
+                            className="form-control"
+                            placeholder="Enter Quantity"
                           />
-                         
+
                         </div>
                       </td>
                       <td>
-                      <div class="form-outline">
+                        <div className="form-outline">
                           <input
                             type="text"
                             id="typeNumber"
-                            class="form-control"
+                            className="form-control"
                             placeholder="Enter the units"
                           />
-                         
+
                         </div>
                       </td>
                     </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>Cholesterol</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      <td>Calcium</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">9</th>
+                      <td>Iron</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">10</th>
+                      <td>Vitamin A</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">11</th>
+                      <td>Vitamin C</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">12</th>
+                      <td>Thiamin B1</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">13</th>
+                      <td>Riboflavin B2</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">14</th>
+                      <td>Niacin B3</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">15</th>
+                      <td>Vitamin B6</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">16</th>
+                      <td> Vitamin B12</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">17</th>
+                      <td>Vitamin D</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">18</th>
+                      <td>Vitamin E</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">19</th>
+                      <td>Vitamin K</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">20</th>
+                      <td>Water</td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="number"
+                            id="typeNumber"
+                            className="form-control"
+                        placeholder="Enter Quantity"
+                          />
+
+                        </div>
+                      </td>
+                      <td>
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="typeNumber"
+                            className="form-control"
+                            placeholder="Enter the units"
+                          />
+
+                        </div>
+                      </td>
+                    </tr>
+                  
                   </tbody>
                 </table>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Close
                 </button>
-                <button type="button" class="btn btn-primary">
+                <button type="button" className="btn btn-primary">
                   Add
                 </button>
               </div>
