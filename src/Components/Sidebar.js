@@ -2,7 +2,8 @@ import React from "react";
 import { useLocation } from 'react-router-dom';
 import './sidebar.css'
 import { Link } from "react-router-dom";
-
+import { Accordion } from "react-bootstrap";
+import { Sidebar as mysidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 export default function Sidebar(props) {
   let location = useLocation();
 
@@ -34,6 +35,7 @@ export default function Sidebar(props) {
             
           ></button>
         </div>
+       
         <div className="offcanvas-body">
           <ul
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
@@ -345,6 +347,7 @@ export default function Sidebar(props) {
              
             </ul>
             <hr className="hr "/>
+            
             <ul
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu">
@@ -408,16 +411,24 @@ export default function Sidebar(props) {
                 <span className="ms-1 ">South-American</span>{" "}
               </Link>
             </li>
-           
-           
-
-
+          
+          
+            {/* <mysidebar>
+  <Menu>
+    <SubMenu label="Charts">
+      <MenuItem> Pie charts </MenuItem>
+      <MenuItem> Line charts </MenuItem>
+    </SubMenu>
+    <MenuItem> Documentation </MenuItem>
+    <MenuItem> Calendar </MenuItem>
+  </Menu>
+</mysidebar> */}
 
 
           </ul>
          
-        </div>
-      </div>
+        </div></div>
+ 
     </>
   );
 }
