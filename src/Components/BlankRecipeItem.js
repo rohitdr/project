@@ -209,7 +209,7 @@ export default function BlankRecipeItem() {
   var ENERC_KCAL_value,FAT_value,CHOCDF_value,FIBTG_value,SUGAR_value,PROCNT_value,CHOLE_value,
   CA_value,FE_value,VITA_RAE_value,VITC_value,THIA_value,RIBF_value,NIA_value,VITB6A_value,VITB12_value,
   VITD_value,TOCPHA_value,VITK1_value,WATER_value;
-
+var MytotalNutrients;
   const settingTotalNutrients=()=>{
     var MytotalNutrients={
       ENERC_KCAL: {
@@ -524,12 +524,13 @@ export default function BlankRecipeItem() {
                   <input type="number" id="totalTime" className="form-control" name="totalTime"   onChange={onchange} />
                 </div>
                 {/* dietlabels */}
+                  <label className="form-label text-dark fw-bold">
+                  Choose the Diet Labels
+                </label>
                 <select multiple="multiple" class="form-select" id="dietLabels" name="dietLabels" onChange={onchangearray}>
 
 
-                <label className="form-label text-dark fw-bold">
-                  Choose the Diet Labels
-                </label>
+              
 
       <option value="balanced"> balanced  </option>
 
@@ -868,7 +869,9 @@ export default function BlankRecipeItem() {
                           name="ENERC_KCAL"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            required
                             onChange={(e)=>{
+                            
                              ENERC_KCAL_value= e.target.value
                            
                            
@@ -901,6 +904,7 @@ export default function BlankRecipeItem() {
                             name="FAT"
                             className="form-control"
                             placeholder="Enter Quantity"
+                               required
                             onChange={(e)=>{
                               FAT_value= e.target.value
                             
@@ -933,6 +937,7 @@ export default function BlankRecipeItem() {
                             name="CHOCDF"
                             className="form-control"
                             placeholder="Enter Quantity"
+                               required
                             onChange={(e)=>{
                               CHOCDF_value= e.target.value
                             
@@ -949,6 +954,7 @@ export default function BlankRecipeItem() {
                             id="typeNumber"
                             className="form-control"
                             placeholder="Enter the units"
+                            
                           />
 
                         </div>
@@ -966,6 +972,7 @@ export default function BlankRecipeItem() {
                             name="FIBTG"
                             className="form-control"
                             placeholder="Enter Quantity"
+                               required
                             onChange={(e)=>{
                               FIBTG_value= e.target.value
                             
@@ -999,6 +1006,7 @@ export default function BlankRecipeItem() {
                             name="SUGAR"
                             className="form-control"
                             placeholder="Enter Quantity"
+                               required
                             onChange={(e)=>{
                               SUGAR_value= e.target.value
                             
