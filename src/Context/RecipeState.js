@@ -3,7 +3,7 @@ import RecipeContext from "./RecipeContext";
 export default function RecipeState(props){
     const [recipe, setRecipe] = useState({})
     const [loading,setLoading]=useState(false)
-    const [Ingrediant,setting_Ingredients] = useState([])
+    const [Ingrediant_statepage] = useState([])
     const allRecipe=async()=>{
       setLoading(true)
         const response = await fetch('http://localhost:5000/api/recipe/allRecipes', {
@@ -49,7 +49,7 @@ export default function RecipeState(props){
     
     }
 return(
-    <RecipeContext.Provider value={{recipe,allRecipe,deleteRecipe,setLoading,loading,Ingrediant,setting_Ingredients}}>
+    <RecipeContext.Provider value={{recipe,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage}}>
         {props.children}
     </RecipeContext.Provider>
 )

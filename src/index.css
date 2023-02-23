@@ -1,4 +1,6 @@
-
+.blankRecipe{
+opacity: 0;
+}
 
   .drop-text{
 
@@ -52,13 +54,23 @@ border: 2px solid #212335;
   width:500px;
 }
 .fileToUpload{
-  height:300px;
-  width:500px;
+  /* height:300px;
+  width:500px; */
 
-  opacity: 0;
+  /* opacity: 0; */
+}
+.badge_blank{
+  top: 50%;
+  left: 50%;
+
+}
+.AddRecipe{
+ 
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/778/966/360/olives-lettuce-greek-cooking-wallpaper-preview.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1100px;
 }
 
-.blankRecipe{
-  background-color: white;
-}
+
 

@@ -11,6 +11,7 @@ import LoadingBar from "react-top-loading-bar";
 import RecipeState from "./Context/RecipeState";
 import Profile from "./Components/Profile";
 import Home from "./Components/Home";
+import AddRecipe from "./Components/AddRecipe";
 
 function App() {
 
@@ -407,9 +408,9 @@ function App() {
               />
               <Route
                 exact
-                path='/'
+                path='/Add_Recipe'
                 element={
-          <Home></Home>
+      <AddRecipe></AddRecipe>
                 }
               />
           {/* <Route

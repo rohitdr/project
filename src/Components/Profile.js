@@ -17,19 +17,17 @@ export default  function Profile(props){
 return(
 <>
 <div className="container">
-<h1 className="text-center my-4 fw-bold text-white" style={{opacity:"0",
+{/* <h1 className="text-center my-4 fw-bold text-white" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
         Add Recipes
-          </h1>
-<div className="row">
-<div className="col-md-6 mt-4">
+          </h1> */}
+{/* <div className="row"> */}
+
+       {/* <div className="col-md-6 mt-4">
      <BlankRecipeItem></BlankRecipeItem>
-        </div>
-       <div className="col-md-6 mt-4">
-     <BlankRecipeItem></BlankRecipeItem>
-        </div>
+        </div> */}
        
-        </div>
+        {/* </div> */}
 <div className="row my-3">
 
 <h1 className="text-center my-4 fw-bold text-white" style={{opacity:"0",
@@ -37,7 +35,9 @@ return(
           Your Recipes
           </h1>
    
-     
+          <div className="col-md-6  mt-4" >
+     <BlankRecipeItem></BlankRecipeItem>
+        </div>
   {loading && <Loader></Loader>}
        {recipe.recipe && recipe.recipe.map((element)=>{
       

@@ -3,7 +3,7 @@ import RecipeContext from '../../Context/RecipeContext'
 
 export default function IngrediantsDetails(props) {
   const context = useContext(RecipeContext)
-  const {recipe,allRecipe,loading} = context
+  const {Ingrediant_statepage} = context
 
   var Ingrediants=[]
   const setting_Ingredients=()=>{
@@ -15,12 +15,17 @@ export default function IngrediantsDetails(props) {
       
       image: ingrediants_url
       }
-
-      
-
     ]
-    console.log(Ingrediants[number] )
-    console.log(number)
+     
+     
+    
+      
+    Ingrediant_statepage.push(Ingrediants[number])
+   
+    console.log(Ingrediant_statepage)
+  
+    // console.log(Ingrediants[number] )
+    // console.log(number)
   }
   const number = props.number;
   var ingrediants_text = []
