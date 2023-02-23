@@ -20,6 +20,9 @@ export default function BlankRecipeItem() {
     healthLabels: [],
     cautions: [],
     ingredientLines: [],
+    ingredients: [
+   
+    ],
     // "ingredients": [
     // {
     // "text": "2 cups cranberries, picked over",
@@ -180,6 +183,7 @@ export default function BlankRecipeItem() {
  
   const RecipeAdder=()=>{
     console.log("adding")
+   
   }
   const loadFile = (event) => {
     var output = document.getElementById("output");
@@ -206,6 +210,7 @@ export default function BlankRecipeItem() {
     setRecipe({...recipe, [e.target.name] : Values})
 
   }
+
   var ENERC_KCAL_value,FAT_value,CHOCDF_value,FIBTG_value,SUGAR_value,PROCNT_value,CHOLE_value,
   CA_value,FE_value,VITA_RAE_value,VITC_value,THIA_value,RIBF_value,NIA_value,VITB6A_value,VITB12_value,
   VITD_value,TOCPHA_value,VITK1_value,WATER_value;
