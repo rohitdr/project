@@ -47,8 +47,8 @@ return(
                         title={element.label}
                         topLeftColor={"dark"}
                         headingColor={"dark"}
-                      ImagesUrl={element.image}
-                    
+                      ImageUrl={element.image}
+                   
                       health_labels={element.healthLabels
                         .toString()
                         .substring(0,120)}
@@ -82,11 +82,13 @@ return(
                   
                   </div>
        
-       
-       })}
+     
+       }
+       )
+       }
        
  
-       
+     
    
        </div>
    

@@ -24,7 +24,9 @@ export default function RecipeState(props){
           setLoading(false)
     }
     const deleteRecipe=async(id)=>{
-        window.confirm("Your Really want to delete the Recipe")
+     
+    window.confirm("really want to delete")
+
         const response = await fetch(`http://localhost:5000/api/recipe/deleteRecipe/${id}`, {
             method: 'DELETE',
         
