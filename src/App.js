@@ -10,6 +10,7 @@ import Login from "./Components/Login";
 import LoadingBar from "react-top-loading-bar";
 import RecipeState from "./Context/RecipeState";
 import Profile from "./Components/Profile";
+import Home from "./Components/Home";
 
 function App() {
 
@@ -401,6 +402,14 @@ function App() {
                 path='/Profile'
                 element={
                   <Profile></Profile>
+                }
+
+              />
+              <Route
+                exact
+                path='/'
+                element={
+          <Home></Home>
                 }
               />
           {/* <Route

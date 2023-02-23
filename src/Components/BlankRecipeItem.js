@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import IngrediantsDetails from "./Modals/IngrediantsDetails";
+// import IngrediantsDetails from "./Modals/IngrediantsDetails";
 
 export default function BlankRecipeItem() {
   let arr =[""];
@@ -1406,12 +1406,12 @@ export default function BlankRecipeItem() {
           </div>
         </div>
         {/* modal for adding Ingrediants details */}
-       <IngrediantsDetails number="first" modal={1}></IngrediantsDetails>
+       {/* <IngrediantsDetails number="first" modal={1}></IngrediantsDetails>
        <IngrediantsDetails number="second" modal={2}></IngrediantsDetails>
        <IngrediantsDetails number="third" modal={3}></IngrediantsDetails>
        <IngrediantsDetails number="fourth" modal={4}></IngrediantsDetails>
        <IngrediantsDetails number="fifth" modal={5}></IngrediantsDetails>
-       <IngrediantsDetails number="sixed" modal={6}></IngrediantsDetails>
+       <IngrediantsDetails number="sixed" modal={6}></IngrediantsDetails> */}
       </form>
     </>
   );
