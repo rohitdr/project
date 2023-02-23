@@ -1,6 +1,5 @@
 
 
-
   .drop-text{
 
     opacity:0;
@@ -27,6 +26,16 @@
 
     
   }
+  .samebody {
+    background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
+   
+    animation: Gradient 15s ease ;
+ 
+
+
+    
+  }
+  
   i:hover{
 cursor: pointer;
   }

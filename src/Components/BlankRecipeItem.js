@@ -93,7 +93,7 @@ export default function BlankRecipeItem() {
    
     PROCNT: {
     label: "Protein",
-    quantity: 0.8580000000000001,
+    quantity: 0,
     unit: "g"
     },
     CHOLE: {
@@ -102,195 +102,82 @@ export default function BlankRecipeItem() {
     unit: "mg"
     },
    
-    "CA": {
-    "label": "Calcium",
-    "quantity": 35.82,
-    "unit": "mg"
+    CA: {
+    label: "Calcium",
+    quantity: 0,
+    unit: "mg"
     },
    
    
-    "FE": {
-    "label": "Iron",
-    "quantity": 0.75,
-    "unit": "mg"
+    FE: {
+    label: "Iron",
+    quantity: 0,
+    unit: "mg"
     },
    
     
-    "VITA_RAE": {
-    "label": "Vitamin A",
-    "quantity": 6.6000000000000005,
-    "unit": "µg"
+    VITA_RAE: {
+    label: "Vitamin A",
+    quantity: 0,
+    unit: "µg"
     },
-    "VITC": {
-    "label": "Vitamin C",
-    "quantity": 29.260000000000005,
-    "unit": "mg"
+    VITC: {
+    label: "Vitamin C",
+    quantity:0,
+    unit: "mg"
     },
-    "THIA": {
-    "label": "Thiamin (B1)",
-    "quantity": 0.026400000000000003,
-    "unit": "mg"
+    THIA: {
+    label: "Thiamin (B1)",
+    quantity: 0,
+    unit: "mg"
     },
-    "RIBF": {
-    "label": "Riboflavin (B2)",
-    "quantity": 0.12,
-    "unit": "mg"
+    RIBF: {
+    label: "Riboflavin (B2)",
+    quantity: 0,
+    unit: "mg"
     },
-    "NIA": {
-    "label": "Niacin (B3)",
-    "quantity": 0.22220000000000004,
-    "unit": "mg"
+    NIA: {
+    label: "Niacin (B3)",
+    quantity: 0,
+    unit: "mg"
     },
-    "VITB6A": {
-    "label": "Vitamin B6",
-    "quantity": 0.1254,
-    "unit": "mg"
+    VITB6A: {
+    label: "Vitamin B6",
+    quantity: 0,
+    unit: "mg"
     },
     
    
    
-    "VITB12": {
-    "label": "Vitamin B12",
-    "quantity": 0,
-    "unit": "µg"
+    VITB12: {
+    label: "Vitamin B12",
+    quantity: 0,
+    unit: "µg"
     },
-    "VITD": {
-    "label": "Vitamin D",
-    "quantity": 0,
-    "unit": "µg"
+    VITD: {
+    label: "Vitamin D",
+    quantity: 0,
+    unit: "µg"
     },
-    "TOCPHA": {
-    "label": "Vitamin E",
-    "quantity": 2.64,
-    "unit": "mg"
+    TOCPHA: {
+    label: "Vitamin E",
+    quantity: 0,
+    unit: "mg"
     },
-    "VITK1": {
-    "label": "Vitamin K",
-    "quantity": 11.22,
-    "unit": "µg"
+    VITK1: {
+    label: "Vitamin K",
+    quantity: 0,
+    unit: "µg"
     },
    
-    "WATER": {
-    "label": "Water",
-    "quantity": 665.2920000000001,
-    "unit": "g"
+    WATER: {
+    label: "Water",
+    quantity: 0,
+    unit: "g"
     }}
   }
     )
-  //  var totalNutrients={
-  //     ENERC_KCAL: {
-  //     label: "Energy",
-  //     quantity : ENERC_KCAL,
-  //     unit: "kcal"
-  //     },
-  //     FAT: {
-  //     label: "Fat",
-  //     quantity: 0,
-  //     unit: "g"
-  //     },
-  //     CHOCDF: {
-  //     label: "Carbs",
-  //     quantity: 0,
-  //     unit: "g"
-  //     },
-    
-  //     FIBTG: {
-  //     label: "Fiber",
-  //     quantity:0,
-  //     unit: "g"
-  //     },
-  //     SUGAR: {
-  //     label: "Sugars",
-  //     quantity: 0,
-  //     unit: "g"
-  //     },
-     
-  //     PROCNT: {
-  //     label: "Protein",
-  //     quantity: 0.8580000000000001,
-  //     unit: "g"
-  //     },
-  //     CHOLE: {
-  //     label: "Cholesterol",
-  //     quantity: 0,
-  //     unit: "mg"
-  //     },
-     
-  //     "CA": {
-  //     "label": "Calcium",
-  //     "quantity": 35.82,
-  //     "unit": "mg"
-  //     },
-     
-     
-  //     "FE": {
-  //     "label": "Iron",
-  //     "quantity": 0.75,
-  //     "unit": "mg"
-  //     },
-     
-      
-  //     "VITA_RAE": {
-  //     "label": "Vitamin A",
-  //     "quantity": 6.6000000000000005,
-  //     "unit": "µg"
-  //     },
-  //     "VITC": {
-  //     "label": "Vitamin C",
-  //     "quantity": 29.260000000000005,
-  //     "unit": "mg"
-  //     },
-  //     "THIA": {
-  //     "label": "Thiamin (B1)",
-  //     "quantity": 0.026400000000000003,
-  //     "unit": "mg"
-  //     },
-  //     "RIBF": {
-  //     "label": "Riboflavin (B2)",
-  //     "quantity": 0.12,
-  //     "unit": "mg"
-  //     },
-  //     "NIA": {
-  //     "label": "Niacin (B3)",
-  //     "quantity": 0.22220000000000004,
-  //     "unit": "mg"
-  //     },
-  //     "VITB6A": {
-  //     "label": "Vitamin B6",
-  //     "quantity": 0.1254,
-  //     "unit": "mg"
-  //     },
-      
-     
-     
-  //     "VITB12": {
-  //     "label": "Vitamin B12",
-  //     "quantity": 0,
-  //     "unit": "µg"
-  //     },
-  //     "VITD": {
-  //     "label": "Vitamin D",
-  //     "quantity": 0,
-  //     "unit": "µg"
-  //     },
-  //     "TOCPHA": {
-  //     "label": "Vitamin E",
-  //     "quantity": 2.64,
-  //     "unit": "mg"
-  //     },
-  //     "VITK1": {
-  //     "label": "Vitamin K",
-  //     "quantity": 11.22,
-  //     "unit": "µg"
-  //     },
-     
-  //     "WATER": {
-  //     "label": "Water",
-  //     "quantity": 665.2920000000001,
-  //     "unit": "g"
-  //     }
-
-  //  }
+ 
   const RecipeAdder=()=>{
     console.log("adding")
   }
@@ -319,22 +206,141 @@ export default function BlankRecipeItem() {
     setRecipe({...recipe, [e.target.name] : Values})
 
   }
-  var ENERC_KCAL_value,FAT_value;
-
+  var ENERC_KCAL_value,FAT_value,CHOCDF_value,FIBTG_value,SUGAR_value,PROCNT_value,CHOLE_value,
+  CA_value,FE_value,VITA_RAE_value,VITC_value,THIA_value,RIBF_value,NIA_value,VITB6A_value,VITB12_value,
+  VITD_value,TOCPHA_value,VITK1_value,WATER_value;
+var MytotalNutrients;
   const settingTotalNutrients=()=>{
-    setRecipe({...recipe, totalNutrients:{ ENERC_KCAL: {
-      label: "Energy",
-      quantity: ENERC_KCAL_value,
-      unit: "kcal"
-  },
-   FAT: {
-    label: "FAT",
-    quantity: FAT_value,
-    unit: "kcal"
-}}}
-)
+    var MytotalNutrients={
+      ENERC_KCAL: {
+        label: "Energy",
+        quantity: ENERC_KCAL_value,
+        unit: "kcal"
+        },
+        FAT: {
+        label: "Fat",
+        quantity: FAT_value,
+        unit: "g"
+        },
+        CHOCDF: {
+        label: "Carbs",
+        quantity: CHOCDF_value,
+        unit: "g"
+        },
+      
+        FIBTG: {
+        label: "Fiber",
+        quantity:FIBTG_value,
+        unit: "g"
+        },
+        SUGAR: {
+        label: "Sugars",
+        quantity: SUGAR_value,
+        unit: "g"
+        },
+       
+        PROCNT: {
+        label: "Protein",
+        quantity: PROCNT_value,
+        unit: "g"
+        },
+        CHOLE: {
+        label: "Cholesterol",
+        quantity: CHOLE_value,
+        unit: "mg"
+        },
+       
+        CA: {
+        label: "Calcium",
+        quantity: CA_value,
+        unit: "mg"
+        },
+       
+       
+        FE: {
+        label: "Iron",
+        quantity: FE_value,
+        unit: "mg"
+        },
+       
+        
+        VITA_RAE: {
+        label: "Vitamin A",
+        quantity: VITA_RAE_value,
+        unit: "µg"
+        },
+        VITC: {
+        label: "Vitamin C",
+        quantity:VITC_value,
+        unit: "mg"
+        },
+        THIA: {
+        label: "Thiamin (B1)",
+        quantity: THIA_value,
+        unit: "mg"
+        },
+        RIBF: {
+        label: "Riboflavin (B2)",
+        quantity: RIBF_value,
+        unit: "mg"
+        },
+        NIA: {
+        label: "Niacin (B3)",
+        quantity: NIA_value,
+        unit: "mg"
+        },
+        VITB6A: {
+        label: "Vitamin B6",
+        quantity: VITB6A_value,
+        unit: "mg"
+        },
+        
+       
+       
+        VITB12: {
+        label: "Vitamin B12",
+        quantity: VITB12_value,
+        unit: "µg"
+        },
+        VITD: {
+        label: "Vitamin D",
+        quantity: VITD_value,
+        unit: "µg"
+        },
+        TOCPHA: {
+        label: "Vitamin E",
+        quantity: TOCPHA_value,
+        unit: "mg"
+        },
+        VITK1: {
+        label: "Vitamin K",
+        quantity: VITK1_value,
+        unit: "µg"
+        },
+       
+        WATER: {
+        label: "Water",
+        quantity: WATER_value,
+        unit: "g"
+        }
  
-  console.log(recipe.totalNutrients)
+
+   }
+    setRecipe({...recipe , totalNutrients:MytotalNutrients})
+    console.log(MytotalNutrients)
+//     setRecipe({...recipe, totalNutrients:{ ENERC_KCAL: {
+//       label: "Energy",
+//       quantity: ENERC_KCAL_value,
+//       unit: "kcal"
+//   },
+//    FAT: {
+//     label: "FAT",
+//     quantity: FAT_value,
+//     unit: "kcal"
+// }}}
+// )
+ 
+//   console.log(recipe.totalNutrients)
    
      }
 
@@ -518,12 +524,13 @@ export default function BlankRecipeItem() {
                   <input type="number" id="totalTime" className="form-control" name="totalTime"   onChange={onchange} />
                 </div>
                 {/* dietlabels */}
+                  <label className="form-label text-dark fw-bold">
+                  Choose the Diet Labels
+                </label>
                 <select multiple="multiple" class="form-select" id="dietLabels" name="dietLabels" onChange={onchangearray}>
 
 
-                <label className="form-label text-dark fw-bold">
-                  Choose the Diet Labels
-                </label>
+              
 
       <option value="balanced"> balanced  </option>
 
@@ -862,10 +869,12 @@ export default function BlankRecipeItem() {
                           name="ENERC_KCAL"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            required
                             onChange={(e)=>{
+                            
                              ENERC_KCAL_value= e.target.value
                            
-                             settingTotalNutrients()
+                           
                             }}
                           />
 
@@ -895,10 +904,11 @@ export default function BlankRecipeItem() {
                             name="FAT"
                             className="form-control"
                             placeholder="Enter Quantity"
+                               required
                             onChange={(e)=>{
                               FAT_value= e.target.value
                             
-                              settingTotalNutrients()
+                             
                              }}
                           />
 
@@ -923,9 +933,16 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="CHOCDF"
+                            name="CHOCDF"
                             className="form-control"
                             placeholder="Enter Quantity"
+                               required
+                            onChange={(e)=>{
+                              CHOCDF_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -937,6 +954,7 @@ export default function BlankRecipeItem() {
                             id="typeNumber"
                             className="form-control"
                             placeholder="Enter the units"
+                            
                           />
 
                         </div>
@@ -950,9 +968,16 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="FIBTG"
+                            name="FIBTG"
                             className="form-control"
                             placeholder="Enter Quantity"
+                               required
+                            onChange={(e)=>{
+                              FIBTG_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -977,9 +1002,16 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="SUGAR"
+                            name="SUGAR"
                             className="form-control"
                             placeholder="Enter Quantity"
+                               required
+                            onChange={(e)=>{
+                              SUGAR_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1003,9 +1035,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="PROCNT"
+                            name="PROCNT"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              PROCNT_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1029,9 +1067,17 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                          
+                           
+                            id="CHOLE"
+                            name="CHOLE"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              CHOLE_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1054,10 +1100,17 @@ export default function BlankRecipeItem() {
                       <td>
                         <div className="form-outline">
                           <input
-                            type="number"
-                            id="typeNumber"
+                          type="number"
+                           id="CA"
+                           name="CA"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              CA_value= e.target.value
+                            
+                            
+                             }}
+                           
                           />
 
                         </div>
@@ -1081,9 +1134,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="FE"
+                            name="FE"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              FE_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1107,9 +1166,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="VITA_RAE"
+                            name="VITA_RAE"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              VITA_RAE_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1133,9 +1198,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="VITC"
+                            name="VITC"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              VITC_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1159,9 +1230,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="THIA"
+                            name="THIA"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              THIA_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1185,9 +1262,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="RIBF"
+                            name="RIBF"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              RIBF_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1211,9 +1294,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="NIA"
+                            name="NIA"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              NIA_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1237,9 +1326,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="VITB6A"
+                            name="VITB6A"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              VITB6A_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1263,9 +1358,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="VITB12"
+                            name="VITB12"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              VITB12_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1289,9 +1390,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            iid="VITD"
+                            name="VITD"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              VITD_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1315,9 +1422,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="TOCPHA"
+                            name="TOCPHA"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              TOCPHA_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1341,9 +1454,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="VITK1"
+                            name="VITK1"
                             className="form-control"
                             placeholder="Enter Quantity"
+                            onChange={(e)=>{
+                              VITK1_value= e.target.value
+                            
+                            
+                             }}
                           />
 
                         </div>
@@ -1367,9 +1486,15 @@ export default function BlankRecipeItem() {
                         <div className="form-outline">
                           <input
                             type="number"
-                            id="typeNumber"
+                            id="WATER"
+                            name="WATER"
                             className="form-control"
                         placeholder="Enter Quantity"
+                        onChange={(e)=>{
+                          WATER_value= e.target.value
+                        
+                        
+                         }}
                           />
 
                         </div>
@@ -1398,7 +1523,7 @@ export default function BlankRecipeItem() {
                 >
                   Close
                 </button>
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-primary" onClick={settingTotalNutrients}  data-bs-dismiss="modal">
                   Add
                 </button>
               </div>
