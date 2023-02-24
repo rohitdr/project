@@ -147,7 +147,7 @@ export default function Home() {
 {/* latest Recipe */}
 <div className="container">
 <div className="row">
-  <div className="col-md-3  " id="latestRecipeUpper">
+  <div className="col-md-3 d-none d-md-block " id="latestRecipeUpper">
   <div className="carousel_card   card my-3 " style={{height:"30%"}}>
 <Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
   </div>
@@ -195,7 +195,7 @@ export default function Home() {
 
   </div>
   </div>
-  <div className="col-md-3 d-md-none">
+  <div className="col-md-3 d-none d-md-block">
   <div className="carousel_card card my-3 "style={{height:"33%"}}>
 <Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
   </div>
