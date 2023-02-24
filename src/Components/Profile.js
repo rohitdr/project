@@ -34,11 +34,11 @@ return(
   animation:"drop .4s linear forwards 1s"}}>
           Your Recipes
           </h1>
-   
+    {loading && <Loader></Loader>}
           <div className="col-md-6  mt-4" >
      <BlankRecipeItem></BlankRecipeItem>
         </div>
-  {loading && <Loader></Loader>}
+ 
        {recipe.recipe && recipe.recipe.map((element)=>{
       
         return <div className="col-md-6 mt-4 " key={element._id}>

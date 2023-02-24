@@ -413,6 +413,13 @@ function App() {
       <AddRecipe></AddRecipe>
                 }
               />
+                <Route
+                exact
+                path='/'
+                element={
+      <Home></Home>
+                }
+              />
           {/* <Route
             exact
             path="/Dinner"

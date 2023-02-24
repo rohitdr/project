@@ -19,7 +19,7 @@ opacity: 0;
 
 
   /* body animation */
-  body {
+  /* body {
     background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
    
     animation: Gradient 15s ease ;
@@ -27,7 +27,7 @@ opacity: 0;
    min-height: 1000px;
 
     
-  }
+  } */
   .samebody {
     background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
    
@@ -71,6 +71,23 @@ border: 2px solid #212335;
   background-size: cover;
   height: 1100px;
 }
+.carousel_image{
+  height: 500px;
+}
+@media only screen and (max-width: 600px) {
+  .carousel_image{
+    height: 380px;
+  }
+ }
+ /* @media only screen and (min-width: 900px) {
+  .carousel_image{
+padding-left: 200px;
+padding-right: 200px;
+  }
+ } */
+ .carousel{
+  background-color: #98ad98;
+ }
 
 
 
