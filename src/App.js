@@ -12,6 +12,7 @@ import RecipeState from "./Context/RecipeState";
 import Profile from "./Components/Profile";
 import Home from "./Components/Home";
 import AddRecipe from "./Components/AddRecipe";
+import SearchResult from "./Components/SearchResult";
 
 function App() {
 
@@ -418,6 +419,13 @@ function App() {
                 path='/'
                 element={
       <Home></Home>
+                }
+              />
+              <Route
+                exact
+                path='/SearchResult'
+                element={
+     <SearchResult></SearchResult>
                 }
               />
           {/* <Route
