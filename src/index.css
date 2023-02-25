@@ -127,18 +127,18 @@ padding-right: 200px;
   transform: translateY(-50%);
 } */
 @media (min-width: 768px) {
-  .card img {
+  .carousel_card img {
     height: 11em;
   }
   
 }
 @media (max-width: 768px) {
-  .card img {
+  .carousel_card img {
     height: 6em;
   }
 }
 @media (max-width: 450px) {
-  .card img {
+  .carousel_card img {
     height: 4em;
   }
 }
@@ -173,3 +173,11 @@ margin:0px 120px;
     margin:0px 12px;
     }
 }
+ .scene:hover{
+  transform: translate3d(-8px,8px,0);
+  border-top: 8px solid #d0d30e;
+  border-right: 8px solid #c6ee14;
+ 
+
+}
+

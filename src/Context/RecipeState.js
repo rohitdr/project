@@ -5,26 +5,32 @@ export default function RecipeState(props){
     const [Latest_recipe, setLatest_Recipe] = useState({})
     const [loading,setLoading]=useState(false)
     const [Ingrediant_statepage] = useState([])
-    const[Recipename,setRecipeName]=useState("")
-    const NameRecipe=async(name)=>{
-      setLoading(true)
-      const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswith/${name}`, {
-          method: 'GET',
-      
-          headers: {
-            'Content-Type': 'application/json',
-            
+   const [name_to_search,setName_to_search]=useState("")
+   const [searchRecipe,setsearchedRecipe]=useState({})
+    const NameRecipe=async(recipename)=>{
+   
+        setLoading(true)
+        const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswith${recipename}`, {
+            method: 'GET',
+       
+            headers: {
+              'Content-Type': 'application/json',
+              'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+  
+             
+            },
+          
            
-          },
-         
-      
-        });
         
-      
-       let Name_recipe= await response.json();
-
-        setRecipe(Name_recipe)
-        setLoading(false)
+          });
+         
+        
+         let Name_recipe= await response.json();
+         setLoading(false)
+          setsearchedRecipe(Name_recipe)
+        
+  
+    
     }
     const LatesRecipe=async()=>{
       setLoading(true)
@@ -91,7 +97,7 @@ export default function RecipeState(props){
     
     }
 return(
-    <RecipeContext.Provider value={{recipe,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,setRecipeName,Recipename}}>
+    <RecipeContext.Provider value={{recipe,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )

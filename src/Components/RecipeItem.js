@@ -26,7 +26,7 @@ deg=(deg===180)?0:180
     
  
 <div class="scene">
-  <div class="card" id={`${props.id}`}>
+  <div class="card " id={`${props.id}`}>
   
     <div class="face front">
      <div className="d-flex">
@@ -37,7 +37,7 @@ deg=(deg===180)?0:180
             <img
              
               src={props.ImageUrl}
-              className="card-img-top rounded"
+              className="card-img-top recipeItemImage rounded"
               alt=""
               style={{ zIndex:"1" }}
               onerror="this.src='https://cdn.xxl.thumbs.canstockphoto.com/image-not-available-written-in-chalk-on-a-blackboard-stock-image_csp8317846.jpg'"

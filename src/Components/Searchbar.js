@@ -2,11 +2,16 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './searchbar.css'
 import NavbarToggler from "./NavbarToggler";
-
+import RecipeContext from "../Context/RecipeContext";
 export default function Searchbar(props) {
+  const context = useContext(RecipeContext)
+  const {recipe,NameRecipe, setName_to_search,name_to_search,searchRecipe} = context
 
-  
- 
+//  useEffect(()=>{
+// NameRecipe("pasta")
+// console.log("hlo")
+// console.log(recipe)
+//  },[])
 const changesize=()=>{
  document.getElementById("searchbar-searchbox").style.width="400px"
  
@@ -51,11 +56,12 @@ var searchentered
       <form class="d-flex text-white">
         <input class="form-control me-2 search_input" id="searchbar-searchbox" type="search" placeholder="Search" aria-label="Search" onClick={changesize} onChange={(e)=>{
           searchentered=e.target.value
-          console.log(searchentered)
+          setName_to_search(searchentered)
+      
         }}  />
         
       
-      <Link  class="btn btn-outline-light" tabindex="-1" to={`/SearchResult/${searchentered}`} role="button"  aria-disabled="true">Search</Link>
+      <Link  class="btn btn-outline-light" tabindex="-1" to={"/SearchResult"} role="button" onClick={()=>{ console.log("h");  NameRecipe(`/${name_to_search}`); console.log(searchRecipe); console.log("done")}}  aria-disabled="true">Search</Link>
       </form>
     </div>
   </div>
