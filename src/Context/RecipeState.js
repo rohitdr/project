@@ -5,6 +5,27 @@ export default function RecipeState(props){
     const [Latest_recipe, setLatest_Recipe] = useState({})
     const [loading,setLoading]=useState(false)
     const [Ingrediant_statepage] = useState([])
+    const[Recipename,setRecipeName]=useState("")
+    const NameRecipe=async(name)=>{
+      setLoading(true)
+      const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswith/${name}`, {
+          method: 'GET',
+      
+          headers: {
+            'Content-Type': 'application/json',
+            
+           
+          },
+         
+      
+        });
+        
+      
+       let Name_recipe= await response.json();
+
+        setRecipe(Name_recipe)
+        setLoading(false)
+    }
     const LatesRecipe=async()=>{
       setLoading(true)
       const response = await fetch('http://localhost:5000/api/recipe/LatestRecipes', {
@@ -70,7 +91,7 @@ export default function RecipeState(props){
     
     }
 return(
-    <RecipeContext.Provider value={{recipe,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe}}>
+    <RecipeContext.Provider value={{recipe,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,setRecipeName,Recipename}}>
         {props.children}
     </RecipeContext.Provider>
 )

@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './searchbar.css'
 import NavbarToggler from "./NavbarToggler";
+import RecipeContext from "../Context/RecipeContext";
 export default function Searchbar(props) {
+  const context = useContext(RecipeContext)
+  const {setRecipeName} = context
+  
+ 
 const changesize=()=>{
  document.getElementById("searchbar-searchbox").style.width="400px"
  
 }
 var serachinput
-const setname=()=>{
-  serachinput=document.getElementById('searchbar-searchbox').value
-}
+
+
   return (
    
     <>
@@ -45,11 +49,17 @@ const setname=()=>{
         </li>
        
       </ul>
-      <form class="d-flex text-white" role="search">
-        <input class="form-control me-2 search_input" id="searchbar-searchbox" type="search" placeholder="Search" aria-label="Search" onClick={changesize}  />
-        {/* <button class="btn btn-outline-light " type="submit" >Search</button> */}
+      <form class="d-flex text-white">
+        <input class="form-control me-2 search_input" id="searchbar-searchbox" type="search" placeholder="Search" aria-label="Search" onClick={changesize} onChange={(e)=>{
+    
+         serachinput= e.target.value
+         setRecipeName(serachinput)
+         
+         
+        }}  />
+        
       
-      <Link  class="btn btn-outline-light " tabindex="-1" cl="hlo" to={{pathname:"SearchResult",state:{name:"sdfas"},}} role="button" onClick={setname} aria-disabled="true">Search</Link>
+      <Link  class="btn btn-outline-light" tabindex="-1" cl="hlo" to="/SearchResult" role="button"  aria-disabled="true">Search</Link>
       </form>
     </div>
   </div>
