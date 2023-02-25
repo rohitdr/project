@@ -26,17 +26,16 @@ export default function SearchResult(props) {
  
        {searchRecipe.recipe && searchRecipe.recipe.map((element)=>{
     
-        return <div className="col-md-6 mt-4 " key={element._id}>
+        return <div className="col-md-3 mt-4 " key={element._id}>
                     <RecipeItem
                       id={element._id}
                         title={element.label}
                         topLeftColor={"dark"}
                      headingColor={"dark"}
                       ImageUrl={element.image}
-                   
+                      date={element.date}
                       health_labels={element.healthLabels
-                        .toString()
-                        .substring(0,120)}
+                      }
                       Ingridiants={element.ingredientLines
                         .toString()
                         .replace(",", " and ")

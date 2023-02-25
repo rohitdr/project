@@ -174,10 +174,27 @@ margin:0px 120px;
     }
 }
  .scene:hover{
-  transform: translate3d(-8px,8px,0);
-  border-top: 8px solid #d0d30e;
+  transform: translate3d(8px,-8px,0);
+  border-bottom: 8px solid #d0d30e;
   border-right: 8px solid #c6ee14;
  
 
 }
+.recipeitemimageopacity{
+  opacity: 1;
+  max-height: 250px;
+}
+.scene:hover .recipeitemimageopacity{
+  opacity: 0.3;
+}
+.recipeitembadgeopacity{
+  opacity: 0;
+  background-color: #d0d30e;
 
+}
+.scene:hover .recipeitembadgeopacity{
+  opacity: 1;
+}
+.card-img-overlay{
+  bottom: 50%!important;
+}

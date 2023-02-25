@@ -1204,3 +1204,73 @@ npm i react-infinite-scroll-component
        <IngrediantsDetails number="fifth" modal={5}></IngrediantsDetails>
        <IngrediantsDetails number="sixed" modal={6}></IngrediantsDetails>
       </form>
+
+
+
+
+        <div className="d-flex">
+          <div
+            className="p-1 flex-fill bd-highlight"
+            style={{ width: "50%" }}
+          >
+            <img
+             
+              src={props.ImageUrl}
+              className="card-img-top recipeItemImage rounded"
+              alt=""
+              style={{ zIndex:"1" }}
+              onerror="this.src='https://cdn.xxl.thumbs.canstockphoto.com/image-not-available-written-in-chalk-on-a-blackboard-stock-image_csp8317846.jpg'"
+              height="300px"
+              width="500px"
+            />
+            <span class="position-absolute translate-middle badge bg-dark"><i class="fa-solid fs-6 fa-right-left" onClick={onclickRotate}></i></span>
+          </div>
+       
+          <div className="p-1 flex-fill bd-highlight   " style={{ width: "50%" }}  >
+            <h4 className={`fw-bold text-${props.headingColor}`}  >
+              {props.title}
+            </h4>
+            <p className={`card-text text-${props.headingColor}`} style={{textAlign:"justify"}}>
+              {props.health_labels}.......
+            </p>
+            <h5
+              className={`card-text text-center fw-bold text-${props.headingColor}`}
+            >
+              {" "}
+              INGRIDIANTS
+            </h5>
+            <p className={`card-text text-${props.headingColor}`}>
+              {props.Ingridiants}.....
+            </p>
+          </div>
+        
+        </div>
+       
+        <div className="card-footer text-muted">
+        
+          <table
+            className={`table table-borderless table-hover  text-${props.headingColor}`}
+          >
+            <tbody>
+              <tr>
+                <td style={{ color: "white", background: "	red" }}>Caution</td>
+                <td style={{ color: "white", background: "	red" }}>
+                  {props.caution.toString().length > 2
+                    ? props.caution.slice(0, 2).toString()
+                    : "___"}
+                </td>
+                <td style={{ color: "white", background: "	green" }}>
+                  Source:&#8594;
+                </td>
+                <td style={{ color: "white", background: "	green" }}>
+                  {props.source}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+         
+        </div>
+        {/* <span class="position-absolute  translate-middle badge rounded-pill bg-danger" style={{zIndex:"99999990"}}>
+            {props.time === 0 ? "Default" : props.time + "min"}
+            <span class="visually-hidden">source</span>
+          </span> */}

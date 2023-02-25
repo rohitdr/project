@@ -63,16 +63,14 @@ export default  function Recipe(props)  {
           <div className="row">
             {article.map((element) => {
                 return (
-                  <div className="col-md-6 mt-4" key={element.recipe.uri}>
+                  <div className="col-md-3 mt-4" key={element.recipe.uri}>
                     <RecipeItem
                       topLeftColor={props.topLeftColor}
                       headingColor={props.headingColor}
                       title={element.recipe.label}
                       ImagesUrl={element.recipe.images.SMALL.url}
                       url={element.recipe.shareAs}
-                      health_labels={element.recipe.healthLabels.slice(0,16)
-                        .toString()
-                        }
+                      health_labels={element.recipe.healthLabels}
                       Ingridiants={element.recipe.ingredientLines
                         .toString()
                         .replace(",", " and ")

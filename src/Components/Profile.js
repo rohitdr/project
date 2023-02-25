@@ -30,28 +30,27 @@ return(
         {/* </div> */}
 <div className="row my-3">
 
-<h1 className="text-center my-4 fw-bold text-white" style={{opacity:"0",
+<h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
           Your Recipes
           </h1>
     {loading && <Loader></Loader>}
-          <div className="col-md-6  mt-4" >
+          {/* <div className="col-md-3  mt-4" >
      <BlankRecipeItem></BlankRecipeItem>
-        </div>
+        </div> */}
  
        {recipe.recipe && recipe.recipe.map((element)=>{
       
-        return <div className="col-md-6 mt-4 " key={element._id}>
+        return <div className="col-md-3 mt-4 " key={element._id}>
                     <RecipeItem
                       id={element._id}
                         title={element.label}
                         topLeftColor={"dark"}
                         headingColor={"dark"}
                       ImageUrl={element.image}
-                   
+                      date={element.date}
                       health_labels={element.healthLabels
-                        .toString()
-                        .substring(0,120)}
+                      }
                       Ingridiants={element.ingredientLines
                         .toString()
                         .replace(",", " and ")

@@ -1,4 +1,4 @@
-
+/* 
 
 
   .badge{
@@ -57,12 +57,12 @@
     color: white;
   background-color: rgb(46, 40, 40);
     transform: rotateY(180deg);
-  }
+  } */
   
   /* .scene:hover .card {
     transform: rotateY(180deg);
   } */
-  .badge{
+  /* .badge{
     top: 3%;
     left: 97.7%;
-  }
+  } */

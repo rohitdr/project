@@ -49,7 +49,7 @@ export default function Recipe_Category(props)  {
     return (
       <>
             
-          <h1 className={`text-center my-4 fw-bold text-${props.textColor}`} style={{opacity:"0",
+          <h1 className={`text-center my-4 fw-bold text-dark`} style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
             Top - {props.heading}
           </h1>
@@ -73,7 +73,7 @@ export default function Recipe_Category(props)  {
                   animation_number=0.5
                 }
                 return (
-                  <div className="col-md-6 mt-4 "  style={{opacity:"0",
+                  <div className="col-md-3 mt-4 "  style={{opacity:"0",
                   animation:`drop .4s linear forwards ${animation_number}s`} } key={element.recipe.uri}>
                     <RecipeItem
                     id={element.recipe.uri}
@@ -82,13 +82,11 @@ export default function Recipe_Category(props)  {
                       title={element.recipe.label}
                       ImagesUrl={element.recipe.images.SMALL.url}
                       url={element.recipe.shareAs}
-                      health_labels={element.recipe.healthLabels
-                        .toString()
-                        .substring(0, 120)}
+                      health_labels={element.recipe.healthLabels}
                       Ingridiants={element.recipe.ingredientLines
                         .toString()
                         .replace(",", " and ")
-                        .substring(0, 60)}
+                        }
                       caleroies={Math.ceil(element.recipe.calories)}
                       fat={
                         element.recipe.totalNutrients.FAT.quantity
@@ -97,6 +95,7 @@ export default function Recipe_Category(props)  {
                             )
                           : " "
                       }
+                     
                       caution={element.recipe.cautions}
                       time={element.recipe.totalTime}
                       source={element.recipe.source}
