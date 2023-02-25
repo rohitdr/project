@@ -182,7 +182,13 @@ margin:0px 120px;
 }
 .recipeitemimageopacity{
   opacity: 1;
-  max-height: 250px;
+  max-height: 300px;
+}
+@media (min-width: 767px) {
+  .recipeitemimageopacity{
+  
+    max-height: 250px;
+  }
 }
 .scene:hover .recipeitemimageopacity{
   opacity: 0.3;
@@ -197,4 +203,37 @@ margin:0px 120px;
 }
 .card-img-overlay{
   bottom: 50%!important;
+}
+.card-up{
+  background-color: rebeccapurple;
+}
+.searchlistbox{
+  list-style: none;
+  padding: 0px;
+
+}
+.searchmodal{
+  background-color:#e1e4e7
+}
+.DocSearch-Hits{
+  border: 2px solid rgb(54, 54, 185);
+  padding: 15px;
+color: black;
+background-color: white;
+border-radius: 10px;
+margin-top: 2px;
+
+}
+.listcombo{
+  margin:20px 0px;
+
+
+}
+.DocSearch-Hits:hover{
+  background-color:rgb(54, 54, 185) ;
+  color: white;
+ 
+}
+.DocSearch-Hitslink{
+  text-decoration: none;
 }

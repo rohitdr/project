@@ -4,12 +4,14 @@ export default function RecipeState(props){
     const [recipe, setRecipe] = useState({})
     const [Latest_recipe, setLatest_Recipe] = useState({})
     const [loading,setLoading]=useState(false)
+    
     const [Ingrediant_statepage] = useState([])
    const [name_to_search,setName_to_search]=useState("")
    const [searchRecipe,setsearchedRecipe]=useState({})
     const NameRecipe=async(recipename)=>{
    
         setLoading(true)
+        
         const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswith${recipename}`, {
             method: 'GET',
        
@@ -23,11 +25,16 @@ export default function RecipeState(props){
            
         
           });
-         
+         if(response.status!==404){
+          let Name_recipe= await response.json();
+          setLoading(false)
+           setsearchedRecipe(Name_recipe)
+         }
+         else{
+          setLoading(false)
+         }
         
-         let Name_recipe= await response.json();
-         setLoading(false)
-          setsearchedRecipe(Name_recipe)
+       
         
   
     

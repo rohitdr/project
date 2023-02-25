@@ -5,6 +5,8 @@ import Loader from "./Loader";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Recipe_Category(props)  {
+  
+  var number=0;
   const [article, setArticle]=useState([])
   const[loading, setLoading] = useState(true)
   const[nextPage, setNextPage]= useState("")
@@ -67,13 +69,13 @@ export default function Recipe_Category(props)  {
           <div className="row " >
             {
               article.map((element) => {
-                
+              
                 animation_number+=0.5
                 if(animation_number>=11.6){
                   animation_number=0.5
                 }
                 return (
-                  <div className="col-md-3 mt-4 "  style={{opacity:"0",
+                  <div className="col-md-3 mt-4"  style={{opacity:"0",
                   animation:`drop .4s linear forwards ${animation_number}s`} } key={element.recipe.uri}>
                     <RecipeItem
                     id={element.recipe.uri}
