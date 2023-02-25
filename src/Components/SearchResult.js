@@ -7,9 +7,7 @@ export default function SearchResult(props) {
   const {recipe,NameRecipe,Recipename} = context
   
   useEffect(()=>{
-    console.log(Recipename)
-NameRecipe("st")
-console.log(recipe)
+   
   },[])
   const name=useParams();
   console.log(name.name)

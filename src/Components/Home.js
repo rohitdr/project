@@ -8,7 +8,7 @@ export default function Home() {
 
   
 
-  
+  const hide="d-none d-md-block"
 
   var first=0;
   var second=0;
@@ -75,8 +75,9 @@ export default function Home() {
      
       {recipe.recipe && recipe.recipe.map((element)=>{
       first++;
+      
       if(first<7){
-        return <div className="carousel_card card  " key={element._id}>
+        return <div className={`carousel_card card ${(first<3)?hide:""}`} key={element._id}>
         <Carousel_card image={element.image} title={element.label}></Carousel_card>
        
        </div>
@@ -99,7 +100,7 @@ export default function Home() {
       {recipe.recipe && recipe.recipe.map((element)=>{
       second++;
       if(second>6 && second<13){
-        return <div className="carousel_card card  " key={element._id}>
+        return <div className={`carousel_card card ${(second<9)?hide:""}`} key={element._id}>
         <Carousel_card image={element.image} title={element.label}></Carousel_card>
        
        </div>
@@ -124,7 +125,7 @@ export default function Home() {
       {recipe.recipe && recipe.recipe.map((element)=>{
       third++;
       if(third>13 && third<20){
-        return <div className="carousel_card card  " key={element._id}>
+        return <div className={`carousel_card card ${(third<16)?hide:""}`} key={element._id}>
         <Carousel_card image={element.image} title={element.label}></Carousel_card>
        
        </div>
@@ -145,16 +146,16 @@ export default function Home() {
 
 
 {/* latest Recipe */}
-<div className="container">
+<div className="latest_recipe_container">
 <div className="row">
   <div className="col-md-3 d-none d-md-block " id="latestRecipeUpper">
-  <div className="carousel_card   card my-3 " style={{height:"30%"}}>
+  <div className="carousel_card   card my-3 " style={{height:"20%"}}>
 <Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
   </div>
-  <div className="carousel_card  card my-3 " style={{height:"33%"}} >
+  <div className="carousel_card  card my-3 " style={{height:"20%"}}>
 <Carousel_card image={"https://image.winudf.com/v2/image1/Y29tLmRvbmF0ZS5wYWxtZHJvaWRfc2NyZWVuXzBfMTU4ODE1MDIwN18wNTg/screen-0.jpg?fakeurl=1&type=.webp"} height={100} ></Carousel_card>
   </div>
-  <div className="carousel_card  card my-3 " style={{height:"33%"}}>
+  <div className="carousel_card  card my-3 " style={{height:"20%"}}>
 <Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
   </div>
   </div>
@@ -170,9 +171,9 @@ export default function Home() {
       if(fourth<10){
         return <a href="" class="text-dark">
         <div class="row mb-4 border-bottom pb-2">
-          <div class="col-3">
+          <div class="col-3 ">
             <img src={element.image}
-              class="img-fluid shadow-1-strong rounded" alt="Hollywood Sign on The Hill" />
+              class="img-fluid shadow-1-strong rounded latest_recipe_image " alt="Hollywood Sign on The Hill" />
           </div>
   
           <div class="col-9">
@@ -196,13 +197,13 @@ export default function Home() {
   </div>
   </div>
   <div className="col-md-3 d-none d-md-block">
-  <div className="carousel_card card my-3 "style={{height:"33%"}}>
+  <div className="carousel_card card my-3 "style={{height:"20%"}}>
 <Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
   </div>
-  <div className="carousel_card card my-3 "style={{height:"33%"}}>
+  <div className="carousel_card card my-3 "style={{height:"20%"}}>
 <Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
   </div>
-  <div className="carousel_card card my-3 " style={{height:"33%"}}>
+  <div className="carousel_card card my-3 " style={{height:"20%"}}>
 <Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
   </div>
     </div>

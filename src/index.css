@@ -164,5 +164,12 @@ font-family: cursive;
  
     
   }
+.latest_recipe_container{
+margin:0px 120px;
 
-  
+}
+@media (max-width: 1150px) {
+  .latest_recipe_container{
+    margin:0px 12px;
+    }
+}
