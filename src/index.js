@@ -6,14 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { ProSidebarProvider } from 'react-pro-sidebar';
+import RecipeState from './Context/RecipeState';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ProSidebarProvider>
   <React.StrictMode>
-
+ <RecipeState>
     <App />
-
+    </RecipeState>
   </React.StrictMode>
   </ProSidebarProvider>
 );

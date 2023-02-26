@@ -365,7 +365,7 @@ export default function BlankRecipeItem() {
  <form>
         <div className="scene ">
           <div className="card ">
-          <div class="face front ">
+          <div className="face front ">
      <div className="d-flex blankRecipe">
           <div
             className="p-1 flex-fill bd-highlight"
@@ -403,7 +403,7 @@ export default function BlankRecipeItem() {
           </div>
         
         </div>
-        <Link class="btn btn-dark fw-bold btn-lg position-absolute translate-middle badge_blank" role="button"  style={{opacity:"1"}} to="/Add_Recipe">ADD recipe</Link>
+        <Link className="btn btn-dark fw-bold btn-lg position-absolute translate-middle badge_blank" role="button"  style={{opacity:"1"}} to="/Add_Recipe">ADD recipe</Link>
         <div className="card-footer text-muted blankRecipe">
         
           <table

@@ -20,7 +20,7 @@ export default function AddRecipe() {
                      <label for="label">Title</label>
 
   </div>
-  <div class="input-group mt-2">
+  <div className="input-group mt-2">
   
   <input
                     type="file"
@@ -30,7 +30,7 @@ export default function AddRecipe() {
                     // onChange={loadFile}
                   
                   /> 
-  <span class="input-group-text">Recipe Image</span>
+  <span className="input-group-text">Recipe Image</span>
 </div>
                   <div className="row mt-2">
                     <div className="col-4">
@@ -85,8 +85,8 @@ export default function AddRecipe() {
                   
                   <div className="row">
                    <div className="col-sm-7">
-                    <div class="input-group mt-2">
-                    <span class="input-group-text">Caution</span>
+                    <div className="input-group mt-2">
+                    <span className="input-group-text">Caution</span>
                     <input
                           type="text"
                          
@@ -101,8 +101,8 @@ export default function AddRecipe() {
                     </div>
                     <div className="row">
                     <div className="col-sm-7">
-                    <div class="input-group mt-2">
-                    <span class="input-group-text">Source</span>
+                    <div className="input-group mt-2">
+                    <span className="input-group-text">Source</span>
 
                     <input
                           type="text"

@@ -48,14 +48,14 @@ export default function IngrediantsDetails(props) {
        }
   return (
     <div>
-       <div class="modal" id={`exampleModal${props.modal}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Ingrediants Full details</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       <div className="modal" id={`exampleModal${props.modal}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="exampleModalLabel">Ingrediants Full details</h1>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div className="modal-body">
       <div className="form-outline">
                   <label className="form-label text-dark fw-bold" for={`ingrediants_text[${props.number}]`}>
              Enter the full details about Ingrediant
@@ -76,9 +76,9 @@ export default function IngrediantsDetails(props) {
                   <input type="url" id="ingrediants_url[first]" onChange={onchange_url} name="ingrediants_url[first]" className="form-control border-dark"/>
                 </div>
                 </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onClick={setting_Ingredients}  data-bs-dismiss="modal">Add</button>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-primary" onClick={setting_Ingredients}  data-bs-dismiss="modal">Add</button>
       </div>
     </div>
   </div>

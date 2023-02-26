@@ -71,7 +71,7 @@ export default function Home() {
           Top Recipes
           </h1>
       {loading && <Loader></Loader>}
-      <div class="cards-wrapper mb-3">
+      <div className="cards-wrapper mb-3">
      
       {recipe.recipe && recipe.recipe.map((element)=>{
       first++;
@@ -96,7 +96,7 @@ export default function Home() {
           Top Recipes
           </h1>
       {loading && <Loader></Loader>}
-      <div class="cards-wrapper mb-3">
+      <div className="cards-wrapper mb-3">
       {recipe.recipe && recipe.recipe.map((element)=>{
       second++;
       if(second>6 && second<13){
@@ -121,7 +121,7 @@ export default function Home() {
           Top Recipes
           </h1>
       {loading && <Loader></Loader>}
-      <div class="cards-wrapper mb-3">
+      <div className="cards-wrapper mb-3">
       {recipe.recipe && recipe.recipe.map((element)=>{
       third++;
       if(third>13 && third<20){
@@ -161,7 +161,7 @@ export default function Home() {
   </div>
   <div className="col-md-6 my-3">
   <div className="p-1 border bg-white">
-  <div class=" mb-3 text-center" style={{backgroundColor:"rgb(13, 63, 29)"}}>
+  <div className=" mb-3 text-center" style={{backgroundColor:"rgb(13, 63, 29)"}}>
 <strong className='fw-bold text-white fs-3' >Latest Recipes</strong>
 </div>
     {/* latest 1 */}
@@ -169,15 +169,15 @@ export default function Home() {
     {Latest_recipe.recipe && Latest_recipe.recipe.map((element)=>{
       fourth++;
       if(fourth<10){
-        return <a href="" class="text-dark">
-        <div class="row mb-4 border-bottom pb-2">
-          <div class="col-3 ">
+        return <a href="" className="text-dark">
+        <div className="row mb-4 border-bottom pb-2">
+          <div className="col-3 ">
             <img src={element.image}
-              class="img-fluid shadow-1-strong rounded latest_recipe_image " alt="Hollywood Sign on The Hill" />
+              className="img-fluid shadow-1-strong rounded latest_recipe_image " alt="Hollywood Sign on The Hill" />
           </div>
   
-          <div class="col-9">
-            <p class="mb-2 fs-4"><strong>{element.label}</strong></p>
+          <div className="col-9">
+            <p className="mb-2 fs-4"><strong>{element.label}</strong></p>
             <p>
               <u>  {(new Date(element.date).toLocaleString())}</u>
             </p>

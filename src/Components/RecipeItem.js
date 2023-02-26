@@ -7,14 +7,39 @@ import Popover from 'react-bootstrap/Popover';
 import RecipeContext from "../Context/RecipeContext";
 
 import Tooltip from 'react-bootstrap/Tooltip';
+import { useEffect } from "react";
 
 export default function RecipeItem(props) {
+//to captalize first character
+
+const firstCapital =(message)=>{
+  let lower =message.toLowerCase();
+  return ((lower.charAt(0).toUpperCase()) + lower.slice(1))
+}
+
+
+
 const [heart,setHeart]=useState("regular")
   const context = useContext(RecipeContext)
-  const {deleteRecipe} = context
+  const {deleteRecipe,LikeRecipe,getUser,userData,UnLikeRecipe} = context
+ 
 const [star,setstar]=useState(0)
   let location = useLocation();
+useEffect(()=>{
+ 
+    getUser() 
+ 
 
+
+},[])
+const settingheart=()=>{
+  if(userData?.user?.Liked_Recipe?.includes(props.id)){
+setHeart("solid")
+
+}
+else{
+  setHeart("regular")
+}}
   React.useEffect(() => {
    
   }, [location])
@@ -24,10 +49,10 @@ const [star,setstar]=useState(0)
       <Popover.Header as="h3">Share</Popover.Header>
       <Popover.Body>
         <div className="d-flex me-4 justify-content-between">
-      <i class="fa-brands fa-whatsapp me-4 fs-2 fw-bold text-success"></i>
-      <i class="fa-brands fa-instagram me-4  fs-2 fw-bold text-danger"></i>
-      <i class="fa-brands fa-facebook me-4  fs-2 fw-bold text-primary"></i>
-      <i class="fa-brands fa-snapchat fs-2 me-4  fw-bold text-warning  "></i></div>
+      <i className="fa-brands fa-whatsapp me-4 fs-2 fw-bold text-success"></i>
+      <i className="fa-brands fa-instagram me-4  fs-2 fw-bold text-danger"></i>
+      <i className="fa-brands fa-facebook me-4  fs-2 fw-bold text-primary"></i>
+      <i className="fa-brands fa-snapchat fs-2 me-4  fw-bold text-warning  "></i></div>
       </Popover.Body>
     </Popover>
   );
@@ -45,109 +70,119 @@ deg=(deg===180)?0:180
     <>
     
  
-<div class="scene">
-  <div class="recipecard card border-success " id={`${props.id}`} style={{Width: "18rem"}}>
+<div className="scene" onLoad={settingheart} >
+  <div className="recipecard card border-success " id={`${props.id}`} style={{Width: "18rem"}}>
   
-    <div class="face front">
+    <div className="face front">
     
-  <img src={props.ImageUrl} class="card-img-top recipeitemimageopacity" alt="..."/>
-  <div class="card-body">
-  <h6 class="card-title text-warning"> {props.source}</h6>
-  <h4 class="card-subtitle mb-2 text-dark fw-bold">{props.title}</h4>
-    <p class="card-text text-dark"> {props.Ingridiants}</p>
-    <p class="card-text text-dark d-flex justify-content-between">
-      <div>
-       <i class={`fa-${star>0?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(1)}}></i>
-       <i class={`fa-${star>1?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(2)}}></i>
-       <i class={`fa-${star>2?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(3)}}></i>
-       <i class={`fa-${star>3?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(4)}}></i>
-       <i class={`fa-${star>4?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(5)}}></i></div>
-       <i class="fa-solid fa-right-left" onClick={onclickRotate}></i></p>
+  <img src={props.ImageUrl} className="card-img-top recipeitemimageopacity" alt="..."/>
+  <div className="card-body">
+  <h6 className="card-title text-warning"> {props.source}</h6>
+  <h4 className="card-subtitle mb-2 text-dark fw-bold">{props.title}</h4>
+    <p className="card-text text-dark"> {props.Ingridiants}</p>
+    <div className="card-text text-dark d-flex justify-content-between">
+      <p>
+       <i className={`fa-${star>0?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(1)}}></i>
+       <i className={`fa-${star>1?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(2)}}></i>
+       <i className={`fa-${star>2?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(3)}}></i>
+       <i className={`fa-${star>3?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(4)}}></i>
+       <i className={`fa-${star>4?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(5)}}></i></p>
+       <i className="fa-solid fa-right-left" onClick={onclickRotate}></i></div>
   </div>
-  <ul class="list-group list-group-flush ">
-    <li class="list-group-item d-flex justify-content-between">
-      <i class="fa-solid fs-5 fa-comment"></i>
-      <i class={`fa-${heart} fa-heart fs-5 text-danger`} onClick={()=>{(heart==="regular")?setHeart("solid"):setHeart("regular")}} ></i>
+  <ul className="list-group list-group-flush ">
+    <li className="list-group-item d-flex justify-content-between">
+      <i className="fa-solid fs-5 fa-comment"></i>
+      <i className={`fa-${heart} fa-heart fs-5 recipeitemlike text-danger`} onClick={()=>{ 
+        if(heart==="regular"){
+        LikeRecipe(props.id)
+        setHeart("solid")
+      }
+      if(heart=="solid"){
+        UnLikeRecipe(props.id)
+        setHeart("regular")
+      }
+       }
+      } ></i>
        <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-      <i class="fa-solid fs-5 fa-share-nodes"></i>
+      <i className="fa-solid fs-5 fa-share-nodes"></i>
   </OverlayTrigger>
       </li>
     
    
   </ul>
-  <div class="card-img-overlay">
+  <div className="card-img-overlay">
     <div className="row">
       <div className="col-md-2">
-      <p class="badge recipeitembadgeopacity text-success fw-bold  fs-5 m-1">{props.health_labels[1]}</p>
+      <p className="badge recipeitembadgeopacity text-success fw-bold  fs-5 m-1">{props.health_labels[1]}</p>
       </div>
   
     </div>
     <div className="row">
       <div className="col-md-2">
-      <p class="badge recipeitembadgeopacity text-success fs-5 m-1">{props.health_labels[2]}</p>
+      <p className="badge recipeitembadgeopacity text-success fs-5 m-1">{props.health_labels[2]}</p>
       </div>
   
     </div>
      <div className="row">
       <div className="col-md-2">
-      <p class="badge recipeitembadgeopacity text-success  fs-5 m-1">{props.health_labels[3]}</p>
+      <p className="badge recipeitembadgeopacity text-success  fs-5 m-1">{props.health_labels[3]}</p>
       </div>
   
     </div>
    
   </div>
 
-  <div class="card-footer">
-  <i class="fa-regular me-2 fa-clock"></i>{(new Date(props.date).toLocaleString())}
+  <div className="card-footer">
+  <i className="fa-regular me-2 fa-clock"></i>{(new Date(props.date).toLocaleString())}
   </div>
 </div>
 
   <div className="back ">
 
  
-  {/* <div class=" d-flex justify-content-center align-items-center">
+  {/* <div className=" d-flex justify-content-center align-items-center">
              
-             <div class=" mt-2">
+             <div className=" mt-2">
 
               
 
-              <div class="user text-center">
+              <div className="user text-center">
 
-                <div class="profile">
+                <div className="profile">
 
-                  <img src="https://i.imgur.com/JgYD2nQ.jpg" class="rounded-circle" width="150"/>
+                  <img src="https://i.imgur.com/JgYD2nQ.jpg" className="rounded-circle" width="150"/>
                   
                 </div>
 
               </div>
 
 
-              <div class="mt-5 text-center">
+              <div className="mt-5 text-center">
 
-                <h4 class="mb-0">Benjamin Tims</h4>
-                <span class="text-muted d-block mb-2">Los Angles</span>
+                <h4 className="mb-0">Benjamin Tims</h4>
+                <span className="text-muted d-block mb-2">Los Angles</span>
 
                
 
 
-                <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+                <div className="d-flex justify-content-between align-items-center mt-4 px-4">
 
-                  <div class="stats">
-                    <h6 class="mb-0">Followers</h6>
+                  <div className="stats">
+                    <h6 className="mb-0">Followers</h6>
                     <span>8,797</span>
 
                   </div>
 
 
-                  <div class="stats">
-                    <h6 class="mb-0">Projects</h6>
+                  <div className="stats">
+                    <h6 className="mb-0">Projects</h6>
                     <span>142</span>
 
                   </div>
 
 
-                  <div class="stats">
-                    <h6 class="mb-0">Ranks</h6>
+                  <div className="stats">
+                    <h6 className="mb-0">Ranks</h6>
                     <span>129</span>
 
                   </div>
@@ -160,56 +195,56 @@ deg=(deg===180)?0:180
 
            </div> */}
   {/* <div className="d-flex justify-content-center align-item-center">
-  <div class="profile mt-4">
+  <div className="profile mt-4">
 
-<img src="https://i.imgur.com/JgYD2nQ.jpg" class="rounded-circle" width="150"/>
+<img src="https://i.imgur.com/JgYD2nQ.jpg" className="rounded-circle" width="150"/>
 
 </div>
 
   </div> */}
-  {/* <div class="card" >
+  {/* <div className="card" >
  
-  <img src="https://i.imgur.com/JgYD2nQ.jpg" class="avtar" alt="..."/>
+  <img src="https://i.imgur.com/JgYD2nQ.jpg" className="avtar" alt="..."/>
 
-  <div class="card-body">
-    <h5 class="card-title fw-bold">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <div className="card-body">
+    <h5 className="card-title fw-bold">Card title</h5>
+    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   
   </div>
 </div> */}
-<div class="card testimonial-card pt-4 ">
-        <div class="card-up" ></div>
-        <div class="avatar mx-auto bg-white">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
-            class="rounded-circle img-fluid" />
+<div className="card testimonial-card pt-4 ">
+        <div className="card-up" ></div>
+        <div className="avatar mx-auto bg-white">
+          <img src={userData?.user?.Profile_Image}
+            className="rounded-circle img-fluid" />
         </div>
-        <div class="card-body text-center pt-2">
-          <h3 class="mb-4 fw-bold card-title">Maria Smantha</h3>
+        <div className="card-body text-center pt-2">
+          <h3 className="mb-4 fw-bold card-title">{userData?.user?.name}</h3>
    <hr/>
-          <ul class="list-group list-group-flush">
+          <ul className="list-group list-group-flush">
   
-    <p class="card-text text-dark mb-4 d-flex justify-content-between">
-    <div>
+    <div className="card-text text-dark mb-4 d-flex justify-content-between">
+    <p>
       
-    <i class={`fa-${star>0?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(1)}}></i>
-       <i class={`fa-${star>1?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(2)}}></i>
-       <i class={`fa-${star>2?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(3)}}></i>
-       <i class={`fa-${star>3?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(4)}}></i>
-       <i class={`fa-${star>4?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(5)}}></i></div>
-       <i class="fa-solid fa-right-left " onClick={onclickRotate}></i></p>
-       <p class="card-text text-dark d-flex justify-content-evenly">
-      <i className="fa-heart fa-solid fs-5 text-danger"></i>
-      <i class="fa-solid fa-utensils fs-5 "></i>
-      <i class="fa-solid fs-5 fa-comment"></i>
+    <i className={`fa-${star>0?"solid":"regular"} text-danger recipeitemstar fa-star`} onClick={()=>{setstar(1)}}></i>
+       <i className={`fa-${star>1?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(2)}}></i>
+       <i className={`fa-${star>2?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(3)}}></i>
+       <i className={`fa-${star>3?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(4)}}></i>
+       <i className={`fa-${star>4?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(5)}}></i></p>
+       <i className="fa-solid fa-right-left " onClick={onclickRotate}></i></div>
+       
+       <div className="card-text text-dark d-flex justify-content-evenly">
+       <h6 className="text-dark">{userData?.user?.Liked_Recipe?.length}</h6><h6 className="text-dark">{userData?.totalResults}</h6><p>{userData?.user?.Total_Comments}</p>
+      </div>
+      <p className="card-text text-dark d-flex justify-content-evenly">
+      <i className="fa-heart fa-solid fs-4 text-danger"></i>
+      <i className="fa-solid fa-utensils fs-4 "></i>
+      <i className="fa-solid fs-4 fa-comment"></i>
       </p>
-       <p class="card-text text-dark d-flex justify-content-evenly">
-      <p>jkla</p><p>dfs</p><p>asdf</p>
-      </p>
-      
-       <p class="card-text text-dark d-flex justify-content-around">
-       <i class="fa-brands fa-whatsapp  fs-2 fw-bold text-success"></i>
-      <i class="fa-brands fa-instagram   fs-2 fw-bold text-danger"></i>
-      <i class="fa-brands fa-facebook   fs-2 fw-bold text-primary"></i>
+       <p className="card-text text-dark d-flex justify-content-around">
+       <i className="fa-brands fa-whatsapp  fs-2 fw-bold text-success"></i>
+      <i className="fa-brands fa-instagram   fs-2 fw-bold text-danger"></i>
+      <i className="fa-brands fa-facebook   fs-2 fw-bold text-primary"></i>
         </p>
  
  

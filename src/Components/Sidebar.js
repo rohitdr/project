@@ -48,7 +48,7 @@ export default function Sidebar(props) {
                 <span className="">me</span>
               </Link>
             </li>
-            <li class ={` li ${location.pathname ==="/dashboard"?"dashboard":""}`}>
+            <li className ={` li ${location.pathname ==="/dashboard"?"dashboard":""}`}>
               <a
                 href="#submenu1"
                 data-bs-toggle="collapse"
@@ -59,7 +59,7 @@ export default function Sidebar(props) {
                 <span className="">Dashboard</span>{" "}
               </a>
             </li>
-            <li class ={`li ${location.pathname ==="/order"?"order":""}`}>
+            <li ckass ={`li ${location.pathname ==="/order"?"order":""}`}>
               <Link to="/Profile" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-table"></i>
                 <span className="">Orders</span>
@@ -67,13 +67,13 @@ export default function Sidebar(props) {
             </li>
            
 
-            <li class ={`li ${location.pathname ==="/login"?"login":""}`}>
+            <li ckass ={`li ${location.pathname ==="/login"?"login":""}`}>
               <a href="/login" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-grid"></i>
                 <span className="">Login</span>
               </a>
             </li>
-            <li class ={` li ${location.pathname ==="/customers"?"customers":""}`}>
+            <li ckass ={` li ${location.pathname ==="/customers"?"customers":""}`}>
               <a href="/" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-people"></i>
                 <span className="">Customers</span>{" "}
@@ -85,37 +85,37 @@ export default function Sidebar(props) {
             <ul
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu">
-            <li class ="category-heading li">
+            <li ckass ="category-heading li">
               <div className={`nav-link text-truncate text-white fw-bold`}>
               <i className=" fs-5 fa-solid fa-list text-white p-1"></i>
             <span className="ms-1   ">Meal-Type</span>{" "}
               </div>
             </li>
-            <li class ={` li ${location.pathname ==="/Dinner"?"home":""}`}>
+            <li ckass ={` li ${location.pathname ==="/Dinner"?"home":""}`}>
               <Link to="/Dinner" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1">Dinner</span>{" "}
               </Link>
             </li>
-            <li  class ={` li ${location.pathname ==="/Breakfast"?"dashboard":""}`}>
+            <li  ckass ={` li ${location.pathname ==="/Breakfast"?"dashboard":""}`}>
               <Link to="/Breakfast" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1">Breakfast</span>{" "}
               </Link>
             </li>
-            <li class ={`li ${location.pathname ==="/Lunch"?"order":""}`}>
+            <li ckass ={`li ${location.pathname ==="/Lunch"?"order":""}`}>
               <Link to="/Lunch" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1">Lunch</span>{" "}
               </Link>
             </li>
-            <li class ={` li ${location.pathname ==="/Snack"?"login":""}`}>
+            <li ckass ={` li ${location.pathname ==="/Snack"?"login":""}`}>
               <Link to="/Snack" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1">Snacks</span>{" "}
               </Link>
             </li>
-            <li class={` li ${location.pathname ==="/Teatime"?"customers":""}`}>
+            <li ckass={` li ${location.pathname ==="/Teatime"?"customers":""}`}>
               <Link to="/Teatime" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-utensils p-1 text-dark"></i>
                 <span className="ms-1">Teatime</span>{" "}
@@ -127,13 +127,13 @@ export default function Sidebar(props) {
             <ul
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu">
-            <li class ="category-heading li">
+            <li ckass ="category-heading li">
               <div className={`nav-link text-truncate text-white fw-bold`}>
               <i className=" fs-5 fa-solid fa-list  text-white p-1"></i>
             <span className="ms-1 ">Dish-Type</span>{" "}
               </div>
             </li>
-            <li  class ={` li ${location.pathname ==="/Bread"?"home":""}`}>
+            <li  ckass ={` li ${location.pathname ==="/Bread"?"home":""}`}>
               <Link to="/Bread" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Bread</span>{" "}
@@ -141,73 +141,73 @@ export default function Sidebar(props) {
             </li>
 
 
-            <li  class ={`li ${location.pathname ==="/Cereals"?"dashboard":""}`}>
+            <li  ckass ={`li ${location.pathname ==="/Cereals"?"dashboard":""}`}>
               <a href="/Cereals" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Cereals</span>{" "}
               </a>
             </li>
-            <li class ={`${location.pathname ==="/Condiments And Sauces"?"order":""}`}>
+            <li ckass ={`${location.pathname ==="/Condiments And Sauces"?"order":""}`}>
               <Link to="/Condiments And Sauces" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Condiments And Sauces</span>{" "}
               </Link>
             </li>
-            <li class ={`li ${location.pathname ==="/Desserts"?"login":""}`}>
+            <li ckass ={`li ${location.pathname ==="/Desserts"?"login":""}`}>
               <Link to="/Desserts" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Desserts</span>{" "}
               </Link>
             </li>
-            <li class ={`li ${location.pathname ==="/Drinks"?"customers":""}`}>
+            <li ckass ={`li ${location.pathname ==="/Drinks"?"customers":""}`}>
               <Link to="/Drinks" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Drinks</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/MainCourse"?"home":""}`}>
+            <li ckass={`li ${location.pathname ==="/MainCourse"?"home":""}`}>
               <Link to="/MainCourse" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">MainCourse</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Pancake"?"dashboard":""}`}>
+            <li ckass={`li ${location.pathname ==="/Pancake"?"dashboard":""}`}>
               <Link to="/Pancake" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Pancake</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/preps"?"order":""}`}>
+            <li ckass={`li ${location.pathname ==="/preps"?"order":""}`}>
               <Link to="/Preps" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Preps</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/salad"?"login":""}`}>
+            <li ckass={`li ${location.pathname ==="/salad"?"login":""}`}>
               <Link to="/Salad" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Salad</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Sandwiches"?"customers":""}`}>
+            <li ckass={`li ${location.pathname ==="/Sandwiches"?"customers":""}`}>
               <Link to="/Sandwiches" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Sandwiches</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Soup"?"home":""}`}>
+            <li ckass={`li ${location.pathname ==="/Soup"?"home":""}`}>
               <Link to="/Soup" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Soup</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Starter"?"dashboard":""}`}>
+            <li ckass={`li ${location.pathname ==="/Starter"?"dashboard":""}`}>
               <Link to="/Starter" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Starter</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Sweets"?"order":""}`}>
+            <li ckass={`li ${location.pathname ==="/Sweets"?"order":""}`}>
               <Link to="/Sweets" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-sharp fa-solid fa-bowl-food text-dark p-1"></i>
                 <span className="ms-1">Sweets</span>{" "}
@@ -218,49 +218,49 @@ export default function Sidebar(props) {
             <ul
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu">
-            <li class ="category-heading li">
+            <li ckass ="category-heading li">
               <div className={`nav-link text-truncate text-white  fw-bold`}>
               <i className=" fs-5 fa-solid fa-list text-white p-1"></i>
             <span className="ms-1 ">Deit-Type</span>{" "}
               </div>
             </li>
-            <li  class ={`li ${location.pathname ==="/balanced"?"home":""}`}>
+            <li  ckass ={`li ${location.pathname ==="/balanced"?"home":""}`}>
               <Link to="/balanced" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1">balanced</span>{" "}
               </Link>
             </li>
-            <li  class ={`li ${location.pathname ==="/highFiber"?"dashboard":""}`}>
+            <li  ckass ={`li ${location.pathname ==="/highFiber"?"dashboard":""}`}>
               <Link to="/highFiber" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1">HighFiber</span>{" "}
               </Link>
             </li>
-            <li class ={`li ${location.pathname ==="/highProtein"?"order":""}`}>
+            <li ckass ={`li ${location.pathname ==="/highProtein"?"order":""}`}>
               <Link to="/highProtein" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1">high-protein</span>{" "}
               </Link>
             </li>
-            {/* <li class ="login"{`${location.pathname ==="/highProtein"?"order":""}`}>
+            {/* <li ckass ="login"{`${location.pathname ==="/highProtein"?"order":""}`}>
               <Link to="/highProtein" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1">highProtein</span>{" "}
               </Link>
             </li> */}
-            <li class={`li ${location.pathname ==="/lowCarb"?"customers":""}`}>
+            <li ckass={`li ${location.pathname ==="/lowCarb"?"customers":""}`}>
               <Link to="/lowCarb" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1">lowCarb</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/lowFat"?"home":""}`}>
+            <li ckass={`li ${location.pathname ==="/lowFat"?"home":""}`}>
               <Link to="/lowFat" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1">low-fat</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Preserve"?"dashboard":""}`}>
+            <li ckass={`li ${location.pathname ==="/Preserve"?"dashboard":""}`}>
               <Link to="/Preserve" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-bacon text-dark p-1"></i>
                 <span className="ms-1">Preserve</span>{" "}
@@ -272,73 +272,73 @@ export default function Sidebar(props) {
             <ul
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu">
-               <li  class ="category-heading li">
+               <li  ckass ="category-heading li">
               <div className={`nav-link text-truncate text-white fw-bold`}>
               <i className=" fs-5 fa-solid fa-list text-white p-1"></i>
             <span className="ms-1 mode">Health</span>{" "}
               </div>
             </li>
-              <li class={` li ${location.pathname ==="/alcoholFree"?"home":""}`}>
+              <li ckass={` li ${location.pathname ==="/alcoholFree"?"home":""}`}>
               <Link to="/alcoholFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">alcohol-Free</span>{" "}
               </Link>
             </li>
-            <li  class ={`li ${location.pathname ==="/eggFree"?"dashboard":""}`}>
+            <li  ckass ={`li ${location.pathname ==="/eggFree"?"dashboard":""}`}>
               <Link to="/eggFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">Egg-free</span>{" "}
               </Link>
             </li>
-            <li class ={`li ${location.pathname ==="/glutenFree"?"order":""}`}>
+            <li ckass ={`li ${location.pathname ==="/glutenFree"?"order":""}`}>
               <Link to="/glutenFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">gluten-free</span>{" "}
               </Link>
             </li>
-            <li class ={`li ${location.pathname ==="/kidneyFriendly"?"login":""}`}>
+            <li ckass ={`li ${location.pathname ==="/kidneyFriendly"?"login":""}`}>
               <Link to="/kidneyFriendly" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">kidney-Friendly</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/lowFatAbs"?"customers":""}`}>
+            <li ckass={`li ${location.pathname ==="/lowFatAbs"?"customers":""}`}>
               <Link to="/lowFatAbs" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">low-fat-abs</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/lowSugar"?"home":""}`}>
+            <li ckass={`li ${location.pathname ==="/lowSugar"?"home":""}`}>
               <Link to="/lowSugar" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">low-sugar</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/mustardFree"?"dashboard":""}`}>
+            <li ckass={`li ${location.pathname ==="/mustardFree"?"dashboard":""}`}>
               <Link to="/mustardFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">Mustard-free</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/noOilAdded"?"order":""}`}>
+            <li ckass={`li ${location.pathname ==="/noOilAdded"?"order":""}`}>
               <Link to="/noOilAdded" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">No-oil-added</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/redMeatFree"?"login":""}`}>
+            <li ckass={`li ${location.pathname ==="/redMeatFree"?"login":""}`}>
               <Link to="/redMeatFree" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">red-meat-free</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/vegan"?"customers":""}`}>
+            <li ckass={`li ${location.pathname ==="/vegan"?"customers":""}`}>
               <Link to="/vegan" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">vegan</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/vegetarian"?"home":""}`}>
+            <li ckass={`li ${location.pathname ==="/vegetarian"?"home":""}`}>
               <Link to="/vegetarian" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-wheat-awn-circle-exclamation text-dark p-1"></i>
                 <span className="ms-1">vegetarian</span>{" "}
@@ -351,61 +351,61 @@ export default function Sidebar(props) {
             <ul
             className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
             id="menu">
-               <li class ="category-heading li">
+               <li ckass ="category-heading li">
               <div className={`nav-link text-truncate text-white fw-bold`}>
               <i className=" fs-5 fa-solid fa-list text-white p-1"></i>
             <span className="ms-1 ">Cuisine Type</span>{" "}
               </div>
             </li>
-            <li  class ={`li ${location.pathname ==="/American"?"home":""}`}>
+            <li  ckass ={`li ${location.pathname ==="/American"?"home":""}`}>
               <Link to="/American" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1">American</span>{" "}
               </Link>
             </li>
-            <li  class ={`li ${location.pathname ==="/British"?"dashboard":""}`}>
+            <li  ckass ={`li ${location.pathname ==="/British"?"dashboard":""}`}>
               <Link to="/British" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1">British</span>{" "}
               </Link>
             </li>
-            <li class ={`li ${location.pathname ==="/Chinese"?"order":""}`}>
+            <li ckass ={`li ${location.pathname ==="/Chinese"?"order":""}`}>
               <Link to="/Chinese" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1">Chinese</span>{" "}
               </Link>
             </li>
-            <li class ={`li ${location.pathname ==="/French"?"login":""}`}>
+            <li ckass ={`li ${location.pathname ==="/French"?"login":""}`}>
               <Link to="/French" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1">French</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Indian"?"Customers":""}`}>
+            <li ckass={`li ${location.pathname ==="/Indian"?"Customers":""}`}>
               <Link to="/Indian" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1">Indian</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Japanese"?"home":""}`}>
+            <li ckass={`li ${location.pathname ==="/Japanese"?"home":""}`}>
               <Link to="/Japanese" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1">Japanese</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Italian"?"dashboard":""}`}>
+            <li ckass={`li ${location.pathname ==="/Italian"?"dashboard":""}`}>
               <Link to="/Italian" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1">Italian</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/Mexican"?"order":""}`}>
+            <li ckass={`li ${location.pathname ==="/Mexican"?"order":""}`}>
               <Link to="/Mexican" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1">Mexican</span>{" "}
               </Link>
             </li>
-            <li class={`li ${location.pathname ==="/SouthAmerican"?"login":""}`}>
+            <li ckass={`li ${location.pathname ==="/SouthAmerican"?"login":""}`}>
               <Link to="/SouthAmerican" className="nav-link text-truncate text-white fw-bold">
               <i className="fa-solid fa-flag text-dark p-1"></i>
                 <span className="ms-1 ">South-American</span>{" "}
