@@ -13,9 +13,14 @@ import Profile from "./Components/Profile";
 import Home from "./Components/Home";
 import AddRecipe from "./Components/AddRecipe";
 import SearchResult from "./Components/SearchResult";
+import { useContext } from "react";
+import RecipeContext from "./Context/RecipeContext";
+import Alert from "./Components/Alert";
 
 function App() {
-
+  const context = useContext(RecipeContext)
+  const {alert} = context
+ 
   const Recipe_category = [
     {
       path: "/Dinner",
@@ -360,7 +365,7 @@ function App() {
           type={color}
           textcolor={textColor_button}
         ></Searchbar>
-
+<Alert alert={alert}></Alert>
         <Routes>
           <Route exact path="/login" element={<Login></Login>} />
 

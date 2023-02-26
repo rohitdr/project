@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RecipeContext from "./RecipeContext";
 export default function RecipeState(props){
+  
     const [recipe, setRecipe] = useState({})
     const [Latest_recipe, setLatest_Recipe] = useState({})
     const [loading,setLoading]=useState(false)
@@ -8,6 +9,49 @@ export default function RecipeState(props){
     const [Ingrediant_statepage] = useState([])
    const [name_to_search,setName_to_search]=useState("")
    const [searchRecipe,setsearchedRecipe]=useState({})
+   const[alert, setAlert]=useState(null)
+   //api to like a recipe
+const LikeRecipe=async(recipeid)=>{
+ 
+        
+  const response = await fetch("http://localhost:5000/api/recipe/like", {
+      method: 'GET',
+ 
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+
+       
+      },
+      body: JSON.stringify({
+        "id":recipeid
+       })
+     
+  
+    });
+   if(response.status!==404){
+    let likemessage= await response.json();
+    setLoading(false)
+    showAlert(likemessage,"success")
+   
+   }
+   else{
+    setLoading(false)
+   }
+  
+
+  
+
+}
+//to show alert on top
+const showAlert =(msg, type)=>{
+  setAlert({
+    message : msg,
+   type : type,},
+   setTimeout(()=>{
+      setAlert(null)
+   }, 1500))}
+   //api for recipe search
     const NameRecipe=async(recipename)=>{
    
         setLoading(true)
@@ -22,7 +66,7 @@ export default function RecipeState(props){
              
             },
           
-           
+          
         
           });
          if(response.status!==404){
@@ -39,6 +83,7 @@ export default function RecipeState(props){
   
     
     }
+    //api for latest recipes
     const LatesRecipe=async()=>{
       setLoading(true)
       const response = await fetch('http://localhost:5000/api/recipe/LatestRecipes', {
@@ -59,6 +104,7 @@ export default function RecipeState(props){
         setLatest_Recipe(Latest_recipe)
         setLoading(false)
     }
+    // api for all recipes related to a user
     const allRecipe=async()=>{
       setLoading(true)
         const response = await fetch('http://localhost:5000/api/recipe/allRecipes', {
@@ -79,6 +125,7 @@ export default function RecipeState(props){
           setRecipe(allrecipe)
           setLoading(false)
     }
+    // api for delete a recipe
     const deleteRecipe=async(id)=>{
      
     window.confirm("really want to delete")
@@ -104,7 +151,7 @@ export default function RecipeState(props){
     
     }
 return(
-    <RecipeContext.Provider value={{recipe,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )
