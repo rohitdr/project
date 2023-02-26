@@ -4,6 +4,9 @@ import RecipeContext from "../Context/RecipeContext";
 import BlankRecipeItem from "./BlankRecipeItem";
 import Loader from "./Loader";
 import RecipeItem from "./RecipeItem";
+import { BrowserRouter,Link,Route,Routes } from "react-router-dom";
+import Profile_Profile from "./Profile_Profile";
+import Profile_Security from "./Profile_Security";
 export default  function Profile(props){
 
     const context = useContext(RecipeContext)
@@ -16,18 +19,9 @@ export default  function Profile(props){
   
 return(
 <>
-<div className="container">
-{/* <h1 className="text-center my-4 fw-bold text-white" style={{opacity:"0",
-  animation:"drop .4s linear forwards 1s"}}>
-        Add Recipes
-          </h1> */}
-{/* <div className="row"> */}
 
-       {/* <div className="col-md-6 mt-4">
-     <BlankRecipeItem></BlankRecipeItem>
-        </div> */}
-       
-        {/* </div> */}
+<div className="container">
+
 <div className="row my-3">
 
 <h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
@@ -35,9 +29,7 @@ return(
           Your Recipes
           </h1>
     {loading && <Loader></Loader>}
-          {/* <div className="col-md-3  mt-4" >
-     <BlankRecipeItem></BlankRecipeItem>
-        </div> */}
+       
  
        {recipe.recipe && recipe.recipe.map((element)=>{
       
@@ -76,7 +68,7 @@ return(
                       vitamin_b6={element.totalNutrients.VITB6A.quantity}
                       vitamin_d={element.totalNutrients.VITD.quantity}
                       vitamin_e={element.totalNutrients.TOCPHA.quantity}
-                      // vitamin_k={element.totalNutrients.VITK1.quantity}
+                    
                     ></RecipeItem>
                   
                   </div>
@@ -95,6 +87,19 @@ return(
       
        
 </div>
-</>
+
+
+  
+   
+    
+  
+
+      
+    
+   
+
+
+
+  </>
 )
 }

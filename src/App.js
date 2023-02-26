@@ -16,6 +16,9 @@ import SearchResult from "./Components/SearchResult";
 import { useContext } from "react";
 import RecipeContext from "./Context/RecipeContext";
 import Alert from "./Components/Alert";
+import Profile_Top from "./Components/Profile_Top";
+import Profile_Profile from "./Components/Profile_Profile";
+import Profile_Security from "./Components/Profile_Security";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -408,7 +411,13 @@ function App() {
                 exact
                 path='/Profile'
                 element={
-                  <Profile></Profile>
+                  <section style={{backgroundColor: "#eee"}}>
+                <div class="container py-5">
+                  <Profile_Top></Profile_Top>
+      <Profile_Profile></Profile_Profile>
+      </div>
+ 
+ </section>
                 }
 
               />
@@ -431,6 +440,42 @@ function App() {
                 path='/SearchResult'
                 element={
      <SearchResult></SearchResult>
+                }
+              />
+              <Route
+                exact
+                path='/Profile_Profile'
+                element={ <section style={{backgroundColor: "#eee"}}>
+                <div class="container py-5">
+                  <Profile_Top></Profile_Top>
+      <Profile_Profile></Profile_Profile>
+      </div>
+ 
+ </section>
+                }
+              />
+               <Route
+                exact
+                path='/Profile_Security'
+                element={ <section style={{backgroundColor: "#eee"}}>
+                <div class="container py-5">
+                  <Profile_Top></Profile_Top>
+      <Profile_Security></Profile_Security>
+      </div>
+ 
+ </section>
+                }
+              />
+              <Route
+                exact
+                path='/Profile_Recipe'
+                element={ <section style={{backgroundColor: "#eee"}}>
+                <div class="container py-5">
+                  <Profile_Top></Profile_Top>
+      <Profile></Profile>
+      </div>
+ 
+ </section>
                 }
               />
           {/* <Route

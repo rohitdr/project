@@ -59,7 +59,7 @@ var modalsearch
         }}  />
         
       
-      <Link  className="btn btn-outline-light" tabIndex="-1" to={"/SearchResult"} role="button" onClick={()=>{ console.log("h");  NameRecipe(`/${name_to_search}`); console.log(searchRecipe); console.log("done")}}  aria-disabled="true">Search</Link>
+      <Link  className="btn btn-outline-light" tabIndex="-1" to={"/SearchResult"} role="button" onClick={()=>{   NameRecipe(`/${name_to_search}`); }}  aria-disabled="true">Search</Link>
       </form>
     </div>
   </div>
@@ -74,16 +74,16 @@ var modalsearch
       </div>
       <div className="modal-body searchmodal ">
     
-<div className="input-group input-group-lg mb-3">
-  <button className="btn btn-outline-secondary bg-white" type="button" id="button-addon1"><i className="fa-solid fs-4 fa-magnifying-glass"></i></button>
-  <input type="text" className="form-control modalsearch " placeholder="" aria-label="Example text with button addon" onChange={(e)=>{NameRecipe(`/${e.target.value}`)}} aria-describedby="button-addon1"/>
+<div className="input-group input-group-lg transformingup mb-3">
+  <button className="btn btn-outline-secondary bg-white" type="button" id="button-addon1y"><i className="fa-solid fs-4 fa-magnifying-glass"></i></button>
+  <input type="text" className="form-control modalsearch fw-bold" id="button-addon1x" placeholder="Enter the Recipe Name" aria-label="Example text with button addon" onChange={(e)=>{NameRecipe(`/${e.target.value}`)}} aria-describedby="button-addon1"/>
 </div>
 <div>
 <ul   className="searchlistbox" id="docsearch-list"> <div className="listcombo">
 {searchRecipe.recipe && searchRecipe.recipe.map((element)=>{
    num++
    if(num<10){
-    return <><Link to="/SearchResult"   onClick={(e)=>{ NameRecipe(`/${element.label.substring(0,20)}`);     }} className="DocSearch-Hitslink"><li className="DocSearch-Hits fw-bold"> <i className="fa-solid me-2 fa-bars"></i>{element.label}</li></Link></>}}
+    return <><Link to="/SearchResult"  onClick={(e)=>{ NameRecipe(`/${element.label.substring(0,20)}`);     }} className="DocSearch-Hitslink  transformingup"><li className="DocSearch-Hits  fw-bold"> <i className="fa-solid me-2 fa-bars"></i>{element.label}</li></Link></>}}
    )
    }</div></ul></div>
       </div>
