@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import RecipeContext from "../Context/RecipeContext";
+import BlankRecipeItem from './BlankRecipeItem';
 import Loader from './Loader';
 import RecipeItem from './RecipeItem';
 export default function Profile_LikedRecipe() {
@@ -23,10 +24,10 @@ console.log(LikedRecipe)
   animation:"drop .4s linear forwards 1s"}}>
           Your Recipes
           </h1>
-    {loading && <Loader></Loader>}
+    {loading && <Loader></Loader> && <BlankRecipeItem></BlankRecipeItem>}
        
  
-       {LikedRecipe && LikedRecipe.map((element)=>{
+       { !loading && LikedRecipe && LikedRecipe.map((element)=>{
       
         return <div className="col-md-3 mt-4 box_decrease_size_animation_for_recipeitem  " key={element._id}>
                     <RecipeItem

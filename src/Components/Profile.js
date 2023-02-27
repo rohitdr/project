@@ -28,8 +28,8 @@ return(
   animation:"drop .4s linear forwards 1s"}}>
           Your Recipes
           </h1>
-    {loading && <Loader></Loader>}
-       
+    {loading && <Loader></Loader> && <BlankRecipeItem></BlankRecipeItem> }
+     
  
        {recipe.recipe && recipe.recipe.map((element)=>{
       

@@ -11,7 +11,7 @@ export default function IndividualRecipe_comment() {
        <div class="container ">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
+            <div class="card box_decrease_size_animation">
                 <div class="row">
                     <div class="col-sm-12 col-lg-4">
                         <div class="card-body">
@@ -75,7 +75,7 @@ export default function IndividualRecipe_comment() {
     {/* // Reviews */}
 
 
-    <div class="bg-white rounded shadow-sm p-4 my-4 restaurant-detailed-ratings-and-reviews">
+    <div class="bg-white rounded shadow-sm p-4 my-4 restaurant-detailed-ratings-and-reviews box_decrease_size_animation">
                     <a href="#" class="btn btn-outline-primary btn-sm float-right">Top Rated</a>
                     <h5 class="mb-1">All Ratings and Reviews</h5>
 <div class="reviews-members pt-4 pb-4 ">
@@ -103,7 +103,7 @@ export default function IndividualRecipe_comment() {
 
 
                {/* leave a comment */}
-               <div class="bg-white rounded shadow-sm p-4  rating-review-select-page">
+               <div class="bg-white rounded shadow-sm p-4 box_decrease_size_animation rating-review-select-page">
                     <h5 class="mb-4">Leave Comment</h5>
                     <p class="mb-2">Rate the Place</p>
                     <div class="mb-4">

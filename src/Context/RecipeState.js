@@ -11,6 +11,28 @@ export default function RecipeState(props){
    const [name_to_search,setName_to_search]=useState("")
    const [searchRecipe,setsearchedRecipe]=useState({})
    const[alert, setAlert]=useState(null)
+   const [CurrentRecipeItem,setCurrentRecipeItem]=useState({})
+   const [CurrentRecipeItemid,setCurrentRecipeItemid]=useState("")
+   const RecipeBYId=async(id)=>{
+    const response = await fetch(`http://localhost:5000/api/recipe/recipebyid/${id}`, {
+      method: 'GET',
+ 
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+
+       
+      },
+     
+     
+  
+    });
+   
+    let current=  await response.json();
+
+  setCurrentRecipeItem(current)
+ 
+   }
 const AllLikedRecipe=async()=>{
   const response = await fetch("http://localhost:5000/api/recipe/allLikedRecipe", {
       method: 'GET',
@@ -26,7 +48,7 @@ const AllLikedRecipe=async()=>{
   
     });
    
-    let Liked= await response.json();
+    let Liked=  await response.json();
 
   setLikedRecipe(Liked)
 
@@ -240,7 +262,7 @@ const showAlert =(msg, type)=>{
     
     }
 return(
-    <RecipeContext.Provider value={{AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )

@@ -563,6 +563,16 @@ function App() {
                 
                 }
               />
+               <Route
+                exact
+                path='/Individual_Recipe'
+                element={<>
+                 <Individual_Recipe></Individual_Recipe>
+                 
+                </>
+                
+                }
+              />
           {/* <Route
             exact
             path="/Dinner"
@@ -1307,7 +1317,7 @@ function App() {
         {/* </div>
           </div>
         </div> */}
-        <footer class="bg-light text-center text-lg-start">
+        <footer class="bg-light text-center pt-4 text-lg-start">
 
   <div class="text-center p-3">
     © 2020 Copyright:

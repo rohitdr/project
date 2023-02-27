@@ -1,6 +1,13 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import { useEffect } from 'react'
+import RecipeContext from '../Context/RecipeContext'
 export default function Profile_Profile() {
+  const context = useContext(RecipeContext)
+  const {getUser,userData} = context
+
+  useEffect(()=>{
+getUser()
+  })
   return (
     <div>
       <section style={{backgroundColor: "#eee"}}>
@@ -12,9 +19,9 @@ export default function Profile_Profile() {
       <div class="col-lg-4">
         <div class="card mb-4 box_decrease_size_animation">
           <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+            <img src={userData?.user?.Profile_Image} alt="avatar"
               class="rounded-circle img-fluid" style={{width: "150px"}}/>
-            <h5 class="my-3">John Smith</h5>
+            <h5 class="my-3">{userData.user.name}</h5>
             <p class="text-muted mb-1">Full Stack Developer</p>
             <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
             <div class="d-flex justify-content-center mb-2">
@@ -91,14 +98,14 @@ export default function Profile_Profile() {
                       
                         <div class="mb-3">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                            <input class="form-control profileform-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com"/>
+                            <input class="form-control profileform-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value={userData.user.email}/>
                         </div>
                       
                         <div class="row gx-3 mb-3">
                         
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input class="form-control profileform-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567"/>
+                                <input class="form-control profileform-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value={userData.user.phone_number}/>
                             </div>
                         
                             <div class="col-md-6">

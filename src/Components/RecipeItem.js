@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Button from "./Button";
 import './RecipeItem.css'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -21,7 +21,7 @@ const firstCapital =(message)=>{
 
 const [heart,setHeart]=useState("regular")
   const context = useContext(RecipeContext)
-  const {deleteRecipe,LikeRecipe,getUser,userData,UnLikeRecipe} = context
+  const {deleteRecipe,LikeRecipe,getUser,userData,UnLikeRecipe,setCurrentRecipeItemid} = context
  
 const [star,setstar]=useState(0)
   let location = useLocation();
@@ -70,16 +70,20 @@ deg=(deg===180)?0:180
     <>
     
  
-<div className="scene " onLoad={settingheart} >
+<div className="scene " onLoad={settingheart}>
   <div className="recipecard  card border-success " id={`${props.id}`} style={{Width: "18rem"}}>
   
     <div className="face front">
     
   <img src={props.ImageUrl} className="card-img-top recipeitemimageopacity box_decrease_size_animation" alt="..."/>
   <div className="card-body">
-  <h6 className="card-title text-warning"> {props.source}</h6>
+    <div className="d-flex justify-content-between">
+    <h6 className="card-title text-warning text-start"> {props.source}</h6>
+    <h6 className="card-title text-primary text-start"><Link to="/Individual_description" onClick={()=>{setCurrentRecipeItemid(props.id)}}><i class="fa-solid fs-4 fa-diamond-turn-right"></i></Link></h6>
+    </div>
   <h4 className="card-subtitle mb-2 text-dark fw-bold">{props.title}</h4>
     <p className="card-text text-dark"> {props.Ingridiants}</p>
+   
     <div className="card-text text-dark d-flex justify-content-between">
       <p>
        <i className={`fa-${star>0?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(1)}}></i>
@@ -140,78 +144,7 @@ deg=(deg===180)?0:180
   <div className="back ">
 
  
-  {/* <div className=" d-flex justify-content-center align-items-center">
-             
-             <div className=" mt-2">
-
-              
-
-              <div className="user text-center">
-
-                <div className="profile">
-
-                  <img src="https://i.imgur.com/JgYD2nQ.jpg" className="rounded-circle" width="150"/>
-                  
-                </div>
-
-              </div>
-
-
-              <div className="mt-5 text-center">
-
-                <h4 className="mb-0">Benjamin Tims</h4>
-                <span className="text-muted d-block mb-2">Los Angles</span>
-
-               
-
-
-                <div className="d-flex justify-content-between align-items-center mt-4 px-4">
-
-                  <div className="stats">
-                    <h6 className="mb-0">Followers</h6>
-                    <span>8,797</span>
-
-                  </div>
-
-
-                  <div className="stats">
-                    <h6 className="mb-0">Projects</h6>
-                    <span>142</span>
-
-                  </div>
-
-
-                  <div className="stats">
-                    <h6 className="mb-0">Ranks</h6>
-                    <span>129</span>
-
-                  </div>
-                  
-                </div>
-                
-              </div>
-               
-             </div>
-
-           </div> */}
-  {/* <div className="d-flex justify-content-center align-item-center">
-  <div className="profile mt-4">
-
-<img src="https://i.imgur.com/JgYD2nQ.jpg" className="rounded-circle" width="150"/>
-
-</div>
-
-  </div> */}
-  {/* <div className="card" >
  
-  <img src="https://i.imgur.com/JgYD2nQ.jpg" className="avtar" alt="..."/>
-
-  <div className="card-body">
-    <h5 className="card-title fw-bold">Card title</h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  
-  </div>
-</div> */}
 <div className="card testimonial-card pt-4 ">
         <div className="card-up" ></div>
         <div className="avatar mx-auto bg-white">
