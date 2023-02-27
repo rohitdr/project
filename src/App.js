@@ -21,6 +21,10 @@ import Profile_Profile from "./Components/Profile_Profile";
 import Profile_Security from "./Components/Profile_Security";
 import Profile_LikedRecipe from "./Components/Profile_LikedRecipe";
 import Profile_Activity from "./Components/Profile_Activity";
+import IndividualRecipe_comment from "./Components/IndividualRecipe_comment";
+import IndividualRecipe_Nutrients from "./Components/IndividualRecipe_Nutrients";
+import IndividualRecipe_Ingrediants from "./Components/IndividualRecipe_Ingrediants";
+import IndividualRecipe_description from "./Components/IndividualRecipe_description";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -509,6 +513,54 @@ function App() {
       </div>
  
  </section>
+                }
+              />
+               <Route
+                exact
+                path='/Individual_Comment'
+                element={<>
+                 
+                  <Individual_Recipe></Individual_Recipe>
+                <IndividualRecipe_comment></IndividualRecipe_comment>
+              
+                </>
+
+                }
+              />
+              <Route
+                exact
+                path='/Individaul_Nutrients'
+                element={<>
+                 
+                  <Individual_Recipe></Individual_Recipe>
+               <IndividualRecipe_Nutrients></IndividualRecipe_Nutrients>
+              
+                </>
+                
+                }
+              />
+               <Route
+                exact
+                path='/Individual_Ingredients'
+                element={<>
+                 
+                  <Individual_Recipe></Individual_Recipe>
+           <IndividualRecipe_Ingrediants></IndividualRecipe_Ingrediants>
+              
+                </>
+                
+                }
+              />
+               <Route
+                exact
+                path='/Individual_description'
+                element={<>
+                 
+                  <Individual_Recipe></Individual_Recipe>
+       <IndividualRecipe_description></IndividualRecipe_description>
+              
+                </>
+                
                 }
               />
           {/* <Route
