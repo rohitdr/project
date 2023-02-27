@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RecipeContext from "./RecipeContext";
 export default function RecipeState(props){
   // const [heart,setHeart]=useState("regular")
+  const [LikedRecipe,setLikedRecipe]=useState([])
     const [recipe, setRecipe] = useState({})
     const [Latest_recipe, setLatest_Recipe] = useState({})
     const [loading,setLoading]=useState(false)
@@ -10,7 +11,32 @@ export default function RecipeState(props){
    const [name_to_search,setName_to_search]=useState("")
    const [searchRecipe,setsearchedRecipe]=useState({})
    const[alert, setAlert]=useState(null)
+const AllLikedRecipe=async()=>{
+  const response = await fetch("http://localhost:5000/api/recipe/allLikedRecipe", {
+      method: 'GET',
+ 
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+
+       
+      },
+     
+     
+  
+    });
    
+    let Liked= await response.json();
+
+  setLikedRecipe(Liked)
+
+
+   
+}
+
+
+
+   //api to get user details
    const getUser=async()=>{
    
     const response = await fetch("http://localhost:5000/api/auth/getUser", {
@@ -214,7 +240,7 @@ const showAlert =(msg, type)=>{
     
     }
 return(
-    <RecipeContext.Provider value={{LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )

@@ -308,3 +308,51 @@ color: black;
 .card {
   box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
 }
+.btn-danger-soft {
+  color: #000;
+  background-color: #f1e0e3;
+  border-color: #f1e0e3;
+}
+.Profile_activity_latest_image{
+height: 100px;
+width:100px;
+}
+@media (max-width: 385px) {
+  .Profile_activity_latest_image{
+    height: 40px;
+    width:40px;
+    }
+}
+
+.box_decrease_size_animation {
+  transform:
+    perspective(750px)
+    translate3d(0px, 0px, -10px)
+  
+    scale(0.9, 0.9);
+  border-radius: 20px;
+  border: 5px solid #e6e6e6;
+  box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+  transition: 0.4s ease-in-out transform;
+
+ 
+}
+.box_decrease_size_animation:hover {
+  transform: translate3d(0px, 0px, -250px);
+}
+.box_decrease_size_animation_for_recipeitem {
+  transform:
+    perspective(750px)
+    translate3d(0px, 0px, -10px)
+  
+    scale(0.9, 0.9);
+  border-radius: 20px;
+
+
+  transition: 0.4s ease-in-out transform;
+
+ 
+}
+.box_decrease_size_animation_for_recipeitem:hover {
+  transform: translate3d(0px, 0px, -250px);
+}

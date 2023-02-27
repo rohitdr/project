@@ -19,6 +19,8 @@ import Alert from "./Components/Alert";
 import Profile_Top from "./Components/Profile_Top";
 import Profile_Profile from "./Components/Profile_Profile";
 import Profile_Security from "./Components/Profile_Security";
+import Profile_LikedRecipe from "./Components/Profile_LikedRecipe";
+import Profile_Activity from "./Components/Profile_Activity";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -444,6 +446,13 @@ function App() {
               />
               <Route
                 exact
+                path='/RecipeItself'
+                element={
+   <Individual_Recipe></Individual_Recipe>
+                }
+              />
+              <Route
+                exact
                 path='/Profile_Profile'
                 element={ <section style={{backgroundColor: "#eee"}}>
                 <div class="container py-5">
@@ -473,6 +482,30 @@ function App() {
                 <div class="container py-5">
                   <Profile_Top></Profile_Top>
       <Profile></Profile>
+      </div>
+ 
+ </section>
+                }
+              />
+               <Route
+                exact
+                path='/Profile_LikedRecipe'
+                element={ <section style={{backgroundColor: "#eee"}}>
+                <div class="container py-5">
+                  <Profile_Top></Profile_Top>
+      <Profile_LikedRecipe></Profile_LikedRecipe>
+      </div>
+ 
+ </section>
+                }
+              />
+              <Route
+                exact
+                path='/Profile_Activity'
+                element={ <section style={{backgroundColor: "#eee"}}>
+                <div class="container py-5">
+                  <Profile_Top></Profile_Top>
+      <Profile_Activity></Profile_Activity>
       </div>
  
  </section>

@@ -6,11 +6,10 @@ export default function Profile_Security() {
       <div class="container-xl px-4 mt-4">
 
        
-        <hr class="mt-0 mb-4"/>
-        <div class="row">
+          <div class="row">
             <div class="col-lg-8">
              
-                <div class="card mb-4">
+                <div class="card mb-4 box_decrease_size_animation">
                     <div class="card-header">Change Password</div>
                     <div class="card-body">
                         <form>
@@ -34,7 +33,7 @@ export default function Profile_Security() {
                     </div>
                 </div>
 
-                <div class="card mb-4">
+                <div class="card mb-4 box_decrease_size_animation">
                     <div class="card-header">Security Preferences</div>
                     <div class="card-body">
                        
@@ -69,7 +68,7 @@ export default function Profile_Security() {
             </div>
             <div class="col-lg-4">
                
-                <div class="card mb-4">
+                <div class="card mb-4 box_decrease_size_animation">
                     <div class="card-header">Two-Factor Authentication</div>
                     <div class="card-body">
                         <p>Add another level of security to your account by enabling two-factor authentication. We will send you a text message to verify your login attempts on unrecognized devices and browsers.</p>
@@ -90,7 +89,7 @@ export default function Profile_Security() {
                     </div>
                 </div>
              
-                <div class="card mb-4">
+                <div class="card mb-4  Moving_in_z_axis_animation_profile_card box_decrease_size_animation">
                     <div class="card-header">Delete Account</div>
                     <div class="card-body">
                         <p>Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.</p>

@@ -74,7 +74,7 @@ export default function Sidebar(props) {
               </a>
             </li>
             <li className ={` li ${location.pathname ==="/customers"?"customers":""}`}>
-              <a href="/" className="nav-link text-truncate text-white fw-bold">
+              <a href="/RecipeItself" className="nav-link text-truncate text-white fw-bold">
                 <i className="fs-5 bi-people"></i>
                 <span className="">Customers</span>{" "}
               </a>

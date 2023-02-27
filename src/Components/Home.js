@@ -173,7 +173,7 @@ export default function Home() {
         <div className="row mb-4 border-bottom pb-2">
           <div className="col-3 ">
             <img src={element.image}
-              className="img-fluid shadow-1-strong rounded latest_recipe_image " alt="Hollywood Sign on The Hill" />
+              className="img-fluid shadow-1-strong rounded latest_recipe_image " alt="Latest Recipe Image" />
           </div>
   
           <div className="col-9">

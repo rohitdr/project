@@ -70,12 +70,12 @@ deg=(deg===180)?0:180
     <>
     
  
-<div className="scene" onLoad={settingheart} >
-  <div className="recipecard card border-success " id={`${props.id}`} style={{Width: "18rem"}}>
+<div className="scene " onLoad={settingheart} >
+  <div className="recipecard  card border-success " id={`${props.id}`} style={{Width: "18rem"}}>
   
     <div className="face front">
     
-  <img src={props.ImageUrl} className="card-img-top recipeitemimageopacity" alt="..."/>
+  <img src={props.ImageUrl} className="card-img-top recipeitemimageopacity box_decrease_size_animation" alt="..."/>
   <div className="card-body">
   <h6 className="card-title text-warning"> {props.source}</h6>
   <h4 className="card-subtitle mb-2 text-dark fw-bold">{props.title}</h4>

@@ -10,7 +10,7 @@ export default function Profile_Profile() {
 
     <div class="row mt-2">
       <div class="col-lg-4">
-        <div class="card mb-4">
+        <div class="card mb-4 box_decrease_size_animation">
           <div class="card-body text-center">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
               class="rounded-circle img-fluid" style={{width: "150px"}}/>
@@ -23,12 +23,12 @@ export default function Profile_Profile() {
             </div>
           </div>
         </div>
-        <div class="card mb-4 mb-lg-0">
-          <div class="card-body p-0">
+        <div class="card mb-4 mb-lg-0  box_decrease_size_animation">
+          <div class="card-body p-0  ">
             <ul class="list-group list-group-flush rounded-3">
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i class="fas fa-globe fa-lg text-warning"></i>
-                <p class="mb-0">https://mdbootstrap.com</p>
+                <p class="mb-0">mdbootstrap.com</p>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i class="fab fa-github fa-lg" style={{color: "#333333"}}></i>
@@ -51,9 +51,9 @@ export default function Profile_Profile() {
         </div>
       </div>
      
-      <div class="col-xl-8">
+      <div class="col-xl-8 ">
             {/* <!-- Account details card--> */}
-            <div class="card mb-4">
+            <div class="card mb-4 box_decrease_size_animation">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
                     <form>

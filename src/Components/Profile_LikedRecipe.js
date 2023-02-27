@@ -1,26 +1,21 @@
-import React, { useContext, useEffect, useState } from "react";
-
+import React, { useContext, useEffect } from 'react'
 import RecipeContext from "../Context/RecipeContext";
-import BlankRecipeItem from "./BlankRecipeItem";
-import Loader from "./Loader";
-import RecipeItem from "./RecipeItem";
-import { BrowserRouter,Link,Route,Routes } from "react-router-dom";
-import Profile_Profile from "./Profile_Profile";
-import Profile_Security from "./Profile_Security";
-export default  function Profile(props){
+import Loader from './Loader';
+import RecipeItem from './RecipeItem';
+export default function Profile_LikedRecipe() {
 
     const context = useContext(RecipeContext)
-    const {recipe,allRecipe,loading} = context
+    const {LikedRecipe,AllLikedRecipe,loading} = context
    useEffect(()=>{
    
     
-     allRecipe()
+     AllLikedRecipe()
+     
 },[])
-  
-return(
-<>
-
-<div className="container">
+console.log(LikedRecipe)
+  return (
+    <div>
+      <div className="container ">
 
 <div className="row my-3">
 
@@ -31,9 +26,9 @@ return(
     {loading && <Loader></Loader>}
        
  
-       {recipe.recipe && recipe.recipe.map((element)=>{
+       {LikedRecipe && LikedRecipe.map((element)=>{
       
-        return <div className="col-md-3 mt-4 box_decrease_size_animation_for_recipeitem" key={element._id}>
+        return <div className="col-md-3 mt-4 box_decrease_size_animation_for_recipeitem  " key={element._id}>
                     <RecipeItem
                       id={element._id}
                         title={element.label}
@@ -88,18 +83,6 @@ return(
        
 </div>
 
-
-  
-   
-    
-  
-
-      
-    
-   
-
-
-
-  </>
-)
+    </div>
+  )
 }
