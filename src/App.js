@@ -28,7 +28,7 @@ import IndividualRecipe_description from "./Components/IndividualRecipe_descript
 
 function App() {
   const context = useContext(RecipeContext)
-  const {alert,progress,setProgress} = context
+  const {alert,progress,setProgress,progressheight} = context
  
   const Recipe_category = [
     {
@@ -355,11 +355,11 @@ function App() {
     }
   };
   return (
-    <><RecipeState>
+    <>
       <LoadingBar
-        color='red'
+        color='blue'
         progress={progress}
-        length={100}
+        height={progressheight}
         onLoaderFinished={() => setProgress(0)}
       />
       <BrowserRouter>
@@ -1327,7 +1327,7 @@ function App() {
 </footer>
       </BrowserRouter>
       {/* <Individual_Recipe></Individual_Recipe> */}
-      </RecipeState></>
+    </>
   );
 
 }

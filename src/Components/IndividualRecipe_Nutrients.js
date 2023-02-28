@@ -2,16 +2,18 @@ import React from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 import RecipeContext from '../Context/RecipeContext'
+import Loader from './Loader'
 export default function IndividualRecipe_Nutrients() {
   const context = useContext(RecipeContext)
-  const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId} = context
+  const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId , loading } = context
   useEffect(()=>{
     RecipeBYId(CurrentRecipeItemid)
     },[])
   return (
 
     <div >
-     
+         {loading && <Loader></Loader>  } 
+
  <div style={{backgroundColor:" #edf1f5"}} className="pb-4">
     <div class="container pt-4 " id="product-section" >
          <section class="intro">
@@ -38,7 +40,8 @@ export default function IndividualRecipe_Nutrients() {
                       </tr>
                     </thead>
                     <tbody>
-                    {CurrentRecipeItem.recipe && CurrentRecipeItem.recipe.map((element)=>{
+
+                    { !loading && CurrentRecipeItem?.recipe && CurrentRecipeItem?.recipe.map((element)=>{
                    
                         return <><tr>
                         <th scope="row">

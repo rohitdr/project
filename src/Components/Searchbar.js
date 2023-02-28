@@ -10,10 +10,10 @@ export default function Searchbar(props) {
 
 
 var num=0;
-const changesize=()=>{
- document.getElementById("searchbar-searchbox").style.width="400px"
+// const changesize=()=>{
+//  document.getElementById("searchbar-searchbox").style.width="400px"
  
-}
+// }
 var searchentered
 var modalsearch
 
@@ -25,7 +25,7 @@ var modalsearch
 
 
 <nav className="navbar navbar-expand-lg bg-light" id="Searchbar">
-  <div className="container-fluid">
+  <div className="container-fluid ">
     <span className="navbar-brand"><span  className="name text-white"> <NavbarToggler></NavbarToggler>
   
           <span className="R">R</span>
@@ -43,16 +43,10 @@ var modalsearch
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i className="fa-solid fa-magnifying-glass "></i>
     </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-        
-         
-        </li>
-       
-      </ul>
-      <form className="d-flex text-white">
-        <input className="form-control me-2 search_input" id="searchbar-searchbox" type="search" placeholder="Search"  data-bs-toggle="modal" data-bs-target="#exampleModalsearch" aria-label="Search" onClick={changesize} onChange={(e)=>{
+    <div className="collapse navbar-collapse d-flex  bd-highlight" id="navbarSupportedContent">
+      <div className="flex-grow-1 bd-highlight searchbarform ">
+    <form className="d-flex text-white  ">
+        <input className="form-control me-2 search_input rounded-3" id="searchbar-searchbox" type="search" placeholder="Search"  data-bs-toggle="modal" data-bs-target="#exampleModalsearch" aria-label="Search" onChange={(e)=>{
           searchentered=e.target.value
           setName_to_search(searchentered)
       
@@ -60,7 +54,34 @@ var modalsearch
         
       
       <Link  className="btn btn-outline-light" tabIndex="-1" to={"/SearchResult"} role="button" onClick={()=>{   NameRecipe(`/${name_to_search}`); }}  aria-disabled="true">Search</Link>
-      </form>
+      </form></div>
+      <div className=" bd-highlight">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+     
+  
+      <li class="nav-item dropdown d-none d-lg-block">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
+           aria-expanded="false" data-bs-toggle="dropdown" data-bs-target="#navbarDropdownMenuLink" role="button" aria-controls="navbarSupportedContent"  aria-label="navbarDropdownMenuLink">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
+            height="22" alt="Avatar" loading="lazy" />
+        </a>
+        <ul class="dropdown-menu" aria-label="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="#">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Settings</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Logout</a>
+          </li>
+        </ul>
+     
+         
+        </li>
+       
+      </ul>
+      </div>
     </div>
   </div>
 </nav>

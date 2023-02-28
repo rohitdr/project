@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import RecipeContext from "./RecipeContext";
 export default function RecipeState(props){
   // const [heart,setHeart]=useState("regular")
@@ -14,7 +15,48 @@ export default function RecipeState(props){
    const [CurrentRecipeItem,setCurrentRecipeItem]=useState({})
    const [CurrentRecipeItemid,setCurrentRecipeItemid]=useState("")
    const [progress, setProgress] = useState(0);
+   const [progressheight,setProgressHeight] = useState(5)
+
+
+  //  api for login
+  const login=async(logindetail)=>{
+    setLoading(true)
+    setProgress(30)
+    const response = await fetch(`http://localhost:5000/api/auth/login`, {
+      method: 'POST',
+ 
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+
+       
+      },
+      body: JSON.stringify(logindetail)
+     
+  
+    });
+    setProgress(50)
+    let loginresult= await response.json();
+    if(login.succcess == "true"){
+      sessionStorage.setItem("auth-token",loginresult.auth_token)
+      sessionStorage.setItem("success",loginresult.succcess)
+      console.log(loginresult)
+      console.log(sessionStorage.getItem("auth-token"))
+    
+
+    }
+    if(login.succcess==="false"){
+     window.alert(loginresult.error)
+    }
+   
+    setProgress(70)
+
+  setLoading(false)
+  setProgress(100)
+  }
    const RecipeBYId=async(id)=>{
+    setLoading(true)
+    setProgress(30)
     const response = await fetch(`http://localhost:5000/api/recipe/recipebyid/${id}`, {
       method: 'GET',
  
@@ -28,13 +70,17 @@ export default function RecipeState(props){
      
   
     });
-   
+    setProgress(50)
     let current=  await response.json();
-
+    setProgress(70)
   setCurrentRecipeItem(current)
- 
+  setLoading(false)
+  setProgress(100)
+  
    }
 const AllLikedRecipe=async()=>{
+  setLoading(true)
+  setProgress(30)
   const response = await fetch("http://localhost:5000/api/recipe/allLikedRecipe", {
       method: 'GET',
  
@@ -48,11 +94,12 @@ const AllLikedRecipe=async()=>{
      
   
     });
-   
+    setProgress(50)
     let Liked=  await response.json();
-
+    setProgress(70)
   setLikedRecipe(Liked)
-
+  setLoading(false)
+  setProgress(100)
 
    
 }
@@ -61,7 +108,8 @@ const AllLikedRecipe=async()=>{
 
    //api to get user details
    const getUser=async()=>{
-   
+    setLoading(true)
+    setProgress(30)
     const response = await fetch("http://localhost:5000/api/auth/getUser", {
       method: 'POST',
  
@@ -75,18 +123,20 @@ const AllLikedRecipe=async()=>{
      
   
     });
-   
+    setProgress(50)
     let userDetail= await response.json();
+    setProgress(70)
 
       setUserData(userDetail)
-
+      setLoading(false)
+      setProgress(100)
    
    }
    
    //api to unlike a recipe
    const UnLikeRecipe=async(recipeid)=>{
- 
-        
+    setLoading(true)
+    setProgress(30)
     const response = await fetch("http://localhost:5000/api/recipe/unlike", {
         method: 'POST',
    
@@ -103,9 +153,10 @@ const AllLikedRecipe=async()=>{
     
       });
     
-     
+      setProgress(50)
      if(response.status!==400){
       let likemessage= await response.json();
+      setProgress(70)
       console.log(likemessage)
    
       // showAlert(likemessage,"success")
@@ -114,14 +165,15 @@ const AllLikedRecipe=async()=>{
      else{
       console.log(response.json)
      }
-    
-  
+     setProgress(100)
+     setLoading(false)
     
   
   }
    //api to like a recipe
 const LikeRecipe=async(recipeid)=>{
- 
+  setLoading(true)
+  setProgress(30)
         
   const response = await fetch("http://localhost:5000/api/recipe/like", {
       method: 'POST',
@@ -138,12 +190,12 @@ const LikeRecipe=async(recipeid)=>{
      
   
     });
-  
+    setProgress(50)
    
    if(response.status!==400){
     let likemessage= await response.json();
     console.log(likemessage)
- 
+    setProgress(70)
     // showAlert(likemessage,"success")
    
    }
@@ -151,8 +203,8 @@ const LikeRecipe=async(recipeid)=>{
     console.log(response.json)
    }
   
-
-  
+   setLoading(false)
+   setProgress(100)
 
 }
 //to show alert on top
@@ -185,6 +237,7 @@ const showAlert =(msg, type)=>{
          if(response.status!==404){
           let Name_recipe= await response.json();
           setLoading(false)
+          setProgress(70)
            setsearchedRecipe(Name_recipe)
          }
          else{
@@ -192,13 +245,14 @@ const showAlert =(msg, type)=>{
          }
         
        
-        
+         setProgress(100)
   
     
     }
     //api for latest recipes
     const LatesRecipe=async()=>{
-      setProgress(30)
+
+      setProgress(10)
       setLoading(true)
       const response = await fetch('http://localhost:5000/api/recipe/LatestRecipes', {
           method: 'GET',
@@ -222,7 +276,7 @@ const showAlert =(msg, type)=>{
     }
     // api for all recipes related to a user
     const allRecipe=async()=>{
-      setProgress(30)
+ 
       setLoading(true)
         const response = await fetch('http://localhost:5000/api/recipe/allRecipes', {
             method: 'GET',
@@ -236,18 +290,18 @@ const showAlert =(msg, type)=>{
         
           });
           
-        setProgress(50)
+    
          let allrecipe= await response.json();
- setProgress(75)
+
           setRecipe(allrecipe)
-          setProgress(100)
+         
           setLoading(false)
     }
     // api for delete a recipe
     const deleteRecipe=async(id)=>{
-     
+      setLoading(true)
     window.confirm("really want to delete")
-
+    setProgress(30)
         const response = await fetch(`http://localhost:5000/api/recipe/deleteRecipe/${id}`, {
             method: 'DELETE',
         
@@ -259,17 +313,20 @@ const showAlert =(msg, type)=>{
            
         
           });
+          setProgress(50)
           const json = await response.json();
           const newRecipe= recipe.filter((element)=>{
           return  element._id!==id
        
           })
+          setProgress(70)
     setRecipe(newRecipe)
   allRecipe()
-    
+  setLoading(false)
+      setProgress(100)
     }
 return(
-    <RecipeContext.Provider value={{progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{login,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )

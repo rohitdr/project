@@ -10,11 +10,13 @@ import Profile_Security from "./Profile_Security";
 export default  function Profile(props){
 
     const context = useContext(RecipeContext)
-    const {recipe,allRecipe,loading} = context
+    const {recipe,allRecipe,loading,setProgressHeight} = context
    useEffect(()=>{
-   
+    
+ 
     
      allRecipe()
+  
 },[])
   
 return(
@@ -29,7 +31,7 @@ return(
           Your Recipes
           </h1>
     {loading && <Loader></Loader> && <BlankRecipeItem></BlankRecipeItem> }
-     
+    
  
        {recipe.recipe && recipe.recipe.map((element)=>{
       

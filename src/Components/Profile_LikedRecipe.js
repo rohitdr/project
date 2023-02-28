@@ -29,7 +29,7 @@ console.log(LikedRecipe)
  
        { !loading && LikedRecipe && LikedRecipe.map((element)=>{
       
-        return <div className="col-md-3 mt-4 box_decrease_size_animation_for_recipeitem  " key={element._id}>
+        return <div className="col-md-3 mt-4 box_decrease_size_animation_for_recipeitem " key={element._id}>
                     <RecipeItem
                       id={element._id}
                         title={element.label}

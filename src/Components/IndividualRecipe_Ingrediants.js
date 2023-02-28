@@ -2,10 +2,11 @@ import React from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
 import RecipeContext from '../Context/RecipeContext'
+import Loader from './Loader'
 
 export default function IndividualRecipe_Ingrediants() {
   const context = useContext(RecipeContext)
-  const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId} = context
+  const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId , loading} = context
   useEffect(()=>{
     RecipeBYId(CurrentRecipeItemid)
     },[])
@@ -14,8 +15,9 @@ export default function IndividualRecipe_Ingrediants() {
     <div style={{backgroundColor:" #edf1f5"}}>
       <div class="container pt-4 " id="product-section" >
     <div className="row">
-    
-       {CurrentRecipeItem.recipe && CurrentRecipeItem?.recipe.map((element)=>{
+    {loading && <Loader></Loader> }
+
+        { !loading && CurrentRecipeItem.recipe && CurrentRecipeItem?.recipe.map((element)=>{
       return element.ingredients.map((ele)=>{
           return  <div className="col-md-6 pb-4" >
            <div class="card mb-3 box_decrease_size_animation" style={{maxWidth: "540px"}}>
