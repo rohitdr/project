@@ -13,6 +13,7 @@ export default function RecipeState(props){
    const[alert, setAlert]=useState(null)
    const [CurrentRecipeItem,setCurrentRecipeItem]=useState({})
    const [CurrentRecipeItemid,setCurrentRecipeItemid]=useState("")
+   const [progress, setProgress] = useState(0);
    const RecipeBYId=async(id)=>{
     const response = await fetch(`http://localhost:5000/api/recipe/recipebyid/${id}`, {
       method: 'GET',
@@ -164,7 +165,7 @@ const showAlert =(msg, type)=>{
    }, 1500))}
    //api for recipe search
     const NameRecipe=async(recipename)=>{
-   
+      setProgress(30)
         setLoading(true)
         
         const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswith${recipename}`, {
@@ -180,6 +181,7 @@ const showAlert =(msg, type)=>{
           
         
           });
+          setProgress(50)
          if(response.status!==404){
           let Name_recipe= await response.json();
           setLoading(false)
@@ -196,6 +198,7 @@ const showAlert =(msg, type)=>{
     }
     //api for latest recipes
     const LatesRecipe=async()=>{
+      setProgress(30)
       setLoading(true)
       const response = await fetch('http://localhost:5000/api/recipe/LatestRecipes', {
           method: 'GET',
@@ -208,15 +211,18 @@ const showAlert =(msg, type)=>{
          
       
         });
-        
+        setProgress(30)
       
        let Latest_recipe= await response.json();
-
+       setProgress(50)
         setLatest_Recipe(Latest_recipe)
+        setProgress(75)
         setLoading(false)
+        setProgress(100)
     }
     // api for all recipes related to a user
     const allRecipe=async()=>{
+      setProgress(30)
       setLoading(true)
         const response = await fetch('http://localhost:5000/api/recipe/allRecipes', {
             method: 'GET',
@@ -230,10 +236,11 @@ const showAlert =(msg, type)=>{
         
           });
           
-        
+        setProgress(50)
          let allrecipe= await response.json();
- 
+ setProgress(75)
           setRecipe(allrecipe)
+          setProgress(100)
           setLoading(false)
     }
     // api for delete a recipe
@@ -262,7 +269,7 @@ const showAlert =(msg, type)=>{
     
     }
 return(
-    <RecipeContext.Provider value={{RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )

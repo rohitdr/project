@@ -28,7 +28,7 @@ import IndividualRecipe_description from "./Components/IndividualRecipe_descript
 
 function App() {
   const context = useContext(RecipeContext)
-  const {alert} = context
+  const {alert,progress,setProgress} = context
  
   const Recipe_category = [
     {
@@ -316,7 +316,7 @@ function App() {
       category: "cuisineType=Japanese",
     },
   ];
-  const [progress, setProgress] = useState(0);
+ 
 
   const [mode, setMode] = useState("light mode");
   const [button_label, setButton_label] = useState("Dark mode");
@@ -357,9 +357,9 @@ function App() {
   return (
     <><RecipeState>
       <LoadingBar
-        color='blue'
+        color='red'
         progress={progress}
-        length={10}
+        length={100}
         onLoaderFinished={() => setProgress(0)}
       />
       <BrowserRouter>
