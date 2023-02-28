@@ -47,10 +47,15 @@ width: 100px;
         background-position: 0% 0%;
     }
 }
-
+.nextui-c-PJLV-ilaJdKq-css {
+  color: inherit;
+  text-transform: none;
+  padding-top: 12px;
+  margin-right: var(--nextui-space-11);
+}
 .name{
     position: relative; 
- 
+
 }
 .R,.e,.c,.i,.p,.e2,.R2,.i2,.o,.t{
 font-size: 30px;

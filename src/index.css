@@ -417,3 +417,7 @@ width:100px;
 .font-cond-b {
     font-weight: 700 !important;
 }
+.searchbardropdown{
+  color: rgba(99, 95, 95, 0.096);
+  text-decoration: none;
+}

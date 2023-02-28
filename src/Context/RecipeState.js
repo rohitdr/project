@@ -21,13 +21,13 @@ export default function RecipeState(props){
   //  api for login
   const login=async(logindetail)=>{
     setLoading(true)
-    setProgress(30)
+    setProgress(10)
     const response = await fetch(`http://localhost:5000/api/auth/login`, {
       method: 'POST',
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+        'auth-token':sessionStorage.getItem("auth-token")
 
        
       },
@@ -35,9 +35,12 @@ export default function RecipeState(props){
      
   
     });
-    setProgress(50)
+    setProgress(60)
     let loginresult= await response.json();
-    if(login.succcess == "true"){
+ 
+    setProgress(10)
+    if(loginresult?.auth_token){
+      console.log("running")
       sessionStorage.setItem("auth-token",loginresult.auth_token)
       sessionStorage.setItem("success",loginresult.succcess)
       console.log(loginresult)
@@ -45,24 +48,24 @@ export default function RecipeState(props){
     
 
     }
-    if(login.succcess==="false"){
+    if(!loginresult?.auth_token){
      window.alert(loginresult.error)
     }
    
-    setProgress(70)
+    setProgress(100)
 
   setLoading(false)
-  setProgress(100)
+ 
   }
    const RecipeBYId=async(id)=>{
     setLoading(true)
-    setProgress(30)
+   
     const response = await fetch(`http://localhost:5000/api/recipe/recipebyid/${id}`, {
       method: 'GET',
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+        'auth-token':sessionStorage.getItem("auth-token")
 
        
       },
@@ -70,23 +73,23 @@ export default function RecipeState(props){
      
   
     });
-    setProgress(50)
+  
     let current=  await response.json();
-    setProgress(70)
+ 
   setCurrentRecipeItem(current)
   setLoading(false)
-  setProgress(100)
+ 
   
    }
 const AllLikedRecipe=async()=>{
   setLoading(true)
-  setProgress(30)
+  
   const response = await fetch("http://localhost:5000/api/recipe/allLikedRecipe", {
       method: 'GET',
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+        'auth-token':sessionStorage.getItem("auth-token")
 
        
       },
@@ -94,12 +97,12 @@ const AllLikedRecipe=async()=>{
      
   
     });
-    setProgress(50)
+    
     let Liked=  await response.json();
-    setProgress(70)
+ 
   setLikedRecipe(Liked)
   setLoading(false)
-  setProgress(100)
+ 
 
    
 }
@@ -109,13 +112,13 @@ const AllLikedRecipe=async()=>{
    //api to get user details
    const getUser=async()=>{
     setLoading(true)
-    setProgress(30)
+    
     const response = await fetch("http://localhost:5000/api/auth/getUser", {
       method: 'POST',
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+        'auth-token':sessionStorage.getItem("auth-token")
 
        
       },
@@ -123,26 +126,26 @@ const AllLikedRecipe=async()=>{
      
   
     });
-    setProgress(50)
+    
     let userDetail= await response.json();
-    setProgress(70)
+ 
 
       setUserData(userDetail)
       setLoading(false)
-      setProgress(100)
+     
    
    }
    
    //api to unlike a recipe
    const UnLikeRecipe=async(recipeid)=>{
     setLoading(true)
-    setProgress(30)
+    
     const response = await fetch("http://localhost:5000/api/recipe/unlike", {
         method: 'POST',
    
         headers: {
           'Content-Type': 'application/json',
-          'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+          'auth-token':sessionStorage.getItem("auth-token")
   
          
         },
@@ -153,10 +156,10 @@ const AllLikedRecipe=async()=>{
     
       });
     
-      setProgress(50)
+      
      if(response.status!==400){
       let likemessage= await response.json();
-      setProgress(70)
+   
       console.log(likemessage)
    
       // showAlert(likemessage,"success")
@@ -165,7 +168,7 @@ const AllLikedRecipe=async()=>{
      else{
       console.log(response.json)
      }
-     setProgress(100)
+    
      setLoading(false)
     
   
@@ -173,14 +176,14 @@ const AllLikedRecipe=async()=>{
    //api to like a recipe
 const LikeRecipe=async(recipeid)=>{
   setLoading(true)
-  setProgress(30)
+  
         
   const response = await fetch("http://localhost:5000/api/recipe/like", {
       method: 'POST',
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+        'auth-token':sessionStorage.getItem("auth-token")
 
        
       },
@@ -190,12 +193,12 @@ const LikeRecipe=async(recipeid)=>{
      
   
     });
-    setProgress(50)
+    
    
    if(response.status!==400){
     let likemessage= await response.json();
     console.log(likemessage)
-    setProgress(70)
+ 
     // showAlert(likemessage,"success")
    
    }
@@ -204,7 +207,7 @@ const LikeRecipe=async(recipeid)=>{
    }
   
    setLoading(false)
-   setProgress(100)
+  
 
 }
 //to show alert on top
@@ -217,7 +220,7 @@ const showAlert =(msg, type)=>{
    }, 1500))}
    //api for recipe search
     const NameRecipe=async(recipename)=>{
-      setProgress(30)
+      
         setLoading(true)
         
         const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswith${recipename}`, {
@@ -225,7 +228,7 @@ const showAlert =(msg, type)=>{
        
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+              'auth-token':sessionStorage.getItem("auth-token")
   
              
             },
@@ -233,11 +236,11 @@ const showAlert =(msg, type)=>{
           
         
           });
-          setProgress(50)
+          
          if(response.status!==404){
           let Name_recipe= await response.json();
           setLoading(false)
-          setProgress(70)
+       
            setsearchedRecipe(Name_recipe)
          }
          else{
@@ -245,34 +248,34 @@ const showAlert =(msg, type)=>{
          }
         
        
-         setProgress(100)
+        
   
     
     }
     //api for latest recipes
     const LatesRecipe=async()=>{
 
-      setProgress(10)
+    
       setLoading(true)
       const response = await fetch('http://localhost:5000/api/recipe/LatestRecipes', {
           method: 'GET',
       
           headers: {
             'Content-Type': 'application/json',
-            'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+            'auth-token':sessionStorage.getItem("auth-token")
            
           },
          
       
         });
-        setProgress(30)
+        
       
        let Latest_recipe= await response.json();
-       setProgress(50)
+       
         setLatest_Recipe(Latest_recipe)
-        setProgress(75)
+     
         setLoading(false)
-        setProgress(100)
+       
     }
     // api for all recipes related to a user
     const allRecipe=async()=>{
@@ -283,7 +286,7 @@ const showAlert =(msg, type)=>{
         
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+              'auth-token':sessionStorage.getItem("auth-token")
              
             },
            
@@ -301,29 +304,29 @@ const showAlert =(msg, type)=>{
     const deleteRecipe=async(id)=>{
       setLoading(true)
     window.confirm("really want to delete")
-    setProgress(30)
+    
         const response = await fetch(`http://localhost:5000/api/recipe/deleteRecipe/${id}`, {
             method: 'DELETE',
         
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTBjNWZjNDU2NTU0NjVhZjIwNWE3MyIsImlhdCI6MTY3NTc5MzA3OH0.TWkQV83QHd1HGrVf5gr7jKFUXLwDjf9bqq6TjJWNLU4'
+              'auth-token':sessionStorage.getItem("auth-token")
              
             },
            
         
           });
-          setProgress(50)
+          
           const json = await response.json();
           const newRecipe= recipe.filter((element)=>{
           return  element._id!==id
        
           })
-          setProgress(70)
+       
     setRecipe(newRecipe)
   allRecipe()
   setLoading(false)
-      setProgress(100)
+     
     }
 return(
     <RecipeContext.Provider value={{login,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
