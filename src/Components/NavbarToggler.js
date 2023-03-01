@@ -1,16 +1,20 @@
 import React from 'react'
-
+import { Navbar} from "@nextui-org/react";
 export default function NavbarToggler() {
   return (
  
           
-          <button  data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-               
-               <span className="navbar-toggler-icon text-dark">
-             <i className="fa-solid fa-bars fs-4 " data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
-             </span>
+          // <button   role="button"    style={{padding:"0" , backgroundColor:"transparent"}}>
+               <div data-bs-toggle="offcanvas"  data-bs-target="#offcanvas" aria-controls="navbarSupportedContent" aria-label="Toggle navigation" aria-expanded="false" style={{padding:"0" , backgroundColor:"white"}}>
+               <Navbar.Toggle hiddenIn="xs" />
+               </div>
+
+            //    {/* <span className="navbar-toggler-icon text-dark">
+            //  <i className="fa-solid fa-bars fs-4 " data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
+            //  </span> */} 
+            
        
-          </button> 
+          // </button> 
   
   )
 }

@@ -33,6 +33,7 @@ var modalsearch
 <Navbar isBordered variant="sticky">
         <Navbar.Brand css={{ mr: "$4" }}>
         <NavbarToggler></NavbarToggler>
+      
           <Text itsClassName="pt-4" color="inherit" css={{ mr: "$11" }} hideIn="xs">
           <span className="navbar-brand "><span  className="name text-dark  fw-bold"> 
   
