@@ -1,11 +1,15 @@
 import React, { useContext } from 'react'
 import { useEffect } from 'react'
 import RecipeContext from '../Context/RecipeContext'
+import { useNavigate } from "react-router-dom";
 export default function Profile_Profile() {
   const context = useContext(RecipeContext)
   const {getUser,userData} = context
-
+    let Navigate = useNavigate();
   useEffect(()=>{
+    if(!sessionStorage.getItem("auth-token")){
+Navigate("/login")
+    }
 getUser()
   })
   return (

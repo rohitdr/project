@@ -1,6 +1,67 @@
 import React from 'react'
-
+import { useContext } from 'react';
+import { useState } from 'react';
+import RecipeContext from '../Context/RecipeContext';
+import { useNavigate } from "react-router-dom";
 export default function Profile_Security() {
+    const context = useContext(RecipeContext)
+const {showAlert,setProgress}= context
+let Navigate = useNavigate();
+    const [passwords, setPasswords]= useState({oldpassword:"",newpassword1:"",newpassword2:""})
+    const onSubmit=(e)=>{
+ e.preventDefault();
+    }
+    const changepassword=async()=>{
+        if(passwords.newpassword1 === passwords.newpassword2){
+            showAlert("Both the passwords must be same","danger")
+            
+        }
+       else{
+        setProgress(10)
+   
+        const response = await fetch(`http://localhost:5000/api/auth/changePassword`, {
+          method: 'POST',
+     
+          headers: {
+            'Content-Type': 'application/json',
+            'auth-token':sessionStorage.getItem("auth-token")
+    
+           
+          },
+          body: JSON.stringify({oldpassword:passwords.oldpassword, password:passwords.newpassword1})
+         
+      
+        });
+     setProgress(50)
+        let loginresult= await response.json();
+     
+      
+        if(response.status !== 400){
+          setProgress(70)
+          
+       
+          
+         
+          setProgress(100)
+    
+           
+            showAlert("Your Password has been successfully changed","success")
+       Navigate("/login")
+         
+        }
+    
+      
+        if(response.status=== 400){
+          
+          showAlert(loginresult.error,"danger")
+          setProgress(100)
+        }
+       
+    }
+    }
+    const change=(e)=>{
+       setPasswords({...passwords,[e.target.name]:e.target.value})
+    }
   return (
     <div>
       <div class="container-xl px-4 mt-4">
@@ -12,23 +73,23 @@ export default function Profile_Security() {
                 <div class="card mb-4 box_decrease_size_animation">
                     <div class="card-header">Change Password</div>
                     <div class="card-body">
-                        <form>
+                        <form onSubmit={onsubmit}>
                            
                             <div class="mb-3">
-                                <label class="small mb-1" for="currentPassword">Current Password</label>
-                                <input class="form-control" id="currentPassword" type="password" placeholder="Enter current password"/>
+                                <label class="small mb-1" for="oldpassword">Current Password</label>
+                                <input class="form-control" id="oldpassword" type="password" name='oldpassword' placeholder="Enter current password" onChange={change}/>
                             </div>
                           
                             <div class="mb-3">
-                                <label class="small mb-1" for="newPassword">New Password</label>
-                                <input class="form-control" id="newPassword" type="password" placeholder="Enter new password"/>
+                                <label class="small mb-1" for="newpassword1">New Password</label>
+                                <input class="form-control" id="newpassword1" type="password" name = "newpassword1" placeholder="Enter new password" onChange={change}/>
                             </div>
                            
                             <div class="mb-3">
-                                <label class="small mb-1" for="confirmPassword">Confirm Password</label>
-                                <input class="form-control" id="confirmPassword" type="password" placeholder="Confirm new password"/>
+                                <label class="small mb-1" for="newPassword">Confirm Password</label>
+                                <input class="form-control" id="newPassword2" type="password" name="newpassword2" placeholder="Confirm new password" onChange={change}/>
                             </div>
-                            <button class="btn btn-primary" type="button">Save</button>
+                            <button class="btn btn-primary" type="button" onClick={changepassword}>Save</button>
                         </form>
                     </div>
                 </div>

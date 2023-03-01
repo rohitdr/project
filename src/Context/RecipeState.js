@@ -18,88 +18,6 @@ export default function RecipeState(props){
    const [progressheight,setProgressHeight] = useState(5)
   
 
-
-
-   //check email
-   const checkemail=async(logindetail)=>{
-
- 
-    const response = await fetch(`http://localhost:5000/api/auth/checkemail`, {
-      method: 'POST',
- 
-      headers: {
-        'Content-Type': 'application/json',
-       
-
-       
-      },
-      body: JSON.stringify(logindetail)
-     
-  
-    });
- 
-    let loginresult= await response.json();
- 
- if(loginresult =="success"){
- sessionStorage.setItem("emailcheck","true")
- }
-   
-   if(response.status=== 402){
-      
-      showAlert("Please Use the correct format of information","danger")
-     
-    }
-    if(response.status=== 400){
-      
-      showAlert(loginresult.error,"danger")
-   
-    }
-   
-   
-
- 
-   }
-  //  api for login
-  const login=async(logindetail)=>{
-    setLoading(true)
-    setProgress(10)
-    const response = await fetch(`http://localhost:5000/api/auth/login`, {
-      method: 'POST',
- 
-      headers: {
-        'Content-Type': 'application/json',
-       
-
-       
-      },
-      body: JSON.stringify(logindetail)
-     
-  
-    });
-    setProgress(60)
-    let loginresult= await response.json();
- 
-    setProgress(10)
-    if(response.status !== 400){
-      console.log("running")
-      sessionStorage.setItem("auth-token",loginresult.auth_token)
-      sessionStorage.setItem("success",loginresult.succcess)
-      console.log(loginresult)
-      console.log(sessionStorage.getItem("auth-token"))
-      showAlert("Your had successfully logged in","success")
-    
-
-    }
-    if(response.status=== 400){
-      
-      showAlert(loginresult.error,"danger")
-    }
-   
-    setProgress(100)
-
-  setLoading(false)
- 
-  }
    const RecipeBYId=async(id)=>{
     setLoading(true)
    
@@ -353,7 +271,7 @@ const showAlert =(msg, type)=>{
      
     }
 return(
-    <RecipeContext.Provider value={{showAlert,checkemail,login,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )
