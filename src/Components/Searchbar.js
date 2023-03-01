@@ -15,12 +15,9 @@ useEffect(()=>{
 getUser()
 },[])
 var num=0;
-// const changesize=()=>{
-//  document.getElementById("searchbar-searchbox").style.width="400px"
- 
-// }
+
 const logout=()=>{
-  sessionStorage.removeItem("auth-token")
+  localStorage.removeItem("auth-token")
 Navigate("/login")
 }
 var searchentered
@@ -84,7 +81,7 @@ var modalsearch
                 />
               </Dropdown.Trigger>
             </Navbar.Item>
-            {sessionStorage.getItem("auth-token")?
+            {localStorage.getItem("auth-token")?
             <Dropdown.Menu
               aria-label="User menu actions"
               color="secondary"

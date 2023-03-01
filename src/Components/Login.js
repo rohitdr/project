@@ -1,20 +1,52 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import RecipeContext from '../Context/RecipeContext'
+import { Modal, Button, Text, Input, Row } from "@nextui-org/react";
+
 import './login.css'
 import './login_file.js'
 export default function Login() {
-  let Navigate = useNavigate();
-  const context = useContext(RecipeContext)
-  const {login} =context
-  const onsubmit=(e)=>{
-e.preventDefault();
-login(logindetail)
-if(sessionStorage.getItem("auth-token")){
+  const [visible, setVisible] = React.useState(false);
+const loginclick=()=>{
+  setVisible(true)
+ 
+}
+// function sendEmail() {
+//   Email.send({
+//       Host : "smtp.mailtrap.io",
+//       Username : "<Mailtrap username>",
+//       Password : "<Mailtrap password>",
+//       To : logindetail.email,
+//       From : "rohitdr098@gmail.com",
+//       Subject : "One time password",
+//       Body : 4758
+//     })}
+
+  const closeHandler = () => {
+  //  sendEmail()
+    
+    let  otp = document.getElementById("otp").value
+    if(otp== 4758){
+      setVisible(false);
+      login(logindetail)
+if(localStorage.getItem("auth-token")){
 Navigate("/Profile_Profile")
 
 
 }
+    }
+   
+   
+  };
+
+
+  let Navigate = useNavigate();
+  const context = useContext(RecipeContext)
+  const {login} =context
+  const onsubmit=(e)=>{
+  
+e.preventDefault();
+
 
   }
   const [logindetail,setlogindetail]=useState({email:"",password:""})
@@ -65,14 +97,14 @@ setlogindetail({...logindetail,[e.target.name]:e.target.value})
                 </div> </div>
           <form class="loginform box_decrease_size_animation" onSubmit={onsubmit}>
           <div class="form-floating mb-3 mt-3 box_decrease_size_animation ">
-            <input type="email" class="form-control loginform-control rounded-3" id="email" name="email" placeholder="name@example.com" value={logindetail.email} onChange={loginchange}/>
+            <input type="email" class="form-control loginform-control rounded-3" id="email" name="email" required placeholder="name@example.com" value={logindetail.email} onChange={loginchange}/>
             <label for="loginemail">Email address</label>
           </div>
           <div class="form-floating mb-3 box_decrease_size_animation">
-            <input type="password" class="form-control loginform-control rounded-3" id="password" name="password" placeholder="Password" value={logindetail.password} onChange={loginchange}/>
+            <input type="password" class="form-control loginform-control rounded-3" id="password" name="password" required placeholder="Password" value={logindetail.password} onChange={loginchange}/>
             <label for="loginPassword">Password</label>
           </div>
-          <button class="w-100 mb-2 box_decrease_size_animation  login_login" type="submit">Login</button>
+          <button class="w-100 mb-2 box_decrease_size_animation  login_login"  type="submit" onClick={loginclick}>Login</button>
          
           <hr class="my-4"/>
    
@@ -86,6 +118,48 @@ setlogindetail({...logindetail,[e.target.name]:e.target.value})
 </section>
 
 
+
+{/* //login modal */}
+<Modal
+        closeButton
+        aria-labelledby="modal-title"
+        open={visible}
+        onClose={closeHandler}
+      >
+        <Modal.Header>
+          <Text b id="modal-title" size={18}>
+            Verfiy OTP
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Row justify="space-between">
+            <Text blockquote b size={14}>
+              We have send an OTP on *****{logindetail.email.substring(7)} email to verify you{" "}
+            </Text>
+          </Row>
+          <Input.Password
+            clearable
+            color="warning"
+            initialValue="123"
+            type="password"
+            label="One Time Password"
+            placeholder=""
+            name='otp'
+            id ="otp"
+            required
+            minlenght="4"
+            
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button auto flat color="error" onPress={closeHandler}>
+            Close
+          </Button>
+          <Button auto onPress={closeHandler}>
+            Verify OTP
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
  </>
   )

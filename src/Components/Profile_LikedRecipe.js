@@ -13,7 +13,7 @@ export default function Profile_LikedRecipe() {
      AllLikedRecipe()
      
 },[])
-console.log(LikedRecipe)
+
   return (
     <div>
       <div className="container ">
@@ -27,7 +27,7 @@ console.log(LikedRecipe)
     {loading && <Loader></Loader> && <BlankRecipeItem></BlankRecipeItem>}
        
  
-       { !loading && LikedRecipe && LikedRecipe.map((element)=>{
+      { LikedRecipe && LikedRecipe.map((element)=>{
       
         return <div className="col-md-3 mt-4 box_decrease_size_animation_for_recipeitem " key={element._id}>
                     <RecipeItem

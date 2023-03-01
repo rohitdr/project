@@ -27,7 +27,7 @@ export default function RecipeState(props){
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
+       
 
        
       },
@@ -41,10 +41,10 @@ export default function RecipeState(props){
     setProgress(10)
     if(loginresult?.auth_token){
       console.log("running")
-      sessionStorage.setItem("auth-token",loginresult.auth_token)
-      sessionStorage.setItem("success",loginresult.succcess)
+      localStorage.setItem("auth-token",loginresult.auth_token)
+      localStorage.setItem("success",loginresult.succcess)
       console.log(loginresult)
-      console.log(sessionStorage.getItem("auth-token"))
+      console.log(localStorage.getItem("auth-token"))
     
 
     }
@@ -65,7 +65,7 @@ export default function RecipeState(props){
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
+        'auth-token':localStorage.getItem("auth-token")
 
        
       },
@@ -89,7 +89,7 @@ const AllLikedRecipe=async()=>{
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
+        'auth-token':localStorage.getItem("auth-token")
 
        
       },
@@ -118,7 +118,7 @@ const AllLikedRecipe=async()=>{
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
+        'auth-token':localStorage.getItem("auth-token")
 
        
       },
@@ -145,7 +145,7 @@ const AllLikedRecipe=async()=>{
    
         headers: {
           'Content-Type': 'application/json',
-          'auth-token':sessionStorage.getItem("auth-token")
+          'auth-token':localStorage.getItem("auth-token")
   
          
         },
@@ -157,17 +157,6 @@ const AllLikedRecipe=async()=>{
       });
     
       
-     if(response.status!==400){
-      let likemessage= await response.json();
-   
-      console.log(likemessage)
-   
-      // showAlert(likemessage,"success")
-     
-     }
-     else{
-      console.log(response.json)
-     }
     
      setLoading(false)
     
@@ -183,7 +172,7 @@ const LikeRecipe=async(recipeid)=>{
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
+        'auth-token':localStorage.getItem("auth-token")
 
        
       },
@@ -195,16 +184,8 @@ const LikeRecipe=async(recipeid)=>{
     });
     
    
-   if(response.status!==400){
-    let likemessage= await response.json();
-    console.log(likemessage)
  
-    // showAlert(likemessage,"success")
    
-   }
-   else{
-    console.log(response.json)
-   }
   
    setLoading(false)
   
@@ -228,7 +209,7 @@ const showAlert =(msg, type)=>{
        
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':sessionStorage.getItem("auth-token")
+              'auth-token':localStorage.getItem("auth-token")
   
              
             },
@@ -262,7 +243,7 @@ const showAlert =(msg, type)=>{
       
           headers: {
             'Content-Type': 'application/json',
-            'auth-token':sessionStorage.getItem("auth-token")
+            'auth-token':localStorage.getItem("auth-token")
            
           },
          
@@ -286,7 +267,7 @@ const showAlert =(msg, type)=>{
         
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':sessionStorage.getItem("auth-token")
+              'auth-token':localStorage.getItem("auth-token")
              
             },
            
@@ -310,7 +291,7 @@ const showAlert =(msg, type)=>{
         
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':sessionStorage.getItem("auth-token")
+              'auth-token':localStorage.getItem("auth-token")
              
             },
            
