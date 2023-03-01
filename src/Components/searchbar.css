@@ -47,6 +47,9 @@ width: 100px;
         background-position: 0% 0%;
     }
 }
+.R{
+  margin-left: 10px;
+}
 .nextui-c-PJLV-ilaJdKq-css {
   color: inherit;
   text-transform: none;
@@ -60,10 +63,10 @@ width: 100px;
 .R,.e,.c,.i,.p,.e2,.R2,.i2,.o,.t{
 font-size: 30px;
 }
-.navbar-brand{
+/* .navbar-brand{
   opacity:0;
   animation: drop .4s linear forwards 2s;
-}
+} */
 .R{
  margin-left: 10px;
   opacity:0;
@@ -123,4 +126,25 @@ font-size: 30px;
 }
 
 
+.nextui-c-egxOLa {
+ 
+  max-width:100%!important;
+ 
+}
+.logoofwebsite{
+  padding-top: 20px;
+  padding-left: 10px;
 
+}
+[class*="line-b"] {
+
+  padding-bottom: 8px;
+}
+@media(max-width:650px){
+  .logoofwebsite{
+    padding-top: 20px;
+    padding-left: 0px;
+  
+  
+  }
+}

@@ -6,43 +6,43 @@ import { Modal, Button, Text, Input, Row } from "@nextui-org/react";
 import './login.css'
 import './login_file.js'
 export default function Login() {
+  const context = useContext(RecipeContext)
+  const {login,checkemail,emailcheck} =context
   const [visible, setVisible] = React.useState(false);
 const loginclick=()=>{
-  setVisible(true)
+  checkemail(logindetail)
+ sessionStorage.getItem("emailcheck")?setVisible(true):setVisible(false)
+    
+   
+  
+ 
+ 
  
 }
-// function sendEmail() {
-//   Email.send({
-//       Host : "smtp.mailtrap.io",
-//       Username : "<Mailtrap username>",
-//       Password : "<Mailtrap password>",
-//       To : logindetail.email,
-//       From : "rohitdr098@gmail.com",
-//       Subject : "One time password",
-//       Body : 4758
-//     })}
+
+
 
   const closeHandler = () => {
-  //  sendEmail()
-    
-    let  otp = document.getElementById("otp").value
-    if(otp== 4758){
-      setVisible(false);
-      login(logindetail)
-if(localStorage.getItem("auth-token")){
-Navigate("/Profile_Profile")
-
-
-}
-    }
+setVisible(false)
    
    
   };
+  const VerifyOtp=async()=>{
+      //  sendEmail()
+      let  otp = document.getElementById("otp").value
+      if(otp== 4758){
+        setVisible(false);
+        login(logindetail)
+        sessionStorage.getItem("auth-token") == undefined?Navigate("/login"):Navigate("/Profile")
+      
+
+ 
+      }
+  }
 
 
   let Navigate = useNavigate();
-  const context = useContext(RecipeContext)
-  const {login} =context
+
   const onsubmit=(e)=>{
   
 e.preventDefault();
@@ -134,7 +134,7 @@ setlogindetail({...logindetail,[e.target.name]:e.target.value})
         <Modal.Body>
           <Row justify="space-between">
             <Text blockquote b size={14}>
-              We have send an OTP on *****{logindetail.email.substring(7)} email to verify you{" "}
+              We have send an OTP on *****{logindetail.email.substring(7)} email to verify you 4728{" "}
             </Text>
           </Row>
           <Input.Password
@@ -155,7 +155,7 @@ setlogindetail({...logindetail,[e.target.name]:e.target.value})
           <Button auto flat color="error" onPress={closeHandler}>
             Close
           </Button>
-          <Button auto onPress={closeHandler}>
+          <Button auto onPress={VerifyOtp}>
             Verify OTP
           </Button>
         </Modal.Footer>

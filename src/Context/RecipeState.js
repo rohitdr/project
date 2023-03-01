@@ -16,8 +16,49 @@ export default function RecipeState(props){
    const [CurrentRecipeItemid,setCurrentRecipeItemid]=useState("")
    const [progress, setProgress] = useState(0);
    const [progressheight,setProgressHeight] = useState(5)
+  
 
 
+
+   //check email
+   const checkemail=async(logindetail)=>{
+
+ 
+    const response = await fetch(`http://localhost:5000/api/auth/checkemail`, {
+      method: 'POST',
+ 
+      headers: {
+        'Content-Type': 'application/json',
+       
+
+       
+      },
+      body: JSON.stringify(logindetail)
+     
+  
+    });
+ 
+    let loginresult= await response.json();
+ 
+ if(loginresult =="success"){
+ sessionStorage.setItem("emailcheck","true")
+ }
+   
+   if(response.status=== 402){
+      
+      showAlert("Please Use the correct format of information","danger")
+     
+    }
+    if(response.status=== 400){
+      
+      showAlert(loginresult.error,"danger")
+   
+    }
+   
+   
+
+ 
+   }
   //  api for login
   const login=async(logindetail)=>{
     setLoading(true)
@@ -39,17 +80,19 @@ export default function RecipeState(props){
     let loginresult= await response.json();
  
     setProgress(10)
-    if(loginresult?.auth_token){
+    if(response.status !== 400){
       console.log("running")
-      localStorage.setItem("auth-token",loginresult.auth_token)
-      localStorage.setItem("success",loginresult.succcess)
+      sessionStorage.setItem("auth-token",loginresult.auth_token)
+      sessionStorage.setItem("success",loginresult.succcess)
       console.log(loginresult)
-      console.log(localStorage.getItem("auth-token"))
+      console.log(sessionStorage.getItem("auth-token"))
+      showAlert("Your had successfully logged in","success")
     
 
     }
-    if(!loginresult?.auth_token){
-     window.alert(loginresult.error)
+    if(response.status=== 400){
+      
+      showAlert(loginresult.error,"danger")
     }
    
     setProgress(100)
@@ -65,7 +108,7 @@ export default function RecipeState(props){
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':localStorage.getItem("auth-token")
+        'auth-token':sessionStorage.getItem("auth-token")
 
        
       },
@@ -89,7 +132,7 @@ const AllLikedRecipe=async()=>{
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':localStorage.getItem("auth-token")
+        'auth-token':sessionStorage.getItem("auth-token")
 
        
       },
@@ -118,7 +161,7 @@ const AllLikedRecipe=async()=>{
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':localStorage.getItem("auth-token")
+        'auth-token':sessionStorage.getItem("auth-token")
 
        
       },
@@ -145,7 +188,7 @@ const AllLikedRecipe=async()=>{
    
         headers: {
           'Content-Type': 'application/json',
-          'auth-token':localStorage.getItem("auth-token")
+          'auth-token':sessionStorage.getItem("auth-token")
   
          
         },
@@ -172,7 +215,7 @@ const LikeRecipe=async(recipeid)=>{
  
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':localStorage.getItem("auth-token")
+        'auth-token':sessionStorage.getItem("auth-token")
 
        
       },
@@ -195,10 +238,10 @@ const LikeRecipe=async(recipeid)=>{
 const showAlert =(msg, type)=>{
   setAlert({
     message : msg,
-   type : type,},
+   type : type},
    setTimeout(()=>{
       setAlert(null)
-   }, 1500))}
+   }, 2000))}
    //api for recipe search
     const NameRecipe=async(recipename)=>{
       
@@ -209,7 +252,7 @@ const showAlert =(msg, type)=>{
        
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':localStorage.getItem("auth-token")
+              'auth-token':sessionStorage.getItem("auth-token")
   
              
             },
@@ -243,7 +286,7 @@ const showAlert =(msg, type)=>{
       
           headers: {
             'Content-Type': 'application/json',
-            'auth-token':localStorage.getItem("auth-token")
+            'auth-token':sessionStorage.getItem("auth-token")
            
           },
          
@@ -267,7 +310,7 @@ const showAlert =(msg, type)=>{
         
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':localStorage.getItem("auth-token")
+              'auth-token':sessionStorage.getItem("auth-token")
              
             },
            
@@ -291,7 +334,7 @@ const showAlert =(msg, type)=>{
         
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':localStorage.getItem("auth-token")
+              'auth-token':sessionStorage.getItem("auth-token")
              
             },
            
@@ -310,7 +353,7 @@ const showAlert =(msg, type)=>{
      
     }
 return(
-    <RecipeContext.Provider value={{login,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{showAlert,checkemail,login,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )

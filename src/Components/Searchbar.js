@@ -17,7 +17,7 @@ getUser()
 var num=0;
 
 const logout=()=>{
-  localStorage.removeItem("auth-token")
+  sessionStorage.removeItem("auth-token")
 Navigate("/login")
 }
 var searchentered
@@ -30,7 +30,10 @@ var modalsearch
 <Navbar isBordered variant="sticky">
         <Navbar.Brand css={{ mr: "$4" }}>
         <NavbarToggler></NavbarToggler>
-      
+      {/* <AcmeLogo></AcmeLogo> */}
+      <p class="navbar-brand d-none d-sm-block">
+      <img src="Reciperiotlogo.png" alt="Logo" width="75" height="90" class="d-inline-block align-text-top logoofwebsite"/>
+    </p>
           <Text itsClassName="pt-4" color="inherit" css={{ mr: "$11" }} hideIn="xs">
           <span className="navbar-brand "><span  className="name text-dark  fw-bold"> 
   
@@ -81,7 +84,7 @@ var modalsearch
                 />
               </Dropdown.Trigger>
             </Navbar.Item>
-            {localStorage.getItem("auth-token")?
+            {sessionStorage.getItem("auth-token")?
             <Dropdown.Menu
               aria-label="User menu actions"
               color="secondary"
@@ -115,7 +118,7 @@ var modalsearch
             >
               
               <Dropdown.Item key="settings" >
-              <Link to="/login" className=" px-4 text-dark searchbardropdown"> Login</Link>
+              <Link to="/login" className="px-4 text-dark searchbardropdown w-100"> Login</Link>
              
               </Dropdown.Item>
               
