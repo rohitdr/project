@@ -10,7 +10,9 @@ export default function Profile_Profile() {
     if(!sessionStorage.getItem("auth-token")){
 Navigate("/login")
     }
+    else{
 getUser()
+    }
   })
   return (
     <div>

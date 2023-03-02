@@ -3,14 +3,21 @@ import RecipeContext from "../Context/RecipeContext";
 import BlankRecipeItem from './BlankRecipeItem';
 import Loader from './Loader';
 import RecipeItem from './RecipeItem';
+import { useNavigate } from "react-router-dom";
 export default function Profile_LikedRecipe() {
 
     const context = useContext(RecipeContext)
     const {LikedRecipe,AllLikedRecipe,loading} = context
+    let Navigate = useNavigate(); 
    useEffect(()=>{
-   
+    if(!sessionStorage.getItem("auth-token")){
+      Navigate("/login")
+          }
+          else{
+            AllLikedRecipe()
+          }
     
-     AllLikedRecipe()
+    
      
 },[])
 

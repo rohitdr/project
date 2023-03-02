@@ -15,14 +15,14 @@ export default function Login() {
    
     const response = await fetch(`http://localhost:5000/api/auth/login`, {
       method: 'POST',
- 
+      mode: "cors",
       headers: {
         'Content-Type': 'application/json',
        
 
        
       },
-      body: JSON.stringify(logindetail)
+      body: JSON.stringify({email:logindetail.email, password:logindetail.password})
      
   
     });
@@ -47,7 +47,7 @@ export default function Login() {
 
     }
     if(response.status=== 400){
-      
+      setProgress(100)
       showAlert(loginresult.error,"danger")
     }
    

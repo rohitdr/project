@@ -34,7 +34,7 @@ var modalsearch
       <p class="navbar-brand d-none d-sm-block">
       <img src="Reciperiotlogo.png" alt="Logo" width="75" height="90" class="d-inline-block align-text-top logoofwebsite"/>
     </p>
-          <Text itsClassName="pt-4" color="inherit" css={{ mr: "$11" }} hideIn="xs">
+          <Text  color="inherit" css={{ mr: "$11" }} hideIn="xs">
           <span className="navbar-brand "><span  className="name text-dark  fw-bold"> 
   
           <span className="R">R</span>

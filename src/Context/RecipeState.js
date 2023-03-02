@@ -44,7 +44,7 @@ export default function RecipeState(props){
    }
 const AllLikedRecipe=async()=>{
   setLoading(true)
-  
+  try{
   const response = await fetch("http://localhost:5000/api/recipe/allLikedRecipe", {
       method: 'GET',
  
@@ -63,7 +63,10 @@ const AllLikedRecipe=async()=>{
  
   setLikedRecipe(Liked)
   setLoading(false)
- 
+  }catch(e){
+    console.log(e.message)
+   
+  }
 
    
 }
@@ -74,7 +77,7 @@ const AllLikedRecipe=async()=>{
    const getUser=async()=>{
     setLoading(true)
     
-    const response = await fetch("http://localhost:5000/api/auth/getUser", {
+   try{ const response = await fetch("http://localhost:5000/api/auth/getUser", {
       method: 'POST',
  
       headers: {
@@ -93,8 +96,12 @@ const AllLikedRecipe=async()=>{
 
       setUserData(userDetail)
       setLoading(false)
-     
-   
+  }
+catch(e){
+ console.log(e.message)
+ 
+}
+
    }
    
    //api to unlike a recipe
@@ -223,6 +230,7 @@ const showAlert =(msg, type)=>{
     const allRecipe=async()=>{
  
       setLoading(true)
+      try{
         const response = await fetch('http://localhost:5000/api/recipe/allRecipes', {
             method: 'GET',
         
@@ -241,6 +249,11 @@ const showAlert =(msg, type)=>{
           setRecipe(allrecipe)
          
           setLoading(false)
+        }catch(e){
+          console.log(e.message)
+         
+        }
+      
     }
     // api for delete a recipe
     const deleteRecipe=async(id)=>{
