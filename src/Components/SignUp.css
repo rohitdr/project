@@ -1,0 +1,12 @@
+.singupcardheder{
+    height: 95px;
+    width: 256px;
+    margin-top: -40px;
+    z-index: 10;
+    background:  linear-gradient(60deg,#c04cd4,#a027d4);
+    border-radius: 20px;
+    /* text-size-adjust: auto; */
+}
+.singupcard{
+    
+}

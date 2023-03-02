@@ -25,6 +25,7 @@ import IndividualRecipe_comment from "./Components/IndividualRecipe_comment";
 import IndividualRecipe_Nutrients from "./Components/IndividualRecipe_Nutrients";
 import IndividualRecipe_Ingrediants from "./Components/IndividualRecipe_Ingrediants";
 import IndividualRecipe_description from "./Components/IndividualRecipe_description";
+import SignUp from "./Components/SignUp";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -382,14 +383,15 @@ function App() {
             exact
             path="/home"
             element={
-              <Recipe
-                title={textColor}
-                setProgress={setProgress}
-                topLeftColor={topLeftColor}
-                headingColor={headingColor}
-                type={color}
-                textcolor={textColor_button}
-              ></Recipe>
+              // <Recipe
+              //   title={textColor}
+              //   setProgress={setProgress}
+              //   topLeftColor={topLeftColor}
+              //   headingColor={headingColor}
+              //   type={color}
+              //   textcolor={textColor_button}
+              // ></Recipe>
+              <SignUp></SignUp>
             }
           />
           {Recipe_category.map((element) => {

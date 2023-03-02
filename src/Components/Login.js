@@ -99,7 +99,7 @@ export default function Login() {
               <div
                 id="radius-shape-2"
                 class="position-absolute shadow-5-strong"
-              ></div>
+              >
 
               <div class="card bg-glass box_decrease_size_animation">
                 <div class="card-body px-4 py-5 px-md-5 box_decrease_size_animation">
@@ -158,6 +158,7 @@ export default function Login() {
                     <hr class="my-4" />
                   </form>
                 </div>
+              </div>
               </div>
             </div>
           </div>
