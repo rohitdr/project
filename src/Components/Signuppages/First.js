@@ -9,13 +9,43 @@ export default function First() {
  const [signupdetail, setsignupdetails]=useState({phone_number:"",email:"",password:"",confirm_password:"",username:"",first_name:"", last_name:""})
   const context = useContext(RecipeContext)
   const {singuppage, setsignuppage,showAlert}= context
-  
- 
+   const [usernamecolor, setusernamecolor]= useState("success")
+
+ const [helpertextusername,sethelpertextusername]= useState("")
     const validateEmail = (value) => {
       return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
     };
   
+    const checkusername=async(username)=>{
+      
+      
+     try{ const response = await fetch("http://localhost:5000/api/auth/checkUsername", {
+        method: 'POST',
+   
+        headers: {
+          'Content-Type': 'application/json',
+         
   
+         
+        },
+        body: JSON.stringify({
+          "username":username
+         })
+       
+    
+      });
+      
+      let userDetail= await response.json();
+   
+  console.log(userDetail)
+       
+    }
+  catch(e){
+   console.log(e.message)
+   
+  }
+  
+     }
     const helper = React.useMemo(() => {
       if (!value)
         return {
@@ -29,6 +59,21 @@ export default function First() {
       };
     }, [value]);
    
+    const onchangeusername=(e)=>{
+setsignupdetails({...signupdetail,username:e.target.value})
+if(signupdetail.username.length<8){
+  setusernamecolor("error")
+ sethelpertextusername("username must be of 8 digits")
+}
+else{
+  setusernamecolor("success")
+  sethelpertextusername("")
+   checkusername(signupdetail.username)
+}
+
+
+
+    }
     const onchange=(e)=>{
 setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
     }
@@ -74,7 +119,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                 </div>
                 <div class="card-body box_decrease_size_animationforlogin ">
                   <form>
-                    <div className="row px-2 mt-3 box_decrease_size_animationforlogin ">
+                    <div className="row px-2 mt-3 box_decrease_size_animationforlogin mb-1">
                       <Input
                       {...bindings}
                       clearable
@@ -85,7 +130,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                       helperColor={helper.color}
                       helperText={helper.text}
                         bordered
-                        className="bg-white "
+                        className="bg-white"
                         rounded
                         onChange={onchange}
                         type="email"
@@ -95,7 +140,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                       />
                     </div>
                     <div className="d-flex justify-content-between pt-2 ">
-                      <div className="px-3 box_decrease_size_animationforlogin">
+                      <div className="px-3 box_decrease_size_animationforlogin mb-1">
                         <Input
                           className="bg-white"
                           size="md"
@@ -110,7 +155,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                           label="First Name"
                         />
                       </div>
-                      <div className="box_decrease_size_animationforlogin">
+                      <div className="box_decrease_size_animationforlogin mb-1">
                         <Input
                           size="md"
                           bordered
@@ -128,14 +173,16 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                     </div>
 
                     <div className="d-flex justify-content-between pt-2">
-                      <div className="px-3 box_decrease_size_animationforlogin">
+                      <div className="px-3 box_decrease_size_animationforlogin mb-1">
                       <Input
                           className="bg-white"
                           size="md"
                           bordered
                           rounded
-                          onChange={onchange}
-                          color="success"
+                          onChange={onchangeusername}
+                          helperColor="error"
+                          helperText={helpertextusername}
+                          color={usernamecolor}
                           clearable
                           name='username'
                           id='username'
@@ -144,7 +191,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                           label="Username"
                         />
                       </div>
-                      <div className="box_decrease_size_animationforlogin">
+                      <div className="box_decrease_size_animationforlogin mb-1">
                         <Input
                           className="bg-white"
                           clearable
@@ -161,7 +208,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                       </div>
                     </div>
                     <div className="d-flex justify-content-between pt-2">
-                      <div className="px-3 box_decrease_size_animationforlogin">
+                      <div className="px-3 box_decrease_size_animationforlogin mb-1">
                         <Input.Password
                           className="bg-white"
                           clearable
@@ -176,7 +223,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                           placeholder="Enter Your Password"
                         />
                       </div>
-                      <div className="box_decrease_size_animationforlogin">
+                      <div className="box_decrease_size_animationforlogin mb-1">
                         <Input.Password
                           className="bg-white"
                           clearable
