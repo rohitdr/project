@@ -123,7 +123,7 @@ var modalsearch
               </Dropdown.Item>
               
               <Dropdown.Item key="analytics" >
-              <Link to="/login" className=" px-4 text-dark searchbardropdown"> Sign UP</Link>
+              <Link to="/signUp" className=" px-4 text-dark searchbardropdown"> Sign UP</Link>
               </Dropdown.Item>
              
        
