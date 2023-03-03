@@ -10,7 +10,7 @@ export default function First() {
   const context = useContext(RecipeContext)
   const {singuppage, setsignuppage,showAlert}= context
    const [usernamecolor, setusernamecolor]= useState("success")
-
+var result=true
  const [helpertextusername,sethelpertextusername]= useState("")
     const validateEmail = (value) => {
       return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
@@ -36,7 +36,7 @@ export default function First() {
       });
       
       let userDetail= await response.json();
-   
+   result = userDetail
   console.log(userDetail)
        
     }
@@ -69,6 +69,12 @@ else{
   setusernamecolor("success")
   sethelpertextusername("")
    checkusername(signupdetail.username)
+   if(!result){
+    sethelpertextusername("Username is not avialable")
+   }
+   else{
+    sethelpertextusername("username is avialabel")
+   }
 }
 
 
