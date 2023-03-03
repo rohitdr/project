@@ -68,8 +68,11 @@ export default function Login() {
   return (
     <>
       <section class="background-radial-gradient overflow-hidden">
+        
         <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+          
           <div class="row gx-lg-5 align-items-center mb-5">
+            
             <div class="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: "10" }}>
               <h1
                 class="my-5 display-5 fw-bold ls-tight"
@@ -92,7 +95,7 @@ export default function Login() {
             </div>
 
             <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-              <div
+            <div
                 id="radius-shape-1"
                 class="position-absolute rounded-circle shadow-5-strong"
               ></div>
@@ -100,7 +103,6 @@ export default function Login() {
                 id="radius-shape-2"
                 class="position-absolute shadow-5-strong"
               >
-
               <div class="card bg-glass box_decrease_size_animation">
                 <div class="card-body px-4 py-5 px-md-5 box_decrease_size_animation">
                   <div class="card-header card-header-primary loginformheader text-center box_decrease_size_animationforlogin  ">
