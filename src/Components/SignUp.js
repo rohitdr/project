@@ -341,7 +341,7 @@ const changethird=(e)=>{
 
   return (
     <>
-      {signuppage == 2 && (
+      {signuppage == 0 && (
         <section class="background-radial-gradient overflow-hidden">
           <div
             class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
@@ -678,7 +678,7 @@ const changethird=(e)=>{
           </div>
         </section>
       )}
-      {signuppage == 0 && (
+      {signuppage == 2 && (
         <section class="background-radial-gradient overflow-hidden">
           <div
             class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
