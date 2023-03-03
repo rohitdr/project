@@ -25,218 +25,179 @@ export default function Home() {
 
   return (
    <>
-
-
-
-<div className='home_file  '>
-
-{/* carousel */}
-<div className=' carousel'>
- <Carousel fade variant="dark" >
-      <Carousel.Item >
-        <img
-          className=" carousel_image w-100"
-          src="https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmVjaXBlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
-          alt="First slide"
-        />
-       
-      </Carousel.Item >
-      <Carousel.Item >
-        <img
-          className="carousel_image  w-100"
-          src="https://images.pexels.com/photos/6061743/pexels-photo-6061743.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="Second slide"
-        />
-
-      
-      </Carousel.Item>
-      <Carousel.Item >
-        <img
-          className="carousel_image w-100"
-          src="https://images.pexels.com/photos/4686816/pexels-photo-4686816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Third slide"
-        />
-
-     
-      </Carousel.Item>
-    </Carousel>
-    </div>
-{/* carousel */}
-{/* cards carousel */}
-
-<Carousel fade variant="dark"indicators={false} controls={false} interval={2000}>
-
-      <Carousel.Item >
-      <h1 className="text-center b my-4 fw-bold text-white" >
-          Top Recipes
-          </h1>
-      {loading && <Loader></Loader>}
-      <div className="cards-wrapper mb-3">
-     
-      {recipe.recipe && recipe.recipe.map((element)=>{
-      first++;
-      
-      if(first<7){
-        return <div className={`carousel_card card ${(first<3)?hide:""}`} key={element._id}>
-        <Carousel_card image={element.image} title={element.label}></Carousel_card>
-       
-       </div>
-      }
-     
-     
-        
-     }
-     )
-     }
-    </div>
-       
-      </Carousel.Item>
-      <Carousel.Item>
-      <h1 className="text-center b my-4 fw-bold text-white" >
-          Top Recipes
-          </h1>
-      {loading && <Loader></Loader>}
-      <div className="cards-wrapper mb-3">
-      {recipe.recipe && recipe.recipe.map((element)=>{
-      second++;
-      if(second>6 && second<13){
-        return <div className={`carousel_card card ${(second<9)?hide:""}`} key={element._id}>
-        <Carousel_card image={element.image} title={element.label}></Carousel_card>
-       
-       </div>
-      }
-     
-     
-        
-     }
-     )
-     }
-
+ <section id="hero-animated" class="hero-animated d-flex align-items-center">
+    <div class="container d-flex   flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+      <img src="https://media.zenfs.com/en/la_times_articles_853/72c10d6a673085671d1635ac9a1406ec" class="img-fluid animated box_decrease_size_animationforlogin  "/>
+      <h2>Welcome to <span>RecipeRiot</span></h2>
+      <p>Et voluptate esse accusantium accusamus natus reiciendis quidem voluptates similique aut.</p>
+      <div class="d-flex">
+        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
       </div>
+    </div>
+  </section>
+{/* Other */}
+  <section id="featured-services" class="featured-services">
+      <div class="container">
 
-      
-      </Carousel.Item>
-      <Carousel.Item>
-      <h1 className="text-center  my-4 fw-bold text-white" >
-          Top Recipes
-          </h1>
-      {loading && <Loader></Loader>}
-      <div className="cards-wrapper mb-3">
-      {recipe.recipe && recipe.recipe.map((element)=>{
-      third++;
-      if(third>13 && third<20){
-        return <div className={`carousel_card card ${(third<16)?hide:""}`} key={element._id}>
-        <Carousel_card image={element.image} title={element.label}></Carousel_card>
-       
-       </div>
-      }
-     
-     
-        
-     }
-     )
-     }
+        <div class="row gy-4">
 
-      </div>
-
-     
-      </Carousel.Item>
-    </Carousel>
-{/* cards carousel */}
-
-
-{/* latest Recipe */}
-<div className="latest_recipe_container">
-<div className="row">
-  <div className="col-md-3 d-none d-md-block " id="latestRecipeUpper">
-  <div className="carousel_card   card my-3 " style={{height:"20%"}}>
-<Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
-  </div>
-  <div className="carousel_card  card my-3 " style={{height:"20%"}}>
-<Carousel_card image={"https://image.winudf.com/v2/image1/Y29tLmRvbmF0ZS5wYWxtZHJvaWRfc2NyZWVuXzBfMTU4ODE1MDIwN18wNTg/screen-0.jpg?fakeurl=1&type=.webp"} height={100} ></Carousel_card>
-  </div>
-  <div className="carousel_card  card my-3 " style={{height:"20%"}}>
-<Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
-  </div>
-  </div>
-  <div className="col-md-6 my-3">
-  <div className="p-1 border bg-white">
-  <div className=" mb-3 text-center" style={{backgroundColor:"rgb(13, 63, 29)"}}>
-<strong className='fw-bold text-white fs-3' >Latest Recipes</strong>
-</div>
-    {/* latest 1 */}
-
-    {Latest_recipe.recipe && Latest_recipe.recipe.map((element)=>{
-      fourth++;
-      if(fourth<10){
-        return <a href="" className="text-dark">
-        <div className="row mb-4 border-bottom pb-2">
-          <div className="col-3 ">
-            <img src={element.image}
-              className="img-fluid shadow-1-strong rounded latest_recipe_image " alt="Latest Recipe Image" />
+          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+            </div>
           </div>
-  
-          <div className="col-9">
-            <p className="mb-2 fs-4"><strong>{element.label}</strong></p>
-            <p>
-              <u>  {(new Date(element.date).toLocaleString())}</u>
-            </p>
+
+          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+            </div>
           </div>
+
+          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
+              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            </div>
+          </div>
+
         </div>
-      </a>
-      }
-     
-     
-        
-     }
-     )
-     }
-  
-   
 
-  </div>
-  </div>
-  <div className="col-md-3 d-none d-md-block">
-  <div className="carousel_card card my-3 "style={{height:"20%"}}>
-<Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
-  </div>
-  <div className="carousel_card card my-3 "style={{height:"20%"}}>
-<Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
-  </div>
-  <div className="carousel_card card my-3 " style={{height:"20%"}}>
-<Carousel_card image={"https://static.toiimg.com/photo/96087126/96087126.jpg?v=3"} height={100}></Carousel_card>
-  </div>
-    </div>
-</div>
-</div>
-{/* latest Recipe */}
-{/* customer reviews */}
+      </div>
+    </section>
+{/* next
+ */}
+<section id="services" class="services">
+      <div class="container" data-aos="fade-up">
 
-    <div class="mgb-40 padb-30 auto-invert line-b-4  align-center">
-        <h4 class="font-cond-l fg-accent lts-md mgb-10" contenteditable="false">Not Yet Convinced?</h4>
-        <h1 class="font-cond-b fg-text-d lts-md fs-300 fs-300-xs no-mg" contenteditable="false">Read Customer Reviews</h1>
-    </div>
-    <ul class="hash-list cols-3 cols-1-xs pad-30-all  align-center text-sm">
-        <li>
-          <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]"/>
-          <p class="fs-110 font-cond-l" contenteditable="false">" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. "</p>
-          <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Martha Stewart</h5>
-          <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Business Woman - New York</small>
-        </li>
-        <li>
-          <img src="https://bootdey.com/img/Content/avatar/avatar4.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]"/>
-          <p class="fs-110 font-cond-l" contenteditable="false">" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. "</p>
-          <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Ariana Menage</h5>
-          <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Recording Artist - Los Angeles</small>
-        </li>
-        <li>
-          <img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="wpx-100 img-round mgb-20" title="" alt="" data-edit="false" data-editor="field" data-field="src[Image Path]; title[Image Title]; alt[Image Alternate Text]"/>
-          <p class="fs-110 font-cond-l" contenteditable="false">" Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. "</p>
-          <h5 class="font-cond mgb-5 fg-text-d fs-130" contenteditable="false">Sean Carter</h5>
-          <small class="font-cond case-u lts-sm fs-80 fg-text-l" contenteditable="false">Fund Manager - Chicago</small>
-        </li>
-      </ul>
-   
-{/* customer reviews */}
-    </div></>)
+        <div class="section-header">
+          <h2>Recipe Search</h2>
+          <p>Users can search for specific recipes by name, ingredient, cuisine, cooking time, or dietary requirements.</p>
+        </div>
+
+        <div class="row gy-5">
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="service-item">
+              <div class="img">
+                <img src="https://images.squarespace-cdn.com/content/v1/5fc3cd76affbf90a66fc921d/1638385829951-6ECZIFNW5UF6FILW0BI9/IMG_5326.jpeg" class="img-fluid" alt=""/>
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-activity"></i>
+                </div>
+                <a href="#" class="stretched-link">
+                  <h3>Countless Recipes</h3>
+                </a>
+                <p>We have  a large database of recipes that users can browse and filter by various criteria</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-md-6 zoom-in" data-aos-delay="300">
+            <div class="service-item">
+              <div class="img">
+                <img src="https://static.toiimg.com/photo/73356883.cms" class="img-fluid" alt=""/>
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-broadcast"></i>
+                </div>
+                <a href="#" class="stretched-link">
+                  <h3>Share Recipe </h3>
+                </a>
+                <p> Users can share their own recipes on the website and rate, review, or comment on other users' recipes</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="service-item">
+              <div class="img">
+                <img src="https://wallpaperaccess.com/full/2305398.jpg" class="img-fluid" alt=""/>
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-easel"></i>
+                </div>
+                <a href="#" class="stretched-link">
+                  <h3>Nutritional information</h3>
+                </a>
+                <p>We provides nutritional information for each recipe, including calories, fat, protein, and carbohydrate content</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+            <div class="service-item">
+              <div class="img">
+                <img src="https://assets.cntraveller.in/photos/60be1e72c7150780d0a47e3b/master/pass/Home-cooking-recipes-self-isolatin-1366x768.jpg" class="img-fluid" alt=""/>
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-bounding-box-circles"></i>
+                </div>
+                <a href="#" class="stretched-link">
+                  <h3>Share and Rate</h3>
+                </a>
+                <p>Users can create and share their recipes.We  also  allows users to rate and review recipes posted by other users</p>
+                <a href="#" class="stretched-link"></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
+            <div class="service-item">
+              <div class="img">
+                <img src="https://www.licious.in/blog/wp-content/uploads/2023/02/shutterstock_1199926645-750x500.jpg" class="img-fluid" alt=""/>
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-calendar4-week"></i>
+                </div>
+                <a href="#" class="stretched-link">
+                  <h3>Create and</h3>
+                </a>
+                <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
+                <a href="#" class="stretched-link"></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="700">
+            <div class="service-item">
+              <div class="img">
+                <img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2022/03/07110850/salad.jpg" class="img-fluid" alt=""/>
+              </div>
+              <div class="details position-relative">
+                <div class="icon">
+                  <i class="bi bi-chat-square-text"></i>
+                </div>
+                <a href="#" class="stretched-link">
+                  <h3>Dolori Architecto</h3>
+                </a>
+                <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
+                <a href="#" class="stretched-link"></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    </>)
 }
