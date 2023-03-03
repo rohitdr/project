@@ -4,22 +4,41 @@ import { useState } from "react";
 import { useContext } from 'react';
 import RecipeContext from '../../Context/RecipeContext';
 import { useEffect } from 'react';
+import e from 'cors';
 export default function First() {
     const { value, reset, bindings } = useInput("");
  const [signupdetail, setsignupdetails]=useState({phone_number:"",email:"",password:"",confirm_password:"",username:"",first_name:"", last_name:""})
   const context = useContext(RecipeContext)
   const {singuppage, setsignuppage,showAlert}= context
    const [usernamecolor, setusernamecolor]= useState("success")
-var result=true
+
  const [helpertextusername,sethelpertextusername]= useState("")
+ const [hlepercolorusername,sethelpercolorusername]=useState("error")
+
+ const [usernamecontentright,setusernamecontentright]=useState()
+ ///for validation of email 
     const validateEmail = (value) => {
       return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
     };
-  
-    const checkusername=async(username)=>{
+    const helper = React.useMemo(() => {
+      if (!value)
+        return {
+          text: "",
+          color: "",
+        };
+         ///for validation of email 
+      const isValid = validateEmail(value);
+      return {
+        text: isValid ? "Correct email" : "Enter a valid email",
+        color: isValid ? "success" : "error",
+      };
+    }, [value]);
+
+
+   ///for validation of username
+    const checkusername=async()=>{
       
-      
-     try{ const response = await fetch("http://localhost:5000/api/auth/checkUsername", {
+      try{ const response = await fetch("http://localhost:5000/api/auth/checkUsername", {
         method: 'POST',
    
         headers: {
@@ -29,66 +48,73 @@ var result=true
          
         },
         body: JSON.stringify({
-          "username":username
+          "username":document.getElementById('username').value
          })
        
     
       });
       
-      let userDetail= await response.json();
-   result = userDetail
-  console.log(userDetail)
-       
+    let result= await response.json();
+    if(!result){
+   
+      console.log("error")
+      setusernamecolor("error")
+      sethelpercolorusername("error")
+      sethelpertextusername("Username is not avialable")
+    
+    setusernamecontentright(<i class="fa-solid text-danger fa-circle-exclamation"></i>)
+     }
+     if(result){
+      setusernamecolor("success")
+    
+      sethelpercolorusername("success")
+      sethelpertextusername("username is avialable")
+      setusernamecontentright(<i class="fa-solid text-success fa-circle-check"></i>)
+     }
+      
     }
   catch(e){
    console.log(e.message)
+    
    
   }
   
      }
-    const helper = React.useMemo(() => {
-      if (!value)
-        return {
-          text: "",
-          color: "",
-        };
-      const isValid = validateEmail(value);
-      return {
-        text: isValid ? "Correct email" : "Enter a valid email",
-        color: isValid ? "success" : "error",
-      };
-    }, [value]);
-   
+  
+  
+   //onload to store data for prev button
+ 
+    //// onchanger effect on usrename
     const onchangeusername=(e)=>{
 setsignupdetails({...signupdetail,username:e.target.value})
+console.log(e.target.value)
 if(signupdetail.username.length<8){
   setusernamecolor("error")
  sethelpertextusername("username must be of 8 digits")
 }
 else{
-  setusernamecolor("success")
+
   sethelpertextusername("")
-   checkusername(signupdetail.username)
-   if(!result){
-    sethelpertextusername("Username is not avialable")
-   }
-   else{
-    sethelpertextusername("username is avialabel")
-   }
+  checkusername(signupdetail.username)
+    
+
+ 
 }
 
 
 
     }
+
     const onchange=(e)=>{
 setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
     }
+
+    /// validation for next page button
     const next=()=>{
-      if(signupdetail.username.length<8){
-        
-        showAlert("OOPs!, Username must have 8 words", "danger")
-      }
-      else if(signupdetail.first_name.length<3){
+setsignupdetails({...signupdetail, email:bindings.value})
+console.log(signupdetail)
+     
+     if(signupdetail.first_name.length<3){
         showAlert("OOPs!, First Name must have 3 words", "danger")
       }
       else if(signupdetail.last_name.length<3){
@@ -116,7 +142,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
     <>
      
     <section class="background-radial-gradient overflow-hidden" >
-        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component" id="signup_first_component">
+        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component" id="signup_first_component" >
           <div class="row gx-lg-5 align-items-center mb-5">
             <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
               <div class="card singupcard border-success align-items-center box_decrease_size_animation">
@@ -128,7 +154,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                     <div className="row px-2 mt-3 box_decrease_size_animationforlogin mb-1">
                       <Input
                       {...bindings}
-                      clearable
+                    
                       shadow={false}
                       onClearClick={reset}
                     required
@@ -138,11 +164,11 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                         bordered
                         className="bg-white"
                         rounded
-                        onChange={onchange}
+                      
                         type="email"
                         label="Your Email"
                         placeholder="Enter Your Email"
-                        status="secondary"
+                       
                       />
                     </div>
                     <div className="d-flex justify-content-between pt-2 ">
@@ -156,6 +182,7 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                           clearable
                           name='first_name'
                           id='first_name'
+                          value={signupdetail.first_name}
                          onChange={onchange}
                           placeholder="Enter Your First name"
                           label="First Name"
@@ -185,11 +212,14 @@ setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
                           size="md"
                           bordered
                           rounded
+                          contentRight={
+                          usernamecontentright
+                          }
                           onChange={onchangeusername}
-                          helperColor="error"
+                          helperColor={hlepercolorusername}
                           helperText={helpertextusername}
                           color={usernamecolor}
-                          clearable
+                        
                           name='username'
                           id='username'
                           

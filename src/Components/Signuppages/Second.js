@@ -8,6 +8,7 @@ export default function Second() {
   const prev=()=>{
     document.getElementById('secondpage').setAttribute("class","disapear_component");
     setTimeout(()=>{setsignuppage(0)},350)
+  
 
 
 
@@ -20,7 +21,7 @@ export default function Second() {
 
        <>
        <section class="background-radial-gradient overflow-hidden">
-          <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component" id="secondpage">
+          <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component" id="secondpage" >
             <div class="d-flex justify-content-center gx-lg-5 align-items-center mb-5">
               <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
                 <div class="card singupcard border-success align-items-center box_decrease_size_animation">
