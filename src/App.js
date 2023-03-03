@@ -383,15 +383,22 @@ function App() {
             exact
             path="/home"
             element={
-              // <Recipe
-              //   title={textColor}
-              //   setProgress={setProgress}
-              //   topLeftColor={topLeftColor}
-              //   headingColor={headingColor}
-              //   type={color}
-              //   textcolor={textColor_button}
-              // ></Recipe>
-              <SignUp></SignUp>
+              <Recipe
+                title={textColor}
+                setProgress={setProgress}
+                topLeftColor={topLeftColor}
+                headingColor={headingColor}
+                type={color}
+                textcolor={textColor_button}
+              ></Recipe>
+           
+            }
+          />
+           <Route
+            exact
+            path="/signUp"
+            element={
+          <SignUp></SignUp>
             }
           />
           {Recipe_category.map((element) => {

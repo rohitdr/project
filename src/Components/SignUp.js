@@ -4,9 +4,11 @@ import { useState } from "react";
 // import Second from "./Signuppages/Second";
 // import Third from "./Signuppages/Third";
 import "./SignUp.css";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import RecipeContext from "../Context/RecipeContext";
 import { Input, useInput, Button, Radio, Textarea } from "@nextui-org/react";
+import e from "cors";
 
 export default function SignUp() {
   const { value, reset, bindings } = useInput("");
@@ -18,10 +20,21 @@ export default function SignUp() {
     username: "",
     first_name: "",
     last_name: "",
+    gender:"",
+    faourite_food:"",
+    date_of_birth:"",
+    address:"",
+    city:"",
+    state:"",
+    pincode:"",
+    web:"",
+    git:"",
+    facebook:"",
+twitter:""
   });
   
   const context = useContext(RecipeContext);
-  const { signuppage, setsignuppage, showAlert } = context;
+  const { signuppage, setsignuppage,setProgress, showAlert } = context;
   const [usernamecolor, setusernamecolor] = useState("success");
 
   const [helpertextusername, sethelpertextusername] = useState("");
@@ -122,7 +135,7 @@ export default function SignUp() {
   const onchange = (e) => {
     setsignupdetails({ ...signupdetail, [e.target.name]: e.target.value });
     //validation for number
-    if(signupdetail.phone_number.length<10){
+    if(signupdetail.phone_number.length !== 10){
       setphone_number_helper_text("Phone Number should be of 10 digits")
       setphone_numberhelpercolor("error")
       setphone_numbercolor("error")
@@ -195,7 +208,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
       showAlert("OOPs!, First Name must have 3 words", "danger");
     } else if (signupdetail.last_name.length < 3) {
       showAlert("OOPs!, Last Name must have 3 words", "danger");
-    } else if (signupdetail.phone_number.length != 10) {
+    } else if (signupdetail.phone_number.length!= 10) {
       showAlert("OOPs!, Phone Number Must be of 10 digits", "danger");
     } else if (signupdetail.password.length < 8) {
       showAlert("OOPs!, Password must have 8 digits", "danger");
@@ -223,16 +236,50 @@ setlast_namehelpertext("Last name should be of more than 3 words")
     }, 350);
   };
   const second_next = () => {
-    document
-      .getElementById("secondpage")
-      .setAttribute("class", "disapear_component");
-    setTimeout(() => {
-      setsignuppage(2);
-    }, 350);
+    setsignupdetails({...signupdetail,gender:document.querySelector("input[type='radio'][name=inlineRadioOptions]:checked").value})
+     
+    setsignupdetails({...signupdetail,date_of_birth:document.getElementById("date_of_birth").value})
+    if(signupdetail.address.length<1){
+      showAlert("Address can't be blank","danger")
+   }
+   else if(signupdetail.faourite_food.length<1){
+    showAlert("Faourite Food can't be blank","danger")
+ }
+ else if(signupdetail.state.length<1){
+  showAlert("State can't be blank","danger")
+}
+else if(signupdetail.city.length<1){
+showAlert("City can't be blank","danger")
+}
+else if(signupdetail.pincode.length<1 || signupdetail.pincode.length>6 ){
+showAlert("Pincode must be of 6 digits","danger")
+}
+else{
+  document
+  .getElementById("secondpage")
+  .setAttribute("class", "disapear_component");
+setTimeout(() => {
+  setsignuppage(2);
+}, 350);
+}
+
+      
+     
+    
+   
+
   };
+  const changesecond=(e)=>{
+   setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
+   console.log(e.target.value)
 
-  //third
+  }
 
+  //for third page
+const changethird=(e)=>{
+  setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
+}
+//onclick prev button of third page
   const third_prev = () => {
     document
       .getElementById("thirdpage")
@@ -240,10 +287,61 @@ setlast_namehelpertext("Last name should be of more than 3 words")
     setTimeout(() => {
       setsignuppage(1);
     }, 350);
+ 
   };
+  //sign up api call
+  let Navigate = useNavigate();
+  const signupapi = async() => {
+    setProgress(10)
+      
+       const response = await fetch(`http://localhost:5000/api/auth/createUser`, {
+         method: 'POST',
+         mode: "cors",
+         headers: {
+           'Content-Type': 'application/json',
+          
+   
+          
+         },
+         body: JSON.stringify(signupdetail)
+        
+     
+       });
+    setProgress(50)
+       let signupresult= await response.json();
+    
+     
+       if(response.status !== 400){
+         setProgress(70)
+       
+      
+         
+        
+         setProgress(100)
+   
+           Navigate("/login")
+           showAlert("Your had successfully Signed Up","success")
+      
+        
+       
+   
+       }
+       if(response.status=== 400){
+         setProgress(100)
+         showAlert(signupresult.error,"danger")
+       }
+      
+     
+   
+     };
+  //onclick of skip button of third Page
+  const signup=()=>{
+ signupapi();
+  }
+
   return (
     <>
-      {signuppage == 1 && (
+      {signuppage == 2 && (
         <section class="background-radial-gradient overflow-hidden">
           <div
             class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
@@ -253,7 +351,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
               <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
                 <div class="card singupcard border-success align-items-center box_decrease_size_animation">
                   <div class="card-header singupcardheder b d-flex justify-content-center box_decrease_size_animationforlogin">
-                    <h5 className="fw-bold pt-4 text-white"> Sign Up</h5>
+                    <h5 className="fw-bold pt-4 text-white"><span className="sign_s">S</span><span className="sign_i">i</span><span className="sign_g">g</span><span className="sign_n">n</span> <span className="sign_u">U</span><span className="sign_p">p</span></h5>
                   </div>
                   <div class="card-body box_decrease_size_animationforlogin ">
                     <form>
@@ -401,7 +499,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                           auto
                           ghost
                           className="box_decrease_size_animationforlogin"
-                          onClick={next}
+                          onPress={next}
                         >
                           Next
                         </Button>
@@ -410,11 +508,21 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                   </div>
                 </div>
               </div>
+              <div class="col-lg-6 mb-5 mb-lg-0" style={{zIndex: 10}}>
+       <h1 class="my-5 display-5 fw-bold ls-tight" style={{color: "hsl(218, 81%, 95%)"}}>
+         Be The First<br />
+         <span style={{color: "hsl(218, 81%, 75%)"}}>Don't Miss this Oportunity</span>
+       </h1>
+       <p class="mb-4 opacity-70" style={{color: "hsl(218, 81%, 85%)"}}>
+       Sign up know to be the first to Know about
+        special and Intersting Recipes.
+       </p>
+     </div>
             </div>
           </div>
         </section>
       )}
-      {signuppage == 0 && (
+      {signuppage == 1 && (
         <section class="background-radial-gradient overflow-hidden">
           <div
             class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
@@ -434,16 +542,16 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                     <form>
                       <div className=" ps-5 mt-3 box_decrease_size_animationforlogin ">
                         <h4>Gender</h4>
-                      <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
-  <label class="form-check-label text-primary" for="inlineRadio1">Male</label>
+                      <div class="form-check form-check-inline" >
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male" />
+  <label class="form-check-label text-primary" for="inlineRadio1" >Male</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked/>
+  <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female" />
   <label class="form-check-label text-success" for="inlineRadio2">Female</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="tther"  />
   <label class="form-check-label text-warning" for="inlineRadio3">Other</label>
 </div>
                       </div>
@@ -454,11 +562,13 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                             size="md"
                             bordered
                             rounded
+                            value={signupdetail.date_of_birth}
                             color="secondary"
-                            
+                            onPress={changesecond}
                             type="date"
                             label="Date Of Birth"
-                           
+                            name="date_of_birth"
+                            id="date_of_birth"
                           />
                         </div>
                         <div className="box_decrease_size_animationforlogin">
@@ -467,10 +577,13 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                             bordered
                             className="bg-white fw-bold"
                             rounded
-                            
+                            value={signupdetail.faourite_food}
+                            onChange={changesecond}
+                          name="faourite_food"
+                          id="faourite_food"
                             color="secondary"
-                            placeholder="Enter Your Last Name"
-                            label="Last name"
+                            placeholder="Enter Your favourite food"
+                            label="Favourite food"
                           />
                         </div>
                       </div>
@@ -478,23 +591,29 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                       <div className="d-flex justify-content-between pt-2">
                         <div className="px-3 box_decrease_size_animationforlogin">
                           <Textarea
-                            
+                            value={signupdetail.address}
                             rounded
                             className="fw-bold"
                             bordered
+                            onChange={changesecond}
                             color="secondary"
                             label="Address"
+                            name="address"
+                            id="address"
                             placeholder="Enter Your Address"
                           />
                         </div>
                         <div className="">
                           <Input
                             className="bg-white box_decrease_size_animationforlogin fw-bold "
-                            
+                            onChange={changesecond}
                             bordered
+                            value={signupdetail.city}
                             rounded
                             color="success"
                             type="text"
+                            name="city"
+                            id="city"
                             label="City"
                             placeholder="Enter Your city"
                           />
@@ -504,11 +623,14 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <div className="px-3 box_decrease_size_animationforlogin">
                           <Input
                             className="bg-white fw-bold"
-                            
+                            onChange={changesecond}
                             bordered
+                            value={signupdetail.state}
                             rounded
                             color="warning"
                             type="text"
+                            name="state"
+                            id="state"
                             label="State"
                             placeholder="Enter Your State"
                           />
@@ -516,12 +638,15 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <div className="box_decrease_size_animationforlogin">
                           <Input
                             className="bg-white fw-bold"
-                            
+                            onChange={changesecond}
                             bordered
+                            value={signupdetail.pincode}
                             rounded
                             color="warning"
                             type="Phone Number"
                             label="Pincode"
+                            name="pincode"
+                            id="pincode"
                             placeholder="Enter Your Pincode"
                           />
                         </div>
@@ -531,7 +656,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                           color="warning"
                           id="second-first"
                           auto
-                          onClick={second_prev}
+                          onPress={second_prev}
                           className="box_decrease_size_animationforlogin fw-bold"
                         >
                           Prev
@@ -539,7 +664,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <Button
                           color="success"
                           auto
-                          onClick={next}
+                          onPress={second_next}
                           className="box_decrease_size_animationforlogin fw-bold"
                         >
                           Next
@@ -553,13 +678,22 @@ setlast_namehelpertext("Last name should be of more than 3 words")
           </div>
         </section>
       )}
-      {signuppage == 2 && (
+      {signuppage == 0 && (
         <section class="background-radial-gradient overflow-hidden">
           <div
             class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
             id="thirdpage"
           >
             <div class="d-flex justify-content-end gx-lg-5 align-items-center mb-5">
+            <div class="col-lg-6 mb-5 mb-lg-0" style={{zIndex: 10}}>
+       <h1 class="my-5 display-5 fw-bold ls-tight" style={{color: "hsl(218, 81%, 95%)"}}>
+         How to Cook  <br />
+         <span style={{color: "hsl(218, 81%, 75%)"}}> Any thing you want  </span>
+       </h1>
+       <p class="mb-4 opacity-70" style={{color: "hsl(218, 81%, 85%)"}}>
+        Would You like to Explore the foodie in you.
+       </p>
+     </div>
               <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
                 <div class="card singupcard border-success align-items-center box_decrease_size_animation pb-3">
                   <div class="card-header singupcardheder b d-flex justify-content-center box_decrease_size_animationforlogin">
@@ -575,11 +709,14 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <Input
                           className="box_decrease_size_animationforlogin bg-white"
                           bordered
-                          
+                          onChange={changethird}
                           rounded
+                          value={signupdetail.web}
                           color="secondary"
                           labelLeft="https://"
                           label="Website Name"
+                          name="web"
+                          id="web"
                           placeholder="Your Website Name"
                           labelRight=".com"
                           contentRight={
@@ -591,12 +728,15 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <Input
                           className="box_decrease_size_animationforlogin bg-white"
                           bordered
-                          
+                          onChange={changethird}
                           rounded
                           color="primary"
+                          value={signupdetail.git}
                           labelLeft="https://"
                           label="Github Reposatary"
                           labelRight=".git"
+                          id="git"
+                          name="git"
                           contentRight={
                             <i class=" pe-2 fab fa-github fa-lg"></i>
                           }
@@ -606,11 +746,14 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <Input
                           className="box_decrease_size_animationforlogin bg-white "
                           bordered
-                          
+                          onChange={changethird}
                           rounded
+                          value={signupdetail.facebook}
                           color="secondary"
                           labelLeft="https://"
                           label="Facebook"
+                          name="facebook"
+                          id="facebook"
                           labelRight=".facebook"
                           contentRight={
                             <i
@@ -625,10 +768,13 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <Input
                           className="box_decrease_size_animationforlogin bg-white "
                           bordered
-                          
+                          onChange={changethird}
                           rounded
+                          value={signupdetail.twitter}
                           contentRightStyling={false}
                           color="primary"
+                          name="twitter"
+                          id="twitter"
                           labelLeft="https://"
                           label="Twitter"
                           labelRight=".twitter"
@@ -645,7 +791,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <Button
                           color="success"
                           auto
-                          onClick={third_prev}
+                          onPress={third_prev}
                           className="box_decrease_size_animationforlogin fw-bold"
                         >
                           Prev
@@ -653,6 +799,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <Button
                           color="success"
                           auto
+                          onPress={signup}
                           className="box_decrease_size_animationforlogin fw-bold"
                         >
                           Skip
@@ -660,6 +807,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
                         <Button
                           color="primary"
                           auto
+                          onPress={signup}
                           className="box_decrease_size_animationforlogin fw-bold"
                         >
                           Sign Up
