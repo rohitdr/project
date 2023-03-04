@@ -20,7 +20,7 @@ export default function SignUp() {
     username: "",
     first_name: "",
     last_name: "",
-    gender:"",
+    sex:"",
     faourite_food:"",
     date_of_birth:"",
     address:"",
@@ -208,7 +208,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
       showAlert("OOPs!, First Name must have 3 words", "danger");
     } else if (signupdetail.last_name.length < 3) {
       showAlert("OOPs!, Last Name must have 3 words", "danger");
-    } else if (signupdetail.phone_number.length!= 10) {
+    } else if (signupdetail.phone_number.length != 10) {
       showAlert("OOPs!, Phone Number Must be of 10 digits", "danger");
     } else if (signupdetail.password.length < 8) {
       showAlert("OOPs!, Password must have 8 digits", "danger");
@@ -236,7 +236,9 @@ setlast_namehelpertext("Last name should be of more than 3 words")
     }, 350);
   };
   const second_next = () => {
-    setsignupdetails({...signupdetail,gender:document.querySelector("input[type='radio'][name=inlineRadioOptions]:checked").value})
+    let gen=document.querySelector("input[type='radio'][name=inlineRadioOptions]:checked").value
+
+    signupdetail.sex=gen
      
     setsignupdetails({...signupdetail,date_of_birth:document.getElementById("date_of_birth").value})
     if(signupdetail.address.length<1){
@@ -337,6 +339,9 @@ const changethird=(e)=>{
   //onclick of skip button of third Page
   const signup=()=>{
  signupapi();
+ setTimeout(() => {
+  setsignuppage(0);
+}, 2000);
   }
 
   return (
@@ -551,7 +556,7 @@ const changethird=(e)=>{
   <label class="form-check-label text-success" for="inlineRadio2">Female</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="tther"  />
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Other"  />
   <label class="form-check-label text-warning" for="inlineRadio3">Other</label>
 </div>
                       </div>
@@ -562,7 +567,7 @@ const changethird=(e)=>{
                             size="md"
                             bordered
                             rounded
-                            value={signupdetail.date_of_birth}
+                          
                             color="secondary"
                             onPress={changesecond}
                             type="date"

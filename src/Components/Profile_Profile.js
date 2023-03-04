@@ -115,8 +115,8 @@ getUser()
                             </div>
                         
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                <input class="form-control profileform-control" id="inputBirthday" type="date" name="birthday" placeholder="Enter your birthday" value={userData?.user?.date_of_birth}/>
+                                <label class="small mb-1" for="inputBirthday">Date Of Birth</label>
+                                <input class="form-control profileform-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value={(new Date(userData?.user?.date_of_birth).toLocaleDateString())}/>
                             </div>
                         </div>
                         
