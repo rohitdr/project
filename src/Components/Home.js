@@ -6,7 +6,14 @@ import Loader from './Loader';
 export default function Home() {
 
 
-  
+  const onloadabout=()=>{
+    //  document
+    //   .getElementById("about_img")
+    //   .setAttribute("class", "fade-left");
+    //   document
+    //   .getElementById("about_content")
+    //   .setAttribute("class", "fade-right");
+  }
 
   const hide="d-none d-md-block"
 
@@ -199,5 +206,41 @@ export default function Home() {
 
       </div>
     </section>
-    </>)
+
+
+    <section id="about" class="about" onLoad={onloadabout}>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" id="about_img" data-aos="fade-left">
+            <img src="https://www.thespruceeats.com/thmb/B3nv-naxP17fALp5NGkUTNXGzcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-is-burrata-591165-Final_V2-15f6ed3bc72f4f96bc977202005a92be.gif" class="img-fluid" alt=""/>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" id='about_content' data-aos="fade-right">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul>
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    {/* <!-- End About Section --> */}
+    </>
+    
+    
+    
+    )
+
 }

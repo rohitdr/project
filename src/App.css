@@ -250,7 +250,38 @@
     transform: scale(1.2);
  
   }
-
+  .about .content h3 {
+    font-weight: 600;
+    font-size: 26px;
+  }
+  
+  .about .content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .about .content ul li {
+    padding-bottom: 10px;
+  }
+  
+  .about .content ul i {
+    font-size: 20px;
+    padding-right: 4px;
+    color: #cc1616;
+  }
+  
+  .about .content p:last-child {
+    margin-bottom: 0;
+  }
+  /* .fade-left:hover{
+    transform:translate3d(100px,0,0) ;
+    
+    
+  }
+  .fade-right:hover{
+    transform:translate3d(-100px,0,0);
+   
+  } */
 
   
   
