@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function IndividualRecipe_comment() {
+       const [star,setstar]=useState(0)
+    const submitcomment=()=>{
+        
+let comment =document.getElementById("validationTextareaforcomment").value
+let rating = star
+console.log(rating)
+    }
   return (
     <div>
         <div style={{backgroundColor:" #edf1f5"}} className="pb-4">
@@ -108,20 +115,25 @@ export default function IndividualRecipe_comment() {
                     <p class="mb-2">Rate the Place</p>
                     <div class="mb-4">
                         <span class="star-rating">
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
-                                 <a href="#"><i class="icofont-ui-rating icofont-2x"></i></a>
+                                              
+                        <i className={`fa-${star>0?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(1)}}></i>
+       <i className={`fa-${star>1?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(2)}}></i>
+       <i className={`fa-${star>2?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(3)}}></i>
+       <i className={`fa-${star>3?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(4)}}></i>
+       <i className={`fa-${star>4?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(5)}}></i>
                                  </span>
                     </div>
-                    <form>
-                        <div class="form-group">
-                            <label>Your Comment</label>
-                            <textarea class="form-control"></textarea>
-                        </div>
+                   
+                    <form class="was-validated">
+  <div class="mb-3">
+    <label for="validationTextarea" class="form-label">Enter Your Comment</label>
+    <textarea class="form-control" id="validationTextareaforcomment" placeholder="Please enter Your Comment" required></textarea>
+    <div class="invalid-feedback">
+      Please enter a message in the textarea.
+    </div>
+  </div>
                         <div class="form-group py-2">
-                            <button class="btn btn-primary btn-sm" type="button"> Submit Comment </button>
+                        <button class="btn btn-primary btn-sm" type="button" onClick={submitcomment}> Submit Comment </button>
                         </div>
                     </form>
                 </div>
