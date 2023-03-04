@@ -1,12 +1,56 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import RecipeContext from '../Context/RecipeContext'
 
 export default function IndividualRecipe_comment() {
+    const context = useContext(RecipeContext)
+    const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId , loading,getUser,userData,setLoading } = context
+    useEffect(()=>{
+       
+        
+    getUser()
+     
+      })
+    const Comment=async(comment,rating)=>{
+        setLoading(true)
+        console.log(CurrentRecipeItemid)
+        const response = await fetch("http://localhost:5000/api/recipe/commentreicpe", {
+            method: 'POST',
+            mode: "cors",
+            headers: {
+              'Content-Type': 'application/json',
+              'auth-token':sessionStorage.getItem("auth-token")
+      
+             
+            },
+            body: JSON.stringify({
+              "id":CurrentRecipeItemid,
+              "comment":{
+                "username":userData?.user?.username,
+                "Profileimage":userData?.user?.Profile_Image,
+                "comment":comment,
+                "rating":rating
+                
+              }
+
+              
+             })
+           
+        
+          });
+        
+          
+        
+         setLoading(false)
+        
+      
+      }
        const [star,setstar]=useState(0)
     const submitcomment=()=>{
         
 let comment =document.getElementById("validationTextareaforcomment").value
 let rating = star
-console.log(rating)
+Comment(comment,rating)
+
     }
   return (
     <div>
@@ -129,7 +173,7 @@ console.log(rating)
     <label for="validationTextarea" class="form-label">Enter Your Comment</label>
     <textarea class="form-control" id="validationTextareaforcomment" placeholder="Please enter Your Comment" required></textarea>
     <div class="invalid-feedback">
-      Please enter a message in the textarea.
+      Please enter a Comment.
     </div>
   </div>
                         <div class="form-group py-2">

@@ -11,7 +11,7 @@ export default function Individual_Recipe() {
 useEffect(()=>{
 RecipeBYId(CurrentRecipeItemid)
 },[])
-console.log(CurrentRecipeItem)
+
   React.useEffect(() => {
    
   }, [location]);
