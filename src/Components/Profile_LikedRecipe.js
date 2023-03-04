@@ -4,6 +4,7 @@ import BlankRecipeItem from './BlankRecipeItem';
 import Loader from './Loader';
 import RecipeItem from './RecipeItem';
 import { useNavigate } from "react-router-dom";
+import NoResult from "./NoResult";
 export default function Profile_LikedRecipe() {
 
     const context = useContext(RecipeContext)
@@ -25,9 +26,9 @@ export default function Profile_LikedRecipe() {
     <div>
       <div className="container ">
 
-<div className="row my-3">
+      {!LikedRecipe ?  <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> :<div className="row my-3">
 
-<h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
+ <h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
           Your Recipes
           </h1>
@@ -84,8 +85,9 @@ export default function Profile_LikedRecipe() {
  
      
    
-       </div>
-   
+       </div>}
+    
+  
      
       
        

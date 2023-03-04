@@ -383,14 +383,15 @@ function App() {
             exact
             path="/home"
             element={
-              <Recipe
-                title={textColor}
-                setProgress={setProgress}
-                topLeftColor={topLeftColor}
-                headingColor={headingColor}
-                type={color}
-                textcolor={textColor_button}
-              ></Recipe>
+              // <Recipe
+              //   title={textColor}
+              //   setProgress={setProgress}
+              //   topLeftColor={topLeftColor}
+              //   headingColor={headingColor}
+              //   type={color}
+              //   textcolor={textColor_button}
+              // ></Recipe>
+              <Home></Home>
            
             }
           />

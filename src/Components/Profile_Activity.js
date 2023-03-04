@@ -3,66 +3,67 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import RecipeContext from '../Context/RecipeContext'
+import NoResult from './NoResult'
 
 export default function Profile_Activity() {
     const context = useContext(RecipeContext)
     const [totalLikes,settotalLikes]=useState(0)
-    const {getUser,userData,LatesRecipe,Latest_recipe} = context
+    const {getUser,userData,LatestRecipebyid,Latest_recipebyid} = context
 
     useEffect(()=>{
  
         getUser() 
      
-        LatesRecipe()
+        LatestRecipebyid()
     
     },[])
     
-  return (
-    <div>
+  return (<>
+   <div>
    
 
   
     <div class="row">
-        <div class="col-lg-4 mb-4">
+<div class="col-lg-4 mb-4">
            
-            <div class="card h-100 border-start-lg border-start-primary box_decrease_size_animation">
-                <div class="card-body">
-                    <div class="small text-muted">Total Recipes</div>
-                    <div class="h3">{userData?.totalResults}</div>
+    <div class="card h-100 border-start-lg border-start-primary box_decrease_size_animation">
+        <div class="card-body">
+            <div class="small text-muted">Total Recipes</div>
+            <div class="h3">{userData?.totalResults}</div>
                     
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-           
-            <div class="card h-100 border-start-lg border-start-secondary box_decrease_size_animation">
-                <div class="card-body">
-                    <div class="small text-muted">Total Likes Got</div>
-                    <div class="h3">{userData?.user?.Liked_Recipe?.length}</div>
-                   
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-           
-            <div class="card h-100 border-start-lg border-start-success box_decrease_size_animation">
-                <div class="card-body">
-                    <div class="small text-muted">Total Comments Got</div>
-                    <div class="h3 d-flex align-items-center">{userData?.user?.Total_Comments}</div>
-                   
-                </div>
-            </div>
         </div>
     </div>
-
-    <div class="card card-header-actions mb-4 ">
-        <div class="card-header">
-            Latest Recipes
-    
+</div>
+<div class="col-lg-4 mb-4">
+           
+    <div class="card h-100 border-start-lg border-start-secondary box_decrease_size_animation">
+        <div class="card-body">
+            <div class="small text-muted">Total Likes Got</div>
+            <div class="h3">{userData?.user?.Liked_Recipe?.length}</div>
+                   
         </div>
+    </div>
+</div>
+<div class="col-lg-4 mb-4">
+           
+    <div class="card h-100 border-start-lg border-start-success box_decrease_size_animation">
+        <div class="card-body">
+            <div class="small text-muted">Total Comments Got</div>
+            <div class="h3 d-flex align-items-center">{userData?.user?.Total_Comments}</div>
+                   
+        </div>
+    </div>
+</div>
+    </div>
+
+    {!Latest_recipebyid ? <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> :    <div class="card card-header-actions mb-4 ">
+<div class="card-header">
+    Latest Recipes
+    
+</div>
 
         <div class="card-body px-0">
-       { Latest_recipe.recipe && Latest_recipe.recipe.map((element)=>{
+       { Latest_recipebyid.recipe && Latest_recipebyid.recipe.map((element)=>{
 
            return <><div class="d-flex align-items-center justify-content-between px-4">
                 <div class="d-flex align-items-center">
@@ -86,9 +87,11 @@ export default function Profile_Activity() {
           
         </div>
     </div>
-
+}
  
 </div>
-  
+
+
+</>
   )
 }

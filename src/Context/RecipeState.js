@@ -6,6 +6,7 @@ export default function RecipeState(props){
   const [LikedRecipe,setLikedRecipe]=useState([])
     const [recipe, setRecipe] = useState({})
     const [Latest_recipe, setLatest_Recipe] = useState({})
+    const [Latest_recipebyid, setLatest_Recipebyid] = useState({})
     const [loading,setLoading]=useState(false)
     const [userData,setUserData]=useState({})
     const [Ingrediant_statepage] = useState([])
@@ -23,7 +24,7 @@ export default function RecipeState(props){
    
     const response = await fetch(`http://localhost:5000/api/recipe/recipebyid/${id}`, {
       method: 'GET',
- 
+      mode: "cors",
       headers: {
         'Content-Type': 'application/json',
         'auth-token':sessionStorage.getItem("auth-token")
@@ -47,7 +48,7 @@ const AllLikedRecipe=async()=>{
   try{
   const response = await fetch("http://localhost:5000/api/recipe/allLikedRecipe", {
       method: 'GET',
- 
+      mode: "cors",
       headers: {
         'Content-Type': 'application/json',
         'auth-token':sessionStorage.getItem("auth-token")
@@ -59,10 +60,17 @@ const AllLikedRecipe=async()=>{
   
     });
     
-    let Liked=  await response.json();
- 
-  setLikedRecipe(Liked)
-  setLoading(false)
+    if(response.status==404){
+      setLikedRecipe(false)
+      setLoading(false)
+    }
+    else{
+      let Liked=  await response.json();
+      setLikedRecipe(Liked)
+      setLoading(false)
+    }
+    console.log(LikedRecipe)
+   
   }catch(e){
     console.log(e.message)
    
@@ -79,7 +87,7 @@ const AllLikedRecipe=async()=>{
     
    try{ const response = await fetch("http://localhost:5000/api/auth/getUser", {
       method: 'POST',
- 
+      mode: "cors",
       headers: {
         'Content-Type': 'application/json',
         'auth-token':sessionStorage.getItem("auth-token")
@@ -110,7 +118,7 @@ catch(e){
     
     const response = await fetch("http://localhost:5000/api/recipe/unlike", {
         method: 'POST',
-   
+        mode: "cors",
         headers: {
           'Content-Type': 'application/json',
           'auth-token':sessionStorage.getItem("auth-token")
@@ -137,7 +145,7 @@ const LikeRecipe=async(recipeid)=>{
         
   const response = await fetch("http://localhost:5000/api/recipe/like", {
       method: 'POST',
- 
+      mode: "cors",
       headers: {
         'Content-Type': 'application/json',
         'auth-token':sessionStorage.getItem("auth-token")
@@ -174,7 +182,7 @@ const showAlert =(msg, type)=>{
         
         const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswith${recipename}`, {
             method: 'GET',
-       
+            mode: "cors",
             headers: {
               'Content-Type': 'application/json',
               'auth-token':sessionStorage.getItem("auth-token")
@@ -208,12 +216,12 @@ const showAlert =(msg, type)=>{
       setLoading(true)
       const response = await fetch('http://localhost:5000/api/recipe/LatestRecipes', {
           method: 'GET',
-      
+          mode: "cors",
           headers: {
-            'Content-Type': 'application/json',
-            'auth-token':sessionStorage.getItem("auth-token")
+            'Content-Type': 'application/json'
+         
            
-          },
+          }
          
       
         });
@@ -226,6 +234,37 @@ const showAlert =(msg, type)=>{
         setLoading(false)
        
     }
+    //api for latest recipe of a parrticular user
+    const LatestRecipebyid=async()=>{
+
+    
+      setLoading(true)
+      const response = await fetch('http://localhost:5000/api/recipe/LatestRecipesbyid', {
+          method: 'GET',
+          mode: "cors",
+          headers: {
+            'Content-Type': 'application/json',
+            'auth-token':sessionStorage.getItem("auth-token")
+           
+          }
+         
+      
+        });
+        
+        if(response.status==404){
+      setLatest_Recipebyid(false)
+      setLoading(false)
+        }
+        else{
+          let Latest_recipebyid= await response.json();
+       
+          setLatest_Recipebyid(Latest_recipebyid)
+       
+          setLoading(false)
+        }
+      
+       
+    }
     // api for all recipes related to a user
     const allRecipe=async()=>{
  
@@ -233,22 +272,30 @@ const showAlert =(msg, type)=>{
       try{
         const response = await fetch('http://localhost:5000/api/recipe/allRecipes', {
             method: 'GET',
-        
+            mode: "cors",
             headers: {
               'Content-Type': 'application/json',
               'auth-token':sessionStorage.getItem("auth-token")
              
-            },
+            }
            
         
           });
           
     
-         let allrecipe= await response.json();
-
-          setRecipe(allrecipe)
+       
+if(response.status==404)
+{
+  setRecipe(false)
+  setLoading(false)
+}
+else{
+  let allrecipe= await response.json();
+  setRecipe(allrecipe)
          
-          setLoading(false)
+  setLoading(false)
+}
+         
         }catch(e){
           console.log(e.message)
          
@@ -262,7 +309,7 @@ const showAlert =(msg, type)=>{
     
         const response = await fetch(`http://localhost:5000/api/recipe/deleteRecipe/${id}`, {
             method: 'DELETE',
-        
+            mode: "cors",
             headers: {
               'Content-Type': 'application/json',
               'auth-token':sessionStorage.getItem("auth-token")
@@ -284,7 +331,7 @@ const showAlert =(msg, type)=>{
      
     }
 return(
-    <RecipeContext.Provider value={{signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{LatestRecipebyid,Latest_recipebyid,signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )

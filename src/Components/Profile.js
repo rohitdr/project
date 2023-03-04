@@ -7,10 +7,11 @@ import RecipeItem from "./RecipeItem";
 import { BrowserRouter,Link,Route,Routes } from "react-router-dom";
 import Profile_Profile from "./Profile_Profile";
 import Profile_Security from "./Profile_Security";
+import NoResult from "./NoResult";
 export default  function Profile(props){
 
     const context = useContext(RecipeContext)
-    const {recipe,allRecipe,loading,setProgressHeight} = context
+    const {recipe,allRecipe,loading} = context
    useEffect(()=>{
     
  
@@ -24,9 +25,9 @@ return(
 
 <div className="container">
 
-<div className="row my-3">
+{!recipe ?  <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> : <div className="row my-3">
 
-<h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
+ <h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
           Your Recipes
           </h1>
@@ -83,7 +84,7 @@ return(
  
      
    
-       </div>
+       </div>}
    
      
       
