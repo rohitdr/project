@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import RecipeContext from '../Context/RecipeContext';
 import Carousel_card from './Carousel_card';
 import Loader from './Loader';
+import RecipeItem from "./RecipeItem";
 export default function Home() {
 
 
@@ -32,17 +33,19 @@ export default function Home() {
 
   return (
    <>
+   
  <section id="hero-animated" class="hero-animated d-flex align-items-center">
     <div class="container d-flex   flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
       <img src="https://media.zenfs.com/en/la_times_articles_853/72c10d6a673085671d1635ac9a1406ec" class="img-fluid animated box_decrease_size_animationforlogin  "/>
       <h2>Welcome to <span>RecipeRiot</span></h2>
-      <p>Et voluptate esse accusantium accusamus natus reiciendis quidem voluptates similique aut.</p>
+      <p>Your go-to destination for delicious and easy-to-follow recipes. Our website is a haven for foodies and home cooks alike, where you can find an array of recipes for every occasion and skill level.</p>
       <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
         <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
       </div>
     </div>
   </section>
+  
 {/* Other */}
   <section id="featured-services" class="featured-services">
       <div class="container">
@@ -51,33 +54,33 @@ export default function Home() {
 
           <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <div class="icon"> <i class="fa-solid fa-bolt"></i></div>
+              <h4><a href="" class="stretched-link">Recipe collections</a></h4>
+              <p className='fs-6'> A way for users to save their favorite recipes and create their own recipe collections.</p>
             </div>
           </div>
 
           <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out" data-aos-delay="200">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-              <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <div class="icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+              <h4><a href="" class="stretched-link">Search Anything</a></h4>
+              <p className='fs-6'>We have a search bar where user can enter keywords to find recipes.</p>
             </div>
           </div>
 
           <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out" data-aos-delay="400">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-              <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <div class="icon">  <i class="fa-sharp fa-solid fa-disease"></i></div>
+              <h4><a href="" class="stretched-link">User account</a></h4>
+              <p className='fs-6'>This allow users to create an account where they can save their favorite recipes, create a shopping list, and receive personalized recommendations.</p>
             </div>
           </div>
 
           <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out" data-aos-delay="600">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <div class="icon"><i class="fa-solid fa-box"></i></div>
+              <h4><a href="" class="stretched-link ">User-generated content</a></h4>
+              <p className='fs-6'>A section that allows users to submit their own recipes, which can be reviewed and added to the site if they meet certain criteria.</p>
             </div>
           </div>
 
@@ -100,11 +103,12 @@ export default function Home() {
           <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="service-item">
               <div class="img">
-                <img src="https://images.squarespace-cdn.com/content/v1/5fc3cd76affbf90a66fc921d/1638385829951-6ECZIFNW5UF6FILW0BI9/IMG_5326.jpeg" class="img-fluid" alt=""/>
+                <img src="https://www.dish-works.com/wp-content/uploads/CBD-Hummus-min.gif" class="img-fluid" alt=""/>
               </div>
-              <div class="details position-relative">
+              <div class="details position-relative  box_decrease_size_animationforlogin">
                 <div class="icon">
-                  <i class="bi bi-activity"></i>
+                  {/* <i class="bi bi-activity"></i> */}
+                  <i class="fa-solid fa-bolt"></i>
                 </div>
                 <a href="#" class="stretched-link">
                   <h3>Countless Recipes</h3>
@@ -117,11 +121,12 @@ export default function Home() {
           <div class="col-xl-4 col-md-6 zoom-in" data-aos-delay="300">
             <div class="service-item">
               <div class="img">
-                <img src="https://static.toiimg.com/photo/73356883.cms" class="img-fluid" alt=""/>
+                <img src="https://cdn.dribbble.com/users/608874/screenshots/6370753/a.gif" class="img-fluid" alt=""/>
               </div>
-              <div class="details position-relative">
+              <div class="details position-relative  box_decrease_size_animationforlogin">
                 <div class="icon">
-                  <i class="bi bi-broadcast"></i>
+                  {/* <i class="bi bi-broadcast"></i> */}
+                  <i class="fa-solid fa-tower-broadcast"></i>
                 </div>
                 <a href="#" class="stretched-link">
                   <h3>Share Recipe </h3>
@@ -134,11 +139,12 @@ export default function Home() {
           <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
             <div class="service-item">
               <div class="img">
-                <img src="https://wallpaperaccess.com/full/2305398.jpg" class="img-fluid" alt=""/>
+                <img src="https://media.womensweekly.com.sg/public/2020/08/10-Easy-Indulgent-Cheesecake-Recipes-You-Must-Try.gif" class="img-fluid" alt=""/>
               </div>
-              <div class="details position-relative">
+              <div class="details position-relative  box_decrease_size_animationforlogin">
                 <div class="icon">
-                  <i class="bi bi-easel"></i>
+                  {/* <i class="bi bi-easel"></i> */}
+                  <i class="fa-sharp fa-solid fa-disease"></i>
                 </div>
                 <a href="#" class="stretched-link">
                   <h3>Nutritional information</h3>
@@ -151,11 +157,12 @@ export default function Home() {
           <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
             <div class="service-item">
               <div class="img">
-                <img src="https://assets.cntraveller.in/photos/60be1e72c7150780d0a47e3b/master/pass/Home-cooking-recipes-self-isolatin-1366x768.jpg" class="img-fluid" alt=""/>
+                <img src="https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/cooking-for-newsletter_ver_1.gif" class="img-fluid" alt=""/>
               </div>
-              <div class="details position-relative">
+              <div class="details position-relative  box_decrease_size_animationforlogin">
                 <div class="icon">
-                  <i class="bi bi-bounding-box-circles"></i>
+                  {/* <i class="bi bi-bounding-box-circles"></i> */}
+                  <i class="fa-solid fa-box"></i>
                 </div>
                 <a href="#" class="stretched-link">
                   <h3>Share and Rate</h3>
@@ -169,11 +176,12 @@ export default function Home() {
           <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
             <div class="service-item">
               <div class="img">
-                <img src="https://www.licious.in/blog/wp-content/uploads/2023/02/shutterstock_1199926645-750x500.jpg" class="img-fluid" alt=""/>
+                <img src="https://image-tc.galaxy.tf/wigif-57n22u0bjtunlpxduoyl4lqfa/cny-goodies-gif.gif?width=700" class="img-fluid" alt=""/>
               </div>
-              <div class="details position-relative">
+              <div class="details position-relative  box_decrease_size_animationforlogin">
                 <div class="icon">
-                  <i class="bi bi-calendar4-week"></i>
+                  {/* <i class="bi bi-calendar4-week"></i> */}
+                  <i class="fa-solid fa-calendar-minus"></i>
                 </div>
                 <a href="#" class="stretched-link">
                   <h3>Create and</h3>
@@ -187,11 +195,12 @@ export default function Home() {
           <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="700">
             <div class="service-item">
               <div class="img">
-                <img src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2022/03/07110850/salad.jpg" class="img-fluid" alt=""/>
+                <img src="https://www.chocolatesandchai.com/wp-content/uploads/2015/03/Drizzle-GIF-2.gif" class="img-fluid" alt=""/>
               </div>
-              <div class="details position-relative">
+              <div class="details position-relative  box_decrease_size_animationforlogin">
                 <div class="icon">
-                  <i class="bi bi-chat-square-text"></i>
+                  {/* <i class="bi bi-chat-square-text"></i> */}
+                  <i class="fa-solid fa-comments"></i>
                 </div>
                 <a href="#" class="stretched-link">
                   <h3>Dolori Architecto</h3>
@@ -213,23 +222,20 @@ export default function Home() {
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" id="about_img" data-aos="fade-left">
-            <img src="https://www.thespruceeats.com/thmb/B3nv-naxP17fALp5NGkUTNXGzcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-is-burrata-591165-Final_V2-15f6ed3bc72f4f96bc977202005a92be.gif" class="img-fluid" alt=""/>
+            <img src="https://www.thespruceeats.com/thmb/B3nv-naxP17fALp5NGkUTNXGzcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-is-burrata-591165-Final_V2-15f6ed3bc72f4f96bc977202005a92be.gif" class="img-fluid  box_decrease_size_animationforlogin" alt=""/>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" id='about_content' data-aos="fade-right">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h3>About us</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            Our recipes are carefully curated by our team of experienced chefs and food enthusiasts, and we strive to bring you only the best and most reliable recipes that are guaranteed to impress your family and friends.
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              <li><i class="fa-solid fa-square-check"></i>At RecipeRiot, we believe that cooking should be easy, fun, and accessible to everyone. That's why we've created a recipe search engine that makes it easy to find delicious and reliable recipes from around the world.</li>
+              <li><i class="fa-solid fa-square-check"></i> Whether you're a beginner or an experienced home cook, our website is designed to help you find the perfect recipe for any occasion. With our intuitive search bar, you can easily search for recipes by ingredient, cuisine, dietary restriction, and more.</li>
+             <li><i class="fa-solid fa-square-check"></i>But we're not just about recipes. We're also committed to providing our users with the latest food trends, cooking tips, and kitchen hacks to help you take your cooking skills to the next level. Our blog is filled with expert advice on everything from meal planning to ingredient substitutions.</li>
             </ul>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+            At RecipeRiot, we're dedicated to making cooking and food exploration accessible and fun for everyone. We're constantly updating our website with new recipes and features, so be sure to check back often and follow us on social media to stay connected with our community of food lovers.
             </p>
           </div>
         </div>
@@ -237,6 +243,74 @@ export default function Home() {
       </div>
     </section>
     {/* <!-- End About Section --> */}
+
+    {/* <!-- ======= Pricing Section ======= --> */}
+    <section id="pricing" class="pricing section-bg mt-3">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Latest Stuff</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+
+   
+   
+        
+        {Latest_recipe.recipe && Latest_recipe.recipe.map((element)=>{
+      fourth++;
+      if(fourth<5){
+      
+      return <div className="col-md-3 mt-4 col-lg-3 homerecipe" key={element._id}>
+                  <RecipeItem
+                    id={element._id}
+                      title={element.label}
+                      topLeftColor={"dark"}
+                      headingColor={"dark"}
+                    ImageUrl={element.image}
+                    date={element.date}
+                    health_labels={element.healthLabels
+                    }
+                    Ingridiants={element.ingredientLines
+                      .toString()
+                      .replace(",", " and ")
+                      .substring(0, 60)}
+                    caleroies={Math.ceil(element.calories)}
+                    fat={
+                      element.totalNutrients.FAT.quantity
+                        ? Math.ceil(
+                            element.totalNutrients.FAT.quantity
+                          )
+                        : " "
+                    }
+                    caution={element.cautions}
+                    time={element.totalTime}
+                    source={element.source}
+                    sugar={element.totalNutrients.SUGAR.quantity}
+                    water={element.totalNutrients.WATER.quantity}
+                    chole={element.totalNutrients.CHOLE.quantity}
+                    vitamin_a={
+                      element.totalNutrients.VITA_RAE.quantity
+                    }
+                    vitamin_c={element.totalNutrients.VITC.quantity}
+                    vitamin_b6={element.totalNutrients.VITB6A.quantity}
+                    vitamin_d={element.totalNutrients.VITD.quantity}
+                    vitamin_e={element.totalNutrients.TOCPHA.quantity}
+                  
+                  ></RecipeItem>
+                
+                </div>
+     
+                  }
+     }
+     )
+     }
+     
+     </div>
+      </div>
+    </section>
+    {/* <!-- End Pricing Section --> */}
     </>
     
     
