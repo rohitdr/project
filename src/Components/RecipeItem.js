@@ -5,11 +5,12 @@ import './RecipeItem.css'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import RecipeContext from "../Context/RecipeContext";
-
+import { useNavigate } from "react-router-dom";
 import Tooltip from 'react-bootstrap/Tooltip';
 import { useEffect } from "react";
 
 export default function RecipeItem(props) {
+  let Navigate = useNavigate();
 //to captalize first character
 
 const firstCapital =(message)=>{
@@ -79,7 +80,10 @@ deg=(deg===180)?0:180
   <div className="card-body">
     <div className="d-flex justify-content-between">
     <h6 className="card-title text-warning text-start"> {props.source}</h6>
-    <h6 className="card-title text-primary text-start"><Link to="/Individual_description" onClick={()=>{setCurrentRecipeItemid(props.id)}}><i class="fa-solid fs-4 fa-diamond-turn-right"></i></Link></h6>
+    <h6 className="card-title text-primary text-start"><Link to={`${!sessionStorage.getItem("auth-token")?"/login":"/Individual_description"}`} onClick={()=>{  
+    
+            setCurrentRecipeItemid(props.id)}}
+         ><i class="fa-solid fs-4 fa-diamond-turn-right"></i></Link></h6>
     </div>
   <h4 className="card-subtitle mb-2 text-dark fw-bold">{props.title}</h4>
     <p className="card-text text-dark"> {props.Ingridiants}</p>

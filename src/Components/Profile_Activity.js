@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
+import { useNavigate } from "react-router-dom";
 import RecipeContext from '../Context/RecipeContext'
 import NoResult from './NoResult'
 
@@ -9,12 +10,17 @@ export default function Profile_Activity() {
     const context = useContext(RecipeContext)
     const [totalLikes,settotalLikes]=useState(0)
     const {getUser,userData,LatestRecipebyid,Latest_recipebyid} = context
-
+    let Navigate = useNavigate();
     useEffect(()=>{
- 
-        getUser() 
+        if(!sessionStorage.getItem("auth-token")){
+            Navigate("/login")
+                }
+                else{
+                    getUser() 
      
-        LatestRecipebyid()
+                    LatestRecipebyid()
+                }
+      
     
     },[])
     

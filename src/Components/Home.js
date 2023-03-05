@@ -217,15 +217,15 @@ export default function Home() {
     </section>
 
 
-    <section id="about" class="about" onLoad={onloadabout}>
+    <section id="about" class="about mt-4" onLoad={onloadabout} style={{backgroundColor:"#f7fbfe"}}>
       <div class="container">
 
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" id="about_img" data-aos="fade-left">
             <img src="https://www.thespruceeats.com/thmb/B3nv-naxP17fALp5NGkUTNXGzcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-is-burrata-591165-Final_V2-15f6ed3bc72f4f96bc977202005a92be.gif" class="img-fluid  box_decrease_size_animationforlogin" alt=""/>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" id='about_content' data-aos="fade-right">
-            <h3>About us</h3>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content " id='about_content' data-aos="fade-right">
+            <h3 className='text-primary fs-2'>About us</h3>
             <p class="fst-italic">
             Our recipes are carefully curated by our team of experienced chefs and food enthusiasts, and we strive to bring you only the best and most reliable recipes that are guaranteed to impress your family and friends.
             </p>
@@ -245,11 +245,11 @@ export default function Home() {
     {/* <!-- End About Section --> */}
 
     {/* <!-- ======= Pricing Section ======= --> */}
-    <section id="pricing" class="pricing section-bg mt-3">
+    <section id="pricing" class="pricing section-bg ">
       <div class="container">
 
-        <div class="section-title" data-aos="fade-up">
-          <h2>Latest Stuff</h2>
+        <div class="section-title text-center mt-4" data-aos="fade-up">
+          <h2 className='text-primary fs-2'>Newly Arrived</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
@@ -311,6 +311,94 @@ export default function Home() {
       </div>
     </section>
     {/* <!-- End Pricing Section --> */}
+
+
+
+
+
+
+
+
+    {/* <!-- ======= Contact Section ======= --> */}
+    <section id="contact" class="contact section-bg mt-4" style={{backgroundColor:"#f7fbfe"}}>
+      <div class="container">
+
+        <div class="section-title text-center fw-bold pt-3">
+          <h2>Contact</h2>
+          <p>Magnam dolores commodi suscipit eius consequatur ex aliquid fuga</p>
+        </div>
+
+        <div class="row mt-5 justify-content-center">
+
+          <div class="col-lg-10">
+
+            <div class="info-wrap">
+              <div class="row">
+                <div class="col-lg-4 info">
+                  {/* <i class="bi bi-geo-alt"></i> */}
+                  <i class="fa-sharp fa-solid fa-location-dot"></i>
+                  <h4>Location:</h4>
+                  <p>A108 Adam Street<br/>New York, NY 535022</p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                  {/* <i class="bi bi-envelope"></i> */}
+                  <i class="fa-sharp fa-solid fa-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>info@example.com<br/>contact@example.com</p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                <i class="fa-solid fa-phone"></i>
+                  <h4>Call:</h4>
+                  <p>+1 5589 55488 51<br/>+1 5589 22475 14</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="row mt-5 justify-content-center">
+          <div class="col-lg-10">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required/>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required/>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required/>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    {/* <!-- End Contact Section --> */}
+
+
+
+
+
+
+
+
     </>
     
     
