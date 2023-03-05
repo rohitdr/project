@@ -86,12 +86,12 @@ export default function IndividualRecipe_description() {
          <ul class="list-group box_decrease_size_animation">
          <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
-      <div class="fw-bold">Ingredient</div>
+      <div class="fw-bold mb-0">Instructions</div>
 
     </div>
   
   </li>
-              {element.ingredientLines.map((element)=>{ return   <li class="list-group-item d-flex justify-content-between align-items-center">{element}</li>})}
+              {element?.instruction?.map((element)=>{ return   <li class="list-group-item d-flex justify-content-between align-items-center mb-0">{element}</li>})}
               </ul>
               </div>    
 

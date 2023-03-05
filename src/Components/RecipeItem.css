@@ -3,7 +3,7 @@
 
   .scene {
    width:100%;
-   height: 100%;
+   height: 525px;
     perspective: 30em;
   overflow: hidden;
     box-sizing: border-box;
@@ -33,7 +33,10 @@
     
     backface-visibility:hidden;
   }
-
+  .recipeitemimageopacity{
+    min-height: 250px;
+    max-height: 250px;
+  }
   
   .back {
     /* color: white; */
@@ -42,7 +45,14 @@
     backface-visibility:hidden;
     overflow: hidden;
   } 
-  
+  .recipeitemtext{
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+           line-clamp: 1; 
+   -webkit-box-orient: vertical;
+  }
   /* .scene:hover .card {
     transform: rotateY(180deg);
   } */

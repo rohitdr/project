@@ -85,8 +85,8 @@ deg=(deg===180)?0:180
             setCurrentRecipeItemid(props.id)}}
          ><i class="fa-solid fs-4 fa-diamond-turn-right"></i></Link></h6>
     </div>
-  <h4 className="card-subtitle mb-2 text-dark fw-bold">{props.title}</h4>
-    <p className="card-text text-dark"> {props.Ingridiants}</p>
+  <h4 className="card-subtitle mb-2 text-dark fw-bold recipeitemtext ">{props.title}</h4>
+    <p className="card-text text-dark recipeitemtext"> {props.Ingridiants}</p>
    
     <div className="card-text text-dark d-flex justify-content-between">
       <p>
@@ -101,16 +101,22 @@ deg=(deg===180)?0:180
     <li className="list-group-item d-flex justify-content-between">
       <i className="fa-solid fs-5 fa-comment"></i>
       <i className={`fa-${heart} fa-heart fs-5 recipeitemlike text-danger`} onClick={()=>{ 
-        if(heart==="regular"){
-        LikeRecipe(props.id)
-        setHeart("solid")
-      }
-      if(heart=="solid"){
-        UnLikeRecipe(props.id)
-        setHeart("regular")
-      }
+      if(!sessionStorage.getItem("auth-token")){
+        Navigate("/login")
+                }else{
+                  if(heart==="regular"){
+                    LikeRecipe(props.id)
+                    setHeart("solid")
+                  }
+                  if(heart=="solid"){
+                    UnLikeRecipe(props.id)
+                    setHeart("regular")
+                  }
+                }
+              
+               }
        }
-      } ></i>
+       ></i>
        <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
       <i className="fa-solid fs-5 fa-share-nodes"></i>
   </OverlayTrigger>
@@ -156,11 +162,11 @@ deg=(deg===180)?0:180
             className="rounded-circle img-fluid" />
         </div>
         <div className="card-body text-center pt-2">
-          <h3 className="mb-4 fw-bold card-title">{userData?.user?.name}</h3>
+          <h3 className="mb-2 fw-bold card-title">{userData?.user?.name}</h3>
    <hr/>
           <ul className="list-group list-group-flush">
   
-    <div className="card-text text-dark mb-4 d-flex justify-content-between">
+    <div className="card-text text-dark mb- d-flex justify-content-between">
     <p>
       
     <i className={`fa-${star>0?"solid":"regular"} text-danger recipeitemstar fa-star`} onClick={()=>{setstar(1)}}></i>
