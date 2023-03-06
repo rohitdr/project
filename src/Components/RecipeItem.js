@@ -20,11 +20,12 @@ const firstCapital =(message)=>{
 
 useEffect(()=>{
 getUserbyid(props.user)
+getUser();
 },[])
 
 const [heart,setHeart]=useState("regular")
   const context = useContext(RecipeContext)
-  const {deleteRecipe,LikeRecipe,UnLikeRecipe,setCurrentRecipeItemid,getUserbyid,userbyid} = context
+  const {deleteRecipe,LikeRecipe,UnLikeRecipe,setCurrentRecipeItemid,getUserbyid,userbyid,getUser,userData} = context
  
 const [star,setstar]=useState(0)
   let location = useLocation();
@@ -36,12 +37,14 @@ const [star,setstar]=useState(0)
 
 
 const settingheart=()=>{
-  if(userbyid?.user?.Liked_Recipe?.includes(props.id)){
+  if(userData?.user?.Liked_Recipe?.includes(props.id)){
+    console.log("ues")
 setHeart("solid")
 
 }
 else{
   setHeart("regular")
+  console.log("no")
 }}
   React.useEffect(() => {
    
@@ -187,7 +190,7 @@ deg=(deg===180)?0:180
       <i className="fa-solid fs-4 fa-comment"></i>
       </p>
        <p className="card-text text-dark d-flex justify-content-around">
-       <i className="fa-brands fa-whatsapp  fs-2 fw-bold text-success"></i>
+       <i className="fa-brands fa-whatsapp  fs-2 fw-bold text-success" ></i>
       <i className="fa-brands fa-instagram   fs-2 fw-bold text-danger"></i>
       <i className="fa-brands fa-facebook   fs-2 fw-bold text-primary"></i>
         </p>
