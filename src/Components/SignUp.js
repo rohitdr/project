@@ -20,13 +20,7 @@ export default function SignUp() {
     username: "",
     first_name: "",
     last_name: "",
-    sex:"",
-    faourite_food:"",
-    date_of_birth:"",
-    address:"",
-    city:"",
-    state:"",
-    pincode:"",
+   
     web:"",
     git:"",
     facebook:"",
@@ -227,55 +221,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
 
   //second
 
-  const second_prev = () => {
-    document
-      .getElementById("secondpage")
-      .setAttribute("class", "disapear_component");
-    setTimeout(() => {
-      setsignuppage(0);
-    }, 350);
-  };
-  const second_next = () => {
-    let gen=document.querySelector("input[type='radio'][name=inlineRadioOptions]:checked").value
 
-    signupdetail.sex=gen
-     
-    setsignupdetails({...signupdetail,date_of_birth:document.getElementById("date_of_birth").value})
-    if(signupdetail.address.length<1){
-      showAlert("Address can't be blank","danger")
-   }
-   else if(signupdetail.faourite_food.length<1){
-    showAlert("Faourite Food can't be blank","danger")
- }
- else if(signupdetail.state.length<1){
-  showAlert("State can't be blank","danger")
-}
-else if(signupdetail.city.length<1){
-showAlert("City can't be blank","danger")
-}
-else if(signupdetail.pincode.length<1 || signupdetail.pincode.length>6 ){
-showAlert("Pincode must be of 6 digits","danger")
-}
-else{
-  document
-  .getElementById("secondpage")
-  .setAttribute("class", "disapear_component");
-setTimeout(() => {
-  setsignuppage(2);
-}, 350);
-}
-
-      
-     
-    
-   
-
-  };
-  const changesecond=(e)=>{
-   setsignupdetails({...signupdetail,[e.target.name]:e.target.value})
-   console.log(e.target.value)
-
-  }
 
   //for third page
 const changethird=(e)=>{
@@ -363,6 +309,7 @@ const changethird=(e)=>{
                       <div className="row px-2 mt-3 box_decrease_size_animationforlogin mb-1">
                         <Input
                           {...bindings}
+                        
                           shadow={false}
                           onClearClick={reset}
                           required
@@ -527,163 +474,8 @@ const changethird=(e)=>{
           </div>
         </section>
       )}
+     
       {signuppage == 1 && (
-        <section class="background-radial-gradient overflow-hidden">
-          <div
-            class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
-            id="secondpage"
-          >
-            <div class="d-flex justify-content-center gx-lg-5 align-items-center mb-5">
-              <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
-                <div class="card singupcard border-success align-items-center box_decrease_size_animation">
-                  <div class="card-header singupcardheder b d-flex justify-content-center box_decrease_size_animationforlogin">
-                    <h5 className="fw-bold pt-4 text-white">
-                      {" "}
-                      Additional Informaion
-                    </h5>
-                  </div>
-
-                  <div class="card-body box_decrease_size_animationforlogin ">
-                    <form>
-                      <div className=" ps-5 mt-3 box_decrease_size_animationforlogin ">
-                        <h4>Gender</h4>
-                      <div class="form-check form-check-inline" >
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male" />
-  <label class="form-check-label text-primary" for="inlineRadio1" >Male</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female" />
-  <label class="form-check-label text-success" for="inlineRadio2">Female</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Other"  />
-  <label class="form-check-label text-warning" for="inlineRadio3">Other</label>
-</div>
-                      </div>
-                      <div className="d-flex justify-content-between pt-2 ">
-                        <div className="px-3 box_decrease_size_animationforlogin">
-                          <Input
-                            className="bg-white fw-bold"
-                            size="md"
-                            bordered
-                            rounded
-                          
-                            color="secondary"
-                            onPress={changesecond}
-                            type="date"
-                            label="Date Of Birth"
-                            name="date_of_birth"
-                            id="date_of_birth"
-                          />
-                        </div>
-                        <div className="box_decrease_size_animationforlogin">
-                          <Input
-                            size="md"
-                            bordered
-                            className="bg-white fw-bold"
-                            rounded
-                            value={signupdetail.faourite_food}
-                            onChange={changesecond}
-                          name="faourite_food"
-                          id="faourite_food"
-                            color="secondary"
-                            placeholder="Enter Your favourite food"
-                            label="Favourite food"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="d-flex justify-content-between pt-2">
-                        <div className="px-3 box_decrease_size_animationforlogin">
-                          <Textarea
-                            value={signupdetail.address}
-                            rounded
-                            className="fw-bold"
-                            bordered
-                            onChange={changesecond}
-                            color="secondary"
-                            label="Address"
-                            name="address"
-                            id="address"
-                            placeholder="Enter Your Address"
-                          />
-                        </div>
-                        <div className="">
-                          <Input
-                            className="bg-white box_decrease_size_animationforlogin fw-bold "
-                            onChange={changesecond}
-                            bordered
-                            value={signupdetail.city}
-                            rounded
-                            color="success"
-                            type="text"
-                            name="city"
-                            id="city"
-                            label="City"
-                            placeholder="Enter Your city"
-                          />
-                        </div>
-                      </div>
-                      <div className="d-flex justify-content-between pt-2">
-                        <div className="px-3 box_decrease_size_animationforlogin">
-                          <Input
-                            className="bg-white fw-bold"
-                            onChange={changesecond}
-                            bordered
-                            value={signupdetail.state}
-                            rounded
-                            color="warning"
-                            type="text"
-                            name="state"
-                            id="state"
-                            label="State"
-                            placeholder="Enter Your State"
-                          />
-                        </div>
-                        <div className="box_decrease_size_animationforlogin">
-                          <Input
-                            className="bg-white fw-bold"
-                            onChange={changesecond}
-                            bordered
-                            value={signupdetail.pincode}
-                            rounded
-                            color="warning"
-                            type="Phone Number"
-                            label="Pincode"
-                            name="pincode"
-                            id="pincode"
-                            placeholder="Enter Your Pincode"
-                          />
-                        </div>
-                      </div>
-                      <div className="d-flex justify-content-around mt-3 pt-2 mb-4">
-                        <Button
-                          color="warning"
-                          id="second-first"
-                          auto
-                          onPress={second_prev}
-                          className="box_decrease_size_animationforlogin fw-bold"
-                        >
-                          Prev
-                        </Button>
-                        <Button
-                          color="success"
-                          auto
-                          onPress={second_next}
-                          className="box_decrease_size_animationforlogin fw-bold"
-                        >
-                          Next
-                        </Button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-      {signuppage == 2 && (
         <section class="background-radial-gradient overflow-hidden">
           <div
             class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
