@@ -6,7 +6,7 @@ export default function Profile_Profile() {
   const [showfile, setshowfile]= useState(null)
   const [filesize , setfilesize]= useState(0)
   const context = useContext(RecipeContext)
-  const {getUser,userData,showAlert} = context
+  const {getUser,userData,showAlert,setProgress} = context
     let Navigate = useNavigate();
   useEffect(()=>{
     if(!sessionStorage.getItem("auth-token")){
@@ -41,7 +41,7 @@ previewing.src=imageurl
 }
 //api for changing the image
 const changeprofileimage=async(file)=>{
-
+setProgress(30)
   
   const response = await fetch("http://localhost:5000/api/auth/changeuploadimage", {
       method: 'POST',
@@ -58,14 +58,15 @@ const changeprofileimage=async(file)=>{
      
   
     });
-  
+  setProgress(50)
     
   let result = await response.json()
+  setProgress(70)
 if(result){
   showAlert("Image has been changed","success")
 }
   
-
+setProgress(100)
 }
 
 //uploading or changing the file
