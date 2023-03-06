@@ -1,10 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useEffect } from 'react'
 import RecipeContext from '../Context/RecipeContext'
 import { useNavigate } from "react-router-dom";
 export default function Profile_Profile() {
+  const [showfile, setshowfile]= useState(null)
+  const [filesize , setfilesize]= useState(0)
   const context = useContext(RecipeContext)
-  const {getUser,userData} = context
+  const {getUser,userData,showAlert} = context
     let Navigate = useNavigate();
   useEffect(()=>{
     if(!sessionStorage.getItem("auth-token")){
@@ -14,6 +16,75 @@ Navigate("/login")
 getUser()
     }
   })
+  //converting image to base64
+  const toBase64=(file)=>
+    new Promise((resolve,reject)=>{
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload=()=>resolve(reader.result);
+      reader.onerror=(error)=>reject(error);
+    });
+  
+
+  //image preview
+const imagepreview=async (e)=>{
+const imagefile = e.target.files[0];
+setfilesize(e.target.files[0].size)
+const imageurl = URL.createObjectURL(imagefile)
+const previewing = document.querySelector("#profile_avtar")
+previewing.src=imageurl
+
+ let base64= await toBase64(imagefile)
+
+ setshowfile(base64)
+
+}
+//api for changing the image
+const changeprofileimage=async(file)=>{
+
+  
+  const response = await fetch("http://localhost:5000/api/auth/changeuploadimage", {
+      method: 'POST',
+      mode: "cors",
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token':sessionStorage.getItem("auth-token")
+
+       
+      },
+      body: JSON.stringify({
+        "image":file
+       })
+     
+  
+    });
+  
+    
+  let result = await response.json()
+if(result){
+  showAlert("Image has been changed","success")
+}
+  
+
+}
+
+//uploading or changing the file
+const changefile=()=>{
+ if(filesize>100000){
+  showAlert("File size should be less that 100kb","danger")
+ }
+ else{
+changeprofileimage(showfile)
+ }
+
+
+
+}
+//form submit
+const submit=(e)=>{
+  e.preventDefault();
+
+}
   return (
     <div>
       <section style={{backgroundColor: "#eee"}}>
@@ -25,14 +96,20 @@ getUser()
       <div class="col-lg-4">
         <div class="card mb-4 box_decrease_size_animation">
           <div class="card-body text-center">
-            <img src={userData?.user?.Profile_Image} alt="avatar"
-              class="rounded-circle img-fluid" style={{width: "150px"}}/>
+            <img  alt="avatar" src={userData?.user?.Profile_Image}
+              class="rounded-circle img-fluid" id="profile_avtar" style={{width: "150px"}}/>
             <h5 class="my-3">{userData?.user?.first_name}</h5>
             <p class="text-muted mb-1">Full Stack Developer</p>
             <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
             <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary">Follow</button>
-              <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+              {/* <button type="button" class="btn btn-primary">Follow</button> */}
+              <form onSubmit={submit}>
+              <label for="profileimage" className='profileimagelabel'>
+  Select Image
+  <input id="profileimage" type="file" accept="image/*" onChange={imagepreview}/>
+</label>
+              <button type="button" class="btn btn-outline-primary ms-2 mb-1" onClick={changefile}>Change Images</button>
+              </form>
             </div>
           </div>
         </div>
@@ -71,7 +148,7 @@ getUser()
                 <div class="card-body">
                     <form>
                        
-                        <div class="mb-3">
+                        <div class="mb-3 col-7">
                             <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
                             <input class="form-control profileform-control" id="inputUsername" type="text" placeholder="Enter your username" value={userData?.user?.username}/>
                         </div>
@@ -89,20 +166,9 @@ getUser()
                             </div>
                         </div>
                       
-                        <div class="row gx-3 mb-3">
-                         
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputOrgName">Address</label>
-                                <input class="form-control profileform-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value={userData?.user?.address}/>
-                            </div>
-                           
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputLocation">gender</label>
-                                <input class="form-control profileform-control" id="inputLocation" type="text" placeholder="Enter your location" value={userData?.user?.gender}/>
-                            </div>
-                        </div>
+                        
                       
-                        <div class="mb-3">
+                        <div class="mb-3 col-7">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
                             <input class="form-control profileform-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value={userData?.user?.email}/>
                         </div>
@@ -114,10 +180,7 @@ getUser()
                                 <input class="form-control profileform-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value={userData?.user?.phone_number}/>
                             </div>
                         
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputBirthday">Date Of Birth</label>
-                                <input class="form-control profileform-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value={(new Date(userData?.user?.date_of_birth).toLocaleDateString())}/>
-                            </div>
+                           
                         </div>
                         
                         <button class="btn btn-primary" type="button">Save changes</button>

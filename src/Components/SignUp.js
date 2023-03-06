@@ -306,10 +306,10 @@ const changethird=(e)=>{
                   </div>
                   <div class="card-body box_decrease_size_animationforlogin ">
                     <form>
-                      <div className="row px-2 mt-3 box_decrease_size_animationforlogin mb-1">
+                      <div className="row px-2 mt-3 box_decrease_size_animationemailsignup   mb-1">
                         <Input
                           {...bindings}
-                        
+                      
                           shadow={false}
                           onClearClick={reset}
                           required
@@ -317,8 +317,8 @@ const changethird=(e)=>{
                           helperColor={helper.color}
                           helperText={helper.text}
                           bordered
-                          className="bg-white"
-                          rounded
+                          className="bg-white  "
+                      
                           type="email"
                           label="Your Email"
                           placeholder="Enter Your Email"

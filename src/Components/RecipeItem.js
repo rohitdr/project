@@ -18,23 +18,25 @@ const firstCapital =(message)=>{
   return ((lower.charAt(0).toUpperCase()) + lower.slice(1))
 }
 
-
+useEffect(()=>{
+getUserbyid(props.user)
+},[])
 
 const [heart,setHeart]=useState("regular")
   const context = useContext(RecipeContext)
-  const {deleteRecipe,LikeRecipe,getUser,userData,UnLikeRecipe,setCurrentRecipeItemid} = context
+  const {deleteRecipe,LikeRecipe,UnLikeRecipe,setCurrentRecipeItemid,getUserbyid,userbyid} = context
  
 const [star,setstar]=useState(0)
   let location = useLocation();
-useEffect(()=>{
+
  
-    getUser() 
+  
  
 
 
-},[])
+
 const settingheart=()=>{
-  if(userData?.user?.Liked_Recipe?.includes(props.id)){
+  if(userbyid?.user?.Liked_Recipe?.includes(props.id)){
 setHeart("solid")
 
 }
@@ -154,15 +156,15 @@ deg=(deg===180)?0:180
   <div className="back ">
 
  
- 
+
 <div className="card testimonial-card pt-4 ">
         <div className="card-up" ></div>
         <div className="avatar mx-auto bg-white">
-          <img src={userData?.user?.Profile_Image}
+          <img src={userbyid?.user?.Profile_Image}
             className="rounded-circle img-fluid" />
         </div>
         <div className="card-body text-center pt-2">
-          <h3 className="mb-2 fw-bold card-title">{userData?.user?.name}</h3>
+          <h3 className="mb-2 fw-bold card-title">{userbyid?.user?.name}</h3>
    <hr/>
           <ul className="list-group list-group-flush">
   
@@ -177,7 +179,7 @@ deg=(deg===180)?0:180
        <i className="fa-solid fa-right-left " onClick={onclickRotate}></i></div>
        
        <div className="card-text text-dark d-flex justify-content-evenly">
-       <h6 className="text-dark">{userData?.user?.Liked_Recipe?.length}</h6><h6 className="text-dark">{userData?.totalResults}</h6><p>{userData?.user?.Total_Comments}</p>
+       <h6 className="text-dark">{userbyid?.user?.Liked_Recipe?.length}</h6><h6 className="text-dark">{userbyid?.totalResults}</h6><p>{userbyid?.user?.Total_Comments}</p>
       </div>
       <p className="card-text text-dark d-flex justify-content-evenly">
       <i className="fa-heart fa-solid fs-4 text-danger"></i>

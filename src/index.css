@@ -421,3 +421,39 @@ width:100px;
   color: rgba(99, 95, 95, 0.096);
   text-decoration: none;
 }
+.box_decrease_size_animationemailsignup {
+  transform:
+  perspective(750px)
+  translate3d(0px, 0px, -10px)
+
+  scale(0.9, 0.9);
+border-radius: 20px;
+
+
+transition: 0.4s ease-in-out transform;
+
+ 
+}
+.box_decrease_size_animationemailsignup:hover {
+	transform: translate3d(0px, 0px, -250px);
+}
+#profileimage{
+display: none;
+}
+.profileimagelabel{
+  color: #007bff;
+  background-color: white;
+
+  border:2px solid #007bff;
+  padding: 6px 10px;
+
+  border-radius: 10px;
+}
+.profileimagelabel:hover{
+  background-color: #007bff;
+  color: white;
+}
+#profile_avtar{
+height: 150px;
+width: 150px;
+}

@@ -23,10 +23,12 @@ export default function Home() {
   var third=0
   var fourth=0
   const context = useContext(RecipeContext)
-  const {recipe,allRecipe,loading,LatesRecipe,Latest_recipe} = context
+  const {recipe,allRecipe,loading,LatesRecipe,Latest_recipe,getUser} = context
 
  useEffect(()=>{
+
  
+
   LatesRecipe()
    allRecipe()
 },[])
@@ -269,6 +271,7 @@ export default function Home() {
                       topLeftColor={"dark"}
                       headingColor={"dark"}
                     ImageUrl={element.image}
+                    user={element.user}
                     date={element.date}
                     health_labels={element.healthLabels
                     }
