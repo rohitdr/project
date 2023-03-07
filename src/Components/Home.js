@@ -16,6 +16,7 @@ export default function Home() {
     //   .getElementById("about_content")
     //   .setAttribute("class", "fade-right");
   }
+  const [cuisineactive,setcuisineactive]=useState(0)
 
   const hide="d-none d-md-block"
 
@@ -259,10 +260,6 @@ cuisine("indian")
         </div>
 
         <div class="row">
-
-   
-   
-        
         {Latest_recipe.recipe && Latest_recipe.recipe.map((element)=>{
       fourth++;
       if(fourth<5){
@@ -331,15 +328,15 @@ cuisine("indian")
         <div class="row">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active fw-bold" >All</li>
-              <li data-filter=".filter-app" className='fw-bold' onClick={()=>{cuisine("american")}}>American</li>
-              <li data-filter=".filter-card" className='fw-bold' onClick={()=>{ cuisine("indian")}}>Indian</li>
-              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("chinese")}}>Chinese</li>
-              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("british")}}>British</li>
-              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("italian")}}>Italian</li>
-              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("Japanese")}}>Japanese</li>
-              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("Mexican")}}>Mexican</li>
-              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("French")}}>French</li>
+              <li data-filter="*" class={`${(cuisineactive==0)?"filter-active":""} fw-bold`} onClick={()=>{ cuisine("indian");setcuisineactive(0)}}>All</li>
+              <li id="cuisine_indian" class={`${(cuisineactive==1)?"filter-active":""} fw-bold`} onClick={()=>{cuisine("american"); setcuisineactive(1)}}>American</li>
+              <li  class={`${(cuisineactive==2)?"filter-active":""} fw-bold`} onClick={()=>{ cuisine("indian");setcuisineactive(2)}}>Indian</li>
+              <li class={`${(cuisineactive==3)?"filter-active":""} fw-bold`} onClick={()=>{ cuisine("chinese");setcuisineactive(3)}}>Chinese</li>
+              <li class={`${(cuisineactive==4)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("british");setcuisineactive(4)}}>British</li>
+              <li class={`${(cuisineactive==5)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("italian");setcuisineactive(5)}}>Italian</li>
+              <li class={`${(cuisineactive==6)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("Japanese");setcuisineactive(6)}}>Japanese</li>
+              <li  class={`${(cuisineactive==7)?"filter-active":""} fw-bold`} onClick={()=>{ cuisine("Mexican");setcuisineactive(7)}}>Mexican</li>
+              <li class={`${(cuisineactive==8)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("French");setcuisineactive(8)}}>French</li>
            
             </ul>
           </div>
