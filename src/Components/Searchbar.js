@@ -7,12 +7,14 @@ import { useState } from "react";
 import { Navbar, Text, Avatar, Dropdown,Input  } from "@nextui-org/react";
 import { AcmeLogo } from "./AcmeLogo.js";
 import { SearchIcon } from "./SearchIcon.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Searchbar(props) {
   const context = useContext(RecipeContext)
   const {recipe,NameRecipe, setName_to_search,name_to_search,searchRecipe,getUser,userData} = context
 let Navigate = useNavigate();
 useEffect(()=>{
 getUser()
+
 },[])
 var num=0;
 
@@ -22,14 +24,29 @@ Navigate("/login")
 }
 var searchentered
 var modalsearch
+const clickindian=()=>{
+ Navigate("/login")
+}
+const collapseItems = [
+  "Features",
+  "Customers",
+  "Pricing",
+  "Company",
+  "Legal",
+  "Team",
+  "Help & Feedback",
+  "Login",
+  "Sign Up",
+];
 
   return (
-  //  dont delte
+ 
     <>
 
-<Navbar isBordered variant="sticky">
+<Navbar isBordered variant="sticky" >
         <Navbar.Brand css={{ mr: "$4" }}>
         <NavbarToggler></NavbarToggler>
+        {/* <Navbar.Toggle aria-label="toggle navigation" showIn="md"/> */}
       {/* <AcmeLogo></AcmeLogo> */}
       <p class="navbar-brand d-none d-sm-block">
       <img src="Reciperiotlogo.png" alt="Logo" width="75" height="90" class="d-inline-block align-text-top logoofwebsite"/>
@@ -54,14 +71,489 @@ var modalsearch
     </button> */}
           </Text>
            </Navbar.Brand>
-        <Navbar.Content
-          css={{
-            "@xsMax": {
-              w: "100%",
-              jc: "space-between",
-            },
-          }}
+          
+
+
+           <Navbar.Content
+        
+     
+        
+          variant="underline-rounded"
+        
+
+       
+         
+
         >
+             
+       {/* <Dropdown isBordered >
+            <Navbar.Item  hideIn="md" >
+              <Dropdown.Button
+                auto
+                light
+                css={{
+                  px: 0,
+                  dflex: "center",
+                  svg: { pe: "none" },
+                }}
+               
+                ripple={false}
+              >
+             <p className="fs-6 fw-bold">HOME</p>
+              </Dropdown.Button>
+            </Navbar.Item>
+           
+          </Dropdown> */}
+          <Navbar.Link  hideIn="md" onClick={()=>{Navigate("/home")}}> <p className="navbarhome"> HOME</p> </Navbar.Link>
+          <Dropdown isBordered >
+            <Navbar.Item  hideIn="md" >
+              <Dropdown.Button
+                auto
+                light
+                css={{
+                  px: 0,
+                  dflex: "center",
+                  svg: { pe: "none" },
+                }}
+               iconRight={<i class="fa-sharp fa-solid fa-chevron-down"></i>}
+                ripple={false}
+              >
+             <p className="fs-6 "> MEALTYPE</p>
+              </Dropdown.Button>
+            </Navbar.Item>
+            <Dropdown.Menu
+              color="warning"
+              aria-label="ACME features"
+              css={{
+                $$dropdownMenuWidth: "340px",
+                $$dropdownItemHeight: "70px",
+                "& .nextui-dropdown-item": {
+                  py: "$4",
+                  // dropdown item left icon
+                  svg: {
+                    color: "$secondary",
+                    mr: "$4",
+                  },
+                  // dropdown item title
+                  "& .nextui-dropdown-item-content": {
+                    w: "100%",
+                    fontWeight: "$semibold",
+                  },
+                },
+              }}
+            >
+              <Dropdown.Item
+                key="autoscaling"
+                showFullDescription
+                description="Looking to impress your dinner guests with a mouthwatering meal? Look no further than this delectable dinner recipe!"
+              icon={<i class="fa-solid  fa-utensils fs-4 px-2" style={{color:"#dc3545"}}></i>}
+              >
+              Dinner
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="usage_metrics"
+                showFullDescription
+                description="Whether you're looking to fuel up for a busy day ahead or simply indulge in a decadent morning treat, this breakfast recipe is sure to please."
+               icon={<i class="fa-solid fa-bowl-food fs-4 px-2" style={{color:"purple"}}></i>}
+              >
+             BreakFast
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="production_ready"
+                showFullDescription
+                description="Don't settle for a boring sandwich or a lackluster salad for your midday meal! This lunch recipe will take your taste buds on a journey with every bite"
+              icon={<i class="fa-sharp fa-solid fa-cloud-meatball fs-4 px-2 text-info"></i>}
+              >
+            Lunch
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="99_uptime"
+                showFullDescription
+                description="When the midday munchies strike or you're in need of a little pick-me-up, these snack recipes will have you covered!"
+               icon={<i class="fa-solid fa-wheat-awn fs-4 px-2 text-success"></i>}
+              >
+                Snacks
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="supreme_support"
+                showFullDescription
+                description=" These teatime treats are the perfect way to unwind and relax with loved ones, or to indulge in a little self-care and me-time."
+               icon={<i class="fa-solid fa-mug-saucer fs-4 px-2 text-primary"></i>}
+              >
+            TeaTime
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown isBordered  >
+            <Navbar.Item  hideIn="md">
+              <Dropdown.Button
+               light
+               auto
+         
+               iconRight={<i class="fa-sharp fa-solid fa-chevron-down"></i>}
+         
+         
+                css={{
+                  px: 4,
+                  dflex: "center",
+                  svg: { pe: "none" },
+                  
+                }}
+               
+               
+              >
+               <p className="fs-6"> DISHTYPE</p>
+              </Dropdown.Button>
+            </Navbar.Item >
+            <Dropdown.Menu
+           color="warning"
+              aria-label="ACME features"
+              css={{
+                $$dropdownMenuWidth: "340px",
+                $$dropdownItemHeight: "70px",
+                "& .nextui-dropdown-item": {
+                  py: "$4",
+                  // dropdown item left icon
+                  svg: {
+                    color: "$secondary",
+                    mr: "$4",
+                  },
+                  // dropdown item title
+                  "& .nextui-dropdown-item-content": {
+                    w: "100%",
+                    fontWeight: "$semibold",
+                  },
+                },
+              }}
+            >
+              <Dropdown.Item
+                key="autoscaling"
+                showFullDescription
+                description="ACME scales apps to meet user demand, automagically, based on load."
+              
+              >
+                Autoscaling
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="usage_metrics"
+                showFullDescription
+                description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+               
+              >
+                Usage Metrics
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="production_ready"
+                showFullDescription
+                description="ACME runs on ACME, join us and others serving requests at web scale."
+              
+              >
+                Production Ready
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="99_uptime"
+                showFullDescription
+                description="Applications stay on the grid with high availability and high uptime guarantees."
+               
+              >
+                +99% Uptime
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="supreme_support"
+                showFullDescription
+                description="Overcome any challenge with a supporting team ready to respond."
+               
+              >
+                +Supreme Support
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown isBordered>
+            <Navbar.Item  hideIn="md">
+              <Dropdown.Button
+                auto
+                light
+                css={{
+                  px: 0,
+                  dflex: "center",
+                  svg: { pe: "none" },
+                }}
+                iconRight={<i class="fa-sharp fa-solid fa-chevron-down"></i>}
+                ripple={false}
+              >
+                <p className="fs-6">DEIT TYPE</p>
+              </Dropdown.Button>
+            </Navbar.Item>
+            <Dropdown.Menu
+            color="warning"
+              aria-label="ACME features"
+              css={{
+                $$dropdownMenuWidth: "340px",
+                $$dropdownItemHeight: "70px",
+                "& .nextui-dropdown-item": {
+                  py: "$4",
+                  // dropdown item left icon
+                  svg: {
+                    color: "$secondary",
+                    mr: "$4",
+                  },
+                  // dropdown item title
+                  "& .nextui-dropdown-item-content": {
+                    w: "100%",
+                    fontWeight: "$semibold",
+                  },
+                },
+              }}
+            >
+              <Dropdown.Item
+                key="autoscaling"
+                showFullDescription
+                description="ACME scales apps to meet user demand, automagically, based on load."
+              
+              >
+                Autoscaling
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="usage_metrics"
+                showFullDescription
+                description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+               
+              >
+                Usage Metrics
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="production_ready"
+                showFullDescription
+                description="ACME runs on ACME, join us and others serving requests at web scale."
+              
+              >
+                Production Ready
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="99_uptime"
+                showFullDescription
+                description="Applications stay on the grid with high availability and high uptime guarantees."
+               
+              >
+                +99% Uptime
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="supreme_support"
+                showFullDescription
+                description="Overcome any challenge with a supporting team ready to respond."
+               
+              >
+                +Supreme Support
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown isBordered>
+            <Navbar.Item  hideIn="md">
+              <Dropdown.Button
+                auto
+                light
+                css={{
+                  px: 0,
+                  dflex: "center",
+                  svg: { pe: "none" },
+                }}
+                iconRight={<i class="fa-sharp fa-solid fa-chevron-down"></i>}
+                ripple={false}
+              >
+             <p className="fs-6"> HEALTH</p>
+              </Dropdown.Button>
+            </Navbar.Item>
+            <Dropdown.Menu
+            iconRight={<i class="fa-sharp fa-solid fa-chevron-down"></i>}
+              color="warning"
+              aria-label="ACME features"
+              css={{
+                $$dropdownMenuWidth: "340px",
+                $$dropdownItemHeight: "70px",
+                "& .nextui-dropdown-item": {
+                  py: "$4",
+                  // dropdown item left icon
+                  svg: {
+                    color: "$secondary",
+                    mr: "$4",
+                  },
+                  // dropdown item title
+                  "& .nextui-dropdown-item-content": {
+                    w: "100%",
+                    fontWeight: "$semibold",
+                  },
+                },
+              }}
+            >
+              <Dropdown.Item
+                key="autoscaling"
+                showFullDescription
+                description="ACME scales apps to meet user demand, automagically, based on load."
+              
+              >
+                Autoscaling
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="usage_metrics"
+                showFullDescription
+                description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+               
+              >
+                Usage Metrics
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="production_ready"
+                showFullDescription
+                description="ACME runs on ACME, join us and others serving requests at web scale."
+              
+              >
+                Production Ready
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="99_uptime"
+                showFullDescription
+                description="Applications stay on the grid with high availability and high uptime guarantees."
+               
+              >
+                +99% Uptime
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="supreme_support"
+                showFullDescription
+                description="Overcome any challenge with a supporting team ready to respond."
+               
+              >
+                +Supreme Support
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown isBordered>
+            <Navbar.Item  hideIn="md">
+              <Dropdown.Button
+                auto
+                light
+                css={{
+                  px: 0,
+                  dflex: "center",
+                  svg: { pe: "none" },
+                }}
+                iconRight={<i class="fa-sharp fa-solid fa-chevron-down"></i>}
+                ripple={false}
+              >
+             <p className="fs-6">CUISINETYPE</p>
+              </Dropdown.Button>
+            </Navbar.Item>
+            <Dropdown.Menu
+              color="warning"
+              isVirtualized={true}
+              aria-label="ACME features"
+              css={{
+                $$dropdownMenuWidth: "340px",
+                $$dropdownItemHeight: "70px",
+                "& .nextui-dropdown-item": {
+                  py: "$4",
+                  // dropdown item left icon
+                  svg: {
+                    color: "$secondary",
+                    mr: "$4",
+                  },
+                  // dropdown item title
+                  "& .nextui-dropdown-item-content": {
+                    w: "100%",
+                    fontWeight: "$semibold",
+                  },
+                },
+              }}
+            >
+              
+             <Dropdown.Item
+              
+                key="autoscaling"
+                showFullDescription
+              
+                description="Explore the exotic flavors of India with a tantalizing array of spices and herbs"
+              icon={<i class="fa-solid fa-indian-rupee-sign text-success fs-4 px-2"></i>}
+              
+              >
+             
+             
+             Indian
+              </Dropdown.Item> 
+              <Dropdown.Item
+                key="usage_metrics"
+                showFullDescription
+                description="Indulge in the bold and comforting flavors of America, where classic dishes are reinvented with a modern twist"
+               icon={<i class="fa-solid fa-dollar-sign fs-4 px-2 text-danger"></i>}
+              >
+               American
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="production_ready"
+                showFullDescription
+                description="Experience the warmth and comfort of British cuisine, where hearty dishes are served with a side of tradition."
+              icon={<i class="fa-solid fa-sterling-sign fs-4 px-2 text-primary"></i>}
+              >
+              British
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="99_uptime"
+                showFullDescription
+                description="Take your taste buds on a journey to the Far East with the exquisite flavors of Chinese cuisine."
+               icon={<i class="fa-brands fa-yandex fs-4 px-2 text-info"></i>}
+              >
+             Chinese
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="supreme_support"
+                showFullDescription
+                description="Experience the irresistible flavors of Italy with this authentic recipe that will transport your taste buds to the heart of Tuscany."
+               icon={<i class="fa-solid fa-euro-sign fs-4 px-2" style={{color:"purple"}}></i>}
+              >
+               Italian
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="japnese"
+                showFullDescription
+                description="Indulge in the artful simplicity of Japanese cuisine with this mouthwatering recipe , bringing the essence of Japan to your plate"
+               icon={<i class="fa-solid fa-yen-sign fs-4 px-2" style={{color:"brown"}}></i>}
+              >
+           Japnese
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="maxian"
+                showFullDescription
+                description="Spice up your taste buds with the vibrant and bold flavors of Mexico in this authentic recipe"
+               icon={<i class="fa-solid fa-peso-sign fs-4 px-2" style={{color:"palegoldenrod"}}></i>}
+              >
+             Mexican
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="french"
+                showFullDescription
+                description="Experience the indulgent flavors of France with this exquisite recipe that pays homage to the country's culinary mastery"
+               icon={<i class="fa-solid fa-euro-sign fs-4 px-2" style={{color:"cyan"}}></i>}
+              >
+              French
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+      
+       
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
            <form className="d-flex text-white  ">
         <input className="form-control me-2 text-white search_input rounded-3" id="searchbar-searchbox" type="search" placeholder="Search"  data-bs-toggle="modal" data-bs-target="#exampleModalsearch" aria-label="Search" onChange={(e)=>{
           searchentered=e.target.value
@@ -132,7 +624,23 @@ var modalsearch
             
           </Dropdown>
         </Navbar.Content>
+        <Navbar.Collapse>
+        {collapseItems.map((item, index) => (
+          <Navbar.CollapseItem key={item}>
+            {/* <Link
+              color="inherit"
+              css={{
+                minWidth: "100%",
+              }}
+              href="#"
+            > */}
+              {item}
+           
+          </Navbar.CollapseItem>
+        ))}
+      </Navbar.Collapse>
       </Navbar>
+     
 
 
 {/* <nav className="navbar navbar-expand-lg bg-light" id="Searchbar">

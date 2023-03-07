@@ -457,3 +457,31 @@ display: none;
 height: 150px;
 width: 150px;
 }
+/* .nextui-c-bDGMeb-gLOJOp-cv {
+  display: none!important;
+} */
+
+
+.nextui-c-bDGMeb-gLOJOp-cv {
+  color: #b5460f!important;;
+}
+.nextui-c-iWjDFM-dvpxFC-cv:hover {
+ border-bottom: 5px solid #f5a524;
+ border-radius: 0px;
+ 
+}
+.navbarhome:hover{
+  border-bottom: 5px solid #f5a524;
+ border-radius: 0px;
+color: black;
+
+}
+.navbarhome{
+  padding-top: 16px;
+
+ 
+}
+
+
+
+
