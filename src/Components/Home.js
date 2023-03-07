@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react'
+import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import RecipeContext from '../Context/RecipeContext';
 import Carousel_card from './Carousel_card';
@@ -22,13 +23,15 @@ export default function Home() {
   var second=0;
   var third=0
   var fourth=0
+  var cuisinenumber=0
   const context = useContext(RecipeContext)
-  const {recipe,allRecipe,loading,LatesRecipe,Latest_recipe,getUser} = context
+  const {recipe,allRecipe,loading,LatesRecipe,Latest_recipe,getUser,cuisine,cuisinedata} = context
+  const [collectionstate, setcollectionstate]=useState(0)
 
  useEffect(()=>{
 
  
-
+cuisine("indian")
   LatesRecipe()
    allRecipe()
 },[])
@@ -321,146 +324,77 @@ export default function Home() {
       <div class="container">
 
         <div class="section-title text-center">
-          <h2 >Portfolio</h2>
+          <h2 className='fw-bold text-primary'>Our Collections</h2>
           <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit</p>
         </div>
 
-        {/* <div class="row">
+        <div class="row">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-              <li data-filter=".filter-web">Web</li>
-              <li data-filter=".filter-web">Web</li>
-              <li data-filter=".filter-web">Web</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter="*" class="filter-active" >All</li>
+              <li data-filter=".filter-app" onClick={()=>{setcollectionstate(1); cuisine("american")}}>App</li>
+              <li data-filter=".filter-card" onClick={()=>{setcollectionstate(0); cuisine("indian")}}>Card</li>
+              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("chinese")}}>Web</li>
+              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("british")}}>Web</li>
+              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("italian")}}>Web</li>
+              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("indain")}}>Web</li>
+              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("indain")}}>Web</li>
             </ul>
           </div>
         </div>
-
-        <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt=""/>
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="link-preview portfolio-lightbox" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">App 1</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt=""/>
-                <a href="assets/img/portfolio/portfolio-2.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Web 3</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt=""/>
-                <a href="assets/img/portfolio/portfolio-3.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">App 2</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt=""/>
-                <a href="assets/img/portfolio/portfolio-4.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Card 2</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt=""/>
-                <a href="assets/img/portfolio/portfolio-5.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Web 2</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt=""/>
-                <a href="assets/img/portfolio/portfolio-6.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">App 3</a></h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt=""/>
-                <a href="assets/img/portfolio/portfolio-7.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Card 1</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-            <div class="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt=""/>
-                <a href="assets/img/portfolio/portfolio-8.jpg" class="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" class="link-details" title="More Details"><i class="bx bx-link"></i></a>
-              </figure>
-
-              <div class="portfolio-info">
-                <h4><a href="portfolio-details.html">Card 3</a></h4>
-                <p>Card</p>
-              </div>
-            </div>
-          </div>
+{/* indian recipes 
+ */}
+ <div className='row'>
+ { cuisinedata.recipe && cuisinedata.recipe.map((element)=>{
+      cuisinenumber++
+      if(cuisinenumber<5){
+      
+      return <div className="col-md-3 mt-4 col-lg-3 homerecipe" key={element._id}>
+                  <RecipeItem
+                    id={element._id}
+                      title={element.label}
+                      topLeftColor={"dark"}
+                      headingColor={"dark"}
+                    ImageUrl={element.image}
+                    user={element.user}
+                    date={element.date}
+                    health_labels={element.healthLabels
+                    }
+                    Ingridiants={element.ingredientLines
+                      .toString()
+                      .replace(",", " and ")
+                      .substring(0, 60)}
+                    caleroies={Math.ceil(element.calories)}
+                    fat={
+                      element.totalNutrients.FAT.quantity
+                        ? Math.ceil(
+                            element.totalNutrients.FAT.quantity
+                          )
+                        : " "
+                    }
+                    caution={element.cautions}
+                    time={element.totalTime}
+                    source={element.source}
+                    sugar={element.totalNutrients.SUGAR.quantity}
+                    water={element.totalNutrients.WATER.quantity}
+                    chole={element.totalNutrients.CHOLE.quantity}
+                    vitamin_a={
+                      element.totalNutrients.VITA_RAE.quantity
+                    }
+                    vitamin_c={element.totalNutrients.VITC.quantity}
+                    vitamin_b6={element.totalNutrients.VITB6A.quantity}
+                    vitamin_d={element.totalNutrients.VITD.quantity}
+                    vitamin_e={element.totalNutrients.TOCPHA.quantity}
+                  
+                  ></RecipeItem>
+                
+                </div>
+     
+                  }
+     }
+     )
+     }
+        {/* <div class="row portfolio-container">
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
             <div class="portfolio-wrap">
@@ -478,7 +412,7 @@ export default function Home() {
           </div>
 
         </div> */}
-
+</div>
       </div>
     </section>
     {/* <!-- End Portfolio Section --> */}

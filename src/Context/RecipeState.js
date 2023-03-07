@@ -19,8 +19,26 @@ export default function RecipeState(props){
    const [progressheight,setProgressHeight] = useState(5)
   const [signuppage , setsignuppage]=useState(0)
      const [userbyid, setuserbyid]= useState({})
+     const [cuisinedata,setcuisinedata]=useState({})
+
+//api to get recipe according to cuisine type
+const cuisine=async(type)=>{
+  const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswithcuisinetype/${type}`, {
+    method: 'GET',
+    mode: "cors",
+    headers: {
+      'Content-Type': 'application/json',
+   
+
+     
+    },
+   
 
 
+  });
+  let result=await response.json();
+  setcuisinedata(result)
+}
      ////api to get user detail by giving id
      const getUserbyid=async(id)=>{
       setLoading(true)
@@ -362,7 +380,7 @@ else{
      
     }
 return(
-    <RecipeContext.Provider value={{getUserbyid,userbyid,LatestRecipebyid,Latest_recipebyid,signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{cuisinedata,cuisine,getUserbyid,userbyid,LatestRecipebyid,Latest_recipebyid,signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )
