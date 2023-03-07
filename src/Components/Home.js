@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react'
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import RecipeContext from '../Context/RecipeContext';
-import Carousel_card from './Carousel_card';
 import Loader from './Loader';
+
 import RecipeItem from "./RecipeItem";
 export default function Home() {
 
@@ -25,8 +25,8 @@ export default function Home() {
   var fourth=0
   var cuisinenumber=0
   const context = useContext(RecipeContext)
-  const {recipe,allRecipe,loading,LatesRecipe,Latest_recipe,getUser,cuisine,cuisinedata} = context
-  const [collectionstate, setcollectionstate]=useState(0)
+  const {recipe,allRecipe,loading,LatesRecipe,Latest_recipe,getUser,cuisine,cuisinedata,cuisineloading} = context
+
 
  useEffect(()=>{
 
@@ -331,19 +331,22 @@ cuisine("indian")
         <div class="row">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active" >All</li>
-              <li data-filter=".filter-app" onClick={()=>{setcollectionstate(1); cuisine("american")}}>App</li>
-              <li data-filter=".filter-card" onClick={()=>{setcollectionstate(0); cuisine("indian")}}>Card</li>
-              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("chinese")}}>Web</li>
-              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("british")}}>Web</li>
-              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("italian")}}>Web</li>
-              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("indain")}}>Web</li>
-              <li data-filter=".filter-web" onClick={()=>{setcollectionstate(0); cuisine("indain")}}>Web</li>
+              <li data-filter="*" class="filter-active fw-bold" >All</li>
+              <li data-filter=".filter-app" className='fw-bold' onClick={()=>{cuisine("american")}}>American</li>
+              <li data-filter=".filter-card" className='fw-bold' onClick={()=>{ cuisine("indian")}}>Indian</li>
+              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("chinese")}}>Chinese</li>
+              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("british")}}>British</li>
+              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("italian")}}>Italian</li>
+              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("Japanese")}}>Japanese</li>
+              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("Mexican")}}>Mexican</li>
+              <li data-filter=".filter-web"className='fw-bold' onClick={()=>{ cuisine("French")}}>French</li>
+           
             </ul>
           </div>
         </div>
 {/* indian recipes 
  */}
+ {cuisineloading && <Loader></Loader>}
  <div className='row'>
  { cuisinedata.recipe && cuisinedata.recipe.map((element)=>{
       cuisinenumber++

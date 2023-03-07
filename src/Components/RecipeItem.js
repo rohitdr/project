@@ -164,7 +164,7 @@ deg=(deg===180)?0:180
         <div className="card-up" ></div>
         <div className="avatar mx-auto bg-white">
           <img src={userbyid?.user?.Profile_Image}
-            className="rounded-circle img-fluid" />
+            className="rounded-circle img-fluid" style={{height:"250px"}} />
         </div>
         <div className="card-body text-center pt-2">
           <h3 className="mb-2 fw-bold card-title">{userbyid?.user?.name}</h3>
