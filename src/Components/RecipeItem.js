@@ -84,7 +84,7 @@ deg=(deg===180)?0:180
   <img src={props.ImageUrl} className="card-img-top recipeitemimageopacity box_decrease_size_animation" alt="..."/>
   <div className="card-body">
     <div className="d-flex justify-content-between">
-    <h6 className="card-title text-warning text-start"> {props.source}</h6>
+    <h6 className="card-title text-warning text-start recipeitemtext"> {props.source}</h6>
     <h6 className="card-title text-primary text-start"><Link to={`${!sessionStorage.getItem("auth-token")?"/login":"/Individual_description"}`} onClick={()=>{  
     
             setCurrentRecipeItemid(props.id)}}
@@ -151,8 +151,8 @@ deg=(deg===180)?0:180
    
   </div>
 
-  <div className="card-footer">
-  <i className="fa-regular me-2 fa-clock"></i>{(new Date(props.date).toLocaleString())}
+  <div className="card-footer recipeitemtext">
+  <i className="fa-regular me-2 fa-clock"></i>{(new Date(props.date).toLocaleString().substring(0,19))}
   </div>
 </div>
 

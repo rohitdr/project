@@ -264,7 +264,7 @@ cuisine("indian")
       fourth++;
       if(fourth<5){
       
-      return <div className="col-md-3 mt-4 col-lg-3 homerecipe" key={element._id}>
+      return <div className="col-md-4 mt-4  homerecipe homenewrecipe" key={element._id}>
                   <RecipeItem
                     id={element._id}
                       title={element.label}
@@ -349,7 +349,7 @@ cuisine("indian")
       cuisinenumber++
       if(cuisinenumber<5){
       
-      return <div className="col-md-3 mt-4 col-lg-3 homerecipe" key={element._id}>
+      return <div className="col-md-3 mt-4 homerecipenew  homerecipe" key={element._id}>
                   <RecipeItem
                     id={element._id}
                       title={element.label}
@@ -499,7 +499,7 @@ cuisine("indian")
 
 
 
-
+   
     </>
     
     

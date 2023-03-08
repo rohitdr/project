@@ -143,6 +143,11 @@ const collapseItems = [
               }}
             >
               <Dropdown.Item
+             css={
+              {
+                color:"#dc3545"
+              }
+             }
                 key="autoscaling"
                 showFullDescription
                 description="Looking to impress your dinner guests with a mouthwatering meal? Look no further than this delectable dinner recipe!"
@@ -153,6 +158,11 @@ const collapseItems = [
               <Dropdown.Item
                 key="usage_metrics"
                 showFullDescription
+                css={
+              {
+                color:"purple"
+              }
+             }
                 description="Whether you're looking to fuel up for a busy day ahead or simply indulge in a decadent morning treat, this breakfast recipe is sure to please."
                icon={<i class="fa-solid fa-bowl-food fs-4 px-2" style={{color:"purple"}}></i>}
               >
@@ -161,6 +171,7 @@ const collapseItems = [
               <Dropdown.Item
                 key="production_ready"
                 showFullDescription
+                css={{color:"$blue700"}}
                 description="Don't settle for a boring sandwich or a lackluster salad for your midday meal! This lunch recipe will take your taste buds on a journey with every bite"
               icon={<i class="fa-sharp fa-solid fa-cloud-meatball fs-4 px-2 text-info"></i>}
               >
@@ -169,6 +180,7 @@ const collapseItems = [
               <Dropdown.Item
                 key="99_uptime"
                 showFullDescription
+                textColor="success"
                 description="When the midday munchies strike or you're in need of a little pick-me-up, these snack recipes will have you covered!"
                icon={<i class="fa-solid fa-wheat-awn fs-4 px-2 text-success"></i>}
               >
@@ -177,6 +189,7 @@ const collapseItems = [
               <Dropdown.Item
                 key="supreme_support"
                 showFullDescription
+                textColor="primary"
                 description=" These teatime treats are the perfect way to unwind and relax with loved ones, or to indulge in a little self-care and me-time."
                icon={<i class="fa-solid fa-mug-saucer fs-4 px-2 text-primary"></i>}
               >
@@ -228,43 +241,112 @@ const collapseItems = [
             >
               <Dropdown.Item
                 key="autoscaling"
+                textColor="success"
                 showFullDescription
-                description="ACME scales apps to meet user demand, automagically, based on load."
-              
+                description="Bake your way to happiness with this delicious homemade bread recipe."
+              icon={<i class="fa-solid fa-bread-slice text-success fs-4"></i>}
               >
-                Autoscaling
+               Bread
               </Dropdown.Item>
               <Dropdown.Item
                 key="usage_metrics"
+                textColor="error"
                 showFullDescription
-                description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
-               
+                description="Start your day off right with this delicious and nutritious homemade cereal recipe."
+               icon={<i class="fa-solid fa-bowl-food text-danger fs-4"></i>}
               >
-                Usage Metrics
+               Cereals
               </Dropdown.Item>
               <Dropdown.Item
                 key="production_ready"
+                textColor="primary"
                 showFullDescription
-                description="ACME runs on ACME, join us and others serving requests at web scale."
-              
+                description="Transform any dish into a gourmet masterpiece with these delicious homemade condiments and sauces"
+              icon={<i class="fa-sharp fa-solid fa-sink text-primay fs-4"></i>}
               >
-                Production Ready
+             Condiments And Sauces
               </Dropdown.Item>
               <Dropdown.Item
                 key="99_uptime"
+                css={{color:"Purple"}}
                 showFullDescription
-                description="Applications stay on the grid with high availability and high uptime guarantees."
-               
+                description="Indulge your sweet tooth with this heavenly homemade dessert recipe."
+               icon={<i class="fa-solid fa-ice-cream fs-4" style={{color:"purple"}}></i>}
               >
-                +99% Uptime
+               Desserts
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
+                css={{color:"Violet"}}
                 showFullDescription
-                description="Overcome any challenge with a supporting team ready to respond."
-               
+                description="Sip on paradise with this refreshing and delicious homemade drink recipe"
+               icon={<i class="fa-solid fa-wine-glass-empty fs-4" style={{color:"Violet"}}></i>}
               >
-                +Supreme Support
+                Drinks
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="MainCourse"
+                css={{color:"indigo"}}
+                showFullDescription
+                description="Impress your dinner guests with this mouth-watering homemade main course recipe."
+               icon={<i class="fa-brands fa-discourse fs-4" style={{color:"indigo"}}></i>}
+              >
+               MainCourse
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Pancake"
+                css={{color:"chocolate"}}
+                showFullDescription
+                description="From classic flavors to creative twists, this pancake recipe is sure to please any palate."
+               icon={<i class="fa-solid fa-bacon fs-4" style={{color:"chocolate"}}></i>}
+              
+              >
+               Pancake
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Preps"
+                css={{color:"brown"}}
+                showFullDescription
+                description="Make mealtime a breeze with this easy and time-saving homemade prep recipe."
+               icon={<i class="fa-solid fa-mortar-pestle fs-4" style={{color:"brown"}}></i>}
+              >
+               Preps
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Salad"
+                css={{color:"$blue700"}}
+                showFullDescription
+                description="Elevate your salad game with this delicious and healthy homemade salad recipe."
+               icon={<i class="fa-sharp fa-solid fa-lemon text-info fs-4" ></i>}
+              >
+                Salad
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Sandwiches"
+                css={{color:"Purple"}}
+                showFullDescription
+                description="Upgrade your lunch game with this easy and delicious homemade sandwich recipe."
+               icon={<i class="fa-solid fa-hotdog fs-4" style={{color:"purple"}}></i>}
+              >
+               Sandwiches
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Soup"
+                css={{color:"darksalmon"}}
+                showFullDescription
+                description="Warm your soul and delight your taste buds with this homemade soup recipe"
+               icon={<i class="fa-solid fa-pump-soap fs-4" style={{color:"darksalmon"}}></i>}
+              >
+              Soup
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Starter"
+                css={{color:"rebeccapurple"}}
+                showFullDescription
+                description="Kick off your meal in style with this easy and flavorful homemade starter recipe"
+               icon={<i class="fa-solid fa-hourglass-start fs-4" style={{color:"rebeccapurple"}}></i>}
+              >
+              Starter
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -308,43 +390,58 @@ const collapseItems = [
               <Dropdown.Item
                 key="autoscaling"
                 showFullDescription
-                description="ACME scales apps to meet user demand, automagically, based on load."
-              
+                textColor="primary"
+                description="Achieve a healthy and balanced lifestyle with this delicious and nutritious homemade recipe."
+              icon={<i class="fa-solid fa-scale-balanced text-primary fs-4"></i>}
               >
-                Autoscaling
+               Balanced
               </Dropdown.Item>
               <Dropdown.Item
                 key="usage_metrics"
+                textColor="success"
                 showFullDescription
-                description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
-               
+                description="Fuel your body with the fiber it needs to thrive with this delicious and wholesome homemade recipe"
+               icon={<i class="fa-solid fa-tower-observation text-success fs-4"></i>}
               >
-                Usage Metrics
+               highFiber
               </Dropdown.Item>
               <Dropdown.Item
                 key="production_ready"
                 showFullDescription
-                description="ACME runs on ACME, join us and others serving requests at web scale."
-              
+                textColor="erro"
+                description="Power up your day with this delicious and protein-packed homemade recipe."
+              icon={<i class="fa-solid fa-dna text-danger fs-4"></i>}
               >
-                Production Ready
+                High-Protein
               </Dropdown.Item>
               <Dropdown.Item
                 key="99_uptime"
                 showFullDescription
-                description="Applications stay on the grid with high availability and high uptime guarantees."
-               
+               css={{color:"purple"}}
+                description="Enjoy delicious and satisfying meals while maintaining a low-carb lifestyle with this easy and flavorful recipe."
+               icon={<i class="fa-solid fa-bowl-food fs-4" style={{color:"purple"}}></i>}
               >
-                +99% Uptime
+                Low-Carb
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
                 showFullDescription
-                description="Overcome any challenge with a supporting team ready to respond."
-               
+                css={{color:"Brown"}}
+                description="Discover the delicious world of low-fat cooking with this easy and flavorful homemade recipe."
+               icon={<i class="fa-solid fa-fan fs-4" style={{color:"brown"}}></i>}
               >
-                +Supreme Support
+               Low-Fat
               </Dropdown.Item>
+              <Dropdown.Item
+                key="Preserve"
+                showFullDescription
+                css={{color:"$blue700"}}
+                description="Capture the flavors of the season with this delicious and easy homemade preserve recipe."
+               icon={<i class="fa-solid fa-prescription-bottle text-info fs-4"></i>}
+              >
+             Preserve
+              </Dropdown.Item>
+             
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown isBordered>
@@ -391,7 +488,7 @@ const collapseItems = [
                 description="ACME scales apps to meet user demand, automagically, based on load."
               
               >
-                Autoscaling
+               Alcohol-Free
               </Dropdown.Item>
               <Dropdown.Item
                 key="usage_metrics"
@@ -399,7 +496,7 @@ const collapseItems = [
                 description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
                
               >
-                Usage Metrics
+                Egg-Free
               </Dropdown.Item>
               <Dropdown.Item
                 key="production_ready"
@@ -407,7 +504,7 @@ const collapseItems = [
                 description="ACME runs on ACME, join us and others serving requests at web scale."
               
               >
-                Production Ready
+                Gluten-Free
               </Dropdown.Item>
               <Dropdown.Item
                 key="99_uptime"
@@ -415,7 +512,7 @@ const collapseItems = [
                 description="Applications stay on the grid with high availability and high uptime guarantees."
                
               >
-                +99% Uptime
+                Kidney-Friendly
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
@@ -423,7 +520,56 @@ const collapseItems = [
                 description="Overcome any challenge with a supporting team ready to respond."
                
               >
-                +Supreme Support
+               Low-Fat-Abs
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Low-Sugar"
+                showFullDescription
+                description="Overcome any challenge with a supporting team ready to respond."
+               
+              >
+              Low-Sugar
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Mustard-Free"
+                showFullDescription
+                description="Overcome any challenge with a supporting team ready to respond."
+               
+              >
+              Mustard-Free
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="No-OIl-added"
+                showFullDescription
+                description="Overcome any challenge with a supporting team ready to respond."
+               
+              >
+               No-Oil-Added
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Red-Meat-Free"
+                showFullDescription
+                description="Overcome any challenge with a supporting team ready to respond."
+               
+              >
+            Red-Meat-Free
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Vegan"
+               
+                showFullDescription
+                description="Overcome any challenge with a supporting team ready to respond."
+               
+              >
+               Vegan
+              </Dropdown.Item>
+              <Dropdown.Item
+                key="Vegetarian"
+                showFullDescription
+                description="Overcome any challenge with a supporting team ready to respond."
+               
+              >
+            Vegetarian
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -465,22 +611,23 @@ const collapseItems = [
                 },
               }}
             >
-              
+             
              <Dropdown.Item
               
                 key="autoscaling"
                 showFullDescription
-              
+              textColor="success"
                 description="Explore the exotic flavors of India with a tantalizing array of spices and herbs"
-              icon={<i class="fa-solid fa-indian-rupee-sign text-success fs-4 px-2"></i>}
+              icon={<i class="fa-solid fa-indian-rupee-sign  fs-4 px-2"></i>}
               
               >
              
-             
-             Indian
+              <div onClick={()=>{Navigate("/login")}}>
+             Indian</div>
               </Dropdown.Item> 
               <Dropdown.Item
                 key="usage_metrics"
+                textColor="error"
                 showFullDescription
                 description="Indulge in the bold and comforting flavors of America, where classic dishes are reinvented with a modern twist"
                icon={<i class="fa-solid fa-dollar-sign fs-4 px-2 text-danger"></i>}
@@ -490,6 +637,7 @@ const collapseItems = [
               <Dropdown.Item
                 key="production_ready"
                 showFullDescription
+                textColor="primary"
                 description="Experience the warmth and comfort of British cuisine, where hearty dishes are served with a side of tradition."
               icon={<i class="fa-solid fa-sterling-sign fs-4 px-2 text-primary"></i>}
               >
@@ -498,6 +646,9 @@ const collapseItems = [
               <Dropdown.Item
                 key="99_uptime"
                 showFullDescription
+                css={{
+                  color:"#17a2b8"
+                }}
                 description="Take your taste buds on a journey to the Far East with the exquisite flavors of Chinese cuisine."
                icon={<i class="fa-brands fa-yandex fs-4 px-2 text-info"></i>}
               >
@@ -506,6 +657,9 @@ const collapseItems = [
               <Dropdown.Item
                 key="supreme_support"
                 showFullDescription
+                css={{
+                  color:"purple"
+                }}
                 description="Experience the irresistible flavors of Italy with this authentic recipe that will transport your taste buds to the heart of Tuscany."
                icon={<i class="fa-solid fa-euro-sign fs-4 px-2" style={{color:"purple"}}></i>}
               >
@@ -514,6 +668,9 @@ const collapseItems = [
               <Dropdown.Item
                 key="japnese"
                 showFullDescription
+                css={{
+                  color:"brown"
+                }}
                 description="Indulge in the artful simplicity of Japanese cuisine with this mouthwatering recipe , bringing the essence of Japan to your plate"
                icon={<i class="fa-solid fa-yen-sign fs-4 px-2" style={{color:"brown"}}></i>}
               >
@@ -522,16 +679,22 @@ const collapseItems = [
               <Dropdown.Item
                 key="maxian"
                 showFullDescription
+                css={{
+                  color:"#00695c"
+                }}
                 description="Spice up your taste buds with the vibrant and bold flavors of Mexico in this authentic recipe"
-               icon={<i class="fa-solid fa-peso-sign fs-4 px-2" style={{color:"palegoldenrod"}}></i>}
+               icon={<i class="fa-solid fa-peso-sign fs-4 px-2" style={{color:"#00695c"}}></i>}
               >
              Mexican
               </Dropdown.Item>
               <Dropdown.Item
                 key="french"
                 showFullDescription
+                css={{
+                  color:"#212121"
+                }}
                 description="Experience the indulgent flavors of France with this exquisite recipe that pays homage to the country's culinary mastery"
-               icon={<i class="fa-solid fa-euro-sign fs-4 px-2" style={{color:"cyan"}}></i>}
+               icon={<i class="fa-solid fa-euro-sign fs-4 px-2" style={{color:"#212121"}}></i>}
               >
               French
               </Dropdown.Item>
@@ -638,6 +801,7 @@ const collapseItems = [
            
           </Navbar.CollapseItem>
         ))}
+       
       </Navbar.Collapse>
       </Navbar>
      

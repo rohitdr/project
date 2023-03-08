@@ -481,7 +481,36 @@ color: black;
 
  
 }
-
+@media only screen and (min-width: 1600px) {
+  .homenewrecipe{
+    max-width: 25%!important;
+  }
+  
+}
+@media only screen and (max-width: 1600px) and (min-width: 1400px) {
+  .homenewrecipe{
+    max-width: 330px!important;
+  }
+  
+}
+@media only screen and (max-width: 1400px) and (min-width: 1200px)  {
+  .homenewrecipe{
+    max-width: 285px!important;
+  }
+  
+}
+@media only screen and (max-width: 1200px) and (min-width: 800px)  {
+  .homenewrecipe{
+    max-width: 240px!important;
+  }
+  
+}
+@media only screen and (max-width: 800px) and (min-width: 600px)  {
+  .homenewrecipe{
+padding: 0px 100px;
+  }
+  
+}
 
 
 
