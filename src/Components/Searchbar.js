@@ -484,89 +484,110 @@ const collapseItems = [
             >
               <Dropdown.Item
                 key="autoscaling"
+                textColor="success"
+                icon={<i class="fa-solid fa-champagne-glasses text-success"></i>}
                 showFullDescription
-                description="ACME scales apps to meet user demand, automagically, based on load."
+                description="Experience the vibrant and delicious flavors of our alcohol-free recipe, without any of the after-effects"
               
               >
                Alcohol-Free
               </Dropdown.Item>
               <Dropdown.Item
                 key="usage_metrics"
+                textColor="error"
                 showFullDescription
-                description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
+                icon={<i class="fa-solid fs-4 fa-egg text-danger"></i>}
+                description="Indulge in the rich and satisfying taste of our egg-free recipe, perfect for those with dietary restrictions"
                
               >
                 Egg-Free
               </Dropdown.Item>
               <Dropdown.Item
                 key="production_ready"
+                textColor="primary"
                 showFullDescription
-                description="ACME runs on ACME, join us and others serving requests at web scale."
+                icon={<i class="fa-solid text-primary fs-4 fa-wheat-awn-circle-exclamation"></i>}
+                description="Enjoy the delectable flavors of our gluten-free recipe, without compromising on taste or texture."
               
               >
                 Gluten-Free
               </Dropdown.Item>
               <Dropdown.Item
                 key="99_uptime"
+               css={{color:"brown"}}
                 showFullDescription
-                description="Applications stay on the grid with high availability and high uptime guarantees."
+                icon={<i class="fa-solid fs-4 fa-solar-panel" style={{color:"brown"}}></i>}
+                description="Savor the goodness of our kidney-friendly recipe, thoughtfully crafted to nourish your body while tantalizing your taste buds."
                
               >
                 Kidney-Friendly
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
+                css={{color:"purple"}}
                 showFullDescription
-                description="Overcome any challenge with a supporting team ready to respond."
+                icon={<i class="fa-solid fs-4 fa-fan" style={{color:"purple"}}></i>}
+                description="Indulge guilt-free in our low-fat-abs recipe, designed to satisfy your cravings while promoting a healthier lifestyle."
                
               >
                Low-Fat-Abs
               </Dropdown.Item>
               <Dropdown.Item
                 key="Low-Sugar"
+                css={{color:"$blue700"}}
                 showFullDescription
-                description="Overcome any challenge with a supporting team ready to respond."
+                icon={<i class="fa-solid fs-4 fa-cubes-stacked text-info"></i>}
+                description="Experience the sweetness of our low-sugar recipe, bursting with delicious flavors without the added sugar rush."
                
               >
               Low-Sugar
               </Dropdown.Item>
               <Dropdown.Item
                 key="Mustard-Free"
+                css={{color:"orange"}}
                 showFullDescription
-                description="Overcome any challenge with a supporting team ready to respond."
+                icon={<i class="fa-brands fs-4 fa-mastodon" style={{color:"orange"}}></i>}
+                description="Enjoy the full flavor of our mustard-free recipe, perfect for those with allergies or simply looking for a refreshing change"
                
               >
               Mustard-Free
               </Dropdown.Item>
               <Dropdown.Item
                 key="No-OIl-added"
+                css={{color:"#b71c1c"}}
+                icon={<i class="fa-solid fs-4 fa-bottle-droplet" style={{color:"#b71c1c"}}></i>}
                 showFullDescription
-                description="Overcome any challenge with a supporting team ready to respond."
+                description="Taste the goodness of our no-oil-added recipe, carefully crafted to give you a healthy and flavorful meal without the excess oil."
                
               >
                No-Oil-Added
               </Dropdown.Item>
               <Dropdown.Item
+                 css={{color:"darkred"}}
                 key="Red-Meat-Free"
+                icon={<i class="fa-solid fs-4 fa-drumstick-bite" style={{color:"darkred"}}></i>}
                 showFullDescription
-                description="Overcome any challenge with a supporting team ready to respond."
+                description="Satisfy your cravings with our delicious red-meat-free recipe, bursting with flavor and wholesome ingredients for a satisfying meal."
                
               >
             Red-Meat-Free
               </Dropdown.Item>
               <Dropdown.Item
                 key="Vegan"
-               
+                css={{color:"darkgreen"}}
+               icon={<i class="fa-solid fs-4 fa-carrot" style={{color:"darkgreen"}}></i>}
                 showFullDescription
-                description="Overcome any challenge with a supporting team ready to respond."
+                description="Experience the vibrant and delicious flavors of our vegan recipe, crafted with care to nourish your body and delight your taste buds."
                
               >
                Vegan
               </Dropdown.Item>
               <Dropdown.Item
                 key="Vegetarian"
+                css={{color:"blueviolet"}}
                 showFullDescription
-                description="Overcome any challenge with a supporting team ready to respond."
+                icon={<i class="fa-solid fs-4 fa-plant-wilt" style={{color:"blueviolet"}}></i>}
+                description="Indulge in the goodness of our vegetarian recipe, packed with wholesome ingredients and bursting with flavor to satisfy your cravings."
                
               >
             Vegetarian
@@ -622,7 +643,7 @@ const collapseItems = [
               
               >
              
-              <div onClick={()=>{Navigate("/login")}}>
+              <div onClick={()=>{Navigate("/cuisineType",{state:{type:"Indian"}})}}>
              Indian</div>
               </Dropdown.Item> 
               <Dropdown.Item
@@ -632,7 +653,8 @@ const collapseItems = [
                 description="Indulge in the bold and comforting flavors of America, where classic dishes are reinvented with a modern twist"
                icon={<i class="fa-solid fa-dollar-sign fs-4 px-2 text-danger"></i>}
               >
-               American
+                <div onClick={()=>{Navigate("/cuisineType",{state:{type:"american"}})}}>
+               American</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="production_ready"
@@ -641,7 +663,8 @@ const collapseItems = [
                 description="Experience the warmth and comfort of British cuisine, where hearty dishes are served with a side of tradition."
               icon={<i class="fa-solid fa-sterling-sign fs-4 px-2 text-primary"></i>}
               >
-              British
+                <div onClick={()=>{Navigate("/cuisineType",{state:{type:"british"}})}}>
+              British</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="99_uptime"
@@ -652,7 +675,8 @@ const collapseItems = [
                 description="Take your taste buds on a journey to the Far East with the exquisite flavors of Chinese cuisine."
                icon={<i class="fa-brands fa-yandex fs-4 px-2 text-info"></i>}
               >
-             Chinese
+                <div onClick={()=>{Navigate("/cuisineType",{state:{type:"chinese"}})}}>
+             Chinese</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
@@ -663,7 +687,8 @@ const collapseItems = [
                 description="Experience the irresistible flavors of Italy with this authentic recipe that will transport your taste buds to the heart of Tuscany."
                icon={<i class="fa-solid fa-euro-sign fs-4 px-2" style={{color:"purple"}}></i>}
               >
-               Italian
+                <div onClick={()=>{Navigate("/cuisineType",{state:{type:"italian"}})}}>
+               Italian</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="japnese"
@@ -674,7 +699,8 @@ const collapseItems = [
                 description="Indulge in the artful simplicity of Japanese cuisine with this mouthwatering recipe , bringing the essence of Japan to your plate"
                icon={<i class="fa-solid fa-yen-sign fs-4 px-2" style={{color:"brown"}}></i>}
               >
-           Japnese
+                <div onClick={()=>{Navigate("/cuisineType",{state:{type:"japnese"}})}}>
+           Japnese</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="maxian"
@@ -685,7 +711,8 @@ const collapseItems = [
                 description="Spice up your taste buds with the vibrant and bold flavors of Mexico in this authentic recipe"
                icon={<i class="fa-solid fa-peso-sign fs-4 px-2" style={{color:"#00695c"}}></i>}
               >
-             Mexican
+                <div onClick={()=>{Navigate("/cuisineType",{state:{type:"mexican"}})}}>
+             Mexican</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="french"
@@ -696,7 +723,8 @@ const collapseItems = [
                 description="Experience the indulgent flavors of France with this exquisite recipe that pays homage to the country's culinary mastery"
                icon={<i class="fa-solid fa-euro-sign fs-4 px-2" style={{color:"#212121"}}></i>}
               >
-              French
+                <div onClick={()=>{Navigate("/cuisineType",{state:{type:"french"}})}}>
+              French</div>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -773,12 +801,14 @@ const collapseItems = [
             >
               
               <Dropdown.Item key="settings" >
-              <Link to="/login" className="px-4 text-dark searchbardropdown w-100"> Login</Link>
+                <div onClick={()=>{Navigate("/login")}}>
+              <p className="px-4 pt-3 text-dark searchbardropdown w-100"> Login</p></div>
              
               </Dropdown.Item>
               
               <Dropdown.Item key="analytics" >
-              <Link to="/signUp" className=" px-4 text-dark searchbardropdown"> Sign UP</Link>
+              <div onClick={()=>{Navigate("/signUp")}}>
+              <p className="px-4 pt-2 text-dark searchbardropdown w-100"> Sign Up</p></div>
               </Dropdown.Item>
              
        

@@ -512,5 +512,11 @@ padding: 0px 100px;
   
 }
 
+@media only screen and (max-width: 992px) and (min-width: 768px)  {
+  .profilerecipe{
+width: 348px!important;
+  }
+  
+}
 
 

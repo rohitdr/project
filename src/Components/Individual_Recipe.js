@@ -9,6 +9,7 @@ export default function Individual_Recipe() {
   const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId} = context
   let location = useLocation();
 useEffect(()=>{
+  
 RecipeBYId(CurrentRecipeItemid)
 },[])
 

@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeContext from "../Context/RecipeContext";
-import { Modal, Button, Text, Input, Row } from "@nextui-org/react";
 
+import { Modal, Image, Text } from "@nextui-org/react";
 import "./login.css";
 import "./login_file.js";
 export default function Login() {
   let Navigate = useNavigate();
+  const [visiblemodal,setvisiblemodal] = useState(false)
   const context = useContext(RecipeContext);
   const { login,showAlert ,setProgress} = context;
 
@@ -34,7 +35,7 @@ export default function Login() {
       setProgress(70)
       sessionStorage.setItem("auth-token",loginresult.auth_token)
       sessionStorage.setItem("success",loginresult.succcess)
-   
+ 
       
      
       setProgress(100)
@@ -47,8 +48,13 @@ export default function Login() {
 
     }
     if(response.status=== 400){
+
       setProgress(100)
+      setvisiblemodal(true)
       showAlert(loginresult.error,"danger")
+      setTimeout(() => {
+        setvisiblemodal(false)
+      }, 2000);
     }
    
   
@@ -200,6 +206,22 @@ export default function Login() {
           </Button>
         </Modal.Footer>
       </Modal> */}
+
+
+      {/* modal for wrong credentials */}
+      <Modal noPadding open={visiblemodal} blur>
+        <Modal.Header
+          css={{ position: "absolute", zIndex: "$1", top: 5, right: 8 }}
+        ></Modal.Header>
+        <Modal.Body>
+          <Image
+            showSkeleton
+            src="https://media.tenor.com/96H5g9JcobEAAAAd/jethalal-angry-tarak-mehta-ka-ooltah-chashmah.gif"
+            width={400}
+            height={490}
+          />
+        </Modal.Body>
+      </Modal>
     </>
   );
 }

@@ -1,41 +1,32 @@
-import React, { useContext, useEffect, useState } from "react";
-
-import RecipeContext from "../Context/RecipeContext";
-import BlankRecipeItem from "./BlankRecipeItem";
-import Loader from "./Loader";
-import RecipeItem from "./RecipeItem";
-import { BrowserRouter,Link,Route,Routes } from "react-router-dom";
-import Profile_Profile from "./Profile_Profile";
-import Profile_Security from "./Profile_Security";
-import NoResult from "./NoResult";
-export default  function Profile(props){
-
+import React from 'react'
+import { useEffect } from 'react';
+import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import RecipeContext from '../Context/RecipeContext';
+import RecipeItem from './RecipeItem';
+export default function CuisineType() {
     const context = useContext(RecipeContext)
-    const {recipe,allRecipe,loading} = context
-   useEffect(()=>{
-    
- 
-    
-     allRecipe()
-  
-},[])
-  
-return(
-<>
+    const {cuisine,cuisinedata}=context
+    const {state}=useLocation();
+    const {type}=state
+    useEffect(()=>{
+        cuisine(type)
+    },[type])
+  return (
+  <>
+  <div className="container">
 
-<div className="container">
-
-{!recipe ?  <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> : <div className="row my-3">
+<div className="row my-3">
 
  <h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
           Your Recipes
           </h1>
-    {loading && <Loader></Loader> && <BlankRecipeItem></BlankRecipeItem> }
+
     
  
-       {recipe.recipe && recipe.recipe.map((element)=>{
-      
+       {cuisinedata.recipe && cuisinedata.recipe.map((element)=>{
+     
         return <div className="col-md-3 mt-4 profilerecipe box_decrease_size_animation_for_recipeitem" key={element._id}>
                     <RecipeItem
                       id={element._id}
@@ -85,25 +76,13 @@ return(
  
      
    
-       </div>}
+       </div>
    
      
       
        
 </div>
-
-
   
-   
-    
-  
-
-      
-    
-   
-
-
-
   </>
-)
+  )
 }

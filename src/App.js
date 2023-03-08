@@ -26,6 +26,7 @@ import IndividualRecipe_Nutrients from "./Components/IndividualRecipe_Nutrients"
 import IndividualRecipe_Ingrediants from "./Components/IndividualRecipe_Ingrediants";
 import IndividualRecipe_description from "./Components/IndividualRecipe_description";
 import SignUp from "./Components/SignUp";
+import CuisineType from "./Components/CuisineType";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -442,6 +443,13 @@ function App() {
                 path='/Add_Recipe'
                 element={
       <AddRecipe></AddRecipe>
+                }
+              />
+              <Route
+                exact
+                path='/cuisineType'
+                element={
+      <CuisineType></CuisineType>
                 }
               />
                 <Route
