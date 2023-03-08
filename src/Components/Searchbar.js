@@ -490,7 +490,8 @@ const collapseItems = [
                 description="Experience the vibrant and delicious flavors of our alcohol-free recipe, without any of the after-effects"
               
               >
-               Alcohol-Free
+                  <div onClick={()=>{Navigate("/health",{state:{type:"Alcohol-Free"}})}}>
+               Alcohol-Free</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="usage_metrics"
@@ -500,7 +501,8 @@ const collapseItems = [
                 description="Indulge in the rich and satisfying taste of our egg-free recipe, perfect for those with dietary restrictions"
                
               >
-                Egg-Free
+                <div onClick={()=>{Navigate("/health",{state:{type:"Egg-Free"}})}}>
+                Egg-Free</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="production_ready"
@@ -510,7 +512,8 @@ const collapseItems = [
                 description="Enjoy the delectable flavors of our gluten-free recipe, without compromising on taste or texture."
               
               >
-                Gluten-Free
+                <div onClick={()=>{Navigate("/health",{state:{type:"Gluten-Free"}})}}>
+                Gluten-Free</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="99_uptime"
@@ -520,7 +523,8 @@ const collapseItems = [
                 description="Savor the goodness of our kidney-friendly recipe, thoughtfully crafted to nourish your body while tantalizing your taste buds."
                
               >
-                Kidney-Friendly
+                <div onClick={()=>{Navigate("/health",{state:{type:"Kidney-Friendly"}})}}>
+                Kidney-Friendly</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
@@ -530,7 +534,8 @@ const collapseItems = [
                 description="Indulge guilt-free in our low-fat-abs recipe, designed to satisfy your cravings while promoting a healthier lifestyle."
                
               >
-               Low-Fat-Abs
+                <div onClick={()=>{Navigate("/health",{state:{type:"Low-Fat-Abs"}})}}>
+               Low-Fat-Abs</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Low-Sugar"
@@ -540,7 +545,8 @@ const collapseItems = [
                 description="Experience the sweetness of our low-sugar recipe, bursting with delicious flavors without the added sugar rush."
                
               >
-              Low-Sugar
+                <div onClick={()=>{Navigate("/health",{state:{type:"Low-sugar"}})}}>
+              Low-Sugar</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Mustard-Free"
@@ -550,7 +556,8 @@ const collapseItems = [
                 description="Enjoy the full flavor of our mustard-free recipe, perfect for those with allergies or simply looking for a refreshing change"
                
               >
-              Mustard-Free
+                <div onClick={()=>{Navigate("/health",{state:{type:"Mustard-Free"}})}}>
+              Mustard-Free</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="No-OIl-added"
@@ -560,7 +567,8 @@ const collapseItems = [
                 description="Taste the goodness of our no-oil-added recipe, carefully crafted to give you a healthy and flavorful meal without the excess oil."
                
               >
-               No-Oil-Added
+                <div onClick={()=>{Navigate("/health",{state:{type:"No-Oil-Added"}})}}>
+               No-Oil-Added</div>
               </Dropdown.Item>
               <Dropdown.Item
                  css={{color:"darkred"}}
@@ -570,7 +578,8 @@ const collapseItems = [
                 description="Satisfy your cravings with our delicious red-meat-free recipe, bursting with flavor and wholesome ingredients for a satisfying meal."
                
               >
-            Red-Meat-Free
+                <div onClick={()=>{Navigate("/health",{state:{type:"Red-Meat-Free"}})}}>
+            Red-Meat-Free</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Vegan"
@@ -580,7 +589,8 @@ const collapseItems = [
                 description="Experience the vibrant and delicious flavors of our vegan recipe, crafted with care to nourish your body and delight your taste buds."
                
               >
-               Vegan
+                <div onClick={()=>{Navigate("/health",{state:{type:"Vegan"}})}}>
+               Vegan</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Vegetarian"
@@ -590,7 +600,8 @@ const collapseItems = [
                 description="Indulge in the goodness of our vegetarian recipe, packed with wholesome ingredients and bursting with flavor to satisfy your cravings."
                
               >
-            Vegetarian
+                <div onClick={()=>{Navigate("/health",{state:{type:"Vegetarian"}})}}>
+            Vegetarian</div>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

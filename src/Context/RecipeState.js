@@ -21,10 +21,36 @@ export default function RecipeState(props){
      const [userbyid, setuserbyid]= useState({})
      const [cuisinedata,setcuisinedata]=useState({})
      const [cuisineloading,setcuisineloading]=useState(false)
+     const [healthdata , sethealthdata]=useState({})
+     const [healthloading,sethealthloading]=useState(false)
 
+//api to get recipe who has a particular healthlabel
+     const health=async(type)=>{
+ sethealthloading(true)
+ setProgress(30)
+      const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswithhealthlabels/${type}`, {
+        method: 'GET',
+        mode: "cors",
+        headers: {
+          'Content-Type': 'application/json',
+       
+    
+         
+        },
+       
+    
+    
+      });
+      setProgress(50)
+      let result=await response.json();
+      setProgress(70)
+     sethealthdata(result)
+     setProgress(100)
+      sethealthloading(false)
+    }
 //api to get recipe according to cuisine type
 const cuisine=async(type)=>{
-  setcuisineloading(true)
+setProgress(30)
   const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswithcuisinetype/${type}`, {
     method: 'GET',
     mode: "cors",
@@ -38,9 +64,11 @@ const cuisine=async(type)=>{
 
 
   });
+  setProgress(50)
   let result=await response.json();
+  setProgress(70)
   setcuisinedata(result)
-  setcuisineloading(false)
+setProgress(100)
 }
      ////api to get user detail by giving id
      const getUserbyid=async(id)=>{
@@ -383,7 +411,7 @@ else{
      
     }
 return(
-    <RecipeContext.Provider value={{cuisineloading,cuisinedata,cuisine,getUserbyid,userbyid,LatestRecipebyid,Latest_recipebyid,signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{ health,healthdata,cuisineloading,cuisinedata,cuisine,getUserbyid,userbyid,LatestRecipebyid,Latest_recipebyid,signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )
