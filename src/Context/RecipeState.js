@@ -23,7 +23,33 @@ export default function RecipeState(props){
      const [cuisineloading,setcuisineloading]=useState(false)
      const [healthdata , sethealthdata]=useState({})
      const [healthloading,sethealthloading]=useState(false)
+     const [mealdata ,setmealdata]=useState({})
+   
 
+     //api to get recipe who has a particular mealtype
+     const mealtype=async(type)=>{
+    
+      setProgress(30)
+           const response = await fetch(`${(type=="lunch/dinner")?"http://localhost:5000/api/recipe/allRecipeswithmealtypelunchdinner":`http://localhost:5000/api/recipe/allRecipeswithmealtype/${type}`}`, {
+             method: 'GET',
+             mode: "cors",
+             headers: {
+               'Content-Type': 'application/json',
+            
+         
+              
+             },
+            
+         
+         
+           });
+           setProgress(50)
+           let result=await response.json();
+           setProgress(70)
+          setmealdata(result)
+          setProgress(100)
+         
+         }
 //api to get recipe who has a particular healthlabel
      const health=async(type)=>{
  sethealthloading(true)
@@ -411,7 +437,7 @@ else{
      
     }
 return(
-    <RecipeContext.Provider value={{ health,healthdata,cuisineloading,cuisinedata,cuisine,getUserbyid,userbyid,LatestRecipebyid,Latest_recipebyid,signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{ mealtype,mealdata,health,healthdata,cuisineloading,cuisinedata,cuisine,getUserbyid,userbyid,LatestRecipebyid,Latest_recipebyid,signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )

@@ -153,7 +153,8 @@ const collapseItems = [
                 description="Looking to impress your dinner guests with a mouthwatering meal? Look no further than this delectable dinner recipe!"
               icon={<i class="fa-solid  fa-utensils fs-4 px-2" style={{color:"#dc3545"}}></i>}
               >
-              Dinner
+                <div onClick={()=>{Navigate("/mealtype",{state:{type:"lunch/dinner",on:true}})}}>
+              Dinner</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="usage_metrics"
@@ -165,8 +166,8 @@ const collapseItems = [
              }
                 description="Whether you're looking to fuel up for a busy day ahead or simply indulge in a decadent morning treat, this breakfast recipe is sure to please."
                icon={<i class="fa-solid fa-bowl-food fs-4 px-2" style={{color:"purple"}}></i>}
-              >
-             BreakFast
+              ><div onClick={()=>{Navigate("/mealtype",{state:{type:"breakfast",on:false}})}}>
+             BreakFast</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="production_ready"
@@ -175,7 +176,8 @@ const collapseItems = [
                 description="Don't settle for a boring sandwich or a lackluster salad for your midday meal! This lunch recipe will take your taste buds on a journey with every bite"
               icon={<i class="fa-sharp fa-solid fa-cloud-meatball fs-4 px-2 text-info"></i>}
               >
-            Lunch
+                <div onClick={()=>{Navigate("/mealtype",{state:{type:"lunch/dinner",on:true}})}}>
+            Lunch</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="99_uptime"
@@ -184,7 +186,8 @@ const collapseItems = [
                 description="When the midday munchies strike or you're in need of a little pick-me-up, these snack recipes will have you covered!"
                icon={<i class="fa-solid fa-wheat-awn fs-4 px-2 text-success"></i>}
               >
-                Snacks
+                <div onClick={()=>{Navigate("/mealtype",{state:{type:"snack",on:false}})}}>
+                Snacks</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
@@ -193,7 +196,8 @@ const collapseItems = [
                 description=" These teatime treats are the perfect way to unwind and relax with loved ones, or to indulge in a little self-care and me-time."
                icon={<i class="fa-solid fa-mug-saucer fs-4 px-2 text-primary"></i>}
               >
-            TeaTime
+                <div onClick={()=>{Navigate("/mealtype",{state:{type:"teatime",on:false}})}}>
+            TeaTime</div>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
