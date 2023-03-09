@@ -4,7 +4,7 @@ import './searchbar.css'
 import NavbarToggler from "./NavbarToggler";
 import RecipeContext from "../Context/RecipeContext";
 import { useState } from "react";
-import { Navbar, Text, Avatar, Dropdown,Input  } from "@nextui-org/react";
+import { Navbar, Text, Avatar, Dropdown,Input,Collapse  } from "@nextui-org/react";
 import { AcmeLogo } from "./AcmeLogo.js";
 import { SearchIcon } from "./SearchIcon.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,17 +27,66 @@ var modalsearch
 const clickindian=()=>{
  Navigate("/login")
 }
-const collapseItems = [
-  "Features",
-  "Customers",
-  "Pricing",
-  "Company",
-  "Legal",
-  "Team",
-  "Help & Feedback",
-  "Login",
-  "Sign Up",
+const collapsemealItems = [
+
+ { path:"/mealtype",name:"Dinner",type:"lunch/Dinner"},
+ { path:"/mealtype",name:"BreakFast",type:"breakfast"},
+ { path:"/mealtype",name:"Lunch",type:"lunch/Dinner"},
+ { path:"/mealtype",name:"Snack",type:"snack"},
+ { path:"/mealtype",name:"TeaTime",type:"teatime"},
 ];
+const collapsedishItems = [
+ { path:"/dishtype",name:"Bread",type:"bread"},
+ { path:"/dishtype",name:"Cereals",type:"cereals"},
+ { path:"/dishtype",name:"Condiments and Sauces",type:"condiments and sauces"},
+ { path:"/dishtype",name:"Desserts",type:"desserts"},
+ { path:"/dishtype",name:"Drinks",type:"drinks"},
+ { path:"/dishtype",name:"Main Course",type:"main course"},
+ { path:"/dishtype",name:"Pancake",type:"pancake"},
+ { path:"/dishtype",name:"Preps",type:"preps"},
+ { path:"/dishtype",name:"Salad",type:"salad"},
+ { path:"/dishtype",name:"Sandwiches",type:"sandwiches"},
+ { path:"/dishtype",name:"Soup",type:"soup"},
+ { path:"/dishtype",name:"Starter",type:"starter"}
+
+];
+const collapsedietItems = [
+ { path:"/diettype",name:"Balanced",type:"Balanced"},
+ { path:"/diettype",name:"High-Fiber",type:"High-Fiber"},
+ { path:"/diettype",name:"High-Protein",type:"High-Protein"},
+ { path:"/diettype",name:"Low-Carb",type:"Low-Carb"},
+ { path:"/diettype",name:"Low-Fat",type:"Low-Fat"},
+ { path:"/diettype",name:"Low-Sodium",type:"Low-Sodium"}
+];
+const collapsehealthItems = [
+ { path:"/health",name:"Alcohol-Free",type:"Alcohol-Free"},
+ { path:"/health",name:"Egg-Free",type:"Egg-Free"},
+{ path:"/health",name:"Gluten-Free",type:"Gluten-Free"},
+ { path:"/health",name:"Kidney-Friendly",type:"Kidney-Friendly"},
+ { path:"/health",name:"Low-Fat-Abs",type:"Low-Fat-Abs"},
+ { path:"/health",name:"Low-sugar",type:"Low-sugar"},
+ { path:"/health",name:"Mustard-Free",type:"Mustard-Free"},
+ { path:"/health",name:"No-Oil-Added",type:"No-Oil-Added"},
+ { path:"/health",name:"Red-Meat-Free",type:"Red-Meat-Free"},
+ { path:"/health",name:"Vegan",type:"Vegan"},
+ { path:"/health",name:"Vegetarian",type:"Vegetarian"}
+];
+const collapsecuisineItems = [
+ { path:"/cuisineType",name:"Indian",type:"Indian"},
+ { path:"/cuisineType",name:"American",type:"american"},
+ { path:"/cuisineType",name:"British",type:"british"},
+ { path:"/cuisineType",name:"Chinese",type:"chinese"},
+ { path:"/cuisineType",name:"Japnese",type:"japnese"},
+ { path:"/cuisineType",name:"Mexican",type:"mexican"},
+ { path:"/cuisineType",name:"French",type:"french"}
+];
+
+
+
+
+
+ 
+
 
   return (
  
@@ -45,8 +94,8 @@ const collapseItems = [
 
 <Navbar isBordered variant="sticky" >
         <Navbar.Brand css={{ mr: "$4" }}>
-        <NavbarToggler></NavbarToggler>
-        {/* <Navbar.Toggle aria-label="toggle navigation" showIn="md"/> */}
+        {/* <NavbarToggler></NavbarToggler> */}
+        <Navbar.Toggle aria-label="toggle navigation" showIn="md"/>
       {/* <AcmeLogo></AcmeLogo> */}
       <p class="navbar-brand d-none d-sm-block">
       <img src="Reciperiotlogo.png" alt="Logo" width="75" height="90" class="d-inline-block align-text-top logoofwebsite"/>
@@ -835,19 +884,87 @@ const collapseItems = [
           </Dropdown>
         </Navbar.Content>
         <Navbar.Collapse>
-        {collapseItems.map((item, index) => (
+
+          {/* //for home */}
+          
+  
+         
+            
+           <Collapse.Group   divider={false}>
+           <Collapse  title="Home"  style={{cursor:"pointer"}} onClick={()=>{Navigate(`/home`)}}  >
+           <Navbar.CollapseItem key="home">
+           <div className="">
+         Home
+           </div></Navbar.CollapseItem>
+     
+          </Collapse>
+          <Collapse  title="Meal Type" >
+          {collapsemealItems.map((item) => (
           <Navbar.CollapseItem key={item}>
-            {/* <Link
-              color="inherit"
-              css={{
-                minWidth: "100%",
-              }}
-              href="#"
-            > */}
-              {item}
-           
+           <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
+           {item.name}
+           </div>
+            
+       
           </Navbar.CollapseItem>
         ))}
+          </Collapse>
+          <Collapse title="Dish Type" >
+          {collapsedishItems.map((item) => (
+          <Navbar.CollapseItem key={item}>
+           <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
+           {item.name}
+           </div>
+            
+       
+          </Navbar.CollapseItem>
+        ))}
+          </Collapse>
+          <Collapse title="Diet Type">
+          {collapsedietItems.map((item) => (
+          <Navbar.CollapseItem key={item}>
+           <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
+           {item.name}
+           </div>
+            
+       
+          </Navbar.CollapseItem>
+        ))}
+          </Collapse>
+          <Collapse title="Health">
+          {collapsehealthItems.map((item) => (
+          <Navbar.CollapseItem key={item}>
+           <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
+           {item.name}
+           </div>
+            
+       
+          </Navbar.CollapseItem>
+        ))}
+          </Collapse>
+          <Collapse title="Cuisine Type">
+            {collapsecuisineItems.map((item) => (
+          <Navbar.CollapseItem key={item}>
+           <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
+           {item.name}
+           </div>
+            
+       
+          </Navbar.CollapseItem>
+        ))}
+          </Collapse>
+        </Collapse.Group>
+         
+{/* for mealtype */}
+        {/* {collapseItems.map((item) => (
+          <Navbar.CollapseItem key={item}>
+           <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
+           {item.name}
+           </div>
+            
+       
+          </Navbar.CollapseItem>
+        ))} */}
        
       </Navbar.Collapse>
       </Navbar>
