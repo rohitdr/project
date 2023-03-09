@@ -5,8 +5,10 @@ import { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import RecipeContext from '../Context/RecipeContext'
 import NoResult from './NoResult'
+import { Modal,Image } from '@nextui-org/react';
 
 export default function Profile_Activity() {
+    const [visibledelete,setvisibledelete]=useState(false)
     const context = useContext(RecipeContext)
     const [totalLikes,settotalLikes]=useState(0)
     const {getUser,userData,LatestRecipebyid,Latest_recipebyid} = context
@@ -81,7 +83,9 @@ export default function Profile_Activity() {
                     </div>
                 </div>
                 <div class="ms-4 small">
-                    <a class="badge bg-light text-dark me-3">Delete</a>
+                    <a class="badge bg-light text-dark me-3" onClick={()=>{setvisibledelete(true); setTimeout(() => { setvisibledelete(false)
+                        
+                    }, 3000);}}>Delete</a>
                     <a href="#!">Edit</a>
                 </div>
             </div>
@@ -97,6 +101,21 @@ export default function Profile_Activity() {
  
 </div>
 
+{/* modal for confirmation of deleting the recipe */}
+
+<Modal noPadding open={visibledelete} blur>
+        <Modal.Header
+          css={{ position: "absolute", zIndex: "$1", top: 5, right: 8 }}
+        ></Modal.Header>
+        <Modal.Body>
+          <Image
+            showSkeleton
+            src="https://media.tenor.com/IGYZtNLXHIwAAAAC/sunda-ko-aa-mast-naha-dho-ke-aa-paresh-rawal-baburao.gif"
+            width={400}
+            height={490}
+          />
+        </Modal.Body>
+      </Modal>
 
 </>
   )

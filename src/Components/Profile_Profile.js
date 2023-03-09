@@ -15,7 +15,7 @@ Navigate("/login")
     else{
 getUser()
     }
-  })
+  },[])
   //converting image to base64
   const toBase64=(file)=>
     new Promise((resolve,reject)=>{

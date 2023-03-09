@@ -812,7 +812,7 @@ const collapsecuisineItems = [
 
         
            <form className="d-flex text-white  ">
-        <input className="form-control me-2 text-white search_input rounded-3" id="searchbar-searchbox" type="search" placeholder="Search"  data-bs-toggle="modal" data-bs-target="#exampleModalsearch" aria-label="Search" onChange={(e)=>{
+        <input className="form-control me-2 text-white  rounded-3" id="searchbar-searchbox" type="search" placeholder="Search"  data-bs-toggle="modal" data-bs-target="#exampleModalsearch" aria-label="Search" onChange={(e)=>{
           searchentered=e.target.value
           setName_to_search(searchentered)
       
