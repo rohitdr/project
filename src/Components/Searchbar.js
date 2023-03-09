@@ -250,7 +250,8 @@ const collapseItems = [
                 description="Bake your way to happiness with this delicious homemade bread recipe."
               icon={<i class="fa-solid fa-bread-slice text-success fs-4"></i>}
               >
-               Bread
+                <div onClick={()=>{Navigate("/dishtype",{state:{type:"bread"}})}}>
+               Bread</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="usage_metrics"
@@ -259,7 +260,8 @@ const collapseItems = [
                 description="Start your day off right with this delicious and nutritious homemade cereal recipe."
                icon={<i class="fa-solid fa-bowl-food text-danger fs-4"></i>}
               >
-               Cereals
+                 <div onClick={()=>{Navigate("/dishtype",{state:{type:"cereals"}})}}>
+               Cereals</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="production_ready"
@@ -267,8 +269,8 @@ const collapseItems = [
                 showFullDescription
                 description="Transform any dish into a gourmet masterpiece with these delicious homemade condiments and sauces"
               icon={<i class="fa-sharp fa-solid fa-sink text-primay fs-4"></i>}
-              >
-             Condiments And Sauces
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"condiments and sauces"}})}}>
+             Condiments And Sauces</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="99_uptime"
@@ -276,8 +278,8 @@ const collapseItems = [
                 showFullDescription
                 description="Indulge your sweet tooth with this heavenly homemade dessert recipe."
                icon={<i class="fa-solid fa-ice-cream fs-4" style={{color:"purple"}}></i>}
-              >
-               Desserts
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"desserts"}})}}>
+               Desserts</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
@@ -285,8 +287,8 @@ const collapseItems = [
                 showFullDescription
                 description="Sip on paradise with this refreshing and delicious homemade drink recipe"
                icon={<i class="fa-solid fa-wine-glass-empty fs-4" style={{color:"Violet"}}></i>}
-              >
-                Drinks
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"drinks"}})}}>
+                Drinks</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="MainCourse"
@@ -294,8 +296,8 @@ const collapseItems = [
                 showFullDescription
                 description="Impress your dinner guests with this mouth-watering homemade main course recipe."
                icon={<i class="fa-brands fa-discourse fs-4" style={{color:"indigo"}}></i>}
-              >
-               MainCourse
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"main course"}})}}>
+               MainCourse</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Pancake"
@@ -304,8 +306,8 @@ const collapseItems = [
                 description="From classic flavors to creative twists, this pancake recipe is sure to please any palate."
                icon={<i class="fa-solid fa-bacon fs-4" style={{color:"chocolate"}}></i>}
               
-              >
-               Pancake
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"pancake"}})}}>
+               Pancake</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Preps"
@@ -313,8 +315,8 @@ const collapseItems = [
                 showFullDescription
                 description="Make mealtime a breeze with this easy and time-saving homemade prep recipe."
                icon={<i class="fa-solid fa-mortar-pestle fs-4" style={{color:"brown"}}></i>}
-              >
-               Preps
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"preps"}})}}>
+               Preps</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Salad"
@@ -322,8 +324,8 @@ const collapseItems = [
                 showFullDescription
                 description="Elevate your salad game with this delicious and healthy homemade salad recipe."
                icon={<i class="fa-sharp fa-solid fa-lemon text-info fs-4" ></i>}
-              >
-                Salad
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"salad"}})}}>
+                Salad</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Sandwiches"
@@ -331,8 +333,8 @@ const collapseItems = [
                 showFullDescription
                 description="Upgrade your lunch game with this easy and delicious homemade sandwich recipe."
                icon={<i class="fa-solid fa-hotdog fs-4" style={{color:"purple"}}></i>}
-              >
-               Sandwiches
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"sandwiches"}})}}>
+               Sandwiches</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Soup"
@@ -340,8 +342,8 @@ const collapseItems = [
                 showFullDescription
                 description="Warm your soul and delight your taste buds with this homemade soup recipe"
                icon={<i class="fa-solid fa-pump-soap fs-4" style={{color:"darksalmon"}}></i>}
-              >
-              Soup
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"soup"}})}}>
+              Soup</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Starter"
@@ -349,8 +351,8 @@ const collapseItems = [
                 showFullDescription
                 description="Kick off your meal in style with this easy and flavorful homemade starter recipe"
                icon={<i class="fa-solid fa-hourglass-start fs-4" style={{color:"rebeccapurple"}}></i>}
-              >
-              Starter
+              > <div onClick={()=>{Navigate("/dishtype",{state:{type:"starter"}})}}>
+              Starter</div>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -397,8 +399,8 @@ const collapseItems = [
                 textColor="primary"
                 description="Achieve a healthy and balanced lifestyle with this delicious and nutritious homemade recipe."
               icon={<i class="fa-solid fa-scale-balanced text-primary fs-4"></i>}
-              >
-               Balanced
+              > <div onClick={()=>{Navigate("/diettype",{state:{type:"Balanced"}})}}>
+               Balanced</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="usage_metrics"
@@ -406,8 +408,8 @@ const collapseItems = [
                 showFullDescription
                 description="Fuel your body with the fiber it needs to thrive with this delicious and wholesome homemade recipe"
                icon={<i class="fa-solid fa-tower-observation text-success fs-4"></i>}
-              >
-               highFiber
+              ><div onClick={()=>{Navigate("/diettype",{state:{type:"High-Fiber"}})}}>
+               highFiber</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="production_ready"
@@ -415,8 +417,8 @@ const collapseItems = [
                 textColor="erro"
                 description="Power up your day with this delicious and protein-packed homemade recipe."
               icon={<i class="fa-solid fa-dna text-danger fs-4"></i>}
-              >
-                High-Protein
+              ><div onClick={()=>{Navigate("/diettype",{state:{type:"High-Protein"}})}}>
+                High-Protein</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="99_uptime"
@@ -424,8 +426,8 @@ const collapseItems = [
                css={{color:"purple"}}
                 description="Enjoy delicious and satisfying meals while maintaining a low-carb lifestyle with this easy and flavorful recipe."
                icon={<i class="fa-solid fa-bowl-food fs-4" style={{color:"purple"}}></i>}
-              >
-                Low-Carb
+              ><div onClick={()=>{Navigate("/diettype",{state:{type:"Low-Carb"}})}}>
+                Low-Carb</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="supreme_support"
@@ -433,8 +435,8 @@ const collapseItems = [
                 css={{color:"Brown"}}
                 description="Discover the delicious world of low-fat cooking with this easy and flavorful homemade recipe."
                icon={<i class="fa-solid fa-fan fs-4" style={{color:"brown"}}></i>}
-              >
-               Low-Fat
+              ><div onClick={()=>{Navigate("/diettype",{state:{type:"Low-Fat"}})}}>
+               Low-Fat</div>
               </Dropdown.Item>
               <Dropdown.Item
                 key="Preserve"
@@ -442,8 +444,8 @@ const collapseItems = [
                 css={{color:"$blue700"}}
                 description="Capture the flavors of the season with this delicious and easy homemade preserve recipe."
                icon={<i class="fa-solid fa-prescription-bottle text-info fs-4"></i>}
-              >
-             Preserve
+              ><div onClick={()=>{Navigate("/diettype",{state:{type:"Low-Sodium"}})}}>
+             Low-Sodium</div>
               </Dropdown.Item>
              
             </Dropdown.Menu>

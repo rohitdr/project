@@ -16,7 +16,7 @@ export default function RecipeState(props){
    const [CurrentRecipeItem,setCurrentRecipeItem]=useState({})
    const [CurrentRecipeItemid,setCurrentRecipeItemid]=useState("")
    const [progress, setProgress] = useState(0);
-   const [progressheight,setProgressHeight] = useState(5)
+   const [progressheight,setProgressHeight] = useState(2)
   const [signuppage , setsignuppage]=useState(0)
      const [userbyid, setuserbyid]= useState({})
      const [cuisinedata,setcuisinedata]=useState({})
@@ -24,8 +24,57 @@ export default function RecipeState(props){
      const [healthdata , sethealthdata]=useState({})
      const [healthloading,sethealthloading]=useState(false)
      const [mealdata ,setmealdata]=useState({})
-   
+     const [dishdata,setdishdata]=useState({})
+   const [dietdata,setdietdata]=useState({})
 
+    //api to get recipe who has a particular mealtype
+    const diettype=async(type)=>{
+    
+      setProgress(30)
+           const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswithdietLabels/${type}`, {
+             method: 'GET',
+             mode: "cors",
+             headers: {
+               'Content-Type': 'application/json',
+            
+         
+              
+             },
+            
+         
+         
+           });
+           setProgress(50)
+           let result=await response.json();
+           setProgress(70)
+         setdietdata(result)
+          setProgress(100)
+         
+         }
+   //api to get recipe who has a particular mealtype
+   const dishtype=async(type)=>{
+    
+    setProgress(30)
+         const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswithdishtype/${type}`, {
+           method: 'GET',
+           mode: "cors",
+           headers: {
+             'Content-Type': 'application/json',
+          
+       
+            
+           },
+          
+       
+       
+         });
+         setProgress(50)
+         let result=await response.json();
+         setProgress(70)
+       setdishdata(result)
+        setProgress(100)
+       
+       }
      //api to get recipe who has a particular mealtype
      const mealtype=async(type)=>{
     
@@ -437,7 +486,7 @@ else{
      
     }
 return(
-    <RecipeContext.Provider value={{ mealtype,mealdata,health,healthdata,cuisineloading,cuisinedata,cuisine,getUserbyid,userbyid,LatestRecipebyid,Latest_recipebyid,signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
+    <RecipeContext.Provider value={{diettype,dietdata,dishdata,dishtype, mealtype,mealdata,health,healthdata,cuisineloading,cuisinedata,cuisine,getUserbyid,userbyid,LatestRecipebyid,Latest_recipebyid,signuppage,setsignuppage,showAlert,setProgressHeight,progressheight,progress,setProgress,RecipeBYId,CurrentRecipeItemid,setCurrentRecipeItemid,CurrentRecipeItem,setCurrentRecipeItem,AllLikedRecipe,LikedRecipe,setLikedRecipe,LikeRecipe,UnLikeRecipe,userData,getUser,recipe,alert,setAlert,allRecipe,deleteRecipe,setLoading,loading,Ingrediant_statepage,LatesRecipe,Latest_recipe,NameRecipe,name_to_search,setName_to_search,searchRecipe,setsearchedRecipe}}>
         {props.children}
     </RecipeContext.Provider>
 )

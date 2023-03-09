@@ -26,7 +26,7 @@ export default function Home() {
   var fourth=0
   var cuisinenumber=0
   const context = useContext(RecipeContext)
-  const {recipe,allRecipe,loading,LatesRecipe,Latest_recipe,getUser,cuisine,cuisinedata,cuisineloading} = context
+  const {loading,LatesRecipe,Latest_recipe,getUser,cuisine,cuisinedata,cuisineloading} = context
 
 
  useEffect(()=>{
@@ -34,7 +34,7 @@ export default function Home() {
  
 cuisine("indian")
   LatesRecipe()
-   allRecipe()
+ 
 },[])
 
   return (

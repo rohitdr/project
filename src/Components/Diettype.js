@@ -1,43 +1,34 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { useContext } from 'react';
+import React, { useContext, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import RecipeContext from '../Context/RecipeContext';
 import RecipeItem from './RecipeItem';
 
-
-export default function Meal() {
-  const firstCapital =(message)=>{
-    let lower =message.toLowerCase();
-    return ((lower.charAt(0).toUpperCase()) + lower.slice(1))
-  }
+export default function Diettype() {
+    const firstCapital =(message)=>{
+        let lower =message.toLowerCase();
+        return ((lower.charAt(0).toUpperCase()) + lower.slice(1))
+      }
     const {state}=useLocation();
-
     const context = useContext(RecipeContext)
-    const {mealtype,mealdata}=context
-    const {type,on}=state
+    const {diettype,dietdata}=context
+    const {type}=state
     useEffect(()=>{
-     
-
-            mealtype(type)
-  
-     
+      diettype(type)
     },[type])
   return (
-   
-   <>
+    <>
      <div className="container">
 
 <div className="row my-3">
 
  <h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
-           {firstCapital(type)} Recipes
+         {firstCapital(type)} Recipes
           </h1>
 
     
  
-       {mealdata.recipe && mealdata.recipe.map((element)=>{
+       {dietdata.recipe && dietdata.recipe.map((element)=>{
      
         return <div className="col-md-3 mt-4 profilerecipe box_decrease_size_animation_for_recipeitem" key={element._id}>
                     <RecipeItem
@@ -94,6 +85,7 @@ export default function Meal() {
       
        
 </div>
-   </>
+  
+    </>
   )
 }

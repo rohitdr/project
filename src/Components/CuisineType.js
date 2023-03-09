@@ -5,6 +5,10 @@ import { useLocation } from 'react-router-dom';
 import RecipeContext from '../Context/RecipeContext';
 import RecipeItem from './RecipeItem';
 export default function CuisineType() {
+  const firstCapital =(message)=>{
+    let lower =message.toLowerCase();
+    return ((lower.charAt(0).toUpperCase()) + lower.slice(1))
+  }
     const context = useContext(RecipeContext)
     const {cuisine,cuisinedata}=context
     const {state}=useLocation();
@@ -20,7 +24,7 @@ export default function CuisineType() {
 
  <h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
-          Your Recipes
+           {firstCapital(type)} Recipes
           </h1>
 
     

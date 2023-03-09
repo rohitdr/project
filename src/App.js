@@ -29,6 +29,8 @@ import SignUp from "./Components/SignUp";
 import CuisineType from "./Components/CuisineType";
 import Health from "./Components/Health";
 import Meal from "./Components/Meal";
+import Dishtype from "./Components/Dishtype";
+import Diettype from "./Components/Diettype";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -459,6 +461,20 @@ function App() {
                 path='/mealtype'
                 element={
 <Meal></Meal>
+                }
+              />
+               <Route
+                exact
+                path='/diettype'
+                element={
+<Diettype></Diettype>
+                }
+              />
+               <Route
+                exact
+                path='/dishtype'
+                element={
+<Dishtype></Dishtype>
                 }
               />
               <Route
@@ -1351,14 +1367,14 @@ function App() {
         {/* </div>
           </div>
         </div> */}
-        <footer class="bg-light text-center pt-4 text-lg-start">
+        {/* <footer class="bg-light fixed-bottom text-center pt-4 text-lg-start">
 
   <div class="text-center p-3">
     © 2020 Copyright:
     <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
 
-</footer>
+</footer> */}
       </BrowserRouter>
       {/* <Individual_Recipe></Individual_Recipe> */}
     </>
