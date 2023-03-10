@@ -29,9 +29,9 @@ const clickindian=()=>{
 }
 const collapsemealItems = [
 
- { path:"/mealtype",name:"Dinner",type:"lunch/Dinner"},
+ { path:"/mealtype",name:"Dinner",type:"lunch/dinner"},
  { path:"/mealtype",name:"BreakFast",type:"breakfast"},
- { path:"/mealtype",name:"Lunch",type:"lunch/Dinner"},
+ { path:"/mealtype",name:"Lunch",type:"lunch/dinner"},
  { path:"/mealtype",name:"Snack",type:"snack"},
  { path:"/mealtype",name:"TeaTime",type:"teatime"},
 ];
@@ -72,7 +72,7 @@ const collapsehealthItems = [
  { path:"/health",name:"Vegetarian",type:"Vegetarian"}
 ];
 const collapsecuisineItems = [
- { path:"/cuisineType",name:"Indian",type:"Indian"},
+ { path:"/cuisineType",name:"Indian",type:"indian"},
  { path:"/cuisineType",name:"American",type:"american"},
  { path:"/cuisineType",name:"British",type:"british"},
  { path:"/cuisineType",name:"Chinese",type:"chinese"},
@@ -709,7 +709,7 @@ const collapsecuisineItems = [
               
               >
              
-              <div onClick={()=>{Navigate("/cuisineType",{state:{type:"Indian"}})}}>
+              <div onClick={()=>{Navigate("/cuisineType",{state:{type:"indian"}})}}>
              Indian</div>
               </Dropdown.Item> 
               <Dropdown.Item

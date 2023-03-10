@@ -139,11 +139,18 @@ setProgress(30)
 
 
   });
-  setProgress(50)
-  let result=await response.json();
-  setProgress(70)
-  setcuisinedata(result)
+  if(response.status==404){
+showAlert(response.error,'danger')
 setProgress(100)
+  }
+  else{
+    setProgress(50)
+    let result=await response.json();
+    setProgress(70)
+    setcuisinedata(result)
+  setProgress(100)
+  }
+
 }
      ////api to get user detail by giving id
      const getUserbyid=async(id)=>{
