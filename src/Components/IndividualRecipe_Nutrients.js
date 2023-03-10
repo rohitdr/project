@@ -30,7 +30,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="col">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault" />
                           </div>
                         </th>
                         <th scope="col">Nutrients</th>
@@ -43,10 +43,10 @@ export default function IndividualRecipe_Nutrients() {
 
                     { !loading && CurrentRecipeItem?.recipe && CurrentRecipeItem?.recipe.map((element)=>{
                    
-                        return <><tr>
+                        return <><tr key={element._id}>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -61,7 +61,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -76,7 +76,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -91,7 +91,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -106,7 +106,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -121,7 +121,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -136,7 +136,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -151,7 +151,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -166,7 +166,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -181,7 +181,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -196,7 +196,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -211,7 +211,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -226,7 +226,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -241,7 +241,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -256,7 +256,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -271,7 +271,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -286,7 +286,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -301,7 +301,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        
@@ -316,7 +316,7 @@ export default function IndividualRecipe_Nutrients() {
                       <tr>
                         <th scope="row">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" />
+                            <input class="form-check-input" type="checkbox"  id="flexCheckDefault1" />
                           </div>
                         </th>
                        

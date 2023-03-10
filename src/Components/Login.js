@@ -40,7 +40,7 @@ export default function Login() {
      
       setProgress(100)
 
-        Navigate("/Profile")
+        Navigate("/Home")
         showAlert("Your had successfully logged in","success")
    
      

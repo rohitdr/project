@@ -19,7 +19,7 @@ export default function IndividualRecipe_Ingrediants() {
 
         { !loading && CurrentRecipeItem.recipe && CurrentRecipeItem?.recipe.map((element)=>{
       return element.ingredients.map((ele)=>{
-          return  <div className="col-md-6 pb-4" >
+          return  <div className="col-md-6 pb-4" key={element._id} >
            <div class="card mb-3 box_decrease_size_animation" style={{maxWidth: "540px"}}>
      <div class="row g-0">
        <div class="col-md-4">

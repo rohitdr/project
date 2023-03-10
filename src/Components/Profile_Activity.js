@@ -5,13 +5,13 @@ import { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import RecipeContext from '../Context/RecipeContext'
 import NoResult from './NoResult'
-import { Modal,Image } from '@nextui-org/react';
+import { Modal,Image,Button } from '@nextui-org/react';
 
 export default function Profile_Activity() {
-    const [visibledelete,setvisibledelete]=useState(false)
+    const [visibledelete,setvisibledelete]=useState({state:false,id:""})
     const context = useContext(RecipeContext)
     const [totalLikes,settotalLikes]=useState(0)
-    const {getUser,userData,LatestRecipebyid,Latest_recipebyid} = context
+    const {getUser,userData,LatestRecipebyid,Latest_recipebyid,deleteRecipe,recipe} = context
     let Navigate = useNavigate();
     useEffect(()=>{
         if(!sessionStorage.getItem("auth-token")){
@@ -24,7 +24,10 @@ export default function Profile_Activity() {
                 }
       
     
-    },[])
+    },[LatestRecipebyid])
+    const deleterecipe=(id)=>{
+    setvisibledelete({state:true,id:id})
+    }
     
   return (<>
    <div>
@@ -73,7 +76,7 @@ export default function Profile_Activity() {
         <div class="card-body px-0">
        { Latest_recipebyid.recipe && Latest_recipebyid.recipe.map((element)=>{
 
-           return <><div class="d-flex align-items-center justify-content-between px-4">
+           return <><div class="d-flex align-items-center justify-content-between px-4" key={element._id}>
                 <div class="d-flex align-items-center">
                 <img src={element.image}
               className="img-fluid shadow-1-strong rounded latest_recipe_image Profile_activity_latest_image " alt="Latest Recipe Image" />
@@ -82,11 +85,13 @@ export default function Profile_Activity() {
                         <div class="text-xs text-muted">{(new Date(element.date).toLocaleString())}</div>
                     </div>
                 </div>
-                <div class="ms-4 small">
-                    <a class="badge bg-light text-dark me-3" onClick={()=>{setvisibledelete(true); setTimeout(() => { setvisibledelete(false)
-                        
-                    }, 3000);}}>Delete</a>
-                    <a href="#!">Edit</a>
+                <div class="ms-4 small d-flex justify-content-around">
+                    <div className="me-2"> <Button onClick={()=>{deleterecipe(element._id)}} color="error" auto ghost>
+                   Delete
+                  </Button></div>
+                    <div><Button color="primary" auto ghost>
+                 Edit
+                  </Button></div>
                 </div>
             </div>
             <hr/></>
@@ -103,7 +108,7 @@ export default function Profile_Activity() {
 
 {/* modal for confirmation of deleting the recipe */}
 
-<Modal noPadding open={visibledelete} blur>
+<Modal noPadding open={visibledelete.state} blur>
         <Modal.Header
           css={{ position: "absolute", zIndex: "$1", top: 5, right: 8 }}
         ></Modal.Header>
@@ -115,6 +120,14 @@ export default function Profile_Activity() {
             height={490}
           />
         </Modal.Body>
+        <Modal.Footer>
+          <Button auto flat color="error" onClick={()=>{setvisibledelete({state:false,id:""})}} >
+            Close
+          </Button>
+          <Button auto onClick={()=>{deleteRecipe(visibledelete.id); setvisibledelete({state:false,id:""})} } >
+          Delete
+          </Button>
+        </Modal.Footer>
       </Modal>
 
 </>

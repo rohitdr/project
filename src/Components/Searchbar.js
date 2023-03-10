@@ -900,7 +900,7 @@ const collapsecuisineItems = [
           </Collapse>
           <Collapse  title="Meal Type" >
           {collapsemealItems.map((item) => (
-          <Navbar.CollapseItem key={item}>
+          <Navbar.CollapseItem key={item.name}>
            <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
            {item.name}
            </div>
@@ -911,7 +911,7 @@ const collapsecuisineItems = [
           </Collapse>
           <Collapse title="Dish Type" >
           {collapsedishItems.map((item) => (
-          <Navbar.CollapseItem key={item}>
+          <Navbar.CollapseItem key={item.name}>
            <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
            {item.name}
            </div>
@@ -922,7 +922,7 @@ const collapsecuisineItems = [
           </Collapse>
           <Collapse title="Diet Type">
           {collapsedietItems.map((item) => (
-          <Navbar.CollapseItem key={item}>
+          <Navbar.CollapseItem key={item.name}>
            <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
            {item.name}
            </div>
@@ -933,7 +933,7 @@ const collapsecuisineItems = [
           </Collapse>
           <Collapse title="Health">
           {collapsehealthItems.map((item) => (
-          <Navbar.CollapseItem key={item}>
+          <Navbar.CollapseItem key={item.name}>
            <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
            {item.name}
            </div>
@@ -944,7 +944,7 @@ const collapsecuisineItems = [
           </Collapse>
           <Collapse title="Cuisine Type">
             {collapsecuisineItems.map((item) => (
-          <Navbar.CollapseItem key={item}>
+          <Navbar.CollapseItem key={item.name}>
            <div className="" style={{cursor:"pointer"}} onClick={()=>{Navigate(item.path,{state:{type:item.type}})}}>
            {item.name}
            </div>

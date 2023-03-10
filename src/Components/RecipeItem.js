@@ -38,13 +38,13 @@ const [star,setstar]=useState(0)
 
 const settingheart=()=>{
   if(userData?.user?.Liked_Recipe?.includes(props.id)){
-    console.log("ues")
+ 
 setHeart("solid")
 
 }
 else{
   setHeart("regular")
-  console.log("no")
+  
 }}
   React.useEffect(() => {
    
@@ -59,7 +59,7 @@ else{
       <i className="fa-brands fa-instagram me-4  fs-2 fw-bold text-danger"></i>
       <i className="fa-brands fa-facebook me-4  fs-2 fw-bold text-primary"></i>
       <i className="fa-brands fa-snapchat fs-2 me-4  fw-bold text-warning  "></i>
-      <i class="fa-solid fa-print fs-2 me-4 fw-bold text-secondary" onClick={()=>{window.print()}}></i></div>
+   </div>
       </Popover.Body>
     </Popover>
   );

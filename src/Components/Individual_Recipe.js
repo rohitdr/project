@@ -5,6 +5,7 @@ import RecipeContext from '../Context/RecipeContext';
 
 
 export default function Individual_Recipe() {
+
   const context = useContext(RecipeContext)
   const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId} = context
   let location = useLocation();
@@ -20,7 +21,7 @@ RecipeBYId(CurrentRecipeItemid)
   return (
 <>
     {CurrentRecipeItem.recipe && CurrentRecipeItem.recipe.map((element)=>{
-    return <div style={{backgroundColor:" #edf1f5"}}>
+    return <div style={{backgroundColor:" #edf1f5"}} key={element._id}>
      <div class="container pt-4" id="product-section" >
 <div class="row">
 <div class="col-md-6">
@@ -33,7 +34,7 @@ width="100%"
 />
 </div>
 <div class="col-md-6">
-<div class="col-md-12">
+<div class="col-md-12 ">
 <h1 >{element.label}</h1>
 </div>
 <div className="row">
@@ -41,11 +42,11 @@ width="100%"
 <span class="label label-primary">Uploaded On </span>
 <span class="monospaced">{(new Date(element.date).toLocaleString())}</span>
 </div> </div><div className="row">
-<div class="col-md-12">
+<div class="col-md-12 " >
 <p class="description">
 Uploaded By Rohit
-
 </p>
+
 </div> 
 </div>
 <div class="row">
@@ -69,23 +70,23 @@ Uploaded By Rohit
 </div>
 <div class="col-md-12">
 <p class="description">
-{element.dietLabels.map((element)=>{ return <span class="badge  bg-dark mx-2" style={{color:"white"}}>{element}</span>})}
+{element.dietLabels.map((element)=>{ return <span class="badge  bg-dark mx-2" style={{color:"white"}} key={element}>{element}</span>})}
 
 </p>
 </div> 
 <div class="col-md-12">
 <p class="description">
-{element.cautions.map((element)=>{ return <span class="badge mx-2 " style={{backgroundColor:"red"}}>{element}</span>})}
+{element.cautions.map((element)=>{ return <span class="badge mx-2 " style={{backgroundColor:"red"}} key={element}>{element}</span>})}
 </p>
 </div> 
 <div class="col-md-12">
 <p class="description">
-{element.healthLabels.map((element)=>{ return <span class="badge mx-2  bg-info" >{element}</span>})}
+{element.healthLabels.map((element)=>{ return <span class="badge mx-2  bg-info" key={element}>{element}</span>})}
 </p>
 </div> 
 <div class="col-md-12">
 <p class="description">
-{element.cuisineType.map((element)=>{ return <span class="badge bg-success">{element}</span>})} {element.mealType.map((element)=>{ return <span class="badge bg-primary">{element}</span>})} {element.dishType.map((element)=>{ return <span class="badge bg-warning">{element}</span>})}
+{element.cuisineType.map((element)=>{ return <span class="badge bg-success" key={element}>{element}</span>})} {element.mealType.map((element)=>{ return <span class="badge bg-primary" key={element}>{element}</span>})} {element.dishType.map((element)=>{ return <span class="badge bg-warning" key={element}>{element}</span>})}
 </p>
 </div> 
 
@@ -133,8 +134,11 @@ Uploaded By Rohit
 
 </div>
 </div>
+
 </div>
     }) }
+
+
     </>
   )
 }

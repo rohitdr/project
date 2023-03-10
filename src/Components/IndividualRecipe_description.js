@@ -15,7 +15,7 @@ export default function IndividualRecipe_description() {
   <>     {loading && <Loader></Loader>  }
 
    { !loading && CurrentRecipeItem?.recipe && CurrentRecipeItem?.recipe.map((element)=>{
-    return <div style={{backgroundColor:" #edf1f5"}} className="pb-4">
+    return <div style={{backgroundColor:" #edf1f5"}} className="pb-4" key={element._id}>
            <div class="container pt-4 " id="product-section" >
            <div className="row">
               <div className="col-md-6">
@@ -29,7 +29,7 @@ export default function IndividualRecipe_description() {
              </h2>
              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                <div class="accordion-body">
-                 <strong>{element.dietLabels.map((element)=>{ return <span class="badge  bg-dark mx-2" style={{color:"white"}}>{element}</span>})}
+                 <strong>{element.dietLabels.map((element)=>{ return <span class="badge  bg-dark mx-2" key={element} style={{color:"white"}}>{element}</span>})}
 </strong> 
                </div>
              </div>
@@ -42,7 +42,7 @@ export default function IndividualRecipe_description() {
              </h2>
              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                <div class="accordion-body">
-                 <strong>{element.healthLabels.map((element)=>{ return <span class="badge mx-2  bg-info" >{element}</span>})}
+                 <strong>{element.healthLabels.map((element)=>{ return <span class="badge mx-2  bg-info" key={element} >{element}</span>})}
 </strong> 
                </div>
              </div>
@@ -57,7 +57,7 @@ export default function IndividualRecipe_description() {
              </h2>
              <div id="collapsethird" class="accordion-collapse collapse show" aria-labelledby="headingthird" data-bs-parent="#accordionExample">
                <div class="accordion-body">
-                 <strong>{element.cuisineType.map((element)=>{ return <span class="badge bg-success">{element}</span>})} 
+                 <strong>{element.cuisineType.map((element)=>{ return <span class="badge bg-success" key={element} >{element}</span>})} 
 </strong> 
                </div>
              </div>
@@ -70,7 +70,7 @@ export default function IndividualRecipe_description() {
              </h2>
              <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
                <div class="accordion-body">
-                 <strong>{element.cautions.map((element)=>{ return <span class="badge mx-2 " style={{backgroundColor:"red"}}>{element}</span>})}
+                 <strong>{element.cautions.map((element)=>{ return <span class="badge mx-2 " style={{backgroundColor:"red"}} key={element} >{element}</span>})}
 </strong> 
                </div>
             
@@ -91,7 +91,7 @@ export default function IndividualRecipe_description() {
     </div>
   
   </li>
-              {element?.instruction?.map((element)=>{ return   <li class="list-group-item d-flex justify-content-between align-items-center mb-0">{element}</li>})}
+              {element?.instruction?.map((element)=>{ return   <li class="list-group-item d-flex justify-content-between align-items-center mb-0" key={element} >{element}</li>})}
               </ul>
               </div>    
 

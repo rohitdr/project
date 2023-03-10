@@ -234,7 +234,7 @@ export default function IndividualRecipe_comment() {
             <div class="reviews-members pt-4 pb-4 ">
             {CurrentRecipeItem.recipe && CurrentRecipeItem.recipe.map((element)=>{
                return element.Comments.map((ele)=>{
-                return <><div class="media row">
+                return <><div class="media row" key={ele._id}>
                 <div className="col-md-1">
                   <a href="#">
                     <img
@@ -248,7 +248,7 @@ export default function IndividualRecipe_comment() {
                   <div class="media-body">
                     <div class="reviews-members-header">
                       <h6 class="">
-                        <p class="text-black mb-0 ">{ele.username}</p>
+                        <p class="text-black mb-0 ">{ele._id}</p>
                       </h6>
                       <p class="text-gray mx-2">{new Date(ele.date).toLocaleString()}</p>
                     </div>

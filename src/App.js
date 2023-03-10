@@ -410,6 +410,7 @@ function App() {
           {Recipe_category.map((element) => {
             return (
               <Route
+              key={element.key}
                 exact
                 path={`${element.path}`}
                 element={

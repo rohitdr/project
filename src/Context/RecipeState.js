@@ -238,32 +238,36 @@ const AllLikedRecipe=async()=>{
 
    //api to get user details
    const getUser=async()=>{
-    setLoading(true)
-    
-   try{ const response = await fetch("http://localhost:5000/api/auth/getUser", {
-      method: 'POST',
-      mode: "cors",
-      headers: {
-        'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
-
-       
-      },
-     
-     
+    if(sessionStorage.getItem("auth-token")){
+      setLoading(true)
+      try{ const response = await fetch("http://localhost:5000/api/auth/getUser", {
+        method: 'POST',
+        mode: "cors",
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token':sessionStorage.getItem("auth-token")
   
-    });
+         
+        },
+       
+       
     
-    let userDetail= await response.json();
- 
-
-      setUserData(userDetail)
-      setLoading(false)
+      });
+      
+      let userDetail= await response.json();
+   
+  
+        setUserData(userDetail)
+        setLoading(false)
+    }
+  catch(e){
+   console.log(e.message)
+   
   }
-catch(e){
- console.log(e.message)
- 
-}
+    }
+   
+    
+
 
    }
    
@@ -460,7 +464,7 @@ else{
     // api for delete a recipe
     const deleteRecipe=async(id)=>{
       setLoading(true)
-    window.confirm("really want to delete")
+
     
         const response = await fetch(`http://localhost:5000/api/recipe/deleteRecipe/${id}`, {
             method: 'DELETE',
