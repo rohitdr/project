@@ -23,7 +23,7 @@ export default function Diettype() {
 
  <h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
-         {firstCapital(type)} Recipes
+         {/* {firstCapital(type)} Recipes */}
           </h1>
 
     

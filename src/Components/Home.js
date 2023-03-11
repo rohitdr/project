@@ -334,9 +334,9 @@ cuisine("indian")
               <li class={`${(cuisineactive==3)?"filter-active":""} fw-bold`} onClick={()=>{ cuisine("chinese");setcuisineactive(3)}}>Chinese</li>
               <li class={`${(cuisineactive==4)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("british");setcuisineactive(4)}}>British</li>
               <li class={`${(cuisineactive==5)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("italian");setcuisineactive(5)}}>Italian</li>
-              <li class={`${(cuisineactive==6)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("Japanese");setcuisineactive(6)}}>Japanese</li>
-              <li  class={`${(cuisineactive==7)?"filter-active":""} fw-bold`} onClick={()=>{ cuisine("Mexican");setcuisineactive(7)}}>Mexican</li>
-              <li class={`${(cuisineactive==8)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("French");setcuisineactive(8)}}>French</li>
+              <li class={`${(cuisineactive==6)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("japanese");setcuisineactive(6)}}>Japanese</li>
+              <li  class={`${(cuisineactive==7)?"filter-active":""} fw-bold`} onClick={()=>{ cuisine("mexican");setcuisineactive(7)}}>Mexican</li>
+              <li class={`${(cuisineactive==8)?"filter-active":""} fw-bold`}  onClick={()=>{ cuisine("french");setcuisineactive(8)}}>French</li>
            
             </ul>
           </div>
