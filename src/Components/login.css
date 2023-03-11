@@ -118,3 +118,15 @@
     box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
     outline: none;
 }
+#accountdetailsubmit{
+	display: none;
+}
+@media (min-width:990px ) and (max-width: 1200px) {
+	.accountdetailcard{
+        width: 56%!important;
+	}
+	
+}
+#displaysocailform{
+	display: none;
+}

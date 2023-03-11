@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import { useEffect } from 'react'
 import RecipeContext from '../Context/RecipeContext'
 import { useNavigate } from "react-router-dom";
+import { Input,Button } from '@nextui-org/react';
+
 export default function Profile_Profile() {
   const [showfile, setshowfile]= useState(null)
   const [filesize , setfilesize]= useState(0)
@@ -86,6 +88,41 @@ const submit=(e)=>{
   e.preventDefault();
 
 }
+
+//visible submit button
+const visibleSubmit=()=>{
+  if(document.getElementById('accountdetailsubmit').style.display=="block"){
+    document.getElementById('accountdetailsubmit').style.display="none"
+    document.getElementById('accountdetaildisplay').style.display="block"
+  }
+  else{
+    document.getElementById('accountdetailsubmit').style.display="block"
+    document.getElementById('accountdetaildisplay').style.display="none"
+  }
+  
+}
+//visible image controls
+const visibleimagecontrols=()=>{
+  if(document.getElementById('imagechangecontrols').style.display=="block"){
+    document.getElementById('imagechangecontrols').style.display="none"
+   
+  }
+  else{
+    document.getElementById('imagechangecontrols').style.display="block"
+  
+  }
+}
+//visible socail network detail form
+const visiblesocailSubmit=()=>{
+  if(document.getElementById('display-content').style.display=="block"){
+    document.getElementById('display-content').style.display="none"
+    document.getElementById('displaysocailform').style.display="block"
+  }
+  else{
+    document.getElementById('display-content').style.display="block"
+    document.getElementById('displaysocailform').style.display="none"
+  }
+}
   return (
     <div>
       <section style={{backgroundColor: "#eee"}}>
@@ -96,27 +133,31 @@ const submit=(e)=>{
     <div class="row mt-2">
       <div class="col-lg-4">
         <div class="card mb-4 box_decrease_size_animation">
+        <div class="card-header d-flex justify-content-between ">Profile Image <i class="fa-solid fa-pen" onClick={visibleimagecontrols}></i></div>
+
           <div class="card-body text-center">
             <img  alt="avatar" src={userData?.user?.Profile_Image}
               class="rounded-circle img-fluid" id="profile_avtar" style={{width: "150px"}}/>
-            <h5 class="my-3">{userData?.user?.first_name}</h5>
-            <p class="text-muted mb-1">Full Stack Developer</p>
-            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+            <h5 class="my-3">{userData?.user?.first_name} {userData?.user?.last_name}</h5>
+        
+           
             <div class="d-flex justify-content-center mb-2">
               {/* <button type="button" class="btn btn-primary">Follow</button> */}
-              <form onSubmit={submit}>
+              <form onSubmit={submit} id="imagechangecontrols" style={{display:"none"}}>
               <label for="profileimage" className='profileimagelabel'>
   Select Image
   <input id="profileimage" type="file" accept="image/*" onChange={imagepreview}/>
 </label>
-              <button type="button" class="btn btn-outline-primary ms-2 mb-1" onClick={changefile}>Change Images</button>
+              <button type="button" class="btn btn-outline-primary ms-2 mb-1" onClick={changefile}>Change Image</button>
               </form>
             </div>
           </div>
         </div>
         <div class="card mb-4 mb-lg-0  box_decrease_size_animation">
-          <div class="card-body p-0  ">
-            <ul class="list-group list-group-flush rounded-3">
+        <div class="card-header d-flex justify-content-between ">Social Network <i class="fa-solid fa-pen" onClick={visiblesocailSubmit}></i></div>
+
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3" id="display-content">
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i class="fas fa-globe fa-lg text-warning"></i>
                 <p class="mb-0">mdbootstrap.com</p>
@@ -138,19 +179,113 @@ const submit=(e)=>{
                 <p class="mb-0">mdbootstrap</p>
               </li>
             </ul>
+             <form className='ms-4 ps-3' id="displaysocailform">
+                      <div className="d-flex justify-content-between pt-2 ">
+                        <Input
+                          className="box_decrease_size_animationforlogin bg-white"
+                          bordered
+                        
+                          rounded
+                          
+                          color="secondary"
+                          labelLeft="https://"
+                          label="Website Name"
+                          name="web"
+                          id="web"
+                          placeholder="Your Website Name"
+                          labelRight=".com"
+                          contentRight={
+                            <i class="fas fa-globe fa-lg text-warning"></i>
+                          }
+                        />
+                      </div>
+                      <div className="d-flex justify-content-between pt-2 ">
+                        <Input
+                          className="box_decrease_size_animationforlogin bg-white"
+                          bordered
+                          
+                          rounded
+                          color="primary"
+                        
+                          labelLeft="https://"
+                          label="Github Reposatary"
+                          labelRight=".git"
+                          id="git"
+                          name="git"
+                          contentRight={
+                            <i class=" pe-2 fab fa-github fa-lg"></i>
+                          }
+                        />
+                      </div>
+                      <div className="d-flex justify-content-between pt-2 ">
+                        <Input
+                          className="box_decrease_size_animationforlogin bg-white "
+                          bordered
+                            rounded
+                         
+                          color="secondary"
+                          labelLeft="https://"
+                          label="Facebook"
+                          name="facebook"
+                          id="facebook"
+                          labelRight=".facebook"
+                          contentRight={
+                            <i
+                              class="fab fa-facebook-f fa-lg"
+                              style={{ color: "#3b5998" }}
+                            ></i>
+                          }
+                        />
+                      </div>
+
+                      <div className="d-flex justify-content-between pt-2 ">
+                        <Input
+                          className="box_decrease_size_animationforlogin bg-white "
+                          bordered
+                         
+                          rounded
+                          
+                          contentRightStyling={false}
+                          color="primary"
+                          name="twitter"
+                          id="twitter"
+                          labelLeft="https://"
+                          label="Twitter"
+                          labelRight=".twitter"
+                          contentRight={
+                            <i
+                              class="fab fa-twitter fa-lg"
+                              style={{ color: "#55acee" }}
+                            ></i>
+                          }
+                        />
+                      </div>
+
+                      <div className="d-flex justify-content-around mt-3 pt-2 mb-4">
+                       
+                        <Button
+                          color="primary"
+                          auto
+                        
+                          className="box_decrease_size_animationforlogin fw-bold"
+                        >
+                          Sign Up
+                        </Button>
+                      </div>
+                    </form>
           </div>
         </div>
       </div>
      
-      <div class="col-xl-8 ">
+      <div class="col-xl-8 accountdetailcard ">
             {/* <!-- Account details card--> */}
             <div class="card mb-4 box_decrease_size_animation">
-                <div class="card-header">Account Details</div>
+                <div class="card-header d-flex justify-content-between ">Account Details <i class="fa-solid fa-pen" onClick={visibleSubmit}></i></div>
                 <div class="card-body">
-                    <form>
+                    <form id="accountdetailsubmit">
                        
                         <div class="mb-3 col-7">
-                            <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
+                            <label class="small mb-1" for="inputUsername">Username </label>
                             <input class="form-control profileform-control" id="inputUsername" type="text" placeholder="Enter your username" value={userData?.user?.username}/>
                         </div>
                        
@@ -184,8 +319,30 @@ const submit=(e)=>{
                            
                         </div>
                         
-                        <button class="btn btn-primary" type="button">Save changes</button>
+                        <button class="btn btn-primary" type="button" >Save changes</button>
                     </form>
+                    {/* displaying accound details
+                     */}
+                    <ul class="list-group list-group-flush rounded-3" id="accountdetaildisplay" width="50%">
+              <li class="list-group-item d-flex justify-content-start align-items-center p-3">
+              <i class="fa-solid fa-user me-2"></i>
+                <p class="mb-0">{userData?.user?.username}</p>
+              </li>
+              <li class="list-group-item d-flex justify-content-start align-items-center p-3">
+              <i class="fa-solid fa-signature me-2"></i>
+                <p class="mb-0">{userData?.user?.first_name} {userData?.user?.last_name}</p>
+              </li>
+              <li class="list-group-item d-flex justify-content-start align-items-center p-3">
+              <i class="fa-solid fa-envelope me-2"></i>
+                <p class="mb-0">{userData?.user?.email}</p>
+              </li>
+              <li class="list-group-item d-flex justify-content-start align-items-center p-3">
+               
+                <i class="fa-solid fa-phone text-primary me-2"></i>
+                <p class="mb-0">{userData?.user?.phone_number}</p>
+              </li>
+             
+            </ul>
                 
             </div>
         </div>
