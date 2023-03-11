@@ -10,7 +10,7 @@ export default function Alert(props) {
     {/* { props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
     <strong>{capital(props.alert.strongmessage)}</strong> {props.alert.message} </div>
   } */}
-{ props.alert && <div class={`alert alert-${props.alert.type}  alert-dismissible d-flex align-items-center`} role="alert">
+{ props.alert && <div class={`alert alert-${props.alert.type}  alert-dismissible  d-flex align-items-center`} role="alert">
   
   <div>
   <strong>{props.alert.message}</strong>

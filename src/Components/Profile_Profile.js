@@ -6,9 +6,11 @@ import { Input,Button } from '@nextui-org/react';
 
 export default function Profile_Profile() {
   const [showfile, setshowfile]= useState(null)
+  const [user,setuser]=useState({username:"",first_name:"",last_name:"",email:"",phone_number:""})
+  const [socaildetails,setsocialdetails]=useState({git:"",facebook:"",twitter:"",web:""})
   const [filesize , setfilesize]= useState(0)
   const context = useContext(RecipeContext)
-  const {getUser,userData,showAlert,setProgress} = context
+  const {getUser,userData,showAlert,setProgress,setAlert} = context
     let Navigate = useNavigate();
   useEffect(()=>{
     if(!sessionStorage.getItem("auth-token")){
@@ -17,7 +19,7 @@ Navigate("/login")
     else{
 getUser()
     }
-  },[])
+  },[userData])
   //converting image to base64
   const toBase64=(file)=>
     new Promise((resolve,reject)=>{
@@ -123,6 +125,89 @@ const visiblesocailSubmit=()=>{
     document.getElementById('displaysocailform').style.display="none"
   }
 }
+//user detail onchange handler
+const userdetailchange=(e)=>{
+setuser({...user,[e.target.name]:e.target.value})
+}
+//api for updating accound detail
+const updateaccountdetail=async()=>{
+  setProgress(30)
+  const response = await fetch(
+    "http://localhost:5000/api/auth/updateuser",
+    {
+      method: "PUT",
+
+      headers: {
+        "Content-Type": "application/json",
+        'auth-token':sessionStorage.getItem("auth-token")
+      },
+      body: JSON.stringify(user),
+    }
+  );
+  setProgress(50)
+  let result = await response.json();
+  setProgress(70)
+ 
+  if(response.status==404){
+    showAlert(result.error,"danger")
+    setProgress(100)
+  }
+  else{
+    showAlert(result,"success")
+    setProgress(100)
+  }
+ 
+}
+//change account detail submit button
+const changeaccountdetail=()=>{
+  if(document.getElementById('username').value==userData?.user?.username && document.getElementById('email').value==userData?.user?.email && document.getElementById('first_name').value==userData?.user?.first_name && document.getElementById('last_name').value==userData?.user?.last_name && document.getElementById('phone_number').value==userData?.user?.phone_number){
+    showAlert("Before submititng the from please Modify any detail","danger")
+  }
+  else if(document.getElementById('phone_number').value.length !== 10){
+  
+    showAlert("Phone Should be of 10 digits", "danger")
+
+  }
+  
+  // validation for password
+  else if(document.getElementById('first_name').value.length<3)
+  {
+    showAlert("First Name should be of more than 3 digits", "danger")
+   
+  }
+  else if(!document.getElementById('email').value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i))
+  {
+    showAlert("Email should in correct Format", "danger")
+   
+  }
+ 
+
+  else if(document.getElementById('username').value.length<8)
+  {
+  
+    showAlert("Username Should be of more than 8 digits", "danger")
+  }
+  else{
+    updateaccountdetail()
+  }
+  
+
+  
+ 
+
+}
+
+//all the function for changing the socail details
+const socailonchang=(e)=>{
+setsocialdetails({...socaildetails,[e.target.name]:e.target.value})
+}
+//socail block submit button
+const socailsubmit=()=>{
+console.log(socaildetails)
+}
+
+
+ 
   return (
     <div>
       <section style={{backgroundColor: "#eee"}}>
@@ -179,14 +264,14 @@ const visiblesocailSubmit=()=>{
                 <p class="mb-0">mdbootstrap</p>
               </li>
             </ul>
-             <form className='ms-4 ps-3' id="displaysocailform">
+             <form className='ms-4 ps-3' id="displaysocailform" onSubmit={(e)=>{e.preventDefault()}}>
                       <div className="d-flex justify-content-between pt-2 ">
                         <Input
                           className="box_decrease_size_animationforlogin bg-white"
                           bordered
                         
-                          rounded
-                          
+                        
+                          onChange={socailonchang}
                           color="secondary"
                           labelLeft="https://"
                           label="Website Name"
@@ -204,9 +289,9 @@ const visiblesocailSubmit=()=>{
                           className="box_decrease_size_animationforlogin bg-white"
                           bordered
                           
-                          rounded
+                          
                           color="primary"
-                        
+                          onChange={socailonchang}
                           labelLeft="https://"
                           label="Github Reposatary"
                           labelRight=".git"
@@ -221,8 +306,8 @@ const visiblesocailSubmit=()=>{
                         <Input
                           className="box_decrease_size_animationforlogin bg-white "
                           bordered
-                            rounded
-                         
+                           
+                          onChange={socailonchang}
                           color="secondary"
                           labelLeft="https://"
                           label="Facebook"
@@ -243,8 +328,8 @@ const visiblesocailSubmit=()=>{
                           className="box_decrease_size_animationforlogin bg-white "
                           bordered
                          
-                          rounded
                           
+                          onChange={socailonchang}
                           contentRightStyling={false}
                           color="primary"
                           name="twitter"
@@ -266,7 +351,7 @@ const visiblesocailSubmit=()=>{
                         <Button
                           color="primary"
                           auto
-                        
+                        onPress={socailsubmit}
                           className="box_decrease_size_animationforlogin fw-bold"
                         >
                           Sign Up
@@ -282,23 +367,26 @@ const visiblesocailSubmit=()=>{
             <div class="card mb-4 box_decrease_size_animation">
                 <div class="card-header d-flex justify-content-between ">Account Details <i class="fa-solid fa-pen" onClick={visibleSubmit}></i></div>
                 <div class="card-body">
-                    <form id="accountdetailsubmit">
+                    <form id="accountdetailsubmit" onSubmit={(e)=>{e.preventDefault()}}>
                        
                         <div class="mb-3 col-7">
                             <label class="small mb-1" for="inputUsername">Username </label>
-                            <input class="form-control profileform-control" id="inputUsername" type="text" placeholder="Enter your username" value={userData?.user?.username}/>
+                            <input class="form-control profileform-control " id="username" name='username' type="text" placeholder="Enter your username" onChange={userdetailchange}  defaultValue={userData?.user?.username}  />
+                            <div class="invalid-feedback" id="invalid_username">
+        Please choose a username.
+      </div>
                         </div>
                        
                         <div class="row gx-3 mb-3">
                       
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputFirstName">First name</label>
-                                <input class="form-control profileform-control" id="inputFirstName" type="text" placeholder="Enter your first name" value={userData?.user?.first_name}/>
+                                <input class="form-control profileform-control" id="first_name" type="text" name="first_name" placeholder="Enter your first name" onChange={userdetailchange}  defaultValue={userData?.user?.first_name}/>
                             </div>
                            
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLastName">Last name</label>
-                                <input class="form-control profileform-control" id="inputLastName" type="text" placeholder="Enter your last name" value={userData?.user?.last_name}/>
+                                <input class="form-control profileform-control" id="last_name" type="text" name='last_name' placeholder="Enter your last name" onChange={userdetailchange}  defaultValue={userData?.user?.last_name}/>
                             </div>
                         </div>
                       
@@ -306,20 +394,20 @@ const visiblesocailSubmit=()=>{
                       
                         <div class="mb-3 col-7">
                             <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                            <input class="form-control profileform-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value={userData?.user?.email}/>
+                            <input class="form-control profileform-control" id="email" type="email" name='email' placeholder="Enter your email address" onChange={userdetailchange}  defaultValue={userData?.user?.email}/>
                         </div>
                       
                         <div class="row gx-3 mb-3">
                         
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input class="form-control profileform-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value={userData?.user?.phone_number}/>
+                                <input class="form-control profileform-control" id="phone_number" type="phone number" name='phone_number' placeholder="Enter your phone number" onChange={userdetailchange}  defaultValue={userData?.user?.phone_number}/>
                             </div>
                         
                            
                         </div>
                         
-                        <button class="btn btn-primary" type="button" >Save changes</button>
+                        <button class="btn btn-primary" type="button" onClick={changeaccountdetail} >Save changes</button>
                     </form>
                     {/* displaying accound details
                      */}

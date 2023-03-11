@@ -85,6 +85,7 @@ const collapsecuisineItems = [
 
 
 
+
  
 
 
@@ -192,6 +193,7 @@ const collapsecuisineItems = [
               }}
             >
               <Dropdown.Item
+        
              css={
               {
                 color:"#dc3545"
@@ -201,6 +203,9 @@ const collapsecuisineItems = [
                 showFullDescription
                 description="Looking to impress your dinner guests with a mouthwatering meal? Look no further than this delectable dinner recipe!"
               icon={<i class="fa-solid  fa-utensils fs-4 px-2" style={{color:"#dc3545"}}></i>}
+              command={<i class="fa-solid fa-arrow-right fs-4 px-2 text-primary" ></i>}
+           
+           
               >
                 <div onClick={()=>{Navigate("/mealtype",{state:{type:"lunch/dinner",on:true}})}}>
               Dinner</div>
