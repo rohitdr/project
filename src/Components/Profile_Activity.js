@@ -14,7 +14,7 @@ export default function Profile_Activity() {
     const {getUser,userData,LatestRecipebyid,Latest_recipebyid,deleteRecipe,recipe} = context
     let Navigate = useNavigate();
     useEffect(()=>{
-        if(!sessionStorage.getItem("auth-token")){
+        if(!sessionStorage.getItem("auth-token")&& !localStorage.getItem("auth-token")){
             Navigate("/login")
                 }
                 else{

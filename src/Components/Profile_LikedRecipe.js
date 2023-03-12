@@ -11,7 +11,7 @@ export default function Profile_LikedRecipe() {
     const {LikedRecipe,AllLikedRecipe,loading} = context
     let Navigate = useNavigate(); 
    useEffect(()=>{
-    if(!sessionStorage.getItem("auth-token")){
+    if(!sessionStorage.getItem("auth-token")&& !localStorage.getItem("auth-token")){
       Navigate("/login")
           }
           else{
@@ -30,7 +30,7 @@ export default function Profile_LikedRecipe() {
 
  <h1 className="text-center my-4 fw-bold text-dark" style={{opacity:"0",
   animation:"drop .4s linear forwards 1s"}}>
-          Your Recipes
+          Your Liked Recipes
           </h1>
     {loading && <Loader></Loader> && <BlankRecipeItem></BlankRecipeItem>}
        

@@ -19,6 +19,8 @@ getUser()
 var num=0;
 
 const logout=()=>{
+ 
+  localStorage.removeItem("auth-token")
   sessionStorage.removeItem("auth-token")
 Navigate("/login")
 }
@@ -834,11 +836,11 @@ const collapsecuisineItems = [
                   as="button"
                   color="primary"
                   size="md"
-                  src={(sessionStorage.getItem('auth-token')?(userData?.user?.Profile_Image):"https://i.pravatar.cc/150?u=a042581f4e29026024d")}
+                  src={(sessionStorage.getItem('auth-token') || localStorage.getItem("auth-token")?(userData?.user?.Profile_Image):"https://i.pravatar.cc/150?u=a042581f4e29026024d")}
                 />
               </Dropdown.Trigger>
             </Navbar.Item>
-            {sessionStorage.getItem("auth-token")?
+            {sessionStorage.getItem("auth-token") || localStorage.getItem("auth-token")?
             <Dropdown.Menu
               aria-label="User menu actions"
               color="secondary"

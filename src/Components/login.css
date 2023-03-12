@@ -79,6 +79,7 @@
   }}
 .login_login:hover,
 .login_login:focus{
+
 	background-color: #ac40ab;
     color: #fff;
     letter-spacing: 3px;
@@ -130,3 +131,15 @@
 #displaysocailform{
 	display: none;
 }
+@media (min-width:992px ) and (max-width: 1200px) {
+.logincardbody{
+padding-left: 0rem!important;
+padding-right: 0rem!important;
+}
+}
+@media (min-width:200px ) and (max-width: 490px) {
+	.logincardbody{
+	padding-left: 0.5rem!important;
+	padding-right: 0.5rem!important;
+	}
+	}

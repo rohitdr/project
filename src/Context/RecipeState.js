@@ -189,7 +189,7 @@ setProgress(100)
       mode: "cors",
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
+        'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
 
        
       },
@@ -213,7 +213,8 @@ const AllLikedRecipe=async()=>{
       mode: "cors",
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
+        // 'auth-token':sessionStorage.getItem("auth-token")
+        'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
 
        
       },
@@ -245,14 +246,15 @@ const AllLikedRecipe=async()=>{
 
    //api to get user details
    const getUser=async()=>{
-    if(sessionStorage.getItem("auth-token")){
+    if(sessionStorage.getItem("auth-token")||localStorage.getItem("auth-token")){
       setLoading(true)
       try{ const response = await fetch("http://localhost:5000/api/auth/getUser", {
         method: 'POST',
         mode: "cors",
         headers: {
           'Content-Type': 'application/json',
-          'auth-token':sessionStorage.getItem("auth-token")
+          // 'auth-token':sessionStorage.getItem("auth-token")
+          'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
   
          
         },
@@ -287,7 +289,8 @@ const AllLikedRecipe=async()=>{
         mode: "cors",
         headers: {
           'Content-Type': 'application/json',
-          'auth-token':sessionStorage.getItem("auth-token")
+          // 'auth-token':sessionStorage.getItem("auth-token")
+          'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
   
          
         },
@@ -314,7 +317,8 @@ const LikeRecipe=async(recipeid)=>{
       mode: "cors",
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
+        // 'auth-token':sessionStorage.getItem("auth-token")
+        'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
 
        
       },
@@ -351,7 +355,8 @@ const showAlert =(msg, type)=>{
             mode: "cors",
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':sessionStorage.getItem("auth-token")
+              // 'auth-token':sessionStorage.getItem("auth-token")
+              'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
   
              
             },
@@ -410,7 +415,8 @@ const showAlert =(msg, type)=>{
           mode: "cors",
           headers: {
             'Content-Type': 'application/json',
-            'auth-token':sessionStorage.getItem("auth-token")
+            // 'auth-token':sessionStorage.getItem("auth-token")
+            'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
            
           }
          
@@ -441,8 +447,8 @@ const showAlert =(msg, type)=>{
             mode: "cors",
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':sessionStorage.getItem("auth-token")
-             
+              // 'auth-token':sessionStorage.getItem("auth-token")
+              'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
             }
            
         
@@ -478,7 +484,8 @@ else{
             mode: "cors",
             headers: {
               'Content-Type': 'application/json',
-              'auth-token':sessionStorage.getItem("auth-token")
+              // 'auth-token':sessionStorage.getItem("auth-token")
+              'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
              
             },
            

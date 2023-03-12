@@ -31,6 +31,7 @@ import Health from "./Components/Health";
 import Meal from "./Components/Meal";
 import Dishtype from "./Components/Dishtype";
 import Diettype from "./Components/Diettype";
+import Footer from "./Components/Footer";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -1368,14 +1369,8 @@ function App() {
         {/* </div>
           </div>
         </div> */}
-        {/* <footer class="bg-light fixed-bottom text-center pt-4 text-lg-start">
-
-  <div class="text-center p-3">
-    © 2020 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-  </div>
-
-</footer> */}
+        <Footer></Footer>
+      
       </BrowserRouter>
       {/* <Individual_Recipe></Individual_Recipe> */}
     </>

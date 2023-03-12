@@ -8,6 +8,7 @@ import "./login_file.js";
 export default function Login() {
   let Navigate = useNavigate();
   const [visiblemodal,setvisiblemodal] = useState(false)
+  const [rememberme,setrememberme]=useState(false)
   const context = useContext(RecipeContext);
   const { login,showAlert ,setProgress} = context;
 
@@ -29,15 +30,20 @@ export default function Login() {
     });
  setProgress(50)
     let loginresult= await response.json();
- 
+   
   
     if(response.status !== 400){
       setProgress(70)
+     //if remember me is checked than store auth-token in localstorage else in session storage
+     if(document.querySelector('.rememberme').checked){
+      localStorage.setItem("auth-token",loginresult.auth_token)
+      localStorage.setItem("success",loginresult.succcess)
+     }
+     else{
       sessionStorage.setItem("auth-token",loginresult.auth_token)
       sessionStorage.setItem("success",loginresult.succcess)
- 
+     }
       
-     
       setProgress(100)
 
         Navigate("/Home")
@@ -102,7 +108,7 @@ export default function Login() {
        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
 
        <div class="card bg-glass box_decrease_size_animation">
-               <div class="card-body px-4 py-5 px-md-5 box_decrease_size_animation">
+               <div class="card-body px-4 py-5 px-md-5 logincardbody">
                  <div class="card-header card-header-primary loginformheader text-center box_decrease_size_animationforlogin  ">
                    <h4 class="card-title ">Login</h4>
                    <div class="social-linelogin  ">
@@ -121,32 +127,48 @@ export default function Login() {
                    class="loginform box_decrease_size_animation"
                    onSubmit={onsubmit}
                  >
-                   <div class="form-floating mb-3 mt-3 box_decrease_size_animation ">
+                   <div class="form-floating mb-3 mt-3  ">
                      <input
                        type="email"
                        class="form-control loginform-control rounded-3"
                        id="email"
                        name="email"
-                       required
+                       
                        placeholder="name@example.com"
                        value={logindetail.email}
                        onChange={loginchange}
                      />
                      <label for="loginemail">Email address</label>
                    </div>
-                   <div class="form-floating mb-3 box_decrease_size_animation">
+                   <div class="form-floating mb-3 ">
                      <input
                        type="password"
-                       class="form-control loginform-control rounded-3"
+                       className="form-control loginform-control rounded-3"
                        id="password"
                        name="password"
-                       required
+                      
+                       autocomplete="off"
                        placeholder="Password"
                        value={logindetail.password}
                        onChange={loginchange}
                      />
                      <label for="loginPassword">Password</label>
                    </div>
+                   {/* not a member */}
+                   <div class="row mb-4 " style={{fontSize: "15px"}}>
+    <div class="col d-flex justify-content-start">
+
+      <div class="form-check">
+        <input class="form-check-input rememberme" type="checkbox" id="rememberme" />
+        <label class="form-check-label mx-0 px-0 "  for="rememberme"> Remember me </label>
+      </div>
+    </div>
+
+    <div class="col">
+    
+      <a href="#!">Forgot password?</a>
+    </div>
+  </div>
                    <button
                      class="w-100 mb-2 box_decrease_size_animation  login_login"
                      type="submit"
@@ -154,8 +176,11 @@ export default function Login() {
                    >
                      Login
                    </button>
-
                     <hr class="my-4" />
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                    <p class="mb-0 me-2">Don't have an account?</p>
+                    <button type="button" class="btn btn-outline-danger" onClick={()=>{Navigate("/signUp")}}>Create new</button>
+                  </div>
                   </form>
                 </div>
               </div>

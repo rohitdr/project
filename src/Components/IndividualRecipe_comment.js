@@ -31,7 +31,8 @@ export default function IndividualRecipe_comment() {
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
-          "auth-token": sessionStorage.getItem("auth-token"),
+          // "auth-token": sessionStorage.getItem("auth-token"),
+          'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
         },
         body: JSON.stringify({
           id: CurrentRecipeItemid,

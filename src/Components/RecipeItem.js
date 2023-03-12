@@ -86,7 +86,7 @@ deg=(deg===180)?0:180
   <div className="card-body">
     <div className="d-flex justify-content-between">
     <h6 className="card-title text-warning text-start recipeitemtext"> {props.source}</h6>
-    <h6 className="card-title text-primary text-start"><Link to={`${!sessionStorage.getItem("auth-token")?"/login":"/Individual_description"}`} onClick={()=>{  
+    <h6 className="card-title text-primary text-start"><Link to={`${(!sessionStorage.getItem("auth-token")&& !localStorage.getItem("auth-token"))?"/login":"/Individual_description"}`} onClick={()=>{  
     
             setCurrentRecipeItemid(props.id)}}
          ><i class="fa-solid fs-4 fa-diamond-turn-right"></i></Link></h6>
@@ -107,7 +107,7 @@ deg=(deg===180)?0:180
     <li className="list-group-item d-flex justify-content-between">
       <i className="fa-solid fs-5 fa-comment"></i>
       <i className={`fa-${heart} fa-heart fs-5 recipeitemlike text-danger`} onClick={()=>{ 
-      if(!sessionStorage.getItem("auth-token")){
+      if(!sessionStorage.getItem("auth-token")&& !localStorage.getItem("auth-token")){
         Navigate("/login")
                 }else{
                   if(heart==="regular"){

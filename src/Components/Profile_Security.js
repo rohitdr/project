@@ -24,7 +24,8 @@ let Navigate = useNavigate();
      
           headers: {
             'Content-Type': 'application/json',
-            'auth-token':sessionStorage.getItem("auth-token")
+            // 'auth-token':sessionStorage.getItem("auth-token")
+            'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
     
            
           },

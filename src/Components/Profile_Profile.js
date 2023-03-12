@@ -13,7 +13,7 @@ export default function Profile_Profile() {
   const {getUser,userData,showAlert,setProgress,setAlert} = context
     let Navigate = useNavigate();
   useEffect(()=>{
-    if(!sessionStorage.getItem("auth-token")){
+    if(!sessionStorage.getItem("auth-token")&& !localStorage.getItem("auth-token")){
 Navigate("/login")
     }
     else{
@@ -52,7 +52,8 @@ setProgress(30)
       mode: "cors",
       headers: {
         'Content-Type': 'application/json',
-        'auth-token':sessionStorage.getItem("auth-token")
+        // 'auth-token':sessionStorage.getItem("auth-token")
+        'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
 
        
       },
@@ -130,22 +131,23 @@ const userdetailchange=(e)=>{
 setuser({...user,[e.target.name]:e.target.value})
 }
 //api for updating accound detail
-const updateaccountdetail=async()=>{
+const updateaccountdetail=async (data)=>{
   setProgress(30)
-  const response = await fetch(
+  const response =  await fetch(
     "http://localhost:5000/api/auth/updateuser",
     {
       method: "PUT",
 
       headers: {
         "Content-Type": "application/json",
-        'auth-token':sessionStorage.getItem("auth-token")
+        // 'auth-token':sessionStorage.getItem("auth-token")
+        'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(data),
     }
   );
   setProgress(50)
-  let result = await response.json();
+  let result =  await response.json()
   setProgress(70)
  
   if(response.status==404){
@@ -188,7 +190,7 @@ const changeaccountdetail=()=>{
     showAlert("Username Should be of more than 8 digits", "danger")
   }
   else{
-    updateaccountdetail()
+    updateaccountdetail(user)
   }
   
 
@@ -203,12 +205,17 @@ setsocialdetails({...socaildetails,[e.target.name]:e.target.value})
 }
 //socail block submit button
 const socailsubmit=()=>{
-console.log(socaildetails)
+// console.log(userData?.user?.web==undefined)
+
+
+   updateaccountdetail(socaildetails)
+
 }
 
 
  
   return (
+    <>
     <div>
       <section style={{backgroundColor: "#eee"}}>
   <div class="container py-5">
@@ -245,23 +252,20 @@ console.log(socaildetails)
             <ul class="list-group list-group-flush rounded-3" id="display-content">
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i class="fas fa-globe fa-lg text-warning"></i>
-                <p class="mb-0">mdbootstrap.com</p>
+                <p class="mb-0">{userData?.user?.web?userData?.user?.web+".com":"recipe.com"}</p>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i class="fab fa-github fa-lg" style={{color: "#333333"}}></i>
-                <p class="mb-0">mdbootstrap</p>
+                <p class="mb-0">{userData?.user?.git?userData?.user?.git+".git":"recipe.git"}</p>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i class="fab fa-twitter fa-lg" style={{color: "#55acee"}}></i>
-                <p class="mb-0">@mdbootstrap</p>
+                <p class="mb-0">{userData?.user?.twitter?userData?.user?.twitter+".twitter":"recipe.twitter"}</p>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fab fa-instagram fa-lg" style={{color: "#ac2bac"}}></i>
-                <p class="mb-0">mdbootstrap</p>
-              </li>
+             
               <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <i class="fab fa-facebook-f fa-lg" style={{color: "#3b5998"}}></i>
-                <p class="mb-0">mdbootstrap</p>
+                <p class="mb-0">{userData?.user?.facebook?userData?.user?.facebook+".facebook":"recipe.facebook"}</p>
               </li>
             </ul>
              <form className='ms-4 ps-3' id="displaysocailform" onSubmit={(e)=>{e.preventDefault()}}>
@@ -269,7 +273,7 @@ console.log(socaildetails)
                         <Input
                           className="box_decrease_size_animationforlogin bg-white"
                           bordered
-                        
+                        key="web"
                         
                           onChange={socailonchang}
                           color="secondary"
@@ -286,6 +290,7 @@ console.log(socaildetails)
                       </div>
                       <div className="d-flex justify-content-between pt-2 ">
                         <Input
+                        key="git"
                           className="box_decrease_size_animationforlogin bg-white"
                           bordered
                           
@@ -306,7 +311,7 @@ console.log(socaildetails)
                         <Input
                           className="box_decrease_size_animationforlogin bg-white "
                           bordered
-                           
+                           key="facebook"
                           onChange={socailonchang}
                           color="secondary"
                           labelLeft="https://"
@@ -327,7 +332,7 @@ console.log(socaildetails)
                         <Input
                           className="box_decrease_size_animationforlogin bg-white "
                           bordered
-                         
+                         key="twitter"
                           
                           onChange={socailonchang}
                           contentRightStyling={false}
@@ -354,7 +359,7 @@ console.log(socaildetails)
                         onPress={socailsubmit}
                           className="box_decrease_size_animationforlogin fw-bold"
                         >
-                          Sign Up
+                         Update
                         </Button>
                       </div>
                     </form>
@@ -440,6 +445,6 @@ console.log(socaildetails)
     </div>
  
 </section>
-    </div>
+    </div></>
   )
 }
