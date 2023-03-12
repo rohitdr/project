@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <>
   
-<div class="">
+<div class="" style={{bottom:"0px"}}>
 
   <footer class="bg-light text-center text-white">
 

@@ -2,13 +2,15 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeContext from "../Context/RecipeContext";
 
-import { Modal, Image, Text } from "@nextui-org/react";
+import { Modal, Image, Text,Input,Row,Checkbox,Button } from "@nextui-org/react";
 import "./login.css";
 import "./login_file.js";
 export default function Login() {
   let Navigate = useNavigate();
   const [visiblemodal,setvisiblemodal] = useState(false)
+  const [forgetdetail,setforgetdetail]=useState({email:"",username:"",password:"",confirm_password:""})
   const [rememberme,setrememberme]=useState(false)
+  const [visibleforgetmodal,setvisibleforgetmodal]=useState(false)
   const context = useContext(RecipeContext);
   const { login,showAlert ,setProgress} = context;
 
@@ -66,7 +68,42 @@ export default function Login() {
   
 
   };
+  const forgetinputchange=(e)=>{
+    setforgetdetail({...forgetdetail,[e.target.name]:e.target.value})
+  }
+  //api function for forget password
+  const forgetpassapi=async()=>{
+    setProgress(30)
+    const response = await fetch(`http://localhost:5000/api/auth/forgetPassowrd`, {
+      method: 'POST',
+      mode: "cors",
+      headers: {
+        'Content-Type': 'application/json',
+       
 
+       
+      },
+      body: JSON.stringify({email:forgetdetail.email,username:forgetdetail.username,password:forgetdetail.password})
+     
+  
+    });
+    setProgress(50)
+    let result = await response.json();
+    setProgress(70)
+    if(response.status != 404){
+      setProgress(100)
+      showAlert(result,"success")
+      
+    }
+    else{
+      setProgress(100)
+      showAlert(result.error,"danger")
+    }
+  }
+// function to change password
+const changeforgetpassword=()=>{
+ forgetpassapi()
+}
 
 
   const onsubmit = (e) => {
@@ -166,7 +203,7 @@ export default function Login() {
 
     <div class="col">
     
-      <a href="#!">Forgot password?</a>
+      <a onClick={()=>{setvisibleforgetmodal(true)}}>Forgot password?</a>
     </div>
   </div>
                    <button
@@ -246,6 +283,80 @@ export default function Login() {
             height={490}
           />
         </Modal.Body>
+      </Modal>
+
+      {/* modal for forget password */}
+      <Modal
+        closeButton
+        aria-labelledby="modal-title"
+       
+        open={visibleforgetmodal}
+        onClose={()=>{setvisibleforgetmodal(false)}}
+      >
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+            Welcome to {" "}
+            <Text b size={18}>
+           RecipeRiot
+            </Text>
+          </Text>
+        </Modal.Header>
+        <Modal.Body>
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            name="email"
+            id="email"
+            size="lg"
+            placeholder="Email"
+            onChange={forgetinputchange}
+       
+          />
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            name="username"
+            id="username"
+            placeholder="Username"
+            onChange={forgetinputchange}
+          />
+          <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            id="password"
+            name="password"
+            placeholder="Password"
+            onChange={forgetinputchange}
+          />
+           <Input
+            clearable
+            bordered
+            fullWidth
+            color="primary"
+            size="lg"
+            id="confirm_password"
+            name="confirm_password"
+            placeholder="Confirm Password"
+            onChange={forgetinputchange}
+          />
+          
+        </Modal.Body>
+        <Modal.Footer>
+          <Button auto flat color="error" onPress={()=>{setvisibleforgetmodal(false)}}>
+            Close
+          </Button>
+          <Button auto onPress={changeforgetpassword} >
+          Change Password
+          </Button>
+        </Modal.Footer>
       </Modal>
     </>
   );
