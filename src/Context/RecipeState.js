@@ -247,7 +247,7 @@ const AllLikedRecipe=async()=>{
    //api to get user details
    const getUser=async()=>{
     if(sessionStorage.getItem("auth-token")||localStorage.getItem("auth-token")){
-      setLoading(true)
+      setProgress(30)
       try{ const response = await fetch("http://localhost:5000/api/auth/getUser", {
         method: 'POST',
         mode: "cors",
@@ -262,12 +262,12 @@ const AllLikedRecipe=async()=>{
        
     
       });
-      
+      setProgress(50)
       let userDetail= await response.json();
-   
+      setProgress(70)
   
         setUserData(userDetail)
-        setLoading(false)
+        setProgress(100)
     }
   catch(e){
    console.log(e.message)
