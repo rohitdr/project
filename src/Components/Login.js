@@ -74,7 +74,7 @@ export default function Login() {
   //api function for forget password
   const forgetpassapi=async()=>{
     setProgress(30)
-    const response = await fetch(`http://localhost:5000/api/auth/forgetPassowrd`, {
+    const response = await fetch("http://localhost:5000/api/auth/forgetPassword", {
       method: 'POST',
       mode: "cors",
       headers: {
@@ -92,16 +92,20 @@ export default function Login() {
     setProgress(70)
     if(response.status != 404){
       setProgress(100)
-      showAlert(result,"success")
+      setvisibleforgetmodal(false)
+      showAlert(result.succcess,"success")
+      setvisibleforgetmodal(false)
       
     }
-    else{
+    if(response.status==404){
       setProgress(100)
+      setvisibleforgetmodal(false)
       showAlert(result.error,"danger")
     }
   }
 // function to change password
 const changeforgetpassword=()=>{
+  console.log(forgetdetail)
  forgetpassapi()
 }
 
