@@ -26,6 +26,7 @@ export default function RecipeState(props){
      const [mealdata ,setmealdata]=useState({})
      const [dishdata,setdishdata]=useState({})
    const [dietdata,setdietdata]=useState({})
+   const [namerecipeloading,setnamereicpeloading]=useState(false)
 
     //api to get recipe who has a particular mealtype
     const diettype=async(type)=>{
@@ -348,7 +349,7 @@ const showAlert =(msg, type)=>{
    //api for recipe search
     const NameRecipe=async(recipename)=>{
       
-        setLoading(true)
+       setnamereicpeloading(true)
         
         const response = await fetch(`http://localhost:5000/api/recipe/allRecipeswith${recipename}`, {
             method: 'GET',
@@ -367,12 +368,12 @@ const showAlert =(msg, type)=>{
           
          if(response.status!==404){
           let Name_recipe= await response.json();
-          setLoading(false)
+        setnamereicpeloading(false)
        
            setsearchedRecipe(Name_recipe)
          }
          else{
-          setLoading(false)
+         setnamereicpeloading(false)
          }
         
        

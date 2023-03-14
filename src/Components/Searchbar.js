@@ -4,13 +4,15 @@ import './searchbar.css'
 import NavbarToggler from "./NavbarToggler";
 import RecipeContext from "../Context/RecipeContext";
 import { useState } from "react";
-import { Navbar, Text, Avatar, Dropdown,Input,Collapse  } from "@nextui-org/react";
+import { Navbar, Text, Avatar, Dropdown,Input,Collapse, Modal,Button } from "@nextui-org/react";
 import { AcmeLogo } from "./AcmeLogo.js";
 import { SearchIcon } from "./SearchIcon.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Loader from "./Loader";
 export default function Searchbar(props) {
   const context = useContext(RecipeContext)
-  const {recipe,NameRecipe, setName_to_search,name_to_search,searchRecipe,getUser,userData} = context
+  const [searchmodal,setsearchmodal]=useState(false)
+  const {recipe,NameRecipe, setName_to_search,name_to_search,searchRecipe,getUser,userData,namerecipeloading} = context
 let Navigate = useNavigate();
 useEffect(()=>{
 getUser()
@@ -819,7 +821,7 @@ const collapsecuisineItems = [
 
         
            <form className="d-flex text-white  ">
-        <input className="form-control me-2 text-white  rounded-3" id="searchbar-searchbox" type="search" placeholder="Search"  data-bs-toggle="modal" data-bs-target="#exampleModalsearch" aria-label="Search" onChange={(e)=>{
+        <input className="form-control me-2 text-white  rounded-3" id="searchbar-searchbox" type="search" placeholder="Search"   onClick={()=>{setsearchmodal(true)}} onChange={(e)=>{
           searchentered=e.target.value
           setName_to_search(searchentered)
       
@@ -1075,8 +1077,9 @@ const collapsecuisineItems = [
     </div>
   </div>
 </nav> */}
+{/* modal for searching a recipe */}
 
-<div className="modal " id="exampleModalsearch" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{/* <div className="modal " id="exampleModalsearch" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog modal-dialog-centered">
     <div className="modal-content">
     <div className="modal-header">
@@ -1101,7 +1104,45 @@ const collapsecuisineItems = [
      
     </div>
   </div>
+</div> */}
+
+{/* new modal for searching the recipe*/}
+
+<Modal
+        closeButton
+        aria-labelledby="modal-title"
+        // open={visible}
+        open={searchmodal}
+       scroll
+       width="600px"
+        onClose={()=>{setsearchmodal(false)}}
+      >
+        <Modal.Header>
+          <Text b id="modal-title" size={18}>
+         Enter Some Keywords 
+            
+          </Text>
+        </Modal.Header>
+        <Modal.Body className="searchmodal">
+        <div className="input-group input-group-lg transformingup mb-3">
+  <button className="btn btn-outline-secondary bg-white" type="button" id="button-addon1y"><i className="fa-solid fs-4 fa-magnifying-glass"></i></button>
+  <input type="text" className="form-control modalsearch fw-bold" id="button-addon1x" placeholder="Enter the Recipe Name" aria-label="Example text with button addon" onChange={(e)=>{NameRecipe(`/${e.target.value}`)}} aria-describedby="button-addon1"/>
+ 
 </div>
+<div>
+<ul   className="searchlistbox" id="docsearch-list"> <div className="listcombo">
+ 
+
+{searchRecipe.recipe && searchRecipe.recipe.map((element)=>{
+   
+ 
+    return <><Link to="/SearchResult"  onClick={(e)=>{  setsearchmodal(false); NameRecipe(`/${element.label.substring(0,20)}`);     }} className="DocSearch-Hitslink  transformingup"><li className="DocSearch-Hits  fw-bold"> <i className="fa-solid me-2 fa-bars"></i>{element.label}</li></Link></>}
+   )
+   }</div></ul></div>
+         
+        </Modal.Body>
+        
+      </Modal>
     </>
 
 

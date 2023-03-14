@@ -232,12 +232,12 @@ margin-top: 2px;
 .DocSearch-Hits:hover{
   background-color:rgb(54, 54, 185) ;
   color: white;
-  transform: translate3d(6px,-6px,0);
-  border-bottom: 6px solid rgb(54, 54, 185);
+  transform: translate3d(2px,-2px,0);
+  /* border-bottom: 6px solid rgb(54, 54, 185);
   border-left: 6px solid rgb(54, 54, 185);
   border-bottom-left-radius: 16px;
   border-top-left-radius:20px ;
-  border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 20px; */
 }
 .DocSearch-Hitslink{
   text-decoration: none;
@@ -262,12 +262,12 @@ color: black;
     
     }
    .transformingup:hover{
-    transform: translate3d(8px,-8px,0);
-    border-bottom: 8px solid rgb(54, 54, 185);
-    border-left: 8px solid rgb(54, 54, 185);
+    transform: translate3d(4px,-4px,0);
+    /* border-bottom: 4px solid rgb(54, 54, 185);
+    border-left: 4px solid rgb(54, 54, 185);
     border-bottom-left-radius: 16px;
     border-top-left-radius:20px ;
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 20px; */
    }
    
    
