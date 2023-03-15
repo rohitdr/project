@@ -1,14 +1,23 @@
 
 import React, { useContext, useEffect } from "react";
 import RecipeContext from "../Context/RecipeContext";
-import { useParams } from 'react-router-dom'
+
 import RecipeItem from "./RecipeItem";
 import Loader from "./Loader";
-export default function SearchResult(props) {
+import { useNavigate,useLocation } from "react-router-dom";
+export default function SearchResult() {
   const context = useContext(RecipeContext)
   const {searchRecipe,NameRecipe,name_to_search,loading} = context
- 
-
+  const {state}=useLocation();
+  
+  const searchrecipename=state.search_result_reicpe;
+ let Navigate=useNavigate();
+useEffect(()=>{
+  if(!searchrecipename){
+    Navigate('/Home')
+  }
+  NameRecipe(`/${searchrecipename}`); 
+},[searchrecipename])
 
 
   return (

@@ -1126,19 +1126,30 @@ const collapsecuisineItems = [
         <Modal.Body className="searchmodal">
         <div className="input-group input-group-lg transformingup mb-3">
   <button className="btn btn-outline-secondary bg-white" type="button" id="button-addon1y"><i className="fa-solid fs-4 fa-magnifying-glass"></i></button>
-  <input type="text" className="form-control modalsearch fw-bold" id="button-addon1x" placeholder="Enter the Recipe Name" aria-label="Example text with button addon" onChange={(e)=>{NameRecipe(`/${e.target.value}`)}} aria-describedby="button-addon1"/>
+  <input type="text" className="form-control modalsearch fw-bold" id="button-addon1x" placeholder="Enter the Recipe Name" aria-label="Example text with button addon" onChange={(e)=>{NameRecipe(`/${e.target.value}`)}} aria-describedby="button-addon1"/> 
  
 </div>
 <div>
-<ul   className="searchlistbox" id="docsearch-list"> <div className="listcombo">
+{namerecipeloading && <Loader></Loader>}
+{!searchRecipe?<div class="card box_decrease_size_animation_for_recipeitem">
+            <div class="card-body py-5 px-md-5 ">
+             <img src="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" alt="result not found" className=''/>
+            </div>
+          </div>:<ul   className="searchlistbox" id="docsearch-list"> <div className="listcombo">
  
 
-{searchRecipe.recipe && searchRecipe.recipe.map((element)=>{
+{!namerecipeloading && searchRecipe.recipe && searchRecipe.recipe.map((element)=>{
    
  
-    return <><Link to="/SearchResult"  onClick={(e)=>{  setsearchmodal(false); NameRecipe(`/${element.label.substring(0,20)}`);     }} className="DocSearch-Hitslink  transformingup"><li className="DocSearch-Hits  fw-bold"> <i className="fa-solid me-2 fa-bars"></i>{element.label}</li></Link></>}
+    return <>
+    {/* <Link to="/SearchResult"  onClick={(e)=>{ Navigate('/SearchResult',{state:{search_result_reicpe:element.label.substring(0,20)}}); setsearchmodal(false); NameRecipe(`/${element.label.substring(0,20)}`);     }} className="DocSearch-Hitslink  transformingup"><li className="DocSearch-Hits  fw-bold"> <i className="fa-solid me-2 fa-bars"></i>{element.label}</li></Link> */}
+    <div  onClick={()=>{ setsearchmodal(false); Navigate('/SearchResult',{state:{search_result_reicpe:element.label.substring(0,20)}});      }} className="DocSearch-Hitslink  transformingup"><li className="DocSearch-Hits  fw-bold"> <i className="fa-solid me-2 fa-bars"></i>{element.label}</li></div>
+
+    </>}
    )
-   }</div></ul></div>
+   }
+   
+   </div></ul>}</div>
          
         </Modal.Body>
         
