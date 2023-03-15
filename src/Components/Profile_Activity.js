@@ -24,7 +24,7 @@ export default function Profile_Activity() {
                 }
       
     
-    },[LatestRecipebyid])
+    },[Latest_recipebyid])
     const deleterecipe=(id)=>{
     setvisibledelete({state:true,id:id})
     }

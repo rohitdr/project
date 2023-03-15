@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <>
   
-<div class="" style={{bottom:"0px"}}>
+
 
   <footer class="bg-light text-center text-white">
 
@@ -70,7 +70,7 @@ export default function Footer() {
 
 </footer>
   
-</div>
+
 
     </>
   )

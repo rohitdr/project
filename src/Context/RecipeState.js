@@ -411,7 +411,7 @@ const showAlert =(msg, type)=>{
     const LatestRecipebyid=async()=>{
 
     
-      setLoading(true)
+    
       const response = await fetch('http://localhost:5000/api/recipe/LatestRecipesbyid', {
           method: 'GET',
           mode: "cors",

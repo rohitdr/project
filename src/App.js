@@ -390,8 +390,8 @@ function App() {
             path="/home"
             element={
               
-              // <Home></Home>
-              <AddRecipe></AddRecipe>
+              <Home></Home>
+          
            
             }
           />

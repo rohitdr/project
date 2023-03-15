@@ -17,7 +17,7 @@ let Navigate = useNavigate();
 useEffect(()=>{
 getUser()
 
-},[])
+},[localStorage.getItem('auth-token'),sessionStorage.getItem('auth-token')])
 var num=0;
 
 const logout=()=>{
@@ -1142,7 +1142,6 @@ const collapsecuisineItems = [
    
  
     return <>
-    {/* <Link to="/SearchResult"  onClick={(e)=>{ Navigate('/SearchResult',{state:{search_result_reicpe:element.label.substring(0,20)}}); setsearchmodal(false); NameRecipe(`/${element.label.substring(0,20)}`);     }} className="DocSearch-Hitslink  transformingup"><li className="DocSearch-Hits  fw-bold"> <i className="fa-solid me-2 fa-bars"></i>{element.label}</li></Link> */}
     <div  onClick={()=>{ setsearchmodal(false); Navigate('/SearchResult',{state:{search_result_reicpe:element.label.substring(0,20)}});      }} className="DocSearch-Hitslink  transformingup"><li className="DocSearch-Hits  fw-bold"> <i className="fa-solid me-2 fa-bars"></i>{element.label}</li></div>
 
     </>}

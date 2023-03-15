@@ -1,11 +1,42 @@
 import React, { useState } from "react";
 import "./Addreicpe.css";
 import { Input,Button,Modal,Text,Textarea } from "@nextui-org/react";
+import { useContext } from "react";
+import RecipeContext from "../Context/RecipeContext";
 export default function AddRecipe() {
   const [pageno, setpageno] = useState(0);
+  const context=useContext(RecipeContext)
+  const {showAlert}=context
   const [totalingrediants,settotalingrediants]=useState("secondary")
   const [Ingrediantsmodalstate,settotalingrediantsmodalstate]=useState(false)
   const [totalingrediantsnumber,settotalingrediantsnumber]=useState(0)
+  const [filesize,setfilesize]=useState(0)
+  const [image,setimage]=useState("")
+
+    //converting image to base64
+    const toBase64=(file)=>
+    new Promise((resolve,reject)=>{
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload=()=>resolve(reader.result);
+      reader.onerror=(error)=>reject(error);
+    });
+
+
+    //image preview
+const imagepreview=async (e)=>{
+  const imagefile = e.target.files[0];
+
+  setfilesize(e.target.files[0].size)
+  const imageurl = URL.createObjectURL(imagefile)
+  const previewing = document.querySelector("#reicpe_image")
+  previewing.src=imageurl
+  
+   let base64= await toBase64(imagefile)
+   setRecipe({...recipe,image:base64})
+  setimage(base64)
+  
+  }
 //initail reicpe state
   const [recipe, setRecipe]=useState({
     label:"",
@@ -15,7 +46,7 @@ export default function AddRecipe() {
     url: "",
     
     dietLabels: [],
-    instruction:[""],
+    instruction:[],
     healthLabels: [],
     cautions: [],
     ingredientLines: [],
@@ -159,9 +190,7 @@ export default function AddRecipe() {
       setRecipe({...recipe, label : e.target.value})
     
    }
-   const onchangeimage=(e)=>{
-    setRecipe({...recipe, image : e.target.value})
-  }
+ 
   const onchange=(e)=>{
     setRecipe({...recipe, [e.target.name] : e.target.value})
   
@@ -175,68 +204,139 @@ export default function AddRecipe() {
 
 
  //ingrediants first page, nextpage button
- const ingredientsfirstpage=()=>{
+ const ingredientsfirstpage=async()=>{
+
   if(first_ingede_text && first_ingede_weight){
+    recipe.ingredientLines.push(first_ingede_text)
+    if(first_ingede_image){
+      first_ingede_image=await toBase64(first_ingede_image)
+    }
     recipe.ingredients.push({text:first_ingede_text,weight:first_ingede_weight,image:first_ingede_image})
   }
   if(second_ingede_text && second_ingede_weight ){
+    recipe.ingredientLines.push(second_ingede_text)
+    if(second_ingede_image){
+      second_ingede_image=await toBase64(second_ingede_image)
+    }
     recipe.ingredients.push({text:second_ingede_text,weight:second_ingede_weight,image:second_ingede_image})
   }
   
   setpageno(4)
 }
  //ingrediants second page, nextpage button
- const ingredientssecondpage=()=>{
+ const ingredientssecondpage=async()=>{
   if(third_ingede_text && third_ingede_weight){
+    recipe.ingredientLines.push(third_ingede_text)
+    if(third_ingede_image){
+      third_ingede_image=await toBase64(third_ingede_image)
+    }
     recipe.ingredients.push({text:third_ingede_text,weight:third_ingede_weight,image:third_ingede_image})
   }
   if(fourth_ingede_text && fourth_ingede_weight ){
+    recipe.ingredientLines.push(fourth_ingede_text)
+    if(fourth_ingede_image){
+      fourth_ingede_image=await toBase64(fourth_ingede_image)
+    }
     recipe.ingredients.push({text:fourth_ingede_text,weight:fourth_ingede_weight,image:fourth_ingede_image})
   }
   
   setpageno(5)
 }
  //ingrediants third page, nextpage button
- const ingredientsthirdpage=()=>{
+ const ingredientsthirdpage=async()=>{
   if(fifth_ingede_text && fifth_ingede_weight){
+    recipe.ingredientLines.push(fifth_ingede_text)
+    if(fifth_ingede_image){
+      fifth_ingede_image=await toBase64(fifth_ingede_image)
+    }
     recipe.ingredients.push({text:fifth_ingede_text,weight:fifth_ingede_weight,image:fifth_ingede_image})
   }
   if(sixth_ingede_text && sixth_ingede_weight ){
+    recipe.ingredientLines.push(sixth_ingede_text)
+    if(sixth_ingede_image){
+      sixth_ingede_image=await toBase64(sixth_ingede_image)
+    }
     recipe.ingredients.push({text:sixth_ingede_text,weight:sixth_ingede_weight,image:sixth_ingede_image})
   }
   
   setpageno(6)
 }
  //ingrediants fourth page, nextpage button
- const ingredientsfouthpage=()=>{
+ const ingredientsfouthpage=async()=>{
   if(seventh_ingede_text && seventh_ingede_weight){
+    recipe.ingredientLines.push(seventh_ingede_text)
+    if(seventh_ingede_image){
+      seventh_ingede_image=await toBase64(seventh_ingede_image)
+    }
     recipe.ingredients.push({text:seventh_ingede_text,weight:seventh_ingede_weight,image:seventh_ingede_image})
   }
   if(eight_ingede_text && eight_ingede_weight ){
+    recipe.ingredientLines.push(eight_ingede_text)
+    if(eight_ingede_image){
+      eight_ingede_image=await toBase64(eight_ingede_image)
+    }
     recipe.ingredients.push({text:eight_ingede_text,weight:eight_ingede_weight,image:eight_ingede_image})
   }
   
   setpageno(7)
 } //ingrediants fifth page, nextpage button
-const ingredientsfifthpage=()=>{
+const ingredientsfifthpage=async()=>{
  if(nineth_ingede_text && nineth_ingede_weight){
+  recipe.ingredientLines.push(nineth_ingede_text)
+  if(nineth_ingede_image){
+    nineth_ingede_image=await toBase64(nineth_ingede_image)
+  }
    recipe.ingredients.push({text:nineth_ingede_text,weight:nineth_ingede_weight,image:nineth_ingede_image})
  }
  if(tenth_ingede_text && tenth_ingede_weight ){
+  recipe.ingredientLines.push(tenth_ingede_text)
+  if(tenth_ingede_image){
+    tenth_ingede_image=await toBase64(tenth_ingede_image)
+  }
    recipe.ingredients.push({text:tenth_ingede_text,weight:tenth_ingede_weight,image:tenth_ingede_image})
  }
  
  setpageno(8)
 }
  
+//const api to add recipe
+const Addapi=async()=>{
+ 
+      
+  
+     
+     const response = await fetch(`http://localhost:5000/api/recipe/addRecipe`, {
+         method: 'POST',
+         mode: "cors",
+         headers: {
+           'Content-Type': 'application/json',
+          
+           'auth-token':sessionStorage.getItem("auth-token")?sessionStorage.getItem("auth-token"):localStorage.getItem("auth-token")
+
+          
+         },
+         body: JSON.stringify(recipe)
+       
+     
+       });
+       if(response.status != 404){
+        showAlert("success","success")
+       }
+      
+      
+     
+
+}
   //final page
   const insertRecipe=()=>{
-  console.log(totalingrediantsnumber)
+ 
+    if(document.getElementById('instructionrecipe')){
+      recipe.instruction=document.getElementById('instructionrecipe').value.split(".")
+    }
 
-   let instruction=document.getElementById('instructionrecipe').value.split(".")
+Addapi();
 
-  recipe.instruction.concat(instruction);
-  console.log(recipe)
+  // console.log(recipe)
   }
   return (
     <>
@@ -269,6 +369,7 @@ const ingredientsfifthpage=()=>{
                      
                               <div class="mb-2 d-flex justify-content-center">
                                 <img
+                                id="reicpe_image"
                                   src="https://images.kitchenstories.io/wagtailOriginalImages/A912-gif1.gif"
                                   alt="example placeholder"
                                 
@@ -276,7 +377,7 @@ const ingredientsfifthpage=()=>{
                                 />
                               </div>
                               <div class="d-flex justify-content-center">
-                                <div class="btn btn-primary btn-rounded">
+                                {/* <div class="btn btn-primary btn-rounded">
                                   <label
                                     class="form-label text-white m-1"
                                     for="customFile1"
@@ -290,7 +391,12 @@ const ingredientsfifthpage=()=>{
                                 
                                   
                                   />
-                                </div>
+                                </div> */}
+                                     <label for="profileimage" className='profileimagelabel'>
+                                       Select Image
+                          <input id="profileimage" type="file" accept="image/*" onChange={imagepreview}/>
+                                   </label>
+              
                               </div>
                               <div className="d-flex my-4 justify-content-start">
                               <Input 
@@ -724,14 +830,14 @@ onChange={onchange}
                   <div className="col">
                   <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile"   onChange={(e)=>{if(e.target.value.length >0){first_ingede_image=e.target.value} else(first_ingede_image=null)}}/>
+  <input class="form-control" type="file" id="formFile"   onChange={(e)=>{if(e.target.value.length){first_ingede_image=e.target.files[0]} else(first_ingede_image=null)}}/>
 </div>
         </div>
                
               <div className="col">
               <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length >0){second_ingede_image=e.target.value} else(second_ingede_image=null)}}/>
+  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length){second_ingede_image=e.target.files[0]} else(second_ingede_image=null)}}/>
 </div>
                 </div> </div>
                         
@@ -802,14 +908,14 @@ onChange={onchange}
                   <div className="col">
                   <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length >0){third_ingede_image=e.target.value} else(third_ingede_image=null)}} />
+  <input class="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length ){third_ingede_image=e.target.files[0]} else(third_ingede_image=null)}} />
 </div>
         </div>
                
               <div className="col">
               <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length >0){fourth_ingede_image=e.target.value} else(fourth_ingede_image=null)}} />
+  <input class="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length ){fourth_ingede_image=e.target.files[0]} else(fourth_ingede_image=null)}} />
 </div>
                 </div> </div>
                         
@@ -880,14 +986,14 @@ onChange={onchange}
                   <div className="col">
                   <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length >0){fifth_ingede_image=e.target.value} else(fifth_ingede_image=null)}}/>
+  <input class="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length ){fifth_ingede_image=e.target.files[0]} else(fifth_ingede_image=null)}}/>
 </div>
         </div>
                
               <div className="col">
               <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length >0){sixth_ingede_image=e.target.value} else(sixth_ingede_image=null)}}/>
+  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length ){sixth_ingede_image=e.target.files[0]} else(sixth_ingede_image=null)}}/>
 </div>
                 </div> </div>
                         
@@ -958,14 +1064,14 @@ onChange={onchange}
                   <div className="col">
                   <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length >0){seventh_ingede_image=e.target.value} else(seventh_ingede_image=null)}}/>
+  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length ){seventh_ingede_image=e.target.files[0]} else(seventh_ingede_image=null)}}/>
 </div>
         </div>
                
               <div className="col">
               <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length >0){eight_ingede_image=e.target.value} else(eight_ingede_image=null)}}/>
+  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length ){eight_ingede_image=e.target.files[0]} else(eight_ingede_image=null)}}/>
 </div>
                 </div> </div>
                         
@@ -1036,14 +1142,14 @@ onChange={onchange}
                   <div className="col">
                   <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length >0){nineth_ingede_image=e.target.value} else(nineth_ingede_image=null)}}/>
+  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length){nineth_ingede_image=e.target.files[0]} else(nineth_ingede_image=null)}}/>
 </div>
         </div>
                
               <div className="col">
               <div class="mb-3">
   <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length >0){tenth_ingede_image=e.target.value} else(tenth_ingede_image=null)}}/>
+  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length){tenth_ingede_image=e.target.files[0]} else(tenth_ingede_image=null)}}/>
 </div>
                 </div> </div>
                         
