@@ -2,11 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import RecipeContext from "../Context/RecipeContext";
 
 import { Modal, Image, Text } from "@nextui-org/react";
-
+import { Link, useLocation,useNavigate } from 'react-router-dom';
 export default function IndividualRecipe_comment() {
   const [visible, setVisible] = useState(false);
   const [visiblerepeted, setvisiblerepeted] = useState(false);
   const [star, setstar] = useState(0);
+  const {state}=useLocation();
+  const {RecipeItemid}=state
+  
   const context = useContext(RecipeContext);
   const {
     CurrentRecipeItem,
@@ -16,11 +19,12 @@ export default function IndividualRecipe_comment() {
     userData,
     setLoading,RecipeBYId
   } = context;
-  useEffect(() => {
-    RecipeBYId(CurrentRecipeItemid);
-
+ 
+  useEffect(()=>{
+ 
     getUser();
-  });
+    RecipeBYId(RecipeItemid)
+    },[RecipeItemid])
   const Comment = async (comment, rating) => {
     setProgress(30);
     console.log(CurrentRecipeItemid);

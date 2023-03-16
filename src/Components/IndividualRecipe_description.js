@@ -3,18 +3,23 @@ import { useContext } from 'react'
 import { useEffect } from 'react'
 import RecipeContext from '../Context/RecipeContext'
 import Loader from './Loader'
+import { useNavigate,useLocation } from "react-router-dom";
 
 export default function IndividualRecipe_description() {
   const context = useContext(RecipeContext)
-  const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId,loading} = context
+  const {state}=useLocation();
+  const {RecipeItemid}=state
+  const {CurrentRecipeItem, CurrentRecipeItemid,RecipeBYId,loading} = context
   useEffect(()=>{
-    RecipeBYId(CurrentRecipeItemid)
-    },[])
+  
+    RecipeBYId(RecipeItemid)
+    },[RecipeItemid])
  
   return (
-  <>     {loading && <Loader></Loader>  }
+  <div className='min-vh-100'>
+      {loading && <Loader></Loader>  }
 
-   { !loading && CurrentRecipeItem?.recipe && CurrentRecipeItem?.recipe.map((element)=>{
+   {  CurrentRecipeItem?.recipe && CurrentRecipeItem?.recipe.map((element)=>{
     return <div style={{backgroundColor:" #edf1f5"}} className="pb-4" key={element._id}>
            <div class="container pt-4 " id="product-section" >
            <div className="row">
@@ -103,6 +108,6 @@ export default function IndividualRecipe_description() {
 
            </div>
           </div>  })} 
-    </>
+    </div>
   )
 }

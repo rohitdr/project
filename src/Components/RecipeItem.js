@@ -86,10 +86,12 @@ deg=(deg===180)?0:180
   <div className="card-body">
     <div className="d-flex justify-content-between">
     <h6 className="card-title text-warning text-start recipeitemtext"> {props.source}</h6>
-    <h6 className="card-title text-primary text-start"><Link to={`${(!sessionStorage.getItem("auth-token")&& !localStorage.getItem("auth-token"))?"/login":"/Individual_description"}`} onClick={()=>{  
-    
-            setCurrentRecipeItemid(props.id)}}
-         ><i class="fa-solid fs-4 fa-diamond-turn-right"></i></Link></h6>
+    <h6 className="card-title text-primary text-start"><div onClick={()=>{  
+      setCurrentRecipeItemid(props.id);
+       Navigate(`${(!sessionStorage.getItem("auth-token") && !localStorage.getItem("auth-token"))?"/login":"/Individual_description"}`,{state:{RecipeItemid:props.id}});
+       
+           }}
+         ><i class="fa-solid fs-4 fa-diamond-turn-right"></i></div></h6>
     </div>
   <h4 className="card-subtitle mb-2 text-dark fw-bold recipeitemtext ">{props.title}</h4>
     <p className="card-text text-dark recipeitemtext"> {props.Ingridiants}</p>

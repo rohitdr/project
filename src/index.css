@@ -249,14 +249,14 @@ color: black;
 #button-addon1y{
   color: black;
   border-top: 3px solid rgb(54, 54, 185);
-  border-left: 3px solid rgb(54, 54, 185);
+  border-right: 3px solid rgb(54, 54, 185);
   border-bottom: 3px solid rgb(54, 54, 185);
   }
   #button-addon1x{
   color:rgb(54, 54, 185) ;
   font-size: larger;
   border-top: 3px solid rgb(54, 54, 185);
-  border-right: 3px solid rgb(54, 54, 185);
+  border-left: 3px solid rgb(54, 54, 185);
   border-bottom: 3px solid rgb(54, 54, 185);
 
     

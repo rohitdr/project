@@ -3,12 +3,17 @@ import { useContext } from 'react'
 import { useEffect } from 'react'
 import RecipeContext from '../Context/RecipeContext'
 import Loader from './Loader'
+import { Link, useLocation,useNavigate } from 'react-router-dom';
 export default function IndividualRecipe_Nutrients() {
   const context = useContext(RecipeContext)
+  
+ const {state}=useLocation();
+  const {RecipeItemid}=state
   const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId , loading } = context
   useEffect(()=>{
-    RecipeBYId(CurrentRecipeItemid)
-    },[])
+   
+    RecipeBYId(RecipeItemid)
+    },[RecipeItemid])
   return (
 
     <div >

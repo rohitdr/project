@@ -23,7 +23,7 @@ export default  function Profile(props){
 return(
 <>
 
-<div className="container">
+<div className="container min-vh-100">
 
 {!recipe ?  <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> : <div className="row my-3">
 

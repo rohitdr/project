@@ -820,7 +820,7 @@ const collapsecuisineItems = [
 
 
         
-           <form className="d-flex text-white  ">
+           <form className="d-flex text-white ">
         <input className="form-control me-2 text-white  rounded-3" id="searchbar-searchbox" type="search" placeholder="Search"   onClick={()=>{setsearchmodal(true)}} onChange={(e)=>{
           searchentered=e.target.value
           setName_to_search(searchentered)
@@ -1125,9 +1125,9 @@ const collapsecuisineItems = [
         </Modal.Header>
         <Modal.Body className="searchmodal">
         <div className="input-group input-group-lg transformingup mb-3">
-  <button className="btn btn-outline-secondary bg-white" type="button" id="button-addon1y"><i className="fa-solid fs-4 fa-magnifying-glass"></i></button>
+
   <input type="text" className="form-control modalsearch fw-bold" id="button-addon1x" placeholder="Enter the Recipe Name" aria-label="Example text with button addon" onChange={(e)=>{NameRecipe(`/${e.target.value}`)}} aria-describedby="button-addon1"/> 
- 
+  <button className="btn btn-outline-secondary bg-white" type="button" id="button-addon1y" onClick={(e)=>{NameRecipe(`/${document.getElementById('button-addon1x')?.value}`)}}><i className="fa-solid fs-4 fa-magnifying-glass"></i></button>
 </div>
 <div>
 {namerecipeloading && <Loader></Loader>}

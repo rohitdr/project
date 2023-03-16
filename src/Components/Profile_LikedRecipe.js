@@ -23,7 +23,7 @@ export default function Profile_LikedRecipe() {
 },[])
 
   return (
-    <div>
+    <div className='min-vh-100'>
       <div className="container ">
 
       {!LikedRecipe ?  <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> :<div className="row my-3">

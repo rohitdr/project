@@ -3,13 +3,16 @@ import { useContext } from 'react'
 import { useEffect } from 'react'
 import RecipeContext from '../Context/RecipeContext'
 import Loader from './Loader'
-
+import { Link, useLocation,useNavigate } from 'react-router-dom';
 export default function IndividualRecipe_Ingrediants() {
+  const {state}=useLocation();
+  const {RecipeItemid}=state
   const context = useContext(RecipeContext)
   const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId , loading} = context
   useEffect(()=>{
-    RecipeBYId(CurrentRecipeItemid)
-    },[])
+   
+    RecipeBYId(RecipeItemid)
+    },[RecipeItemid])
  
   return (
     <div style={{backgroundColor:" #edf1f5"}}>

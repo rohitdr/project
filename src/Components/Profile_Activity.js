@@ -30,7 +30,7 @@ export default function Profile_Activity() {
     }
     
   return (<>
-   <div>
+   <div className='min-vh-100'>
    
 
   

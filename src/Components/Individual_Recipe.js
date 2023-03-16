@@ -1,22 +1,23 @@
 import React, { useContext, useEffect } from 'react'
 import './Individiual_recipe.css'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation,useNavigate } from 'react-router-dom';
 import RecipeContext from '../Context/RecipeContext';
 
 
 export default function Individual_Recipe() {
-
   const context = useContext(RecipeContext)
+  const {state} = useLocation();
+  const {location}=useLocation();
+  const {RecipeItemid}=state
+let Navigate=useNavigate();
   const {CurrentRecipeItem,CurrentRecipeItemid,RecipeBYId} = context
-  let location = useLocation();
-useEffect(()=>{
-  
-RecipeBYId(CurrentRecipeItemid)
-},[])
 
-  React.useEffect(() => {
+  useEffect(()=>{
    
-  }, [location]);
+    RecipeBYId(RecipeItemid)
+    },[RecipeItemid, CurrentRecipeItemid])
+
+
   const star=6;
   return (
 <>
@@ -110,14 +111,14 @@ Uploaded By Rohit
 <div className="row">
 <section >
           <div class="container pt-5">
-<nav class="nav profile-nav-borders ">
-  <Link class={`nav-link   ${location.pathname==='/Individual_description'?"active":""}  `} to="/Individual_description" >Description</Link>
-  <Link class={`nav-link ${location.pathname==='/Individual_Comment'?"active":""} `} to="/Individual_Comment" >Comments& Ratings</Link>
+{/* <nav class="nav profile-nav-borders ">
+  <Link class={`nav-link   ${window.location?.pathname=="/Individual_description"?"active":""}  `} onClick={()=>{Navigate("/Individual_description",{state:{RecipeItemid:RecipeItemid}})}} >Description</Link>
+  <Link class={`nav-link ${window.location?.pathname=='/Individual_Comment'?"active":""} `}  onClick={()=>{Navigate("/Individual_Comment",{state:{RecipeItemid:RecipeItemid}})}}>Comments& Ratings</Link>
 
-  <Link class={`nav-link ${location.pathname==='/Individual_Ingredients'?"active":""} `} to="/Individual_Ingredients">Ingredients</Link>
-<Link class={`nav-link ${location.pathname==='/Individaul_Nutrients'?"active":""} `} to="/Individaul_Nutrients">Nutrients</Link>
+  <Link class={`nav-link ${window.location?.pathname=='/Individual_Ingredients'?"active":""} `} onClick={()=>{Navigate("/Individual_Ingredients",{state:{RecipeItemid:RecipeItemid}})}}>Ingredients</Link>
+<Link class={`nav-link ${window.location?.pathname=='/Individaul_Nutrients'?"active":""} `}  onClick={()=>{Navigate("/Individaul_Nutrients",{state:{RecipeItemid:RecipeItemid}})}}>Nutrients</Link>
   
-</nav>
+</nav> */}
 
 <hr class="mt-0 mb-2"/> 
 
