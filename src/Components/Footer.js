@@ -6,7 +6,7 @@ export default function Footer() {
   
 
 
-  <footer class="bg-light text-center text-white">
+  <footer class="bg-light text-center text-white" style={{position:"relative", bottom:"0",width:"100vw",}}>
 
   <div class="container p-4 pb-0">
    
