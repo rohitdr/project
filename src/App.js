@@ -32,6 +32,7 @@ import Meal from "./Components/Meal";
 import Dishtype from "./Components/Dishtype";
 import Diettype from "./Components/Diettype";
 import Footer from "./Components/Footer";
+import InternalServerError from "./Components/InternalServerError";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -390,8 +391,8 @@ function App() {
             path="/home"
             element={
               
-              <Home></Home>
-          
+              // <Home></Home>
+          <InternalServerError></InternalServerError>
            
             }
           />
