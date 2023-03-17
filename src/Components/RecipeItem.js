@@ -25,7 +25,7 @@ getUser();
 
 const [heart,setHeart]=useState("regular")
   const context = useContext(RecipeContext)
-  const {deleteRecipe,LikeRecipe,UnLikeRecipe,setCurrentRecipeItemid,getUserbyid,userbyid,getUser,userData} = context
+  const {deleteRecipe, RecipeBYId,LikeRecipe,UnLikeRecipe,setCurrentRecipeItemid,getUserbyid,userbyid,getUser,userData} = context
  
 const [star,setstar]=useState(0)
   let location = useLocation();
@@ -87,7 +87,8 @@ deg=(deg===180)?0:180
     <div className="d-flex justify-content-between">
     <h6 className="card-title text-warning text-start recipeitemtext"> {props.source}</h6>
     <h6 className="card-title text-primary text-start"><div onClick={()=>{  
-      setCurrentRecipeItemid(props.id);
+      
+    
        Navigate(`${(!sessionStorage.getItem("auth-token") && !localStorage.getItem("auth-token"))?"/login":"/Individual_description"}`,{state:{RecipeItemid:props.id}});
        
            }}
@@ -98,11 +99,11 @@ deg=(deg===180)?0:180
    
     <div className="card-text text-dark d-flex justify-content-between">
       <p>
-       <i className={`fa-${star>0?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(1)}}></i>
-       <i className={`fa-${star>1?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(2)}}></i>
-       <i className={`fa-${star>2?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(3)}}></i>
-       <i className={`fa-${star>3?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(4)}}></i>
-       <i className={`fa-${star>4?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(5)}}></i></p>
+       <i className={`fa-${props.rating>0?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(1)}}></i>
+       <i className={`fa-${props.rating>1?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(2)}}></i>
+       <i className={`fa-${props.rating>2?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(3)}}></i>
+       <i className={`fa-${props.rating>3?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(4)}}></i>
+       <i className={`fa-${props.rating>4?"solid":"regular"} text-danger fa-star`} onClick={()=>{setstar(5)}}></i></p>
        <i className="fa-solid fa-right-left" onClick={onclickRotate}></i></div>
   </div>
   <ul className="list-group list-group-flush ">

@@ -8,6 +8,7 @@ import RecipeItem from "./RecipeItem";
 export default function Home() {
 
 
+var reciperating=0;
   const onloadabout=()=>{
     //  document
     //   .getElementById("about_img")
@@ -258,15 +259,21 @@ cuisine("indian")
           <h2 className='text-primary fs-2'>Newly Arrived</h2>
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
-
+       
         <div class="row">
         {Latest_recipe.recipe && Latest_recipe.recipe.map((element)=>{
       fourth++;
+      element.Comments.map((ele)=>{
+       reciperating =reciperating+ ele.rating;
+      })
+      var totalrating
+      reciperating?( totalrating=reciperating):totalrating=0;
       if(fourth<5){
       
       return <div className="col-md-3 mt-4  homerecipe homenewrecipe" key={element._id}>
                   <RecipeItem
                     id={element._id}
+                    rating={totalrating}
                       title={element.label}
                       topLeftColor={"dark"}
                       headingColor={"dark"}

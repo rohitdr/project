@@ -8,6 +8,7 @@ import { BrowserRouter,Link,Route,Routes } from "react-router-dom";
 import Profile_Profile from "./Profile_Profile";
 import Profile_Security from "./Profile_Security";
 import NoResult from "./NoResult";
+import InternalServerError from "./InternalServerError";
 export default  function Profile(props){
 
     const context = useContext(RecipeContext)
@@ -22,7 +23,7 @@ export default  function Profile(props){
   
 return(
 <>
-
+{recipe==500?<InternalServerError></InternalServerError>:
 <div className="container min-vh-100">
 
 {!recipe ?  <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> : <div className="row my-3">
@@ -90,7 +91,7 @@ return(
      
       
        
-</div>
+</div>}
 
 
   

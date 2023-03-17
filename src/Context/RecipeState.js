@@ -184,7 +184,7 @@ setProgress(100)
     ///api to search recipe by id
    const RecipeBYId=async(id)=>{
     setLoading(true)
-   
+   setProgress(30)
     const response = await fetch(`http://localhost:5000/api/recipe/recipebyid/${id}`, {
       method: 'GET',
       mode: "cors",
@@ -198,16 +198,16 @@ setProgress(100)
      
   
     });
-  
+    setProgress(60)
     let current=  await response.json();
  
   setCurrentRecipeItem(current)
-  setLoading(false)
+  setProgress(100)
  
   
    }
 const AllLikedRecipe=async()=>{
-  setLoading(true)
+  setProgress(30)
   try{
   const response = await fetch("http://localhost:5000/api/recipe/allLikedRecipe", {
       method: 'GET',
@@ -223,17 +223,20 @@ const AllLikedRecipe=async()=>{
      
   
     });
-    
+    setProgress(50)
     if(response.status==404){
       setLikedRecipe(false)
       setLoading(false)
+      setProgress(100)
     }
+
     else{
       let Liked=  await response.json();
       setLikedRecipe(Liked)
       setLoading(false)
+      setProgress(100)
     }
-    console.log(LikedRecipe)
+
    
   }catch(e){
     console.log(e.message)
@@ -442,7 +445,7 @@ const showAlert =(msg, type)=>{
     // api for all recipes related to a user
     const allRecipe=async()=>{
  
-      setLoading(true)
+     setProgress(30)
       try{
         const response = await fetch('http://localhost:5000/api/recipe/allRecipes', {
             method: 'GET',
@@ -456,14 +459,21 @@ const showAlert =(msg, type)=>{
         
           });
           
-    
+          setProgress(60)
        
 if(response.status==404)
 {
+  setProgress(100)
   setRecipe(false)
   setLoading(false)
 }
+else if(response.status==500){
+  setProgress(100)
+  setRecipe(500)
+  setLoading(false)
+}
 else{
+  setProgress(100)
   let allrecipe= await response.json();
   setRecipe(allrecipe)
          

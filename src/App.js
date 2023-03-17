@@ -391,8 +391,8 @@ function App() {
             path="/home"
             element={
               
-              // <Home></Home>
-          <InternalServerError></InternalServerError>
+              <Home></Home>
+         
            
             }
           />
@@ -562,7 +562,7 @@ function App() {
  </section>
                 }
               />
-               <Route
+               {/* <Route
                 exact
                 path='/Individual_Comment'
                 element={<>
@@ -573,8 +573,8 @@ function App() {
                 </>
 
                 }
-              />
-              <Route
+              /> */}
+              {/* <Route
                 exact
                 path='/Individaul_Nutrients'
                 element={<>
@@ -585,8 +585,8 @@ function App() {
                 </>
                 
                 }
-              />
-               <Route
+              /> */}
+               {/* <Route
                 exact
                 path='/Individual_Ingredients'
                 element={<>
@@ -597,20 +597,20 @@ function App() {
                 </>
                 
                 }
-              />
+              /> */}
                <Route
                 exact
                 path='/Individual_description'
                 element={<>
                  
                   <Individual_Recipe></Individual_Recipe>
-       <IndividualRecipe_description></IndividualRecipe_description>
+
               
                 </>
                 
                 }
               />
-               <Route
+               {/* <Route
                 exact
                 path='/Individual_Recipe'
                 element={<>
@@ -619,7 +619,7 @@ function App() {
                 </>
                 
                 }
-              />
+              /> */}
           {/* <Route
             exact
             path="/Dinner"

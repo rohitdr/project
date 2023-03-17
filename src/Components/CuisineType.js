@@ -18,7 +18,7 @@ export default function CuisineType() {
     },[type])
   return (
   <>
-  <div className="container">
+  <div className="container min-vh-100">
 
 <div className="row my-3">
 

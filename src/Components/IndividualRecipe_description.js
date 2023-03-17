@@ -17,7 +17,7 @@ export default function IndividualRecipe_description() {
  
   return (
   <div className='min-vh-100'>
-      {loading && <Loader></Loader>  }
+      
 
    {  CurrentRecipeItem?.recipe && CurrentRecipeItem?.recipe.map((element)=>{
     return <div style={{backgroundColor:" #edf1f5"}} className="pb-4" key={element._id}>
