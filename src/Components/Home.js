@@ -32,11 +32,11 @@ cuisine("indian")
   return (
    <>
    
- <section id="hero-animated" class="hero-animated d-flex align-items-center">
+ <section id="hero-animated" class="hero-animated d-flex align-items-center ">
     <div class="container d-flex   flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
-      <img src="https://media.zenfs.com/en/la_times_articles_853/72c10d6a673085671d1635ac9a1406ec" class="img-fluid animated box_decrease_size_animationforlogin  "/>
+      <img src="https://media.zenfs.com/en/la_times_articles_853/72c10d6a673085671d1635ac9a1406ec" class="img-fluid animated box_decrease_size_animationforlogin   "/>
       <h2>Welcome to <span>RecipeRiot</span></h2>
-      <p>Your go-to destination for delicious and easy-to-follow recipes. Our website is a haven for foodies and home cooks alike, where you can find an array of recipes for every occasion and skill level.</p>
+      <p className='top-down-animation'>Your go-to destination for delicious and easy-to-follow recipes. Our website is a haven for foodies and home cooks alike, where you can find an array of recipes for every occasion and skill level.</p>
       <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
         <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -50,7 +50,7 @@ cuisine("indian")
 
         <div class="row gy-4">
 
-          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out">
+          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-first " data-aos="zoom-out">
             <div class="service-item position-relative">
               <div class="icon"> <i class="fa-solid fa-bolt"></i></div>
               <h4><a href="" class="stretched-link">Recipe collections</a></h4>
@@ -58,7 +58,7 @@ cuisine("indian")
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out" data-aos-delay="200">
+          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-second " data-aos="zoom-out" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon"><i class="fa-solid fa-tower-broadcast"></i></div>
               <h4><a href="" class="stretched-link">Search Anything</a></h4>
@@ -66,7 +66,7 @@ cuisine("indian")
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out" data-aos-delay="400">
+          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-third" data-aos="zoom-out" data-aos-delay="400">
             <div class="service-item position-relative">
               <div class="icon">  <i class="fa-sharp fa-solid fa-disease"></i></div>
               <h4><a href="" class="stretched-link">User account</a></h4>
@@ -74,7 +74,7 @@ cuisine("indian")
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin " data-aos="zoom-out" data-aos-delay="600">
+          <div class="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-fourth" data-aos="zoom-out" data-aos-delay="600">
             <div class="service-item position-relative">
               <div class="icon"><i class="fa-solid fa-box"></i></div>
               <h4><a href="" class="stretched-link ">User-generated content</a></h4>
