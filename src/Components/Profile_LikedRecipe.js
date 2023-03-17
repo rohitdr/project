@@ -21,6 +21,7 @@ export default function Profile_LikedRecipe() {
     
      
 },[])
+var totalratings=0;
 
   return (
     <div className='min-vh-100'>
@@ -36,10 +37,19 @@ export default function Profile_LikedRecipe() {
        
  
       { LikedRecipe && LikedRecipe.map((element)=>{
-      
+       //setting recipe for recipitm
+       var reciperating=0;
+       element.Comments.map((ele)=>{
+     
+       reciperating =reciperating+ ele.rating;
+      })
+      element.Comments.length!=0?(totalratings=reciperating/element.Comments.length):totalratings=0;
+      reciperating=0;
+       //setting recipe for recipitm
         return <div className="col-md-3 mt-4 box_decrease_size_animation_for_recipeitem " key={element._id}>
                     <RecipeItem
                       id={element._id}
+                      rating={totalratings}
                         title={element.label}
                         topLeftColor={"dark"}
                         headingColor={"dark"}

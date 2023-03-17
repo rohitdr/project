@@ -8,22 +8,13 @@ import RecipeItem from "./RecipeItem";
 export default function Home() {
 
 
-var reciperating=0;
-  const onloadabout=()=>{
-    //  document
-    //   .getElementById("about_img")
-    //   .setAttribute("class", "fade-left");
-    //   document
-    //   .getElementById("about_content")
-    //   .setAttribute("class", "fade-right");
-  }
+
+
   const [cuisineactive,setcuisineactive]=useState(0)
 
   const hide="d-none d-md-block"
-
-  var first=0;
-  var second=0;
-  var third=0
+  var totalratings=0;
+ 
   var fourth=0
   var cuisinenumber=0
   const context = useContext(RecipeContext)
@@ -224,7 +215,7 @@ cuisine("indian")
     </section>
 
 
-    <section id="about" class="about mt-4" onLoad={onloadabout} style={{backgroundColor:"#f7fbfe"}}>
+    <section id="about" class="about mt-4" style={{backgroundColor:"#f7fbfe"}}>
       <div class="container">
 
         <div class="row">
@@ -263,17 +254,23 @@ cuisine("indian")
         <div class="row">
         {Latest_recipe.recipe && Latest_recipe.recipe.map((element)=>{
       fourth++;
-      element.Comments.map((ele)=>{
+
+      //sending rating to recipeitem
+      var reciperating=0;
+       element.Comments.map((ele)=>{
+     
        reciperating =reciperating+ ele.rating;
       })
-      var totalrating
-      reciperating?( totalrating=reciperating):totalrating=0;
+      element.Comments.length!=0?(totalratings=reciperating/element.Comments.length):totalratings=0;
+      reciperating=0;
+
+       //sending rating to recipeitem
       if(fourth<5){
-      
+      console.log(totalratings)
       return <div className="col-md-3 mt-4  homerecipe homenewrecipe" key={element._id}>
                   <RecipeItem
                     id={element._id}
-                    rating={totalrating}
+                    rating={totalratings}
                       title={element.label}
                       topLeftColor={"dark"}
                       headingColor={"dark"}
@@ -354,6 +351,15 @@ cuisine("indian")
  <div className='row'>
  { cuisinedata.recipe && cuisinedata.recipe.map((element)=>{
       cuisinenumber++
+      //setting recipe for recipitm
+      var reciperating=0;
+      element.Comments.map((ele)=>{
+    
+      reciperating =reciperating+ ele.rating;
+     })
+     element.Comments.length!=0?(totalratings=reciperating/element.Comments.length):totalratings=0;
+     reciperating=0;
+      //setting recipe for recipitm
       if(cuisinenumber<5){
       
       return <div className="col-md-3 mt-4 homerecipenew  homerecipe" key={element._id}>
@@ -362,6 +368,7 @@ cuisine("indian")
                       title={element.label}
                       topLeftColor={"dark"}
                       headingColor={"dark"}
+                      rating={totalratings}
                     ImageUrl={element.image}
                     user={element.user}
                     date={element.date}

@@ -15,6 +15,7 @@ export default function Diettype() {
     useEffect(()=>{
       diettype(type)
     },[type])
+    var totalratings=0;
   return (
     <>
      <div className="container min-vh-100">
@@ -29,10 +30,19 @@ export default function Diettype() {
     
  
        {dietdata.recipe && dietdata.recipe.map((element)=>{
-     
+      //setting recipe for recipitm
+      var reciperating=0;
+      element.Comments.map((ele)=>{
+    
+      reciperating =reciperating+ ele.rating;
+     })
+     element.Comments.length!=0?(totalratings=reciperating/element.Comments.length):totalratings=0;
+     reciperating=0;
+      //setting recipe for recipitm
         return <div className="col-md-3 mt-4 profilerecipe box_decrease_size_animation_for_recipeitem" key={element._id}>
                     <RecipeItem
                       id={element._id}
+                      rating={totalratings}
                         title={element.label}
                         topLeftColor={"dark"}
                         headingColor={"dark"}
