@@ -74,26 +74,26 @@ export default function IndividualRecipe_comment() {
   return (
     <div>
       <div style={{ backgroundColor: " #edf1f5" }} className="pb-4">
-        <div class="container pt-4 " id="product-section">
-          <div class="container ">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="card box_decrease_size_animation">
-                  <div class="row">
-                    <div class="col-sm-12 col-lg-4">
-                      <div class="card-body">
-                        <h4 class="card-title">Reviews</h4>
-                        <h5 class="card-subtitleratingview">
+        <div className="container pt-4 " id="product-section">
+          <div className="container ">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="card box_decrease_size_animation">
+                  <div className="row">
+                    <div className="col-sm-12 col-lg-4">
+                      <div className="card-body">
+                        <h4 className="card-title">Reviews</h4>
+                        <h5 className="card-subtitleratingview">
                           Overview of Review
                         </h5>
-                        <h2 class="font-medium mt-5 mb-0">25426</h2>
-                        <span class="text-muted">
+                        <h2 className="font-medium mt-5 mb-0">25426</h2>
+                        <span className="text-muted">
                           This month we got 346 New Reviews
                         </span>
-                        <div class="image-box mt-4 mb-4">
+                        <div className="image-box mt-4 mb-4">
                           <a
                             href="#"
-                            class="mr-2"
+                            className="mr-2"
                             data-toggle="tooltip"
                             data-placement="top"
                             title=""
@@ -101,14 +101,14 @@ export default function IndividualRecipe_comment() {
                           >
                             <img
                               src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                              class="rounded-circle"
+                              className="rounded-circle"
                               width="45"
                               alt="user"
                             />
                           </a>
                           <a
                             href="#"
-                            class="mr-2"
+                            className="mr-2"
                             data-toggle="tooltip"
                             data-placement="top"
                             title=""
@@ -116,14 +116,14 @@ export default function IndividualRecipe_comment() {
                           >
                             <img
                               src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                              class="rounded-circle"
+                              className="rounded-circle"
                               width="45"
                               alt="user"
                             />
                           </a>
                           <a
                             href="#"
-                            class="mr-2"
+                            className="mr-2"
                             data-toggle="tooltip"
                             data-placement="top"
                             title=""
@@ -131,14 +131,14 @@ export default function IndividualRecipe_comment() {
                           >
                             <img
                               src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                              class="rounded-circle"
+                              className="rounded-circle"
                               width="45"
                               alt="user"
                             />
                           </a>
                           <a
                             href="#"
-                            class="mr-2"
+                            className="mr-2"
                             data-toggle="tooltip"
                             data-placement="top"
                             title=""
@@ -146,7 +146,7 @@ export default function IndividualRecipe_comment() {
                           >
                             <img
                               src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                              class="rounded-circle"
+                              className="rounded-circle"
                               width="45"
                               alt="user"
                             />
@@ -154,26 +154,26 @@ export default function IndividualRecipe_comment() {
                         </div>
                         <a
                           href="javascript:void(0)"
-                          class="btn btn-lg btn-info waves-effect waves-light"
+                          className="btn btn-lg btn-info waves-effect waves-light"
                         >
                           Checkout All Reviews
                         </a>
                       </div>
                     </div>
-                    <div class="col-sm-12 col-lg-8 border-left">
-                      <div class="card-body">
-                        <ul class="list-style-none">
-                          <li class="mt-4">
-                            <div class="d-flex align-items-center">
-                              <i class="fa fa-smile-o display-5ratingview text-muted"></i>
-                              <div class="ml-2">
-                                <h5 class="mb-0">Positive Reviews</h5>
-                                <span class="text-muted">25547 Reviews</span>
+                    <div className="col-sm-12 col-lg-8 border-left">
+                      <div className="card-body">
+                        <ul className="list-style-none">
+                          <li className="mt-4">
+                            <div className="d-flex align-items-center">
+                              <i className="fa fa-smile-o display-5ratingview text-muted"></i>
+                              <div className="ml-2">
+                                <h5 className="mb-0">Positive Reviews</h5>
+                                <span className="text-muted">25547 Reviews</span>
                               </div>
                             </div>
-                            <div class="progressratingview">
+                            <div className="progressratingview">
                               <div
-                                class="progress-barratingview bg-success"
+                                className="progress-barratingview bg-success"
                                 role="progressbar"
                                 style={{ width: "47%" }}
                                 aria-valuenow="47"
@@ -182,17 +182,17 @@ export default function IndividualRecipe_comment() {
                               ></div>
                             </div>
                           </li>
-                          <li class="mt-5">
-                            <div class="d-flex align-items-center">
-                              <i class="fa fa-frown-o display-5ratingview text-muted"></i>
-                              <div class="ml-2">
-                                <h5 class="mb-0">Negative Reviews</h5>
-                                <span class="text-muted">5547 Reviews</span>
+                          <li className="mt-5">
+                            <div className="d-flex align-items-center">
+                              <i className="fa fa-frown-o display-5ratingview text-muted"></i>
+                              <div className="ml-2">
+                                <h5 className="mb-0">Negative Reviews</h5>
+                                <span className="text-muted">5547 Reviews</span>
                               </div>
                             </div>
-                            <div class="progressratingview">
+                            <div className="progressratingview">
                               <div
-                                class="progress-barratingview bg-danger"
+                                className="progress-barratingview bg-danger"
                                 role="progressbar"
                                 style={{ width: "33%" }}
                                 aria-valuenow="33"
@@ -201,17 +201,17 @@ export default function IndividualRecipe_comment() {
                               ></div>
                             </div>
                           </li>
-                          <li class="mt-5 mb-5">
-                            <div class="d-flex align-items-center">
-                              <i class="fa fa-meh-o display-5ratingview text-muted"></i>
-                              <div class="ml-2">
-                                <h5 class="mb-0">Neutral Reviews</h5>
-                                <span class="text-muted">547 Reviews</span>
+                          <li className="mt-5 mb-5">
+                            <div className="d-flex align-items-center">
+                              <i className="fa fa-meh-o display-5ratingview text-muted"></i>
+                              <div className="ml-2">
+                                <h5 className="mb-0">Neutral Reviews</h5>
+                                <span className="text-muted">547 Reviews</span>
                               </div>
                             </div>
-                            <div class="progressratingview">
+                            <div className="progressratingview">
                               <div
-                                class="progress-barratingview bg-info"
+                                className="progress-barratingview bg-info"
                                 role="progressbar"
                                 style={{ width: "20%" }}
                                 aria-valuenow="20"
@@ -231,34 +231,34 @@ export default function IndividualRecipe_comment() {
 
           {/* // Reviews */}
 
-          <div class="bg-white rounded shadow-sm p-4 my-4 restaurant-detailed-ratings-and-reviews box_decrease_size_animation">
-            <a href="#" class="btn btn-outline-primary btn-sm float-right">
+          <div className="bg-white rounded shadow-sm p-4 my-4 restaurant-detailed-ratings-and-reviews box_decrease_size_animation">
+            <a href="#" className="btn btn-outline-primary btn-sm float-right">
               Top Rated
             </a>
-            <h5 class="mb-1">All Ratings and Reviews</h5>
-            <div class="reviews-members pt-4 pb-4 ">
+            <h5 className="mb-1">All Ratings and Reviews</h5>
+            <div className="reviews-members pt-4 pb-4 ">
             {CurrentRecipeItem.recipe && CurrentRecipeItem.recipe.map((element)=>{
                return element.Comments.map((ele)=>{
-                return <><div class="media row" key={ele._id}>
+                return <><div className="media row" key={ele._id}>
                 <div className="col-md-1">
                   <a href="#">
                     <img
                       alt="Generic placeholder image pb-1"
                       src="http://bootdey.com/img/Content/avatar/avatar6.png"
-                      class="mr-3 rounded-pill"
+                      className="mr-3 rounded-pill"
                     />
                   </a>
                 </div>
                 <div className="col-md-11">
-                  <div class="media-body">
-                    <div class="reviews-members-header">
-                      <h6 class="">
-                        <p class="text-black mb-0 ">{ele._id}</p>
+                  <div className="media-body">
+                    <div className="reviews-members-header">
+                      <h6 className="">
+                        <p className="text-black mb-0 ">{ele._id}</p>
                       </h6>
-                      <p class="text-gray mx-2">{new Date(ele.date).toLocaleString()}</p>
+                      <p className="text-gray mx-2">{new Date(ele.date).toLocaleString()}</p>
                     </div>
-                    <div class="reviews-members-body">
-                    <span class="star-rating">
+                    <div className="reviews-members-body">
+                    <span className="star-rating">
                 <i
                   className={`fa-${
                     ele.rating > 0 ? "solid" : "regular"
@@ -302,17 +302,17 @@ export default function IndividualRecipe_comment() {
              
             </div>
          
-            {/* <a class="text-center w-100 d-block mt-4 font-weight-bold" href="#">
+            {/* <a className="text-center w-100 d-block mt-4 font-weight-bold" href="#">
               See All Reviews
             </a> */}
           </div>
 
           {/* leave a comment */}
-          <div class="bg-white rounded shadow-sm p-4 box_decrease_size_animation rating-review-select-page">
-            <h5 class="mb-4">Leave Comment</h5>
-            <p class="mb-2">Rate the Place</p>
-            <div class="mb-4">
-              <span class="star-rating">
+          <div className="bg-white rounded shadow-sm p-4 box_decrease_size_animation rating-review-select-page">
+            <h5 className="mb-4">Leave Comment</h5>
+            <p className="mb-2">Rate the Place</p>
+            <div className="mb-4">
+              <span className="star-rating">
                 <i
                   className={`fa-${
                     star > 0 ? "solid" : "regular"
@@ -356,22 +356,22 @@ export default function IndividualRecipe_comment() {
               </span>
             </div>
 
-            <form class="was-validated">
-              <div class="mb-3">
-                <label for="validationTextarea" class="form-label">
+            <form className="was-validated">
+              <div className="mb-3">
+                <label for="validationTextarea" className="form-label">
                   Enter Your Comment
                 </label>
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   id="validationTextareaforcomment"
                   placeholder="Please enter Your Comment"
                   required
                 ></textarea>
-                <div class="invalid-feedback">Please enter a Comment.</div>
+                <div className="invalid-feedback">Please enter a Comment.</div>
               </div>
-              <div class="form-group py-2">
+              <div className="form-group py-2">
                 <button
-                  class="btn btn-primary btn-sm"
+                  className="btn btn-primary btn-sm"
                   type="button"
                   onClick={submitcomment}
                 >

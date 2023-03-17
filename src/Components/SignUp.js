@@ -9,6 +9,7 @@ import { useContext } from "react";
 import RecipeContext from "../Context/RecipeContext";
 import { Input, useInput, Button, Radio, Textarea } from "@nextui-org/react";
 import e from "cors";
+import InternalServerError from "./InternalServerError";
 
 export default function SignUp() {
   const { value, reset, bindings } = useInput("");
@@ -51,6 +52,7 @@ twitter:""
   const [last_namecolor,setlast_namecolor]=useState("secondary")
   const [last_namehelpercolor,setlast_namehelpercolor]=useState("error")
   const [last_namehelpertext,setlast_namehelpertext]=useState("")
+  const [servererror,setservererror]=useState(0)
   ///for validation of email
   const validateEmail = (value) => {
     return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
@@ -88,13 +90,13 @@ twitter:""
 
       let result = await response.json();
       if (!result) {
-        console.log("error");
+      
         setusernamecolor("error");
         sethelpercolorusername("error");
         sethelpertextusername("Username is not avialable");
 
         setusernamecontentright(
-          <i class="fa-solid text-danger fa-circle-exclamation"></i>
+          <i className="fa-solid text-danger fa-circle-exclamation"></i>
         );
       }
       if (result) {
@@ -103,10 +105,11 @@ twitter:""
         sethelpercolorusername("success");
         sethelpertextusername("username is avialable");
         setusernamecontentright(
-          <i class="fa-solid text-success fa-circle-check"></i>
+          <i className="fa-solid text-success fa-circle-check"></i>
         );
       }
     } catch (e) {
+      setservererror(500)
       console.log(e.message);
     }
   };
@@ -133,7 +136,7 @@ twitter:""
       setphone_number_helper_text("Phone Number should be of 10 digits")
       setphone_numberhelpercolor("error")
       setphone_numbercolor("error")
-      setphone_numbercontentright( <i class="fa-solid text-danger fa-circle-exclamation"></i>)
+      setphone_numbercontentright( <i className="fa-solid text-danger fa-circle-exclamation"></i>)
       
 
     }
@@ -141,7 +144,7 @@ twitter:""
       setphone_number_helper_text("")
       setphone_numberhelpercolor("success")
       setphone_numbercolor("success")
-      setphone_numbercontentright(<i class="fa-solid text-success fa-circle-check"></i>)
+      setphone_numbercontentright(<i className="fa-solid text-success fa-circle-check"></i>)
     }
     // validation for password
     if(signupdetail.password.length<8)
@@ -212,7 +215,7 @@ setlast_namehelpertext("Last name should be of more than 3 words")
       console.log(signupdetail);
       document
         .getElementById("signup_first_component")
-        .setAttribute("class", "disapear_component");
+        .setAttribute("className", "disapear_component");
       setTimeout(() => {
         setsignuppage(1);
       }, 350);
@@ -231,7 +234,7 @@ const changethird=(e)=>{
   const third_prev = () => {
     document
       .getElementById("thirdpage")
-      .setAttribute("class", "disapear_component");
+      .setAttribute("className", "disapear_component");
     setTimeout(() => {
       setsignuppage(1);
     }, 350);
@@ -240,6 +243,7 @@ const changethird=(e)=>{
   //sign up api call
   let Navigate = useNavigate();
   const signupapi = async() => {
+    try{
     setProgress(10)
       
        const response = await fetch(`http://localhost:5000/api/auth/createUser`, {
@@ -280,7 +284,12 @@ const changethird=(e)=>{
        }
       
      
-   
+      }
+      catch(error){
+        setProgress(100)
+        setservererror(500)
+        console.log(error.message)
+      }
      };
   //onclick of skip button of third Page
   const signup=()=>{
@@ -290,21 +299,21 @@ const changethird=(e)=>{
 }, 2000);
   }
 
-  return (
-    <>
+  return (<>
+    { servererror == 500 ? <InternalServerError></InternalServerError> :<div>
       {signuppage == 0 && (
-        <section class="background-radial-gradient overflow-hidden">
+        <section className="background-radial-gradient overflow-hidden">
           <div
-            class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
+            className="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
             id="signup_first_component"
           >
-            <div class="row gx-lg-5 align-items-center mb-5">
-              <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
-                <div class="card singupcard border-success align-items-center box_decrease_size_animation">
-                  <div class="card-header singupcardheder b d-flex justify-content-center box_decrease_size_animationforlogin">
+            <div className="row gx-lg-5 align-items-center mb-5">
+              <div className="col-lg-5 mb-5 mb-lg-0 position-relative">
+                <div className="card singupcard border-success align-items-center box_decrease_size_animation">
+                  <div className="card-header singupcardheder b d-flex justify-content-center box_decrease_size_animationforlogin">
                     <h5 className="fw-bold pt-4 text-white"><span className="sign_s">S</span><span className="sign_i">i</span><span className="sign_g">g</span><span className="sign_n">n</span> <span className="sign_u">U</span><span className="sign_p">p</span></h5>
                   </div>
-                  <div class="card-body box_decrease_size_animationforlogin ">
+                  <div className="card-body box_decrease_size_animationforlogin ">
                     <form>
                       <div className="row px-2 mt-3 box_decrease_size_animationemailsignup   mb-1">
                         <Input
@@ -460,12 +469,12 @@ const changethird=(e)=>{
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 mb-5 mb-lg-0" style={{zIndex: 10}}>
-       <h1 class="my-5 display-5 fw-bold ls-tight" style={{color: "hsl(218, 81%, 95%)"}}>
+              <div className="col-lg-6 mb-5 mb-lg-0" style={{zIndex: 10}}>
+       <h1 className="my-5 display-5 fw-bold ls-tight" style={{color: "hsl(218, 81%, 95%)"}}>
          Be The First<br />
          <span style={{color: "hsl(218, 81%, 75%)"}}>Don't Miss this Oportunity</span>
        </h1>
-       <p class="mb-4 opacity-70" style={{color: "hsl(218, 81%, 85%)"}}>
+       <p className="mb-4 opacity-70" style={{color: "hsl(218, 81%, 85%)"}}>
        Sign up know to be the first to Know about
         special and Intersting Recipes.
        </p>
@@ -476,31 +485,31 @@ const changethird=(e)=>{
       )}
      
       {signuppage == 1 && (
-        <section class="background-radial-gradient overflow-hidden">
+        <section className="background-radial-gradient overflow-hidden">
           <div
-            class="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
+            className="container px-4 py-5 px-md-5 text-center text-lg-start my-5 appear_component"
             id="thirdpage"
           >
-            <div class="d-flex justify-content-end gx-lg-5 align-items-center mb-5">
-            <div class="col-lg-6 mb-5 mb-lg-0" style={{zIndex: 10}}>
-       <h1 class="my-5 display-5 fw-bold ls-tight" style={{color: "hsl(218, 81%, 95%)"}}>
+            <div className="d-flex justify-content-end gx-lg-5 align-items-center mb-5">
+            <div className="col-lg-6 mb-5 mb-lg-0" style={{zIndex: 10}}>
+       <h1 className="my-5 display-5 fw-bold ls-tight" style={{color: "hsl(218, 81%, 95%)"}}>
          How to Cook  <br />
          <span style={{color: "hsl(218, 81%, 75%)"}}> Any thing you want  </span>
        </h1>
-       <p class="mb-4 opacity-70" style={{color: "hsl(218, 81%, 85%)"}}>
+       <p className="mb-4 opacity-70" style={{color: "hsl(218, 81%, 85%)"}}>
         Would You like to Explore the foodie in you.
        </p>
      </div>
-              <div class="col-lg-5 mb-5 mb-lg-0 position-relative">
-                <div class="card singupcard border-success align-items-center box_decrease_size_animation pb-3">
-                  <div class="card-header singupcardheder b d-flex justify-content-center box_decrease_size_animationforlogin">
+              <div className="col-lg-5 mb-5 mb-lg-0 position-relative">
+                <div className="card singupcard border-success align-items-center box_decrease_size_animation pb-3">
+                  <div className="card-header singupcardheder b d-flex justify-content-center box_decrease_size_animationforlogin">
                     <h5 className="fw-bold pt-4 text-white">
                       {" "}
                       Socail Networks
                     </h5>
                   </div>
 
-                  <div class="card-body box_decrease_size_animationforlogin ">
+                  <div className="card-body box_decrease_size_animationforlogin ">
                     <form>
                       <div className="d-flex justify-content-between pt-2 ">
                         <Input
@@ -517,7 +526,7 @@ const changethird=(e)=>{
                           placeholder="Your Website Name"
                           labelRight=".com"
                           contentRight={
-                            <i class="fas fa-globe fa-lg text-warning"></i>
+                            <i className="fas fa-globe fa-lg text-warning"></i>
                           }
                         />
                       </div>
@@ -535,7 +544,7 @@ const changethird=(e)=>{
                           id="git"
                           name="git"
                           contentRight={
-                            <i class=" pe-2 fab fa-github fa-lg"></i>
+                            <i className=" pe-2 fab fa-github fa-lg"></i>
                           }
                         />
                       </div>
@@ -554,7 +563,7 @@ const changethird=(e)=>{
                           labelRight=".facebook"
                           contentRight={
                             <i
-                              class="fab fa-facebook-f fa-lg"
+                              className="fab fa-facebook-f fa-lg"
                               style={{ color: "#3b5998" }}
                             ></i>
                           }
@@ -577,7 +586,7 @@ const changethird=(e)=>{
                           labelRight=".twitter"
                           contentRight={
                             <i
-                              class="fab fa-twitter fa-lg"
+                              className="fab fa-twitter fa-lg"
                               style={{ color: "#55acee" }}
                             ></i>
                           }
@@ -618,6 +627,7 @@ const changethird=(e)=>{
           </div>
         </section>
       )}
+    </div>}
     </>
   );
 }

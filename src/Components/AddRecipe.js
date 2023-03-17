@@ -340,34 +340,34 @@ Addapi();
   }
   return (
     <>
-      <section class="intro py-5 " style={{ backgroundColor: "#f3f2f2" }}>
-        <div class="bg-image h-100">
-          <div class="mask d-flex align-items-center h-100">
-            <div class="container">
-              <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-12 col-lg-9 col-xl-8">
-                  <div class="card border-info" style={{ borderRadius: "1rem" }}>
-                    <div class="row g-0">
-                      <div class="col-md-4 d-none d-md-block">
+      <section className="intro py-5 " style={{ backgroundColor: "#f3f2f2" }}>
+        <div className="bg-image h-100">
+          <div className="mask d-flex align-items-center h-100">
+            <div className="container">
+              <div className="row d-flex justify-content-center align-items-center">
+                <div className="col-12 col-lg-9 col-xl-8">
+                  <div className="card border-info" style={{ borderRadius: "1rem" }}>
+                    <div className="row g-0">
+                      <div className="col-md-4 d-none d-md-block">
                         <img
                           src="https://mdbootstrap.com/img/Photos/Others/sidenav2.jpg"
                           alt="login form"
-                          class="img-fluid"
+                          className="img-fluid"
                           style={{
                             borderTopLeftRadius: "1rem",
                             borderBottomLeftRadius: "1rem",
                           }}
                         />
                       </div>
-                      <div class="col-md-8 d-flex  align-items-center">
+                      <div className="col-md-8 d-flex  align-items-center">
                         {/* page 1 */}
                         {pageno == 0 && (
-                          <div class="card-body  py-2 px-4 p-md-5">
+                          <div className="card-body  py-2 px-4 p-md-5">
                            
-                               <h4 class="fw-bold mb-2" style={{color: "#92aad0"}}>Enter the details</h4>
+                               <h4 className="fw-bold mb-2" style={{color: "#92aad0"}}>Enter the details</h4>
                             <form action="">
                      
-                              <div class="mb-2 d-flex justify-content-center">
+                              <div className="mb-2 d-flex justify-content-center">
                                 <img
                                 id="reicpe_image"
                                   src="https://images.kitchenstories.io/wagtailOriginalImages/A912-gif1.gif"
@@ -376,17 +376,17 @@ Addapi();
                                   style={{width: "100%",height:"250px"}}
                                 />
                               </div>
-                              <div class="d-flex justify-content-center">
-                                {/* <div class="btn btn-primary btn-rounded">
+                              <div className="d-flex justify-content-center">
+                                {/* <div className="btn btn-primary btn-rounded">
                                   <label
-                                    class="form-label text-white m-1"
+                                    className="form-label text-white m-1"
                                     for="customFile1"
                                   >
                                     Choose file
                                   </label>
                                   <input
                                     type="file"
-                                    class="form-control d-none"
+                                    className="form-control d-none"
                                     onChange={onchangeimage}
                                 
                                   
@@ -420,9 +420,9 @@ Addapi();
                         {/* page 1 */}
                         {/* page 2 */}
                         {  pageno==1 &&
-                          <div class="card-body  py-5 px-4 p-md-5">
+                          <div className="card-body  py-5 px-4 p-md-5">
                              <div className="card-header">
-                          <h4 class="fw-bold" style={{color: "#92aad0"}}>Enter the additional infromation</h4></div>
+                          <h4 className="fw-bold" style={{color: "#92aad0"}}>Enter the additional infromation</h4></div>
                        <form action="">
                 <div className="row my-4">
                   <div className="col">
@@ -515,9 +515,9 @@ onChange={onchange}
                         {/* page 2 */}
                         {/* page 3 */}
                         {  pageno==2 &&
-                          <div class="card-body  px-4 p-md-5">
+                          <div className="card-body  px-4 p-md-5">
                             <div className="card-header">
-                          <h4 class="fw-bold " style={{color: "#92aad0"}}>Choose the labels
+                          <h4 className="fw-bold " style={{color: "#92aad0"}}>Choose the labels
                           </h4></div>
                        <form action="">
                         <div className="row">
@@ -525,7 +525,7 @@ onChange={onchange}
                           <label className="form-label text-dark fw-bold">
                   Choose the Diet Labels
                 </label>
-                <select multiple="multiple" class="form-select" id="dietLabels" name="dietLabels" size="3"  onChange={onchangearray} >
+                <select multiple="multiple" className="form-select" id="dietLabels" name="dietLabels" size="3"  onChange={onchangearray} >
 
 
               
@@ -768,9 +768,9 @@ onChange={onchange}
                         {/* page 3 */}
                         {/* page 4 */}
                         {  pageno==3 &&
-                          <div class="card-body py-5 px-4 p-md-5">
+                          <div className="card-body py-5 px-4 p-md-5">
                             
-                          <h4 class="fw-bold mb-4" style={{color: "#92aad0"}}>Enter First and Second ingrediants</h4>
+                          <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter First and Second ingrediants</h4>
                        <form action="">
                  
                 <div className="row my-2">
@@ -828,16 +828,16 @@ onChange={onchange}
                 </div> </div>
                 <div className="row my-2">
                   <div className="col">
-                  <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile"   onChange={(e)=>{if(e.target.value.length){first_ingede_image=e.target.files[0]} else(first_ingede_image=null)}}/>
+                  <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile"   onChange={(e)=>{if(e.target.value.length){first_ingede_image=e.target.files[0]} else(first_ingede_image=null)}}/>
 </div>
         </div>
                
               <div className="col">
-              <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length){second_ingede_image=e.target.files[0]} else(second_ingede_image=null)}}/>
+              <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length){second_ingede_image=e.target.files[0]} else(second_ingede_image=null)}}/>
 </div>
                 </div> </div>
                         
@@ -855,9 +855,9 @@ onChange={onchange}
                         {/* page 4 */}
                          {/* page 5 */}
                          {  pageno==4 &&
-                          <div class="card-body py-5 px-4 p-md-5">
+                          <div className="card-body py-5 px-4 p-md-5">
                             
-                          <h4 class="fw-bold mb-4" style={{color: "#92aad0"}}>Enter Third and Fourth Ingredient</h4>
+                          <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter Third and Fourth Ingredient</h4>
                        <form action="">
                  
                        <div className="row my-2">
@@ -906,16 +906,16 @@ onChange={onchange}
                 </div> </div>
                 <div className="row my-2">
                   <div className="col">
-                  <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length ){third_ingede_image=e.target.files[0]} else(third_ingede_image=null)}} />
+                  <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length ){third_ingede_image=e.target.files[0]} else(third_ingede_image=null)}} />
 </div>
         </div>
                
               <div className="col">
-              <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length ){fourth_ingede_image=e.target.files[0]} else(fourth_ingede_image=null)}} />
+              <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length ){fourth_ingede_image=e.target.files[0]} else(fourth_ingede_image=null)}} />
 </div>
                 </div> </div>
                         
@@ -933,9 +933,9 @@ onChange={onchange}
                         {/* page 5 */}
                          {/* page 6 */}
                          {  pageno==5 &&
-                          <div class="card-body py-5 px-4 p-md-5">
+                          <div className="card-body py-5 px-4 p-md-5">
                             
-                          <h4 class="fw-bold mb-4" style={{color: "#92aad0"}}>Enter the Fifth and Sixth Ingredient</h4>
+                          <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter the Fifth and Sixth Ingredient</h4>
                        <form action="">
                  
                        <div className="row my-2">
@@ -984,16 +984,16 @@ onChange={onchange}
                 </div> </div>
                 <div className="row my-2">
                   <div className="col">
-                  <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length ){fifth_ingede_image=e.target.files[0]} else(fifth_ingede_image=null)}}/>
+                  <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile"  onChange={(e)=>{if(e.target.value.length ){fifth_ingede_image=e.target.files[0]} else(fifth_ingede_image=null)}}/>
 </div>
         </div>
                
               <div className="col">
-              <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length ){sixth_ingede_image=e.target.files[0]} else(sixth_ingede_image=null)}}/>
+              <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length ){sixth_ingede_image=e.target.files[0]} else(sixth_ingede_image=null)}}/>
 </div>
                 </div> </div>
                         
@@ -1011,9 +1011,9 @@ onChange={onchange}
                         {/* page 6 */}
                          {/* page 7 */}
                          {  pageno==6 &&
-                          <div class="card-body py-5 px-4 p-md-5">
+                          <div className="card-body py-5 px-4 p-md-5">
                             
-                          <h4 class="fw-bold mb-4" style={{color: "#92aad0"}}>Enter seventh and Eight Ingredient</h4>
+                          <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter seventh and Eight Ingredient</h4>
                        <form action="">
                  
                        <div className="row my-2">
@@ -1062,16 +1062,16 @@ onChange={onchange}
                 </div> </div>
                 <div className="row my-2">
                   <div className="col">
-                  <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length ){seventh_ingede_image=e.target.files[0]} else(seventh_ingede_image=null)}}/>
+                  <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length ){seventh_ingede_image=e.target.files[0]} else(seventh_ingede_image=null)}}/>
 </div>
         </div>
                
               <div className="col">
-              <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length ){eight_ingede_image=e.target.files[0]} else(eight_ingede_image=null)}}/>
+              <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length ){eight_ingede_image=e.target.files[0]} else(eight_ingede_image=null)}}/>
 </div>
                 </div> </div>
                         
@@ -1089,9 +1089,9 @@ onChange={onchange}
                         {/* page 7 */}
                          {/* page 8 */}
                          {  pageno==7 &&
-                          <div class="card-body py-5 px-4 p-md-5">
+                          <div className="card-body py-5 px-4 p-md-5">
                             
-                          <h4 class="fw-bold mb-4" style={{color: "#92aad0"}}>Enter Ninth and Tenth Ingredient</h4>
+                          <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter Ninth and Tenth Ingredient</h4>
                        <form action="">
                  
                        <div className="row my-2">
@@ -1140,16 +1140,16 @@ onChange={onchange}
                 </div> </div>
                 <div className="row my-2">
                   <div className="col">
-                  <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length){nineth_ingede_image=e.target.files[0]} else(nineth_ingede_image=null)}}/>
+                  <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length){nineth_ingede_image=e.target.files[0]} else(nineth_ingede_image=null)}}/>
 </div>
         </div>
                
               <div className="col">
-              <div class="mb-3">
-  <label for="formFile" class="form-label">Choose the image</label>
-  <input class="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length){tenth_ingede_image=e.target.files[0]} else(tenth_ingede_image=null)}}/>
+              <div className="mb-3">
+  <label for="formFile" className="form-label">Choose the image</label>
+  <input className="form-control" type="file" id="formFile" onChange={(e)=>{if(e.target.value.length){tenth_ingede_image=e.target.files[0]} else(tenth_ingede_image=null)}}/>
 </div>
                 </div> </div>
                         
@@ -1167,9 +1167,9 @@ onChange={onchange}
                         {/* page 8 */}
                         {/* page 9 */}
                         {  pageno==8 &&
-                          <div class="card-body  px-4 p-md-5">
+                          <div className="card-body  px-4 p-md-5">
                             
-                          <h4 class="fw-bold " style={{color: "#92aad0"}}>Enter the Nurients</h4>
+                          <h4 className="fw-bold " style={{color: "#92aad0"}}>Enter the Nurients</h4>
                        <form action="">
                         
                        <table className="table">
@@ -1435,7 +1435,7 @@ onChange={onchange}
                         {/* page 9 */}
                           {/* page 10 */}
                           {  pageno==9 &&
-                          <div class="card-body px-4 p-md-5">
+                          <div className="card-body px-4 p-md-5">
                             
                           
                        <form action="">
@@ -1725,7 +1725,7 @@ onChange={onchange}
                             {/* page 10 */}
                               {/* page 11 */}
                               {  pageno==10 &&
-                          <div class="card-body  px-4 p-md-5">
+                          <div className="card-body  px-4 p-md-5">
                             
                         
                        <form action="">
@@ -2005,9 +2005,9 @@ onChange={onchange}
                                 {/* page 11 */}
                                 {/* page 12 */}
                                 {  pageno==11 &&
-                          <div class="card-body  py-5 px-4 p-md-5">
+                          <div className="card-body  py-5 px-4 p-md-5">
                              <div className="card-header">
-                          <h4 class="fw-bold " style={{color: "#92aad0"}}>Enter the Instructions</h4></div>
+                          <h4 className="fw-bold " style={{color: "#92aad0"}}>Enter the Instructions</h4></div>
                        <form action="">
                        <Textarea bordered color="primary" name="instruction" id="instructionrecipe" placeholder="Sepreate next line by using the .(Full Stop)" className="mt-2" width="100%" minRows="10" maxRows="15"
                        label="Enter Your Instructions"

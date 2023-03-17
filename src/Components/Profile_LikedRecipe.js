@@ -5,6 +5,7 @@ import Loader from './Loader';
 import RecipeItem from './RecipeItem';
 import { useNavigate } from "react-router-dom";
 import NoResult from "./NoResult";
+import InternalServerError from './InternalServerError';
 export default function Profile_LikedRecipe() {
 
     const context = useContext(RecipeContext)
@@ -24,7 +25,8 @@ export default function Profile_LikedRecipe() {
 var totalratings=0;
 
   return (
-    <div className='min-vh-100'>
+    <>
+    { LikedRecipe == 500 ? <InternalServerError></InternalServerError> :<div className='min-vh-100'>
       <div className="container ">
 
       {!LikedRecipe ?  <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> :<div className="row my-3">
@@ -104,6 +106,7 @@ var totalratings=0;
        
 </div>
 
-    </div>
+    </div>}
+    </>
   )
 }

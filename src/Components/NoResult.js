@@ -1,27 +1,28 @@
 import React from 'react'
-
+import { Button } from '@nextui-org/react'
 export default function NoResult(props) {
   return (
     <>
 
-<section class="">
+<section className="">
 
-  <div class="px-4 py-5 px-md-5 text-center text-lg-start" style={{backgroundColor: "hsl(0, 0%, 96%)"}}>
-    <div class="container">
-      <div class="row gx-lg-5 align-items-center">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <h1 class="my-5 display-3 fw-bold ls-tight text-primary">
+  <div className="px-4 py-5 px-md-5 text-center text-lg-start" style={{backgroundColor: "hsl(0, 0%, 96%)"}}>
+    <div className="container">
+      <div className="row gx-lg-5 align-items-center">
+        <div className="col-lg-6 mb-5 mb-lg-0">
+          <h1 className="my-5 display-3 fw-bold ls-tight text-primary">
           {props.heading}<br />
-            <span class=""></span>
+            <span className=""></span>
           </h1>
           <p style={{color: "hsl(217, 10%, 50.8%)"}}>
           {props.paragraph}
           </p>
+         {props.button}
         </div>
 
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <div class="card box_decrease_size_animation_for_recipeitem">
-            <div class="card-body py-5 px-md-5 ">
+        <div className="col-lg-6 mb-5 mb-lg-0">
+          <div className="card box_decrease_size_animation_for_recipeitem">
+            <div className="card-body py-5 px-md-5 ">
              <img src={props.img} alt="result not found" className=''/>
             </div>
           </div>

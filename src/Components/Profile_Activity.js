@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import RecipeContext from '../Context/RecipeContext'
 import NoResult from './NoResult'
+import InternalServerError from "./InternalServerError";
 import { Modal,Image,Button } from '@nextui-org/react';
 
 export default function Profile_Activity() {
@@ -29,63 +30,66 @@ export default function Profile_Activity() {
     setvisibledelete({state:true,id:id})
     }
     
-  return (<>
+  return (
+    <>
+ { userData==500 || Latest_recipebyid == 500 ? <InternalServerError></InternalServerError>: <div>
+
    <div className='min-vh-100'>
    
 
   
-    <div class="row">
-<div class="col-lg-4 mb-4">
+    <div className="row">
+<div className="col-lg-4 mb-4">
            
-    <div class="card h-100 border-start-lg border-start-primary box_decrease_size_animation">
-        <div class="card-body">
-            <div class="small text-muted">Total Recipes</div>
-            <div class="h3">{userData?.totalResults}</div>
+    <div className="card h-100 border-start-lg border-start-primary box_decrease_size_animation">
+        <div className="card-body">
+            <div className="small text-muted">Total Recipes</div>
+            <div className="h3">{userData?.totalResults}</div>
                     
         </div>
     </div>
 </div>
-<div class="col-lg-4 mb-4">
+<div className="col-lg-4 mb-4">
            
-    <div class="card h-100 border-start-lg border-start-secondary box_decrease_size_animation">
-        <div class="card-body">
-            <div class="small text-muted">Total Likes Got</div>
-            <div class="h3">{userData?.user?.Liked_Recipe?.length}</div>
+    <div className="card h-100 border-start-lg border-start-secondary box_decrease_size_animation">
+        <div className="card-body">
+            <div className="small text-muted">Total Likes Got</div>
+            <div className="h3">{userData?.user?.Liked_Recipe?.length}</div>
                    
         </div>
     </div>
 </div>
-<div class="col-lg-4 mb-4">
+<div className="col-lg-4 mb-4">
            
-    <div class="card h-100 border-start-lg border-start-success box_decrease_size_animation">
-        <div class="card-body">
-            <div class="small text-muted">Total Comments Got</div>
-            <div class="h3 d-flex align-items-center">{userData?.user?.Total_Comments}</div>
+    <div className="card h-100 border-start-lg border-start-success box_decrease_size_animation">
+        <div className="card-body">
+            <div className="small text-muted">Total Comments Got</div>
+            <div className="h3 d-flex align-items-center">{userData?.user?.Total_Comments}</div>
                    
         </div>
     </div>
 </div>
     </div>
 
-    {!Latest_recipebyid ? <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> :    <div class="card card-header-actions mb-4 ">
-<div class="card-header">
+    {!Latest_recipebyid ? <NoResult img="https://media.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" heading="No Result found" paragraph="Whoops.... You had not uploaded any Recipe yet"></NoResult> :    <div className="card card-header-actions mb-4 ">
+<div className="card-header">
     Latest Recipes
     
 </div>
 
-        <div class="card-body px-0">
+        <div className="card-body px-0">
        { Latest_recipebyid.recipe && Latest_recipebyid.recipe.map((element)=>{
 
-           return <><div class="d-flex align-items-center justify-content-between px-4" key={element._id}>
-                <div class="d-flex align-items-center">
+           return <><div className="d-flex align-items-center justify-content-between px-4" key={element._id}>
+                <div className="d-flex align-items-center">
                 <img src={element.image}
               className="img-fluid shadow-1-strong rounded latest_recipe_image Profile_activity_latest_image " alt="Latest Recipe Image" />
-                    <div class="ms-4">
-                        <div class="small">{element.label}</div>
-                        <div class="text-xs text-muted">{(new Date(element.date).toLocaleString())}</div>
+                    <div className="ms-4">
+                        <div className="small">{element.label}</div>
+                        <div className="text-xs text-muted">{(new Date(element.date).toLocaleString())}</div>
                     </div>
                 </div>
-                <div class="ms-4 small d-flex justify-content-around">
+                <div className="ms-4 small d-flex justify-content-around">
                     <div className="me-2"> <Button onClick={()=>{deleterecipe(element._id)}} color="error" auto ghost>
                    Delete
                   </Button></div>
@@ -130,6 +134,7 @@ export default function Profile_Activity() {
         </Modal.Footer>
       </Modal>
 
+</div>}
 </>
   )
 }

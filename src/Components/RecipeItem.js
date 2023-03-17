@@ -92,7 +92,7 @@ deg=(deg===180)?0:180
        Navigate(`${(!sessionStorage.getItem("auth-token") && !localStorage.getItem("auth-token"))?"/login":"/Individual_description"}`,{state:{RecipeItemid:props.id}});
        
            }}
-         ><i class="fa-solid fs-4 fa-diamond-turn-right"></i></div></h6>
+         ><i className="fa-solid fs-4 fa-diamond-turn-right"></i></div></h6>
     </div>
   <h4 className="card-subtitle mb-2 text-dark fw-bold recipeitemtext ">{props.title}</h4>
     <p className="card-text text-dark recipeitemtext"> {props.Ingridiants}</p>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeContext from "../Context/RecipeContext";
-
+import InternalServerError from "./InternalServerError";
 import { Modal, Image, Text,Input,Row,Checkbox,Button } from "@nextui-org/react";
 import "./login.css";
 import "./login_file.js";
@@ -12,9 +12,11 @@ export default function Login() {
   const [rememberme,setrememberme]=useState(false)
   const [visibleforgetmodal,setvisibleforgetmodal]=useState(false)
   const context = useContext(RecipeContext);
+ const [servererror, setservererror]= useState(0)
   const { login,showAlert ,setProgress} = context;
 
   const loginclick = async() => {
+    try{
  setProgress(10)
    
     const response = await fetch(`http://localhost:5000/api/auth/login`, {
@@ -65,7 +67,13 @@ export default function Login() {
       }, 2000);
     }
    
-  
+    }
+    catch(e){
+      setProgress(100)
+setservererror(500)
+      console.log(e.message)
+      
+     }
 
   };
   const forgetinputchange=(e)=>{
@@ -73,6 +81,7 @@ export default function Login() {
   }
   //api function for forget password
   const forgetpassapi=async()=>{
+    try{
     setProgress(30)
     const response = await fetch("http://localhost:5000/api/auth/forgetPassword", {
       method: 'POST',
@@ -102,6 +111,12 @@ export default function Login() {
       setvisibleforgetmodal(false)
       showAlert(result.error,"danger")
     }
+  }catch(e){
+    setProgress(100)
+   setservererror(500)
+    console.log(e.message)
+    
+   }
   }
 // function to change password
 const changeforgetpassword=()=>{
@@ -118,14 +133,15 @@ const changeforgetpassword=()=>{
   const loginchange = (e) => {
     setlogindetail({ ...logindetail, [e.target.name]: e.target.value });
   };
-  return (
-    <>
-      <section class="background-radial-gradient overflow-hidden">
-        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
-          <div class="row gx-lg-5 align-items-center mb-5">
-            <div class="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: "10" }}>
+  return (<>
+
+  {  servererror == 500 ? <InternalServerError></InternalServerError>:<div>
+      <section className="background-radial-gradient overflow-hidden">
+        <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+          <div className="row gx-lg-5 align-items-center mb-5">
+            <div className="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: "10" }}>
               <h1
-                class="my-5 display-5 fw-bold ls-tight"
+                className="my-5 display-5 fw-bold ls-tight"
                 style={{ color: "hsl(218, 81%, 95%)" }}
               >
                 The best offer <br />
@@ -134,7 +150,7 @@ const changeforgetpassword=()=>{
                 </span>
               </h1>
               <p
-                class="mb-4 opacity-70"
+                className="mb-4 opacity-70"
                 style={{ color: "hsl(218, 81%, 85%)" }}
               >
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -144,34 +160,34 @@ const changeforgetpassword=()=>{
               </p>
             </div>
 
-     <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-       <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-       <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+     <div className="col-lg-6 mb-5 mb-lg-0 position-relative">
+       <div id="radius-shape-1" className="position-absolute rounded-circle shadow-5-strong"></div>
+       <div id="radius-shape-2" className="position-absolute shadow-5-strong"></div>
 
-       <div class="card bg-glass box_decrease_size_animation">
-               <div class="card-body px-4 py-5 px-md-5 logincardbody">
-                 <div class="card-header card-header-primary loginformheader text-center box_decrease_size_animationforlogin  ">
-                   <h4 class="card-title ">Login</h4>
-                   <div class="social-linelogin  ">
-                     <a href="#pablo" class="btn btn-just-icon btn-link">
-                       <i class="fa fs-5 fa-facebook-square"></i>
+       <div className="card bg-glass box_decrease_size_animation">
+               <div className="card-body px-4 py-5 px-md-5 logincardbody">
+                 <div className="card-header card-header-primary loginformheader text-center box_decrease_size_animationforlogin  ">
+                   <h4 className="card-title ">Login</h4>
+                   <div className="social-linelogin  ">
+                     <a href="#pablo" className="btn btn-just-icon btn-link">
+                       <i className="fa fs-5 fa-facebook-square"></i>
                      </a>
-                     <a href="#pablo" class="btn btn-just-icon btn-link">
-                       <i class="fa  fs-5 fa-twitter"></i>
+                     <a href="#pablo" className="btn btn-just-icon btn-link">
+                       <i className="fa  fs-5 fa-twitter"></i>
                      </a>
-                     <a href="#pablo" class="btn btn-just-icon btn-link">
-                       <i class="fa fs-5 fa-google-plus"></i>
+                     <a href="#pablo" className="btn btn-just-icon btn-link">
+                       <i className="fa fs-5 fa-google-plus"></i>
                      </a>
                    </div>{" "}
                  </div>
                  <form
-                   class="loginform box_decrease_size_animation"
+                   className="loginform box_decrease_size_animation"
                    onSubmit={onsubmit}
                  >
-                   <div class="form-floating mb-3 mt-3  ">
+                   <div className="form-floating mb-3 mt-3  ">
                      <input
                        type="email"
-                       class="form-control loginform-control rounded-3"
+                       className="form-control loginform-control rounded-3"
                        id="email"
                        name="email"
                        
@@ -181,7 +197,7 @@ const changeforgetpassword=()=>{
                      />
                      <label for="loginemail">Email address</label>
                    </div>
-                   <div class="form-floating mb-3 ">
+                   <div className="form-floating mb-3 ">
                      <input
                        type="password"
                        className="form-control loginform-control rounded-3"
@@ -196,31 +212,31 @@ const changeforgetpassword=()=>{
                      <label for="loginPassword">Password</label>
                    </div>
                    {/* not a member */}
-                   <div class="row mb-4 " style={{fontSize: "15px"}}>
-    <div class="col d-flex justify-content-start">
+                   <div className="row mb-4 " style={{fontSize: "15px"}}>
+    <div className="col d-flex justify-content-start">
 
-      <div class="form-check">
-        <input class="form-check-input rememberme" type="checkbox" id="rememberme" />
-        <label class="form-check-label mx-0 px-0 "  for="rememberme"> Remember me </label>
+      <div className="form-check">
+        <input className="form-check-input rememberme" type="checkbox" id="rememberme" />
+        <label className="form-check-label mx-0 px-0 "  for="rememberme"> Remember me </label>
       </div>
     </div>
 
-    <div class="col">
+    <div className="col">
     
       <a onClick={()=>{setvisibleforgetmodal(true)}}>Forgot password?</a>
     </div>
   </div>
                    <button
-                     class="w-100 mb-2 box_decrease_size_animation  login_login"
+                     className="w-100 mb-2 box_decrease_size_animation  login_login"
                      type="submit"
                      onClick={loginclick}
                    >
                      Login
                    </button>
-                    <hr class="my-4" />
-                    <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">Don't have an account?</p>
-                    <button type="button" class="btn btn-outline-danger" onClick={()=>{Navigate("/signUp")}}>Create new</button>
+                    <hr className="my-4" />
+                    <div className="d-flex align-items-center justify-content-center pb-4">
+                    <p className="mb-0 me-2">Don't have an account?</p>
+                    <button type="button" className="btn btn-outline-danger" onClick={()=>{Navigate("/signUp")}}>Create new</button>
                   </div>
                   </form>
                 </div>
@@ -362,6 +378,7 @@ const changeforgetpassword=()=>{
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>}
+     </>
   );
 }
