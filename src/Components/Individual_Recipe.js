@@ -105,7 +105,7 @@ const {
      if(ele.rating>3){
       postiverating++
      }
-     if(ele.rating=3){
+     if(ele.rating==3){
       neutralrating++
      }
      if(ele.rating<3){
@@ -319,7 +319,7 @@ Uploaded By Rohit
           <div className="container ">
             <div className="row">
               <div className="col-lg-12">
-                <div className="card ">
+                <div className="card border border-primary ">
                   <div className="row">
                     <div className="col-sm-12 col-lg-4">
                       <div className="card-body">
@@ -394,7 +394,7 @@ Uploaded By Rohit
                           </a>
                         </div>
                         <a
-                          href="javascript:void(0)"
+                      
                           className="btn btn-lg btn-info waves-effect waves-light"
                         >
                           Checkout All Reviews
@@ -472,8 +472,8 @@ Uploaded By Rohit
 
           {/* // Reviews */}
 
-          <div className="bg-white rounded shadow-sm p-4 my-4 restaurant-detailed-ratings-and-reviews ">
-            <a href="#" className="btn btn-outline-primary btn-sm float-right">
+          <div className="bg-white rounded shadow-sm p-4 my-4 restaurant-detailed-ratings-and-reviews border border-primary ">
+            <a  className="btn btn-outline-primary btn-sm float-right">
               Top Rated
             </a>
             <h5 className="mb-1">All Ratings and Reviews</h5>
@@ -549,7 +549,7 @@ Uploaded By Rohit
           </div>
 
           {/* leave a comment */}
-          <div className="bg-white rounded shadow-sm p-4  rating-review-select-page">
+          <div className="bg-white border border-primary rounded shadow-sm p-4  rating-review-select-page">
             <h5 className="mb-4">Leave Comment</h5>
             <p className="mb-2">Rate the Place</p>
             <div className="mb-4">
@@ -664,7 +664,7 @@ Uploaded By Rohit
         {  CurrentRecipeItem.recipe && CurrentRecipeItem?.recipe.map((element)=>{
       return element.ingredients.map((ele)=>{
           return  <div className="col-md-6 pb-4" key={element._id} >
-           <div className="card mb-3 box_decrease_size_animation" style={{maxWidth: "540px"}}>
+           <div className="card mb-3 box_decrease_size_animation " style={{maxWidth: "540px"}}>
      <div className="row g-0">
        <div className="col-md-4">
          <img src={ele.image} className="img-fluid rounded-start" alt="..."/>

@@ -36,7 +36,7 @@ export default function Login() {
     let loginresult= await response.json();
    
   
-    if(response.status !== 400){
+    if(response.status !== 404){
       setProgress(70)
      //if remember me is checked than store auth-token in localstorage else in session storage
      if(document.querySelector('.rememberme').checked){
@@ -57,7 +57,7 @@ export default function Login() {
     
 
     }
-    if(response.status=== 400){
+    if(response.status== 404){
 
       setProgress(100)
       setvisiblemodal(true)
@@ -351,6 +351,7 @@ const changeforgetpassword=()=>{
             fullWidth
             color="primary"
             size="lg"
+            type="password"
             id="password"
             name="password"
             placeholder="Password"
@@ -360,6 +361,7 @@ const changeforgetpassword=()=>{
             clearable
             bordered
             fullWidth
+            type="password"
             color="primary"
             size="lg"
             id="confirm_password"

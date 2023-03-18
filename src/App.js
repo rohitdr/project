@@ -30,6 +30,7 @@ import Dishtype from "./Components/Dishtype";
 import Diettype from "./Components/Diettype";
 import Footer from "./Components/Footer";
 import InternalServerError from "./Components/InternalServerError";
+import EditRecipe from "./Components/EditRecipe";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -398,6 +399,13 @@ function App() {
             path="/signUp"
             element={
           <SignUp></SignUp>
+            }
+          />
+          <Route
+            exact
+            path="/Edit"
+            element={
+    <EditRecipe></EditRecipe>
             }
           />
           {Recipe_category.map((element) => {

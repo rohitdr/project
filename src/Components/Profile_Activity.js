@@ -25,7 +25,7 @@ export default function Profile_Activity() {
                 }
       
     
-    },[Latest_recipebyid])
+    },[])
     const deleterecipe=(id)=>{
     setvisibledelete({state:true,id:id})
     }
@@ -90,10 +90,10 @@ export default function Profile_Activity() {
                     </div>
                 </div>
                 <div className="ms-4 small d-flex justify-content-around">
-                    <div className="me-2"> <Button onClick={()=>{deleterecipe(element._id)}} color="error" auto ghost>
+                    <div className="me-2"> <Button onPress={()=>{deleterecipe(element._id)}} color="error" auto ghost>
                    Delete
                   </Button></div>
-                    <div><Button color="primary" auto ghost>
+                    <div><Button color="primary" auto ghost onPress={()=>{Navigate("/Edit",{state:{EditingRecipeId:element._id}})}}>
                  Edit
                   </Button></div>
                 </div>
