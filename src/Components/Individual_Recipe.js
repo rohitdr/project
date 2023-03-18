@@ -27,7 +27,6 @@ const {
     },[RecipeItemid,CurrentRecipeItem?.recipe?.Comments])
 
 
-  const discription_star=6;
   //comments functons 
   const [visible, setVisible] = useState(false);
   const [visiblerepeted, setvisiblerepeted] = useState(false);
@@ -54,10 +53,11 @@ const {
         body: JSON.stringify({
           id: RecipeItemid,
           comment: {
+           user:userData?.user?._id,
             username: userData?.user?.username,
             Profileimage: userData?.user?.Profile_Image,
             comment: comment,
-            rating: rating,
+            rating: star,
           },
         }),
       }
@@ -94,6 +94,29 @@ const {
     <>
  { userData == 500 || CurrentRecipeItem==500? <InternalServerError></InternalServerError>: <div className='min-vh-100'>
     {CurrentRecipeItem.recipe && CurrentRecipeItem.recipe.map((element)=>{
+       //sending rating to recipeitem
+       var reciperating=0;
+       var totalratings=0;
+       var postiverating=0;
+       var negativerating=0;
+       var neutralrating=0;
+       var totalComments=element.Comments.length;
+       element.Comments.map((ele)=>{
+     if(ele.rating>3){
+      postiverating++
+     }
+     if(ele.rating=3){
+      neutralrating++
+     }
+     if(ele.rating<3){
+      negativerating++
+     }
+       reciperating =reciperating+ ele.rating;
+      })
+      element.Comments.length!=0?(totalratings=reciperating/element.Comments.length):totalratings=0;
+      reciperating=0;
+
+       //sending rating to recipeitem
     return <div style={{backgroundColor:" #edf1f5"}} key={element._id}>
      <div className="container pt-4" id="product-section" >
 <div className="row">
@@ -125,12 +148,12 @@ Uploaded By Rohit
 <div className="row">
 <div className="col-md-3">
 
- <i className={`fa-${discription_star>0?"solid":"regular"} text-danger fa-star`} ></i>
- <i className={`fa-${discription_star>1?"solid":"regular"} text-danger fa-star`} ></i>
- <i className={`fa-${discription_star>2?"solid":"regular"} text-danger fa-star`} ></i>
- <i className={`fa-${discription_star>3?"solid":"regular"} text-danger fa-star`} ></i>
- <i className={`fa-${discription_star>4?"solid":"regular"} text-danger fa-star`} ></i>
- <span className="label label-success">61</span>
+ <i className={`fa-${totalratings>0?"solid":"regular"} text-danger fa-star`} ></i>
+ <i className={`fa-${totalratings>1?"solid":"regular"} text-danger fa-star`} ></i>
+ <i className={`fa-${totalratings>2?"solid":"regular"} text-danger fa-star`} ></i>
+ <i className={`fa-${totalratings>3?"solid":"regular"} text-danger fa-star`} ></i>
+ <i className={`fa-${totalratings>4?"solid":"regular"} text-danger fa-star`} ></i>
+ <span className="label label-success">  {element.Comments.length}+</span>
  
 </div>
 <div className="col-md-3">
@@ -304,7 +327,7 @@ Uploaded By Rohit
                         <h5 className="card-subtitleratingview">
                           Overview of Review
                         </h5>
-                        <h2 className="font-medium mt-5 mb-0">25426</h2>
+                        <h2 className="font-medium mt-5 mb-0">{totalComments}</h2>
                         <span className="text-muted">
                           This month we got 346 New Reviews
                         </span>
@@ -383,18 +406,18 @@ Uploaded By Rohit
                         <ul className="list-style-none">
                           <li className="mt-4">
                             <div className="d-flex align-items-center">
-                              <i className="fa fa-smile-o display-5ratingview text-muted"></i>
+                              <i className="fa fa-smile-o display-5ratingview text-muted  me-2"></i>
                               <div className="ml-2">
                                 <h5 className="mb-0">Positive Reviews</h5>
-                                <span className="text-muted">25547 Reviews</span>
+                                <span className="text-muted">{postiverating} Reviews</span>
                               </div>
                             </div>
                             <div className="progressratingview">
                               <div
                                 className="progress-barratingview bg-success"
                                 role="progressbar"
-                                style={{ width: "47%" }}
-                                aria-valuenow="47"
+                                style={{ width: `${(postiverating/totalComments)*100}%` }}
+                                aria-valuenow={`${(postiverating/totalComments)*100}%`}
                                 aria-valuemin="0"
                                 aria-valuemax="100"
                               ></div>
@@ -402,18 +425,18 @@ Uploaded By Rohit
                           </li>
                           <li className="mt-5">
                             <div className="d-flex align-items-center">
-                              <i className="fa fa-frown-o display-5ratingview text-muted"></i>
+                              <i className="fa fa-frown-o display-5ratingview text-muted  me-2"></i>
                               <div className="ml-2">
                                 <h5 className="mb-0">Negative Reviews</h5>
-                                <span className="text-muted">5547 Reviews</span>
+                                <span className="text-muted">{negativerating} Reviews</span>
                               </div>
                             </div>
                             <div className="progressratingview">
                               <div
                                 className="progress-barratingview bg-danger"
                                 role="progressbar"
-                                style={{ width: "33%" }}
-                                aria-valuenow="33"
+                                style={{ width: `${(negativerating/totalComments)*100}%` }}
+                                aria-valuenow={`${(negativerating/totalComments)*100}%`}
                                 aria-valuemin="0"
                                 aria-valuemax="100"
                               ></div>
@@ -421,18 +444,18 @@ Uploaded By Rohit
                           </li>
                           <li className="mt-5 mb-5">
                             <div className="d-flex align-items-center">
-                              <i className="fa fa-meh-o display-5ratingview text-muted"></i>
+                              <i className="fa fa-meh-o display-5ratingview text-muted me-2"></i>
                               <div className="ml-2">
                                 <h5 className="mb-0">Neutral Reviews</h5>
-                                <span className="text-muted">547 Reviews</span>
+                                <span className="text-muted">{neutralrating} Reviews</span>
                               </div>
                             </div>
                             <div className="progressratingview">
                               <div
                                 className="progress-barratingview bg-info"
                                 role="progressbar"
-                                style={{ width: "20%" }}
-                                aria-valuenow="20"
+                                style={{ width: `${(neutralrating/totalComments)*100}%` }}
+                                aria-valuenow={`${(neutralrating/totalComments)*100}%`}
                                 aria-valuemin="0"
                                 aria-valuemax="100"
                               ></div>

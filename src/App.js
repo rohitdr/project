@@ -1,7 +1,7 @@
 import "./App.css";
 import Sidebar from "./Components/Sidebar.js";
 import Searchbar from "./Components/Searchbar";
-import Recipe from "./Components/Recipe";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RecipeCategory from "./Components/RecipeCategory";
 import { useState } from "react";
@@ -21,10 +21,7 @@ import Profile_Profile from "./Components/Profile_Profile";
 import Profile_Security from "./Components/Profile_Security";
 import Profile_LikedRecipe from "./Components/Profile_LikedRecipe";
 import Profile_Activity from "./Components/Profile_Activity";
-import IndividualRecipe_comment from "./Components/IndividualRecipe_comment";
-import IndividualRecipe_Nutrients from "./Components/IndividualRecipe_Nutrients";
-import IndividualRecipe_Ingrediants from "./Components/IndividualRecipe_Ingrediants";
-import IndividualRecipe_description from "./Components/IndividualRecipe_description";
+
 import SignUp from "./Components/SignUp";
 import CuisineType from "./Components/CuisineType";
 import Health from "./Components/Health";
@@ -562,42 +559,7 @@ function App() {
  </section>
                 }
               />
-               {/* <Route
-                exact
-                path='/Individual_Comment'
-                element={<>
-                 
-                  <Individual_Recipe></Individual_Recipe>
-                <IndividualRecipe_comment></IndividualRecipe_comment>
               
-                </>
-
-                }
-              /> */}
-              {/* <Route
-                exact
-                path='/Individaul_Nutrients'
-                element={<>
-                 
-                  <Individual_Recipe></Individual_Recipe>
-               <IndividualRecipe_Nutrients></IndividualRecipe_Nutrients>
-              
-                </>
-                
-                }
-              /> */}
-               {/* <Route
-                exact
-                path='/Individual_Ingredients'
-                element={<>
-                 
-                  <Individual_Recipe></Individual_Recipe>
-           <IndividualRecipe_Ingrediants></IndividualRecipe_Ingrediants>
-              
-                </>
-                
-                }
-              /> */}
                <Route
                 exact
                 path='/Individual_description'
@@ -610,16 +572,7 @@ function App() {
                 
                 }
               />
-               {/* <Route
-                exact
-                path='/Individual_Recipe'
-                element={<>
-                 <Individual_Recipe></Individual_Recipe>
-                 
-                </>
-                
-                }
-              /> */}
+              
           {/* <Route
             exact
             path="/Dinner"

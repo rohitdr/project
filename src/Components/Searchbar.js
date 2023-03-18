@@ -1,13 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './searchbar.css'
-import NavbarToggler from "./NavbarToggler";
+
 import RecipeContext from "../Context/RecipeContext";
 import { useState } from "react";
 import { Navbar, Text, Avatar, Dropdown,Input,Collapse, Modal,Button } from "@nextui-org/react";
-import { AcmeLogo } from "./AcmeLogo.js";
-import { SearchIcon } from "./SearchIcon.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import Loader from "./Loader";
 export default function Searchbar(props) {
   const context = useContext(RecipeContext)

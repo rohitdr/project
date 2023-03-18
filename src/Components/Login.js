@@ -4,7 +4,7 @@ import RecipeContext from "../Context/RecipeContext";
 import InternalServerError from "./InternalServerError";
 import { Modal, Image, Text,Input,Row,Checkbox,Button } from "@nextui-org/react";
 import "./login.css";
-import "./login_file.js";
+
 export default function Login() {
   let Navigate = useNavigate();
   const [visiblemodal,setvisiblemodal] = useState(false)
