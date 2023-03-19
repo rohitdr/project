@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import RecipeContext from '../Context/RecipeContext';
+import AnimatedPage from './AnimatedPage';
 import InternalServerError from './InternalServerError';
 import RecipeItem from './RecipeItem';
 
@@ -18,6 +19,7 @@ export default function Dishtype() {
     },[type])
     var totalratings=0;
   return (
+    <AnimatedPage>
     <>{dishdata == 500 ? <InternalServerError></InternalServerError>:
      <div className="container min-vh-100">
 
@@ -97,6 +99,6 @@ export default function Dishtype() {
        
 </div>
 }
-    </>
+    </></AnimatedPage>
   )
 }

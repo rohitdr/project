@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useLocation } from 'react-router-dom'
 import RecipeContext from '../Context/RecipeContext';
+import AnimatedPage from './AnimatedPage';
 import InternalServerError from './InternalServerError';
 import RecipeItem from './RecipeItem';
 
@@ -13,7 +14,7 @@ export default function Meal() {
     return ((lower.charAt(0).toUpperCase()) + lower.slice(1))
   }
     const {state}=useLocation();
-
+var animationdelay=0
     const context = useContext(RecipeContext)
     const {mealtype,mealdata}=context
     const {type,on}=state
@@ -26,7 +27,7 @@ export default function Meal() {
     },[type])
   return (
    
-   <>
+   <><AnimatedPage>
      { mealdata == 500 ?<InternalServerError></InternalServerError>:<div className="container min-vh-100">
 
 <div className="row my-3">
@@ -39,10 +40,14 @@ export default function Meal() {
     
  
        {mealdata.recipe && mealdata.recipe.map((element)=>{
-     
+        if(animationdelay >=2){
+          animationdelay=0
+        }
+     animationdelay+=0.5
         return <div className="col-md-3 mt-4 profilerecipe box_decrease_size_animation_for_recipeitem" key={element._id}>
                     <RecipeItem
                       id={element._id}
+                      delay={animationdelay}
                         title={element.label}
                         topLeftColor={"dark"}
                         headingColor={"dark"}
@@ -94,7 +99,7 @@ export default function Meal() {
      
       
        
-</div>}
+</div>}</AnimatedPage>
    </>
   )
 }

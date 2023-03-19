@@ -4,6 +4,7 @@ import RecipeContext from '../Context/RecipeContext'
 import { useNavigate } from "react-router-dom";
 import { Input,Button } from '@nextui-org/react';
 import InternalServerError from './InternalServerError';
+import AnimatedPage from './AnimatedPage';
 
 export default function Profile_Profile() {
   const [showfile, setshowfile]= useState(null)
@@ -235,7 +236,7 @@ const socailsubmit=()=>{
 
  
   return (
-    <>
+    <><AnimatedPage>
    {servererror==500 ? <InternalServerError></InternalServerError>: <div>
       <section style={{backgroundColor: "#eee"}}>
   <div className="container py-5">
@@ -465,7 +466,7 @@ const socailsubmit=()=>{
     </div>
  
 </section>
-    </div>}
+    </div>}</AnimatedPage>
     </>
   )
 }

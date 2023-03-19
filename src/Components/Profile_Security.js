@@ -4,6 +4,7 @@ import { useState } from 'react';
 import RecipeContext from '../Context/RecipeContext';
 import { useNavigate } from "react-router-dom";
 import InternalServerError from './InternalServerError';
+import AnimatedPage from './AnimatedPage';
 export default function Profile_Security() {
     const context = useContext(RecipeContext)
 const {showAlert,setProgress}= context
@@ -72,7 +73,7 @@ const [servererror,setservererror]=useState(0)
     const change=(e)=>{
        setPasswords({...passwords,[e.target.name]:e.target.value})
     }
-  return (<>
+  return (<><AnimatedPage>
    { servererror == 500 ? <InternalServerError></InternalServerError>: <div>
       <div className="container-xl px-4 mt-4">
 
@@ -170,7 +171,7 @@ const [servererror,setservererror]=useState(0)
             </div>
         </div>
     </div>
-    </div>}
+    </div>}</AnimatedPage>
     </>
   )
 }

@@ -13,10 +13,14 @@ export default function Home() {
 
 
   const [cuisineactive,setcuisineactive]=useState(0)
-
+const [newlyarriveddivstate,setnewlyarriveddivstate]=useState(0)
   const hide="d-none d-md-block"
   var totalratings=0;
- 
+  var animation_number=0
+  var animation_delay_cuisine=0
+ const increnewlyarrived=()=>{
+  setnewlyarriveddivstate(newlyarriveddivstate+0.5)
+ }
   var fourth=0
   var cuisinenumber=0
   const context = useContext(RecipeContext)
@@ -56,8 +60,8 @@ cuisine("indian")
 
         <div className="row gy-4">
        
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin  " >
-          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
+          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin  " style={{background:"rgb(247 234 234)"}} >
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1}} >
             <div className="service-item position-relative">
               <div className="icon"> <i className="fa-solid fa-bolt"></i></div>
               <h4><a href="" className="stretched-link">Recipe collections</a></h4>
@@ -65,7 +69,7 @@ cuisine("indian")
             </div> </motion.div>
           </div>
           
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-second " data-aos="zoom-out" data-aos-delay="200">
+          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-second "style={{background:"rgb(247 234 234)"}}>
             <div className="service-item position-relative">
               <div className="icon"><i className="fa-solid fa-tower-broadcast"></i></div>
               <h4><a href="" className="stretched-link">Search Anything</a></h4>
@@ -73,7 +77,7 @@ cuisine("indian")
             </div>
           </div>
 
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-third" data-aos="zoom-out" data-aos-delay="400">
+          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-third" style={{background:"rgb(247 234 234)"}}>
             <div className="service-item position-relative">
               <div className="icon">  <i className="fa-sharp fa-solid fa-disease"></i></div>
               <h4><a href="" className="stretched-link">User account</a></h4>
@@ -81,7 +85,7 @@ cuisine("indian")
             </div>
           </div>
 
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-fourth" data-aos="zoom-out" data-aos-delay="600">
+          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-fourth" style={{background:"rgb(247 234 234)"}}>
             <div className="service-item position-relative">
               <div className="icon"><i className="fa-solid fa-box"></i></div>
               <h4><a href="" className="stretched-link ">User-generated content</a></h4>
@@ -95,18 +99,18 @@ cuisine("indian")
     </section>
 {/* next
  */}
-<section id="services" className="services">
-      <div className="container" data-aos="fade-up">
+<section id="services" className="services ">
+      <div className="container" >
 
-        <div className="section-header">
-          <h2>Recipe Search</h2>
+        <div className="section-header text-center ">
+          <h2 className='fw-bold fs-1 text-primary'>Recipe Search</h2>
           <p>Users can search for specific recipes by name, ingredient, cuisine, cooking time, or dietary requirements.</p>
         </div>
 
         <div className="row gy-5">
       
           <div className="col-xl-4 col-md-6" >
-          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://www.dish-works.com/wp-content/uploads/CBD-Hummus-min.gif" className="img-fluid" alt=""/>
@@ -125,7 +129,7 @@ cuisine("indian")
           </div>
 
           <div className="col-xl-4 col-md-6 zoom-in" data-aos-delay="300">
-          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://cdn.dribbble.com/users/608874/screenshots/6370753/a.gif" className="img-fluid" alt=""/>
@@ -144,7 +148,7 @@ cuisine("indian")
           </div>
 
           <div className="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://media.womensweekly.com.sg/public/2020/08/10-Easy-Indulgent-Cheesecake-Recipes-You-Must-Try.gif" className="img-fluid" alt=""/>
@@ -163,7 +167,7 @@ cuisine("indian")
           </div>
 
           <div className="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
-          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/cooking-for-newsletter_ver_1.gif" className="img-fluid" alt=""/>
@@ -183,7 +187,7 @@ cuisine("indian")
           </div>
 
           <div className="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
-          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://image-tc.galaxy.tf/wigif-57n22u0bjtunlpxduoyl4lqfa/cny-goodies-gif.gif?width=700" className="img-fluid" alt=""/>
@@ -203,7 +207,7 @@ cuisine("indian")
           </div>
 
           <div className="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="700">
-          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://www.chocolatesandchai.com/wp-content/uploads/2015/03/Drizzle-GIF-2.gif" className="img-fluid" alt=""/>
@@ -228,29 +232,29 @@ cuisine("indian")
     </section>
 
 
-    <section id="about" className="about mt-4" style={{backgroundColor:"#f7fbfe"}}>
+    <section id="about" className="about " style={{backgroundColor:"#f7fbfe"}}>
       <div className="container">
 
         <div className="row">
-       
+        <h3 className='text-primary fs-1 fw-bold text-center'>About us</h3>
           <div className="col-lg-6 order-1 order-lg-2" id="about_img" data-aos="fade-left">
-          <motion.div initial={{opacity:0 ,x:100}} whileInView={{opacity:1,x:0}} transition={{duration:1,delay:1}} >
+          <motion.div initial={{opacity:0 ,x:100}} whileInView={{opacity:1,x:0}} viewport={{ once: true }} transition={{duration:1,delay:1}} >
             <img src="https://www.thespruceeats.com/thmb/B3nv-naxP17fALp5NGkUTNXGzcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-is-burrata-591165-Final_V2-15f6ed3bc72f4f96bc977202005a92be.gif" className="img-fluid  box_decrease_size_animationforlogin" alt=""/>
             </motion.div></div>
        
           <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content " id='about_content' data-aos="fade-right">
-          <motion.div initial={{opacity:0 ,x:-100}} whileInView={{opacity:1,x:0}} transition={{duration:1,delay:1}} >
-            <h3 className='text-primary fs-2'>About us</h3>
+          <motion.div initial={{opacity:0 ,x:-100}} whileInView={{opacity:1,x:0}} viewport={{ once: true }} transition={{duration:1,delay:1}} >
+           
             <p className="fst-italic">
             Our recipes are carefully curated by our team of experienced chefs and food enthusiasts, and we strive to bring you only the best and most reliable recipes that are guaranteed to impress your family and friends.
             </p>
             <ul>
-              <li><i className="fa-solid fa-square-check"></i>At RecipeRiot, we believe that cooking should be easy, fun, and accessible to everyone. That's why we've created a recipe search engine that makes it easy to find delicious and reliable recipes from around the world.</li>
-              <li><i className="fa-solid fa-square-check"></i> Whether you're a beginner or an experienced home cook, our website is designed to help you find the perfect recipe for any occasion. With our intuitive search bar, you can easily search for recipes by ingredient, cuisine, dietary restriction, and more.</li>
-             <li><i className="fa-solid fa-square-check"></i>But we're not just about recipes. We're also committed to providing our users with the latest food trends, cooking tips, and kitchen hacks to help you take your cooking skills to the next level. Our blog is filled with expert advice on everything from meal planning to ingredient substitutions.</li>
+              <li><i className="fa-solid fa-square-check mt-2"></i>At RecipeRiot, we believe that cooking should be easy, fun, and accessible to everyone. </li>
+              <li><i className="fa-solid fa-square-check"></i> Whether you're a beginner or an experienced home cook, our website is designed to help you find the perfect recipe for any occasion.</li>
+             <li><i className="fa-solid fa-square-check"></i>But we're not just about recipes. We're also committed to providing our users with the latest food trends, cooking tips, and kitchen hacks to help you take your cooking skills to the next level.</li>
             </ul>
             <p>
-            At RecipeRiot, we're dedicated to making cooking and food exploration accessible and fun for everyone. We're constantly updating our website with new recipes and features, so be sure to check back often and follow us on social media to stay connected with our community of food lovers.
+            At RecipeRiot, we're dedicated to making cooking and food exploration accessible and fun for everyone. 
             </p></motion.div>
           </div>
         </div>
@@ -269,7 +273,7 @@ cuisine("indian")
         </div>
        
         <div className="row">
-        {Latest_recipe.recipe && Latest_recipe.recipe.map((element)=>{
+        {  Latest_recipe.recipe && Latest_recipe.recipe.map((element)=>{
       fourth++;
 
       //sending rating to recipeitem
@@ -280,13 +284,16 @@ cuisine("indian")
       })
       element.Comments.length!=0?(totalratings=reciperating/element.Comments.length):totalratings=0;
       reciperating=0;
-
+      animation_number+=0.8
+     
        //sending rating to recipeitem
       if(fourth<5){
      
-      return <div className="col-md-3 mt-4  homerecipe homenewrecipe" key={element._id}>
+      return   <div className="col-md-3 mt-4  homerecipe homenewrecipe" key={element._id} >
+
                   <RecipeItem
                     id={element._id}
+                    delay={animation_number}
                     rating={totalratings}
                       title={element.label}
                       topLeftColor={"dark"}
@@ -323,7 +330,7 @@ cuisine("indian")
                     vitamin_e={element.totalNutrients.TOCPHA.quantity}
                   
                   ></RecipeItem>
-                
+            
                 </div>
      
                   }
@@ -366,10 +373,12 @@ cuisine("indian")
  */}
  {cuisineloading && <Loader></Loader>}
  <div className='row'>
+
  { cuisinedata.recipe && cuisinedata.recipe.map((element)=>{
       cuisinenumber++
       //setting recipe for recipitm
       var reciperating=0;
+      animation_delay_cuisine +=0.8
       element.Comments.map((ele)=>{
     
       reciperating =reciperating+ ele.rating;
@@ -382,6 +391,7 @@ cuisine("indian")
       return <div className="col-md-3 mt-4 homerecipenew  homerecipe" key={element._id}>
                   <RecipeItem
                     id={element._id}
+                    delay={animation_delay_cuisine}
                       title={element.label}
                       topLeftColor={"dark"}
                       headingColor={"dark"}
@@ -424,7 +434,7 @@ cuisine("indian")
                   }
      }
      )
-     }
+     }   
         {/* <div className="row portfolio-container">
 
           <div className="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Button } from '@nextui-org/react'
+import { AnimatePresence } from 'framer-motion'
+import AnimatedPage from './AnimatedPage'
 export default function NoResult(props) {
   return (
     <>
-
+<AnimatedPage>
 <section className="">
 
   <div className="px-4 py-5 px-md-5 text-center text-lg-start" style={{backgroundColor: "hsl(0, 0%, 96%)"}}>
@@ -32,7 +34,7 @@ export default function NoResult(props) {
   </div>
 
 </section>
-
+</AnimatedPage>
     </>
   )
 }

@@ -6,6 +6,7 @@ import RecipeItem from './RecipeItem';
 import { useNavigate } from "react-router-dom";
 import NoResult from "./NoResult";
 import InternalServerError from './InternalServerError';
+import AnimatedPage from './AnimatedPage';
 export default function Profile_LikedRecipe() {
 
     const context = useContext(RecipeContext)
@@ -25,7 +26,7 @@ export default function Profile_LikedRecipe() {
 var totalratings=0;
 
   return (
-    <>
+    <><AnimatedPage>
     { LikedRecipe == 500 ? <InternalServerError></InternalServerError> :<div className='min-vh-100'>
       <div className="container ">
 
@@ -106,7 +107,7 @@ var totalratings=0;
        
 </div>
 
-    </div>}
+    </div>}</AnimatedPage>
     </>
   )
 }

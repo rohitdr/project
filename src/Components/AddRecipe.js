@@ -3,6 +3,7 @@ import "./Addreicpe.css";
 import { Input,Button,Modal,Text,Textarea } from "@nextui-org/react";
 import { useContext } from "react";
 import RecipeContext from "../Context/RecipeContext";
+import AnimatedPage from "./AnimatedPage";
 export default function AddRecipe() {
   const [pageno, setpageno] = useState(0);
   const context=useContext(RecipeContext)
@@ -339,7 +340,7 @@ Addapi();
   // console.log(recipe)
   }
   return (
-    <>
+    <><AnimatedPage>
       <section className="intro py-5 ">
         <div className="bg-image h-100">
           <div className="mask d-flex align-items-center h-100">
@@ -2036,7 +2037,7 @@ onChange={onchange}
             </div>
           </div>
         </div>
-      </section>
+      </section></AnimatedPage>
 
 
     

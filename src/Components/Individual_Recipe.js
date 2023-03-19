@@ -4,6 +4,7 @@ import { Link, useLocation,useNavigate } from 'react-router-dom';
 import RecipeContext from '../Context/RecipeContext';
 import InternalServerError from "./InternalServerError";
 import { Modal, Image, Text } from "@nextui-org/react";
+import AnimatedPage from './AnimatedPage';
 export default function Individual_Recipe() {
   const context = useContext(RecipeContext)
   const {state} = useLocation();
@@ -91,7 +92,7 @@ const {
     Comment(comment, rating);
   };
   return (
-    <>
+    <><AnimatedPage>
  { userData == 500 || CurrentRecipeItem==500? <InternalServerError></InternalServerError>: <div className='min-vh-100'>
     {CurrentRecipeItem.recipe && CurrentRecipeItem.recipe.map((element)=>{
        //sending rating to recipeitem
@@ -1037,7 +1038,7 @@ Uploaded By Rohit
     }) }
 
 
-    </div>}
+    </div>}</AnimatedPage>
     </>
   )
 }

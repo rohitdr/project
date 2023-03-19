@@ -7,6 +7,7 @@ import RecipeContext from '../Context/RecipeContext'
 import NoResult from './NoResult'
 import InternalServerError from "./InternalServerError";
 import { Modal,Image,Button } from '@nextui-org/react';
+import AnimatedPage from './AnimatedPage';
 
 export default function Profile_Activity() {
     const [visibledelete,setvisibledelete]=useState({state:false,id:""})
@@ -31,7 +32,7 @@ export default function Profile_Activity() {
     }
     
   return (
-    <>
+    <><AnimatedPage>
  { userData==500 || Latest_recipebyid == 500 ? <InternalServerError></InternalServerError>: <div>
 
    <div className='min-vh-100'>
@@ -134,7 +135,7 @@ export default function Profile_Activity() {
         </Modal.Footer>
       </Modal>
 
-</div>}
+</div>}</AnimatedPage>
 </>
   )
 }

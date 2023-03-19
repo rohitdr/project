@@ -8,6 +8,7 @@ import RecipeContext from "../Context/RecipeContext";
 import { useNavigate } from "react-router-dom";
 import Tooltip from 'react-bootstrap/Tooltip';
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function RecipeItem(props) {
   let Navigate = useNavigate();
@@ -76,7 +77,7 @@ deg=(deg===180)?0:180
   return (
     <>
     
- 
+    <motion.div initial={{opacity:0 ,x:-100}} whileInView={{opacity:1,x:0}} viewport={{ once: true }} transition={{duration:1,delay:props.delay}} >
 <div className="scene " onLoad={settingheart}>
   <div className="recipecard  card border-success " id={`${props.id}`} style={{Width: "18rem"}}>
   
@@ -219,7 +220,7 @@ deg=(deg===180)?0:180
   </div>
 </div>
 
-
+</motion.div>
 
 
 

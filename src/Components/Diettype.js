@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import RecipeContext from '../Context/RecipeContext';
 import RecipeItem from './RecipeItem';
 import InternalServerError from "./InternalServerError";
+import AnimatedPage from './AnimatedPage';
 export default function Diettype() {
     const firstCapital =(message)=>{
         let lower =message.toLowerCase();
@@ -17,7 +18,7 @@ export default function Diettype() {
     },[type])
     var totalratings=0;
   return (
-    <>
+    <><AnimatedPage>
      {dietdata == 500 ? <InternalServerError></InternalServerError>:<div className="container min-vh-100">
 
 <div className="row my-3">
@@ -94,7 +95,7 @@ export default function Diettype() {
      
       
        
-</div>}
+</div>}</AnimatedPage>
   
     </>
   )

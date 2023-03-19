@@ -5,6 +5,7 @@ import { useContext } from "react";
 import {useLocation } from 'react-router-dom';
 import RecipeContext from "../Context/RecipeContext";
 import { useEffect } from "react";
+import AnimatedPage from "./AnimatedPage";
 export default function EditRecipe() {
   const [pageno, setpageno] = useState(0);
  
@@ -353,7 +354,7 @@ const instructionchange=(e)=>{
   console.log(recipe)
   }
   return (
-    <>
+    <><AnimatedPage>
        {CurrentRecipeItem.recipe && CurrentRecipeItem.recipe.map((element)=>{
       return <section className="intro py-5 min-vh-100 " key={element._id} style={{ backgroundColor: "#f3f2f2" }}>
         <div className="bg-image h-100">
@@ -2142,7 +2143,7 @@ onChange={onchange}
       })} 
 
 
-    
+</AnimatedPage>
     </>
   );
 }

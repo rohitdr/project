@@ -98,9 +98,9 @@ const collapsecuisineItems = [
         <Navbar.Toggle aria-label="toggle navigation" showIn="md"/>
    
       <p className="navbar-brand d-none d-sm-block">
-     
+      {/* <motion.div animate={{x:[]}} transition={{duration:5}} > */}
       <img src="Reciperiotlogo.png" alt="Logo" width="75" height="90" className="d-inline-block align-text-top logoofwebsite"/>
-    
+      {/* </motion.div> */}
     </p>
           <Text  color="inherit" css={{ mr: "$11" }} hideIn="xs">
           <span className="navbar-brand "><span  className="name text-dark  fw-bold"> 

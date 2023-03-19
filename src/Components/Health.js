@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import RecipeContext from '../Context/RecipeContext';
+import AnimatedPage from './AnimatedPage';
 import InternalServerError from './InternalServerError';
 import RecipeItem from './RecipeItem';
 
@@ -18,7 +19,7 @@ export default function Health() {
     },[type])
     var totalratings=0;
   return (
-    <>
+    <><AnimatedPage>
     {healthdata == 500 ? <InternalServerError></InternalServerError>:<div className="container min-vh-100">
 
 <div className="row my-3">
@@ -96,7 +97,7 @@ export default function Health() {
       
        
 </div>}
-  
+</AnimatedPage>
     </>
   )
 }

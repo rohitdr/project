@@ -10,6 +10,7 @@ import RecipeContext from "../Context/RecipeContext";
 import { Input, useInput, Button, Radio, Textarea } from "@nextui-org/react";
 import e from "cors";
 import InternalServerError from "./InternalServerError";
+import AnimatedPage from "./AnimatedPage";
 
 export default function SignUp() {
   const { value, reset, bindings } = useInput("");
@@ -299,7 +300,7 @@ const changethird=(e)=>{
 }, 2000);
   }
 
-  return (<>
+  return (<><AnimatedPage>
     { servererror == 500 ? <InternalServerError></InternalServerError> :<div>
       {signuppage == 0 && (
         <section className="background-radial-gradient overflow-hidden">
@@ -627,7 +628,7 @@ const changethird=(e)=>{
           </div>
         </section>
       )}
-    </div>}
+    </div>}</AnimatedPage>
     </>
   );
 }

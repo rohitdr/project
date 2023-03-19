@@ -129,7 +129,7 @@
   .featured-services .service-item {
     padding: 30px;
     transition: all ease-in-out 0.4s;
-    background: white;
+ 
     height: 100%;
   }
   
@@ -171,6 +171,9 @@
   }
   a{
     text-decoration: none!important;
+  }
+  .services{
+    margin: 150px 0px;
   }
   .services .img {
     border-radius: 8px;
@@ -249,6 +252,9 @@
   .services .service-item:hover .img img {
     transform: scale(1.2);
  
+  }
+  .about{
+    margin: 156px 0px;
   }
   .about .content h3 {
     font-weight: 600;

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import RecipeContext from '../Context/RecipeContext';
+import AnimatedPage from './AnimatedPage';
 import InternalServerError from './InternalServerError';
 import RecipeItem from './RecipeItem';
 export default function CuisineType() {
@@ -19,7 +20,7 @@ export default function CuisineType() {
         cuisine(type)
     },[type])
   return (
-  <>
+  <><AnimatedPage>
 {cuisinedata==500?<InternalServerError></InternalServerError>:  <div className="container min-vh-100">
 
 <div className="row my-3">
@@ -96,7 +97,7 @@ export default function CuisineType() {
      
       
        
-</div>}
+</div>}</AnimatedPage>
   
   </>
   )

@@ -9,6 +9,7 @@ import Profile_Profile from "./Profile_Profile";
 import Profile_Security from "./Profile_Security";
 import NoResult from "./NoResult";
 import InternalServerError from "./InternalServerError";
+import AnimatedPage from "./AnimatedPage";
 export default  function Profile(props){
 
     const context = useContext(RecipeContext)
@@ -22,7 +23,7 @@ export default  function Profile(props){
 },[])
 var totalratings=0;
 return(
-<>
+<><AnimatedPage>
 {recipe==500?<InternalServerError></InternalServerError>:
 <div className="container min-vh-100">
 
@@ -101,7 +102,7 @@ return(
       
        
 </div>}
-
+</AnimatedPage>
 
   
    
