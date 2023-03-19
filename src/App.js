@@ -31,6 +31,7 @@ import Diettype from "./Components/Diettype";
 import Footer from "./Components/Footer";
 import InternalServerError from "./Components/InternalServerError";
 import EditRecipe from "./Components/EditRecipe";
+import BlankRecipeItemAddRecipe from "./Components/BlankRecipeItemAddRecipe";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -390,8 +391,23 @@ function App() {
             element={
               
               <Home></Home>
+             
          
            
+            }
+          />
+          
+          <Route
+            exact
+            path="/AddRecipe"
+            element={
+              <section style={{backgroundColor: "#eee"}}>
+            <div className="container py-5">
+              <Profile_Top></Profile_Top>
+ <AddRecipe></AddRecipe>
+  </div>
+
+</section>
             }
           />
            <Route

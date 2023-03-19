@@ -16,7 +16,7 @@ export default function Profile_Top() {
         <Link class={`nav-link ${location.pathname==='/Profile_Security'?"active":""} `} to="/Profile_Security" >Security</Link>
         <Link class={`nav-link ${location.pathname==='/Profile_Recipe'?"active":""} `} to="/Profile_Recipe">Recipes</Link>
    <Link class={`nav-link ${location.pathname==='/Profile_LikedRecipe'?"active":""} `} to="/Profile_LikedRecipe">LikedRecipes</Link>
-        
+   <Link class={`nav-link ${location.pathname==='/AddRecipe'?"active":""} `} to="/AddRecipe">Add Recipe</Link>  
     </nav><hr class="mt-0 mb-2"/>
     </div>
   )

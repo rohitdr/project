@@ -340,7 +340,7 @@ Addapi();
   }
   return (
     <>
-      <section className="intro py-5 " style={{ backgroundColor: "#f3f2f2" }}>
+      <section className="intro py-5 ">
         <div className="bg-image h-100">
           <div className="mask d-flex align-items-center h-100">
             <div className="container">
