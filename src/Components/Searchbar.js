@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './searchbar.css'
-
+import { motion } from "framer-motion";
 import RecipeContext from "../Context/RecipeContext";
 import { useState } from "react";
 import { Navbar, Text, Avatar, Dropdown,Input,Collapse, Modal,Button } from "@nextui-org/react";
@@ -98,7 +98,9 @@ const collapsecuisineItems = [
         <Navbar.Toggle aria-label="toggle navigation" showIn="md"/>
    
       <p className="navbar-brand d-none d-sm-block">
+     
       <img src="Reciperiotlogo.png" alt="Logo" width="75" height="90" className="d-inline-block align-text-top logoofwebsite"/>
+    
     </p>
           <Text  color="inherit" css={{ mr: "$11" }} hideIn="xs">
           <span className="navbar-brand "><span  className="name text-dark  fw-bold"> 

@@ -5,6 +5,8 @@ import RecipeContext from '../Context/RecipeContext';
 import Loader from './Loader';
 import InternalServerError from "./InternalServerError";
 import RecipeItem from "./RecipeItem";
+import AnimatedPage from './AnimatedPage';
+import {motion} from 'framer-motion'
 export default function Home() {
 
 
@@ -29,12 +31,16 @@ cuisine("indian")
  
 },[])
 
-  return (<>
-   { cuisinedata ==500 || Latest_recipe==500? <InternalServerError></InternalServerError>: <div>
+  return (
    
+  <AnimatedPage><>
+   { cuisinedata ==500 || Latest_recipe==500? <InternalServerError></InternalServerError>: <div>
+
  <section id="hero-animated" className="hero-animated d-flex align-items-center ">
     <div className="container d-flex   flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+
       <img src="https://media.zenfs.com/en/la_times_articles_853/72c10d6a673085671d1635ac9a1406ec" className="img-fluid animated box_decrease_size_animationforlogin   "/>
+    
       <h2>Welcome to <span>RecipeRiot</span></h2>
       <p className='top-down-animation'>Your go-to destination for delicious and easy-to-follow recipes. Our website is a haven for foodies and home cooks alike, where you can find an array of recipes for every occasion and skill level.</p>
       <div className="d-flex">
@@ -43,21 +49,22 @@ cuisine("indian")
       </div>
     </div>
   </section>
-  
+
 {/* Other */}
   <section id="featured-services" className="featured-services">
       <div className="container">
 
         <div className="row gy-4">
-
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-first " data-aos="zoom-out">
+       
+          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin  " >
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
             <div className="service-item position-relative">
               <div className="icon"> <i className="fa-solid fa-bolt"></i></div>
               <h4><a href="" className="stretched-link">Recipe collections</a></h4>
               <p className='fs-6'> A way for users to save their favorite recipes and create their own recipe collections.</p>
-            </div>
+            </div> </motion.div>
           </div>
-
+          
           <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-second " data-aos="zoom-out" data-aos-delay="200">
             <div className="service-item position-relative">
               <div className="icon"><i className="fa-solid fa-tower-broadcast"></i></div>
@@ -97,8 +104,9 @@ cuisine("indian")
         </div>
 
         <div className="row gy-5">
-
-          <div className="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+      
+          <div className="col-xl-4 col-md-6" >
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://www.dish-works.com/wp-content/uploads/CBD-Hummus-min.gif" className="img-fluid" alt=""/>
@@ -113,10 +121,11 @@ cuisine("indian")
                 </a>
                 <p>We have  a large database of recipes that users can browse and filter by various criteria</p>
               </div>
-            </div>
+            </div></motion.div>
           </div>
 
           <div className="col-xl-4 col-md-6 zoom-in" data-aos-delay="300">
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://cdn.dribbble.com/users/608874/screenshots/6370753/a.gif" className="img-fluid" alt=""/>
@@ -131,10 +140,11 @@ cuisine("indian")
                 </a>
                 <p> Users can share their own recipes on the website and rate, review, or comment on other users' recipes</p>
               </div>
-            </div>
+            </div></motion.div>
           </div>
 
           <div className="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://media.womensweekly.com.sg/public/2020/08/10-Easy-Indulgent-Cheesecake-Recipes-You-Must-Try.gif" className="img-fluid" alt=""/>
@@ -149,10 +159,11 @@ cuisine("indian")
                 </a>
                 <p>We provides nutritional information for each recipe, including calories, fat, protein, and carbohydrate content</p>
               </div>
-            </div>
+            </div></motion.div>
           </div>
 
           <div className="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/cooking-for-newsletter_ver_1.gif" className="img-fluid" alt=""/>
@@ -168,10 +179,11 @@ cuisine("indian")
                 <p>Users can create and share their recipes.We  also  allows users to rate and review recipes posted by other users</p>
                 <a href="#" className="stretched-link"></a>
               </div>
-            </div>
+            </div></motion.div>
           </div>
 
           <div className="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://image-tc.galaxy.tf/wigif-57n22u0bjtunlpxduoyl4lqfa/cny-goodies-gif.gif?width=700" className="img-fluid" alt=""/>
@@ -187,10 +199,11 @@ cuisine("indian")
                 <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
                 <a href="#" className="stretched-link"></a>
               </div>
-            </div>
+            </div></motion.div>
           </div>
 
           <div className="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="700">
+          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} transition={{duration:1}} >
             <div className="service-item">
               <div className="img">
                 <img src="https://www.chocolatesandchai.com/wp-content/uploads/2015/03/Drizzle-GIF-2.gif" className="img-fluid" alt=""/>
@@ -206,7 +219,7 @@ cuisine("indian")
                 <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
                 <a href="#" className="stretched-link"></a>
               </div>
-            </div>
+            </div></motion.div>
           </div>
 
         </div>
@@ -219,10 +232,14 @@ cuisine("indian")
       <div className="container">
 
         <div className="row">
+       
           <div className="col-lg-6 order-1 order-lg-2" id="about_img" data-aos="fade-left">
+          <motion.div initial={{opacity:0 ,x:100}} whileInView={{opacity:1,x:0}} transition={{duration:1,delay:1}} >
             <img src="https://www.thespruceeats.com/thmb/B3nv-naxP17fALp5NGkUTNXGzcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-is-burrata-591165-Final_V2-15f6ed3bc72f4f96bc977202005a92be.gif" className="img-fluid  box_decrease_size_animationforlogin" alt=""/>
-          </div>
+            </motion.div></div>
+       
           <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content " id='about_content' data-aos="fade-right">
+          <motion.div initial={{opacity:0 ,x:-100}} whileInView={{opacity:1,x:0}} transition={{duration:1,delay:1}} >
             <h3 className='text-primary fs-2'>About us</h3>
             <p className="fst-italic">
             Our recipes are carefully curated by our team of experienced chefs and food enthusiasts, and we strive to bring you only the best and most reliable recipes that are guaranteed to impress your family and friends.
@@ -234,7 +251,7 @@ cuisine("indian")
             </ul>
             <p>
             At RecipeRiot, we're dedicated to making cooking and food exploration accessible and fun for everyone. We're constantly updating our website with new recipes and features, so be sure to check back often and follow us on social media to stay connected with our community of food lovers.
-            </p>
+            </p></motion.div>
           </div>
         </div>
 
@@ -515,7 +532,7 @@ cuisine("indian")
 
    
     </div>}
-    </>
+    </></AnimatedPage>
     
     
     )

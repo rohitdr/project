@@ -8,11 +8,11 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { ProSidebarProvider } from 'react-pro-sidebar';
 import RecipeState from './Context/RecipeState';
 import { NextUIProvider } from '@nextui-org/react';
-
+import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <NextUIProvider>
-
+   <BrowserRouter>
   <ProSidebarProvider>
   <React.StrictMode>
  <RecipeState>
@@ -20,6 +20,7 @@ root.render(
     </RecipeState>
   </React.StrictMode>
   </ProSidebarProvider>
+  </BrowserRouter>
   </NextUIProvider>
 );
 

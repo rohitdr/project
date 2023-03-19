@@ -4,6 +4,7 @@ import RecipeContext from "../Context/RecipeContext";
 import InternalServerError from "./InternalServerError";
 import { Modal, Image, Text,Input,Row,Checkbox,Button } from "@nextui-org/react";
 import "./login.css";
+import AnimatedPage from "./AnimatedPage";
 
 export default function Login() {
   let Navigate = useNavigate();
@@ -134,7 +135,7 @@ const changeforgetpassword=()=>{
     setlogindetail({ ...logindetail, [e.target.name]: e.target.value });
   };
   return (<>
-
+<AnimatedPage>
   {  servererror == 500 ? <InternalServerError></InternalServerError>:<div>
       <section className="background-radial-gradient overflow-hidden">
         <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
@@ -380,7 +381,7 @@ const changeforgetpassword=()=>{
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>}
+    </div>}</AnimatedPage>
      </>
   );
 }

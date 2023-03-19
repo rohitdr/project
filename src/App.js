@@ -2,7 +2,7 @@ import "./App.css";
 import Sidebar from "./Components/Sidebar.js";
 import Searchbar from "./Components/Searchbar";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import RecipeCategory from "./Components/RecipeCategory";
 import { useState } from "react";
 import Individual_Recipe from "./Components/Individual_Recipe";
@@ -32,6 +32,7 @@ import Footer from "./Components/Footer";
 import InternalServerError from "./Components/InternalServerError";
 import EditRecipe from "./Components/EditRecipe";
 import BlankRecipeItemAddRecipe from "./Components/BlankRecipeItemAddRecipe";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const context = useContext(RecipeContext)
@@ -361,6 +362,7 @@ function App() {
       setheadingColor("dark");
     }
   };
+  let location=useLocation();
   return (
     <>
       <LoadingBar
@@ -369,7 +371,7 @@ function App() {
         height={progressheight}
         onLoaderFinished={() => setProgress(0)}
       />
-      <BrowserRouter>
+   
         <Sidebar color={textColor} crossColor={color}></Sidebar>
         {/* <div className="container-fluid">
           <div className="row">
@@ -382,7 +384,8 @@ function App() {
           textcolor={textColor_button}
         ></Searchbar>
 <Alert alert={alert}></Alert>
-        <Routes>
+<AnimatePresence mode='wait'>
+        <Routes key={location.pathname} location={location}>
           <Route exact path="/login" element={<Login></Login>} />
 
           <Route
@@ -1338,12 +1341,13 @@ function App() {
             }
           /> */}
         </Routes>
+        </AnimatePresence>
         {/* </div>
           </div>
         </div> */}
         <Footer></Footer>
       
-      </BrowserRouter>
+
       {/* <Individual_Recipe></Individual_Recipe> */}
     </>
   );
