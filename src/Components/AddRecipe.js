@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Addreicpe.css";
 import { Input,Button,Modal,Text,Textarea } from "@nextui-org/react";
 import { useContext } from "react";
+import { motion } from "framer-motion";
 import RecipeContext from "../Context/RecipeContext";
 import AnimatedPage from "./AnimatedPage";
 export default function AddRecipe() {
@@ -29,13 +30,16 @@ const imagepreview=async (e)=>{
   const imagefile = e.target.files[0];
 
   setfilesize(e.target.files[0].size)
-  const imageurl = URL.createObjectURL(imagefile)
-  const previewing = document.querySelector("#reicpe_image")
-  previewing.src=imageurl
-  
-   let base64= await toBase64(imagefile)
-   setRecipe({...recipe,image:base64})
-  setimage(base64)
+ 
+    const imageurl = URL.createObjectURL(imagefile)
+    const previewing = document.querySelector("#reicpe_image")
+    previewing.src=imageurl
+    
+     let base64= await toBase64(imagefile)
+     setRecipe({...recipe,image:base64})
+    setimage(base64)
+ 
+
   
   }
 //initail reicpe state
@@ -299,6 +303,17 @@ const ingredientsfifthpage=async()=>{
  
  setpageno(8)
 }
+
+//function for first page
+const firstpage=()=>{
+  if(filesize>100000){
+    showAlert("The image size should be less than 100kb","danger")
+    
+  }
+  else{
+    setpageno(1)
+  }
+}
  
 //const api to add recipe
 const Addapi=async()=>{
@@ -341,7 +356,7 @@ Addapi();
   }
   return (
     <><AnimatedPage>
-      <section className="intro py-5 ">
+      <section className="intro py-5">
         <div className="bg-image h-100">
           <div className="mask d-flex align-items-center h-100">
             <div className="container">
@@ -362,16 +377,17 @@ Addapi();
                       </div>
                       <div className="col-md-8 d-flex  align-items-center">
                         {/* page 1 */}
-                        {pageno == 0 && (
+                        {pageno == 0 && 
                           <div className="card-body  py-2 px-4 p-md-5">
-                           
+                           <motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}> 
                                <h4 className="fw-bold mb-2" style={{color: "#92aad0"}}>Enter the details</h4>
                             <form action="">
                      
                               <div className="mb-2 d-flex justify-content-center">
                                 <img
+                                className="box_decrease_size_animationforlogin"
                                 id="reicpe_image"
-                                  src="https://images.kitchenstories.io/wagtailOriginalImages/A912-gif1.gif"
+                                  src={recipe.image?recipe.image:"https://images.kitchenstories.io/wagtailOriginalImages/A912-gif1.gif"}
                                   alt="example placeholder"
                                 
                                   style={{width: "100%",height:"250px"}}
@@ -405,6 +421,7 @@ Addapi();
           underlined 
           id="label"
           name="label"
+          value={recipe.label}
           labelPlaceholder="Enter the title of the recipe" 
           color="secondary" 
           onChange={onchangelabel}
@@ -412,15 +429,16 @@ Addapi();
                               </div>
                             </form>
                             <div className="mt-2 d-flex justify-content-end">
-                            <Button color="primary" auto ghost onPress={()=>{setpageno(1)}}>
+                            <Button color="success" disabled={recipe.label.length<3 || recipe.image.length<100} auto ghost onPress={firstpage}>
          Next
         </Button>
-                            </div>
+                            </div></motion.div>
                           </div>
-                        )}
+                         }
                         {/* page 1 */}
                         {/* page 2 */}
-                        {  pageno==1 &&
+                      
+                        {  pageno==1 &&  <motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body  py-5 px-4 p-md-5">
                              <div className="card-header">
                           <h4 className="fw-bold" style={{color: "#92aad0"}}>Enter the additional infromation</h4></div>
@@ -433,6 +451,7 @@ Addapi();
                 label="Enter the Source of reicpe"
                 color="secondary"
           type="Text" 
+          value={recipe.source}
           id="source"  name="source"
           onChange={onchange}
         /></div>
@@ -441,6 +460,7 @@ Addapi();
                 <Input 
               bordered
               color="secondary"
+              value={recipe.totalTime}
                  label="Enter the total time "
                  id="totalTime"
                  name="totalTime"   
@@ -452,6 +472,7 @@ Addapi();
                 <div className="col">
                 <Input 
                  bordered
+                 value={recipe.calories}
                  label="Enter the Calories in Kcal"
                  color="primary"
           type="phone number" 
@@ -464,6 +485,7 @@ Addapi();
                 <Input 
         bordered
         color="primary"
+        value={recipe.totalWeight}
           label="Enter the total Weight "
           type=" phone number" 
           name="totalWeight" 
@@ -478,6 +500,7 @@ Addapi();
                <Input 
         bordered
         color="secondary"
+        value={recipe.url}
          label="Enter the url of the Source"
          id="url" 
          name="url" 
@@ -492,6 +515,7 @@ Addapi();
 <Input 
 bordered
 color="secondary"
+value={recipe.cautions}
 label="Enter the Cautions of the recipe"
 type="text"
 name="cautions"
@@ -506,17 +530,19 @@ onChange={onchange}
                        <Button color="warning" className="me-2" auto ghost onPress={()=>{setpageno(0)}}>
  Prev
    </Button>
-                       <Button color="success" auto ghost onPress={()=>{setpageno(2)}}>
+                       <Button color="success" disabled={recipe.source.length<3 || recipe.calories.length<1 || recipe.cautions.length<3 || recipe.totalTime.length<1 || recipe.totalWeight.length<1 ||recipe.url.length<5} auto ghost onPress={()=>{setpageno(2)}}>
     Next
    </Button>
 
                        </div>
-                     </div>
+                     </div></motion.div>
                         }
                         {/* page 2 */}
                         {/* page 3 */}
+                      
                         {  pageno==2 &&
                           <div className="card-body  px-4 p-md-5">
+                            <motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                             <div className="card-header">
                           <h4 className="fw-bold " style={{color: "#92aad0"}}>Choose the labels
                           </h4></div>
@@ -756,7 +782,9 @@ onChange={onchange}
                        <Button color="warning" className="me-2" auto ghost onPress={()=>{setpageno(1)}}>
  Prev
    </Button>
-                       <Button color="success" auto ghost onPress={()=>{ 
+                       <Button color="success"
+                       disabled={recipe.healthLabels.length<1 || recipe.dietLabels.length<1 || recipe.dishType.length<1 || recipe.cuisineType.length <1 || recipe.mealType.length <1}
+                        auto ghost onPress={()=>{ 
                          setpageno(3)} }>
                       
                         
@@ -764,11 +792,11 @@ onChange={onchange}
     Next
    </Button>
                        </div>
-                     </div>
+                       </motion.div> </div>
                         }
                         {/* page 3 */}
                         {/* page 4 */}
-                        {  pageno==3 &&
+                        {  pageno==3 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body py-5 px-4 p-md-5">
                             
                           <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter First and Second ingrediants</h4>
@@ -851,11 +879,11 @@ onChange={onchange}
     Next
    </Button>
                        </div>
-                     </div>
+                     </div></motion.div>
                         }
                         {/* page 4 */}
                          {/* page 5 */}
-                         {  pageno==4 &&
+                         {  pageno==4 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body py-5 px-4 p-md-5">
                             
                           <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter Third and Fourth Ingredient</h4>
@@ -929,11 +957,11 @@ onChange={onchange}
     Next
    </Button>
                        </div>
-                     </div>
+                     </div></motion.div>
                         }
                         {/* page 5 */}
                          {/* page 6 */}
-                         {  pageno==5 &&
+                         {  pageno==5 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body py-5 px-4 p-md-5">
                             
                           <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter the Fifth and Sixth Ingredient</h4>
@@ -1007,11 +1035,11 @@ onChange={onchange}
     Next
    </Button>
                        </div>
-                     </div>
+                     </div></motion.div>
                         }
                         {/* page 6 */}
                          {/* page 7 */}
-                         {  pageno==6 &&
+                         {  pageno==6 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body py-5 px-4 p-md-5">
                             
                           <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter seventh and Eight Ingredient</h4>
@@ -1085,11 +1113,11 @@ onChange={onchange}
     Next
    </Button>
                        </div>
-                     </div>
+                     </div></motion.div>
                         }
                         {/* page 7 */}
                          {/* page 8 */}
-                         {  pageno==7 &&
+                         {  pageno==7 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body py-5 px-4 p-md-5">
                             
                           <h4 className="fw-bold mb-4" style={{color: "#92aad0"}}>Enter Ninth and Tenth Ingredient</h4>
@@ -1163,11 +1191,11 @@ onChange={onchange}
     Next
    </Button>
                        </div>
-                     </div>
+                     </div></motion.div>
                         }
                         {/* page 8 */}
                         {/* page 9 */}
-                        {  pageno==8 &&
+                        {  pageno==8 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body  px-4 p-md-5">
                             
                           <h4 className="fw-bold " style={{color: "#92aad0"}}>Enter the Nurients</h4>
@@ -1432,10 +1460,10 @@ onChange={onchange}
     Next
    </Button>
                        </div>
-                     </div>}
+                     </div> </motion.div>}
                         {/* page 9 */}
                           {/* page 10 */}
-                          {  pageno==9 &&
+                          {  pageno==9 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body px-4 p-md-5">
                             
                           
@@ -1722,10 +1750,11 @@ onChange={onchange}
     Next
    </Button>
                        </div>
-                     </div>}
+                     </div></motion.div>
+                     }
                             {/* page 10 */}
                               {/* page 11 */}
-                              {  pageno==10 &&
+                              {  pageno==10 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body  px-4 p-md-5">
                             
                         
@@ -2002,10 +2031,11 @@ onChange={onchange}
     Next
    </Button>
                        </div>
-                     </div>}
+                     </div></motion.div>
+                     }
                                 {/* page 11 */}
                                 {/* page 12 */}
-                                {  pageno==11 &&
+                                {  pageno==11 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                           <div className="card-body  py-5 px-4 p-md-5">
                              <div className="card-header">
                           <h4 className="fw-bold " style={{color: "#92aad0"}}>Enter the Instructions</h4></div>
@@ -2020,12 +2050,12 @@ onChange={onchange}
                        <Button color="warning" className="me-2" auto ghost onPress={()=>{setpageno(10)}}>
  Prev
    </Button>
-                       <Button color="success" auto ghost onPress={insertRecipe}>
+                       <Button color="success" auto ghost  onPress={insertRecipe}>
     Next
    </Button>
 
                        </div>
-                     </div>
+                     </div></motion.div>
                         }
                                   {/* page 12 */}
 

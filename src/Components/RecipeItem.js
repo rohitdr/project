@@ -77,7 +77,7 @@ deg=(deg===180)?0:180
   return (
     <>
     
-    <motion.div initial={{opacity:0 ,x:-100}} whileInView={{opacity:1,x:0}} viewport={{ once: true }} transition={{duration:1,delay:props.delay}} >
+    <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1,delay:props.delay}} >
 <div className="scene " onLoad={settingheart}>
   <div className="recipecard  card border-success " id={`${props.id}`} style={{Width: "18rem"}}>
   

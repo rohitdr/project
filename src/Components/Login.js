@@ -231,13 +231,14 @@ const changeforgetpassword=()=>{
                      className="w-100 mb-2 box_decrease_size_animation  login_login"
                      type="submit"
                      onClick={loginclick}
+                     disabled={logindetail.email.length<5 || logindetail.password.length<8}
                    >
                      Login
                    </button>
                     <hr className="my-4" />
                     <div className="d-flex align-items-center justify-content-center pb-4">
                     <p className="mb-0 me-2">Don't have an account?</p>
-                    <button type="button" className="btn btn-outline-danger" onClick={()=>{Navigate("/signUp")}}>Create new</button>
+                    <button type="button" className="btn btn-outline-danger"  onClick={()=>{Navigate("/signUp")}}>Create new</button>
                   </div>
                   </form>
                 </div>

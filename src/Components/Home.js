@@ -6,7 +6,7 @@ import Loader from './Loader';
 import InternalServerError from "./InternalServerError";
 import RecipeItem from "./RecipeItem";
 import AnimatedPage from './AnimatedPage';
-import {motion} from 'framer-motion'
+import {AnimatePresence, motion} from 'framer-motion'
 export default function Home() {
 
 
@@ -40,18 +40,32 @@ cuisine("indian")
   <AnimatedPage><>
    { cuisinedata ==500 || Latest_recipe==500? <InternalServerError></InternalServerError>: <div>
 
- <section id="hero-animated" className="hero-animated d-flex align-items-center ">
-    <div className="container d-flex   flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
 
-      <img src="https://media.zenfs.com/en/la_times_articles_853/72c10d6a673085671d1635ac9a1406ec" className="img-fluid animated box_decrease_size_animationforlogin   "/>
-    
-      <h2>Welcome to <span>RecipeRiot</span></h2>
-      <p className='top-down-animation'>Your go-to destination for delicious and easy-to-follow recipes. Our website is a haven for foodies and home cooks alike, where you can find an array of recipes for every occasion and skill level.</p>
-      <div className="d-flex">
-        <a href="#about" className="btn-get-started scrollto">Get Started</a>
-        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" className="glightbox btn-watch-video d-flex align-items-center"><i className="bi bi-play-circle"></i><span>Watch Video</span></a>
+  <section id="hero" class="d-flex align-items-center mb-4">
+
+    <div class="container">
+      <div class="row">
+  
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" >
+        <motion.div initial={{opacity:0,y:200}} animate={{opacity:1,y:0}} transition={{duration:1, delay:1}} >
+          <h1>Better Solutions For Your Business</h1>
+          <h2>We are team of talented designers making websites with Bootstrap</h2>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video">
+            <motion.div whileHover={{rotate:[0,360,720,1080,1440]}} transition={{duration:3}} >
+              <i class="fa-regular fa-circle-play"></i></motion.div>
+              <span>Watch Video</span></a>
+          </div></motion.div>
+        </div> 
+        <div class="col-lg-6 order-1 order-lg-2 hero-img animated  " >
+        <motion.div initial={{opacity:0,scale:0}} animate={{opacity:1,scale:1}} transition={{duration:1,delay:1}} >
+          <img src="https://assets.epicurious.com/photos/59b7ec7c1387461e2e0d5789/4:3/w_2240,h_1680,c_limit/smallplates-hero-foreverloop.gif" class="img-fluid box_decrease_size_animationforlogin  " alt=""/>
+          </motion.div>
+        </div>
       </div>
     </div>
+
   </section>
 
 {/* Other */}
@@ -60,37 +74,43 @@ cuisine("indian")
 
         <div className="row gy-4">
        
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin  " style={{background:"#efefef"}} >
-          <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1}} >
-            <div className="service-item position-relative">
-              <div className="icon"> <i className="fa-solid fa-bolt"></i></div>
-              <h4><a href="" className="stretched-link">Recipe collections</a></h4>
+          <div className="col-xl-3 col-md-6 d-flex  "  >
+          <motion.div initial={{opacity:0 ,x:300}} whileInView={{opacity:1,x:0}} viewport={{once:true}}  transition={{duration:2, delay:1}} >
+            <div className="service-item position-relative box_decrease_size_animationforservices ">
+              <div className="icon"> 
+              
+              <i className="fa-solid fa-bolt"></i>
+              </div>
+              <h4><a href="" className="stretched-link text-dark">Recipe collections</a></h4>
               <p className='fs-6'> A way for users to save their favorite recipes and create their own recipe collections.</p>
             </div> </motion.div>
           </div>
           
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-second "style={{background:"#efefef"}}>
-            <div className="service-item position-relative">
+          <div className="col-xl-3 col-md-6 d-flex ">
+          <motion.div initial={{opacity:0 ,x:100}} whileInView={{opacity:1,x:0}} viewport={{once:true}}  transition={{duration:2,delay:1}} >
+            <div className="service-item position-relative box_decrease_size_animationforservices ">
               <div className="icon"><i className="fa-solid fa-tower-broadcast"></i></div>
               <h4><a href="" className="stretched-link">Search Anything</a></h4>
               <p className='fs-6'>We have a search bar where user can enter keywords to find recipes.</p>
-            </div>
+            </div></motion.div>
           </div>
 
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-third" style={{background:"#efefef"}}>
-            <div className="service-item position-relative">
+          <div className="col-xl-3 col-md-6 d-flex ">
+          <motion.div initial={{opacity:0 ,x:-100}} whileInView={{opacity:1,x:0}} viewport={{once:true}}  transition={{duration:2,delay:1}} >
+            <div className="service-item position-relative box_decrease_size_animationforservices ">
               <div className="icon">  <i className="fa-sharp fa-solid fa-disease"></i></div>
               <h4><a href="" className="stretched-link">User account</a></h4>
               <p className='fs-6'>This allow users to create an account where they can save their favorite recipes, create a shopping list, and receive personalized recommendations.</p>
-            </div>
+            </div></motion.div>
           </div>
 
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-fourth" style={{background:"#efefef"}}>
-            <div className="service-item position-relative">
+          <div className="col-xl-3 col-md-6 d-flex ">
+          <motion.div initial={{opacity:0 ,x:-300}} whileInView={{opacity:1,x:0}} viewport={{once:true}}  transition={{duration:2,delay:1}} >
+            <div className="service-item position-relative box_decrease_size_animationforservices ">
               <div className="icon"><i className="fa-solid fa-box"></i></div>
               <h4><a href="" className="stretched-link ">User-generated content</a></h4>
               <p className='fs-6'>A section that allows users to submit their own recipes, which can be reviewed and added to the site if they meet certain criteria.</p>
-            </div>
+            </div></motion.div>
           </div>
 
         </div>
@@ -116,9 +136,11 @@ cuisine("indian")
                 <img src="https://www.dish-works.com/wp-content/uploads/CBD-Hummus-min.gif" className="img-fluid" alt=""/>
               </div>
               <div className="details position-relative  box_decrease_size_animationforlogin">
+           
                 <div className="icon">
                   {/* <i className="bi bi-activity"></i> */}
-                  <i className="fa-solid fa-bolt"></i>
+                  <motion.div whileHover={{rotate:[0,360,720,1080,1440], scale:1.5}} transition={{duration:3}} >
+                  <i className="fa-solid fa-bolt"></i></motion.div>
                 </div>
                 <a href="#" className="stretched-link">
                   <h3>Countless Recipes</h3>
@@ -137,7 +159,8 @@ cuisine("indian")
               <div className="details position-relative  box_decrease_size_animationforlogin">
                 <div className="icon">
                   {/* <i className="bi bi-broadcast"></i> */}
-                  <i className="fa-solid fa-tower-broadcast"></i>
+                  <motion.div whileHover={{rotate:[0,360,720,1080,1440], scale:1.5}} transition={{duration:3}} >
+                  <i className="fa-solid fa-tower-broadcast"></i></motion.div>
                 </div>
                 <a href="#" className="stretched-link">
                   <h3>Share Recipe </h3>
@@ -156,7 +179,8 @@ cuisine("indian")
               <div className="details position-relative  box_decrease_size_animationforlogin">
                 <div className="icon">
                   {/* <i className="bi bi-easel"></i> */}
-                  <i className="fa-sharp fa-solid fa-disease"></i>
+                  <motion.div whileHover={{rotate:[0,360,720,1080,1440], scale:1.5}} transition={{duration:3}} >
+                  <i className="fa-sharp fa-solid fa-disease"></i></motion.div>
                 </div>
                 <a href="#" className="stretched-link">
                   <h3>Nutritional information</h3>
@@ -175,7 +199,8 @@ cuisine("indian")
               <div className="details position-relative  box_decrease_size_animationforlogin">
                 <div className="icon">
                   {/* <i className="bi bi-bounding-box-circles"></i> */}
-                  <i className="fa-solid fa-box"></i>
+                  <motion.div whileHover={{rotate:[0,360,720,1080,1440], scale:1.5}} transition={{duration:3}} >
+                  <i className="fa-solid fa-box"></i></motion.div>
                 </div>
                 <a href="#" className="stretched-link">
                   <h3>Share and Rate</h3>
@@ -195,7 +220,8 @@ cuisine("indian")
               <div className="details position-relative  box_decrease_size_animationforlogin">
                 <div className="icon">
                   {/* <i className="bi bi-calendar4-week"></i> */}
-                  <i className="fa-solid fa-calendar-minus"></i>
+                  <motion.div whileHover={{rotate:[0,360,720,1080,1440], scale:1.5}} transition={{duration:3}} >
+                  <i className="fa-solid fa-calendar-minus"></i></motion.div>
                 </div>
                 <a href="#" className="stretched-link">
                   <h3>Create and</h3>
@@ -215,7 +241,8 @@ cuisine("indian")
               <div className="details position-relative  box_decrease_size_animationforlogin">
                 <div className="icon">
                   {/* <i className="bi bi-chat-square-text"></i> */}
-                  <i className="fa-solid fa-comments"></i>
+                  <motion.div whileHover={{rotate:[0,360,720,1080,1440], scale:1.5}} transition={{duration:3}} >
+                  <i className="fa-solid fa-comments"></i></motion.div>
                 </div>
                 <a href="#" className="stretched-link">
                   <h3>Dolori Architecto</h3>
@@ -371,8 +398,11 @@ cuisine("indian")
         </div>
 {/* indian recipes 
  */}
+
+
  {cuisineloading && <Loader></Loader>}
- <div className='row'>
+
+ <div className='row' key={cuisineactive}>
 
  { cuisinedata.recipe && cuisinedata.recipe.map((element)=>{
       cuisinenumber++
@@ -435,25 +465,9 @@ cuisine("indian")
      }
      )
      }   
-        {/* <div className="row portfolio-container">
-
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
-            <div className="portfolio-wrap">
-              <figure>
-                <img src="assets/img/portfolio/portfolio-9.jpg" className="img-fluid" alt=""/>
-                <a href="assets/img/portfolio/portfolio-9.jpg" className="link-preview portfolio-lightbox" data-gallery="portfolioGallery" title="Preview"><i className="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" className="link-details" title="More Details"><i className="bx bx-link"></i></a>
-              </figure>
-
-              <div className="portfolio-info">
-                <h4><a href="portfolio-details.html">Web 1</a></h4>
-                <p>Web</p>
-              </div>
-            </div>
-          </div>
-
-        </div> */}
+       
 </div>
+
       </div>
     </section>
     {/* <!-- End Portfolio Section --> */}
