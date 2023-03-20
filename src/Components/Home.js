@@ -60,7 +60,7 @@ cuisine("indian")
 
         <div className="row gy-4">
        
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin  " style={{background:"rgb(247 234 234)"}} >
+          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin  " style={{background:"#efefef"}} >
           <motion.div initial={{opacity:0 ,scale:0}} whileInView={{opacity:1,scale:1}} viewport={{ once: true }} transition={{duration:1}} >
             <div className="service-item position-relative">
               <div className="icon"> <i className="fa-solid fa-bolt"></i></div>
@@ -69,7 +69,7 @@ cuisine("indian")
             </div> </motion.div>
           </div>
           
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-second "style={{background:"rgb(247 234 234)"}}>
+          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-second "style={{background:"#efefef"}}>
             <div className="service-item position-relative">
               <div className="icon"><i className="fa-solid fa-tower-broadcast"></i></div>
               <h4><a href="" className="stretched-link">Search Anything</a></h4>
@@ -77,7 +77,7 @@ cuisine("indian")
             </div>
           </div>
 
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-third" style={{background:"rgb(247 234 234)"}}>
+          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-third" style={{background:"#efefef"}}>
             <div className="service-item position-relative">
               <div className="icon">  <i className="fa-sharp fa-solid fa-disease"></i></div>
               <h4><a href="" className="stretched-link">User account</a></h4>
@@ -85,7 +85,7 @@ cuisine("indian")
             </div>
           </div>
 
-          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-fourth" style={{background:"rgb(247 234 234)"}}>
+          <div className="col-xl-3 col-md-6 d-flex box_decrease_size_animationforlogin increase-size-fourth" style={{background:"#efefef"}}>
             <div className="service-item position-relative">
               <div className="icon"><i className="fa-solid fa-box"></i></div>
               <h4><a href="" className="stretched-link ">User-generated content</a></h4>
