@@ -366,7 +366,7 @@ Addapi();
                     <div className="row g-0">
                       <div className="col-md-4 d-none d-md-block">
                         <img
-                          src="https://mdbootstrap.com/img/Photos/Others/sidenav2.jpg"
+                          src="Other/addRecipe_leftsideimage.jpg"
                           alt="login form"
                           className="img-fluid"
                           style={{
@@ -387,7 +387,7 @@ Addapi();
                                 <img
                                 className="box_decrease_size_animationforlogin"
                                 id="reicpe_image"
-                                  src={recipe.image?recipe.image:"https://images.kitchenstories.io/wagtailOriginalImages/A912-gif1.gif"}
+                                  src={recipe.image?recipe.image:"Other/addRecipe_recipe_default.gif"}
                                   alt="example placeholder"
                                 
                                   style={{width: "100%",height:"250px"}}
@@ -875,7 +875,9 @@ onChange={onchange}
                        <Button color="warning" className="me-2" auto ghost onPress={()=>{setpageno(2)}}>
  Prev
    </Button>
-                       <Button color="success" auto ghost onPress={ingredientsfirstpage}>
+                       <Button color="success"
+                       disabled={(first_ingede_text.length>1 && fifth_ingede_weight.length<1)||(second_ingede_text.length<1||second_ingede_weight.length>1)||(first_ingede_text.length<1 && fifth_ingede_weight.length>1)||(second_ingede_text.length>1||second_ingede_weight.length<1)}
+                       auto ghost onPress={ingredientsfirstpage}>
     Next
    </Button>
                        </div>

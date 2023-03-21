@@ -262,14 +262,14 @@ cuisine("indian")
     <section id="about" className="about " style={{backgroundColor:"#f7fbfe"}}>
       <div className="container">
 
-        <div className="row">
+        <div className="row ">
         <h3 className='text-primary fs-1 fw-bold text-center'>About us</h3>
-          <div className="col-lg-6 order-1 order-lg-2" id="about_img" data-aos="fade-left">
+          <div className="col-lg-6 order-1 order-lg-2 py-4" id="about_img" data-aos="fade-left">
           <motion.div initial={{opacity:0 ,x:100}} whileInView={{opacity:1,x:0}} viewport={{ once: true }} transition={{duration:1,delay:1}} >
             <img src="https://www.thespruceeats.com/thmb/B3nv-naxP17fALp5NGkUTNXGzcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-is-burrata-591165-Final_V2-15f6ed3bc72f4f96bc977202005a92be.gif" className="img-fluid  box_decrease_size_animationforlogin" alt=""/>
             </motion.div></div>
        
-          <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content " id='about_content' data-aos="fade-right">
+          <div className="col-lg-6 py-4 pt-lg-0 order-2 order-lg-1 content " id='about_content' >
           <motion.div initial={{opacity:0 ,x:-100}} whileInView={{opacity:1,x:0}} viewport={{ once: true }} transition={{duration:1,delay:1}} >
            
             <p className="fst-italic">
