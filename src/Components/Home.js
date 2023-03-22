@@ -46,15 +46,15 @@ cuisine("indian")
     <div class="container">
       <div class="row">
   
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" >
-        <motion.div initial={{opacity:0,y:200}} animate={{opacity:1,y:0}} transition={{duration:1, delay:1}} >
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
+        <motion.div initial={{opacity:0,y:200}} animate={{opacity:1,y:0}} transition={{duration:1, delay:1}}>
           <h1>Better Solutions For Your Business</h1>
           <h2>We are team of talented designers making websites with Bootstrap</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started scrollto">Get Started</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video">
-            <motion.div whileHover={{rotate:[0,360,720,1080,1440]}} transition={{duration:3}} >
-              <i class="fa-regular fa-circle-play"></i></motion.div>
+            <motion.div whileHover={{rotate:[0,360,720,1080,1440]}} transition={{duration:3}}>
+              <i class="fa-regular pt-3 fa-circle-play"></i></motion.div>
               <span>Watch Video</span></a>
           </div></motion.div>
         </div> 
@@ -259,7 +259,7 @@ cuisine("indian")
     </section>
 
 
-    <section id="about" className="about " style={{backgroundColor:"#f7fbfe"}}>
+    <section id="about" className="about" style={{backgroundColor:"#f7fbfe"}}>
       <div className="container">
 
         <div className="row ">

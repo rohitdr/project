@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Button from "./Button";
+
 import './RecipeItem.css'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import RecipeContext from "../Context/RecipeContext";
 import { useNavigate } from "react-router-dom";
-import Tooltip from 'react-bootstrap/Tooltip';
+
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -187,7 +187,7 @@ deg=(deg===180)?0:180
        <i className="fa-solid fa-right-left " onClick={onclickRotate}></i></div>
        
        <div className="card-text text-dark d-flex justify-content-evenly">
-       <h6 className="text-dark">{userbyid?.user?.Liked_Recipe?.length}</h6><h6 className="text-dark">{userbyid?.totalResults}</h6><p>{userbyid?.user?.Total_Comments}</p>
+       <h6 className="text-dark">{userbyid?.user?.Liked_Recipe?.length}</h6><h6 className="text-dark">{userbyid?.totalResults}</h6><p className="text-dark">{userbyid?.TotalCommnts}</p>
       </div>
       <p className="card-text text-dark d-flex justify-content-evenly">
       <i className="fa-heart fa-solid fs-4 text-danger"></i>

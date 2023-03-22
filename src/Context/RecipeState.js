@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import RecipeContext from "./RecipeContext";
 export default function RecipeState(props) {
-  // const [heart,setHeart]=useState("regular")
+  
   const [LikedRecipe, setLikedRecipe] = useState([]);
   const [recipe, setRecipe] = useState({});
   const [Latest_recipe, setLatest_Recipe] = useState({});
