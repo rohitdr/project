@@ -41,7 +41,7 @@ export default function Login() {
       setProgress(70)
      //if remember me is checked than store auth-token in localstorage else in session storage
      if(document.querySelector('.rememberme').checked){
-      localStorage.setItem("auth-token",loginresult.auth_token)
+      localStorage.setItem("auth-token",loginresult.auth_token,1)
       localStorage.setItem("success",loginresult.succcess)
      }
      else{

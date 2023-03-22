@@ -876,7 +876,7 @@ onChange={onchange}
  Prev
    </Button>
                        <Button color="success"
-                       disabled={(first_ingede_text.length>1 && fifth_ingede_weight.length<1)||(second_ingede_text.length<1||second_ingede_weight.length>1)||(first_ingede_text.length<1 && fifth_ingede_weight.length>1)||(second_ingede_text.length>1||second_ingede_weight.length<1)}
+                     
                        auto ghost onPress={ingredientsfirstpage}>
     Next
    </Button>
@@ -2037,8 +2037,9 @@ onChange={onchange}
                      }
                                 {/* page 11 */}
                                 {/* page 12 */}
-                                {  pageno==11 &&<motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
+                                {  pageno==11 &&
                           <div className="card-body  py-5 px-4 p-md-5">
+                            <motion.div  initial={{scale:0,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}}>
                              <div className="card-header">
                           <h4 className="fw-bold " style={{color: "#92aad0"}}>Enter the Instructions</h4></div>
                        <form action="">
@@ -2056,8 +2057,8 @@ onChange={onchange}
     Next
    </Button>
 
-                       </div>
-                     </div></motion.div>
+                       </div></motion.div>
+                     </div>
                         }
                                   {/* page 12 */}
 

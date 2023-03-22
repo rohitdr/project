@@ -834,14 +834,28 @@ const collapsecuisineItems = [
                 </Text>
               </Dropdown.Item>
               <Dropdown.Item key="settings" withDivider>
-              <Link to="/Profile_Profile" className=" text-dark searchbardropdown"> Profile</Link>
+             
+              <div onClick={()=>{Navigate("/Profile_Profile")}}>
+              <p className=" pt-3 text-dark searchbardropdown w-100">Profile</p></div>
               </Dropdown.Item>
-              <Dropdown.Item key="team_settings"><Link to="/Profile_Activity" className=" text-dark searchbardropdown"> Activity</Link></Dropdown.Item>
+              <Dropdown.Item key="team_settings">
+              <div onClick={()=>{Navigate("/Profile_Activity")}}>
+              <p className=" pt-3 text-dark searchbardropdown w-100">Activity</p></div>
+              </Dropdown.Item>
               <Dropdown.Item key="analytics" withDivider>
-              <Link to="/Profile_Security" className=" text-dark searchbardropdown"> Security</Link>
+             
+                 <div onClick={()=>{Navigate("/Profile_Security")}}>
+              <p className=" pt-3 text-dark searchbardropdown w-100">Security</p></div>
               </Dropdown.Item>
-              <Dropdown.Item key="system"><Link to="/Profile_Recipe" className=" text-dark searchbardropdown"> My Recipes</Link></Dropdown.Item>
-              <Dropdown.Item key="configurations"><Link to="/Profile_LikedRecipe" className=" text-dark searchbardropdown">Favourite</Link></Dropdown.Item>
+              <Dropdown.Item key="system">
+              <div onClick={()=>{Navigate("/Profile_Recipe")}}>
+              <p className=" pt-3 text-dark searchbardropdown w-100">My Recipes</p></div>
+              </Dropdown.Item>
+              <Dropdown.Item key="configurations">
+               
+                <div onClick={()=>{Navigate("/Profile_LikedRecipe")}}>
+              <p className=" pt-3 text-dark searchbardropdown w-100">Favourite Recipes</p></div>
+                </Dropdown.Item>
             
               <Dropdown.Item key="logout" withDivider color="error">
                <span onClick={logout}>Log Out</span> 

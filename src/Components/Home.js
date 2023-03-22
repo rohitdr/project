@@ -38,7 +38,7 @@ cuisine("indian")
   return (
    
   <AnimatedPage><>
-   { cuisinedata ==500 || Latest_recipe==500? <InternalServerError></InternalServerError>: <div>
+   { cuisinedata ==500 || Latest_recipe==500? <InternalServerError></InternalServerError>: <div >
 
 
   <section id="hero" class="d-flex align-items-center mb-4">
@@ -69,14 +69,14 @@ cuisine("indian")
   </section>
 
 {/* Other */}
-  <section id="featured-services" className="featured-services">
+  <section id="featured-services" className="featured-services"  >
       <div className="container">
 
         <div className="row gy-4">
        
           <div className="col-xl-3 col-md-6 d-flex  "  >
           <motion.div initial={{opacity:0 ,x:300}} whileInView={{opacity:1,x:0}} viewport={{once:true}}  transition={{duration:2, delay:1}} >
-            <div className="service-item position-relative box_decrease_size_animationforservices ">
+            <div className="service-item position-relative box_decrease_size_animationforservices bg-white ">
               <div className="icon"> 
               
               <i className="fa-solid fa-bolt"></i>
@@ -88,7 +88,7 @@ cuisine("indian")
           
           <div className="col-xl-3 col-md-6 d-flex ">
           <motion.div initial={{opacity:0 ,x:100}} whileInView={{opacity:1,x:0}} viewport={{once:true}}  transition={{duration:2,delay:1}} >
-            <div className="service-item position-relative box_decrease_size_animationforservices ">
+            <div className="service-item position-relative box_decrease_size_animationforservices bg-white ">
               <div className="icon"><i className="fa-solid fa-tower-broadcast"></i></div>
               <h4><a href="" className="stretched-link">Search Anything</a></h4>
               <p className='fs-6'>We have a search bar where user can enter keywords to find recipes.</p>
