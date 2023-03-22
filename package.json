@@ -2,6 +2,7 @@
   "name": "project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rohitdr.github.io/project",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
@@ -20,6 +21,7 @@
     "express": "^4.18.2",
     "express-validator": "^6.14.3",
     "framer-motion": "^10.6.0",
+    "gh-pages": "^5.0.0",
     "init": "^0.1.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.0",
@@ -39,7 +41,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "both": "concurrently \"npm run start\" \"nodemon Backend/index.js\" "
+    "both": "concurrently \"npm run start\" \"nodemon Backend/index.js\" ",
+    "predeploy": "npm run build",
+   "deploy": "gh-pages -b main -d build"
   },
   "eslintConfig": {
     "extends": [
